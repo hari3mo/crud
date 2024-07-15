@@ -1,0 +1,42 @@
+LeadID,AccountID,Company,Position,First Name,Last Name,Email
+100000,1390,American Chemical Society,"Director, Technology Strategy & Execution",Jennifer,Arndt,jarndt@acs.org
+100010,1390,American Chemical Society,Director of Product Development and Solutions Architecture,Mitchell,Bakos,mbakos@acs.org
+100020,1390,American Chemical Society,"Senior Director & Chief of Staff, Product Strategy & Operations",Jessica,Rucker,jrucker@acs.org
+100030,1620,ArisGlobal,IT Director at ArisGlobal Company,Luka,Sustarsic,lsustarsic@arisglobal.com
+100040,1620,ArisGlobal,"Vice President, IT Operations",Darren,Newbould,dnewbould@arisglobal.com
+100050,1620,ArisGlobal,Director Technology,Juby,Rajan,jrajan@arisglobal.com
+100060,1640,Armstrong World Industries,Director of Information Technology ,Jermey,M,m@armstrongceilings.com
+100070,1640,Armstrong World Industries,"Senior Director, Technology",Micheal,Lorenz,michael_lorenz@armstrongceilings.com
+100080,1640,Armstrong World Industries,Director - Business Development,Tom,Stafford,tstafford@armstrongceilings.com
+100090,3410,Fitch Ratings,"Senior Director, Technology Operations",Mike,Brooks,mike.brooks@fitchratings.com
+100100,3410,Fitch Ratings,Director of Information Technology ,Geraldine,Foster,geraldine.foster@fitchratings.com
+100110,3410,Fitch Ratings,Director Of Information Technology ,Micheal,Gordon,michael.gordon@fitchratings.com
+100120,4300,Irvine Company,Chief Technology Officer,Abe,Wong,abe.wong@irvinecompany.com
+100130,4300,Irvine Company,"Senior Director, Technology Enablement",Lisa,Larkin,llarkin@irvinecompany.com
+100140,4300,Irvine Company,"Vice President,Technology and Innovation",Tim,McClain,tmcclain@irvinecompany.com
+100150,5380,National Geographic,Chief Technology Officer,Jason,Southern,jason.southern@nationalgeographic.com
+100160,6590,Shure Incorporated,Executive Vice President & Chief Technology Officer,Sameh,Sabet,sabets@shure.com
+100170,6590,Shure Incorporated,"Senior Vice President, Chief Information Officer",Robin,Lane,robin@shure.com
+100180,6590,Shure Incorporated,"Senior Director, IT Infrastructure",Timothy,Lambe,lambet@shure.com
+100190,6590,Shure Incorporated,Vice President of Corporate Development ,Brian,Woodland,brian@shure.com
+100200,3290,Evoqua Water Technologies,Director of Technology and Innovation,Richard,Joshi,richard.joshi@evoqua.com
+100210,3290,Evoqua Water Technologies,Head of Technology and Applications,Xiangyi,Qiao,xiangyi.qiao@evoqua.com
+100220,6320,SS&C Intralinks,Vice President of Infrastructure Services,Tom,Catalano,tom.catalano@intralinks.com
+100230,6320,SS&C Intralinks,Director of Technical Program Operations ,Sandra-Jane,Mancini,sandrajane.mancini@intralinks.com
+100240,6320,SS&C Intralinks,Head of Corporate Development,Luis Felipe,Bíscaro,felipe@intralinks.com
+100250,5870,Phibro Animal Health,Chief Information Officer,Gary,Fling,gary.fling@pahc.com
+100260,2160,Buckman,Chief Digital Officer,NM,Rao,nmrao@buckman.com
+100270,7100,Tennant Company,Chief Information Officer,Micheal,Mathews,michael@tennantco.com
+100280,6230,S&C Electric Company,Chief Information Officer,Bob,King,bob.king@sandc.com
+100290,6230,S&C Electric Company,Chief Operating Officer,Jim ,Johnson,jim@sandc.com
+100300,6230,S&C Electric Company,VP Operations,Anthony,Bezina,anthony.bezina@sandc.com
+100310,2990,"EMD Serono, Inc.",Senior Vice President,Gaby,Murphy,gaby.murphy@emdserono.com
+100320,6600,Simpson Strong-Tie,"EVP, Chief Technology Officer",Udit,Mehta,udit@strongtie.com
+100330,6600,Simpson Strong-Tie,"Vice President, IT Infrastructure & Operations",John,Meng,jmeng@strongtie.com
+100340,6600,Simpson Strong-Tie,Information Technology Operations Manager,Kirk,Smith,kirk.smith@strongtie.com
+100350,1730,Avanos Medical,Director of Global IT Infrastructure,Seth,Majors,seth.majors@avanos.com
+100360,1730,Avanos Medical,Chief Information Officer,Siobhan,Smyth,siobhan.smyth@avanos.com
+100370,1730,Avanos Medical,Chief Executive Officer,Joe,Woody,joe.woody@avanos.com
+100380,4050,Hollister Incorporated,"Director, Global IT Business Solutions ",Robin,Sacher,robin.sachar@hollister.com
+100390,4050,Hollister Incorporated,"Vice President, Business Transformation",Stephen,Collum,stephen.collum@hollister.com
+100400,4050,Hollister Incorporated,President and COO,Abinash,Nayak,abinash.nayak@hollister.com
