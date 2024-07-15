@@ -1,42 +1,42 @@
-Company,Position,First Name,Last Name,Email,LeadID,AccountID
-American Chemical Society,"Director, Technology Strategy & Execution",Jennifer,Arndt,jarndt@acs.org,100000,1390
-American Chemical Society,Director of Product Development and Solutions Architecture,Mitchell,Bakos,mbakos@acs.org,100010,1390
-American Chemical Society,"Senior Director & Chief of Staff, Product Strategy & Operations",Jessica,Rucker,jrucker@acs.org,100020,1390
-ArisGlobal,IT Director at ArisGlobal Company,Luka,Sustarsic,lsustarsic@arisglobal.com,100000,1620
-ArisGlobal,"Vice President, IT Operations",Darren,Newbould,dnewbould@arisglobal.com,100010,1620
-ArisGlobal,Director Technology,Juby,Rajan,jrajan@arisglobal.com,100020,1620
-Armstrong World Industries,Director of Information Technology ,Jermey,M,m@armstrongceilings.com,100000,1640
-Armstrong World Industries,"Senior Director, Technology",Micheal,Lorenz,michael_lorenz@armstrongceilings.com,100010,1640
-Armstrong World Industries,Director - Business Development,Tom,Stafford,tstafford@armstrongceilings.com,100020,1640
-Avanos Medical,Director of Global IT Infrastructure,Seth,Majors,seth.majors@avanos.com,100000,1730
-Avanos Medical,Chief Information Officer,Siobhan,Smyth,siobhan.smyth@avanos.com,100010,1730
-Avanos Medical,Chief Executive Officer,Joe,Woody,joe.woody@avanos.com,100020,1730
-Buckman,Chief Digital Officer,NM,Rao,nmrao@buckman.com,100000,2160
-"EMD Serono, Inc.",Senior Vice President,Gaby,Murphy,gaby.murphy@emdserono.com,100000,2990
-Evoqua Water Technologies,Director of Technology and Innovation,Richard,Joshi,richard.joshi@evoqua.com,100000,3290
-Evoqua Water Technologies,Head of Technology and Applications,Xiangyi,Qiao,xiangyi.qiao@evoqua.com,100010,3290
-Fitch Ratings,"Senior Director, Technology Operations",Mike,Brooks,mike.brooks@fitchratings.com,100000,3410
-Fitch Ratings,Director of Information Technology ,Geraldine,Foster,geraldine.foster@fitchratings.com,100010,3410
-Fitch Ratings,Director Of Information Technology ,Micheal,Gordon,michael.gordon@fitchratings.com,100020,3410
-Hollister Incorporated,"Director, Global IT Business Solutions ",Robin,Sacher,robin.sachar@hollister.com,100000,4050
-Hollister Incorporated,"Vice President, Business Transformation",Stephen,Collum,stephen.collum@hollister.com,100010,4050
-Hollister Incorporated,President and COO,Abinash,Nayak,abinash.nayak@hollister.com,100020,4050
-Irvine Company,Chief Technology Officer,Abe,Wong,abe.wong@irvinecompany.com,100000,4300
-Irvine Company,"Senior Director, Technology Enablement",Lisa,Larkin,llarkin@irvinecompany.com,100010,4300
-Irvine Company,"Vice President,Technology and Innovation",Tim,McClain,tmcclain@irvinecompany.com,100020,4300
-National Geographic,Chief Technology Officer,Jason,Southern,jason.southern@nationalgeographic.com,100000,5380
-Phibro Animal Health,Chief Information Officer,Gary,Fling,gary.fling@pahc.com,100000,5870
-S&C Electric Company,Chief Information Officer,Bob,King,bob.king@sandc.com,100000,6230
-S&C Electric Company,Chief Operating Officer,Jim ,Johnson,jim@sandc.com,100010,6230
-S&C Electric Company,VP Operations,Anthony,Bezina,anthony.bezina@sandc.com,100020,6230
-SS&C Intralinks,Vice President of Infrastructure Services,Tom,Catalano,tom.catalano@intralinks.com,100000,6320
-SS&C Intralinks,Director of Technical Program Operations ,Sandra-Jane,Mancini,sandrajane.mancini@intralinks.com,100010,6320
-SS&C Intralinks,Head of Corporate Development,Luis Felipe,Bíscaro,felipe@intralinks.com,100020,6320
-Shure Incorporated,Executive Vice President & Chief Technology Officer,Sameh,Sabet,sabets@shure.com,100000,6590
-Shure Incorporated,"Senior Vice President, Chief Information Officer",Robin,Lane,robin@shure.com,100010,6590
-Shure Incorporated,"Senior Director, IT Infrastructure",Timothy,Lambe,lambet@shure.com,100020,6590
-Shure Incorporated,Vice President of Corporate Development ,Brian,Woodland,brian@shure.com,100030,6590
-Simpson Strong-Tie,"EVP, Chief Technology Officer",Udit,Mehta,udit@strongtie.com,100000,6600
-Simpson Strong-Tie,"Vice President, IT Infrastructure & Operations",John,Meng,jmeng@strongtie.com,100010,6600
-Simpson Strong-Tie,Information Technology Operations Manager,Kirk,Smith,kirk.smith@strongtie.com,100020,6600
-Tennant Company,Chief Information Officer,Micheal,Mathews,michael@tennantco.com,100000,7100
+Company,Position,First Name,Last Name,Email,AccountID,LeadID
+American Chemical Society,"Director, Technology Strategy & Execution",Jennifer,Arndt,jarndt@acs.org,1390,100000
+American Chemical Society,Director of Product Development and Solutions Architecture,Mitchell,Bakos,mbakos@acs.org,1390,100010
+American Chemical Society,"Senior Director & Chief of Staff, Product Strategy & Operations",Jessica,Rucker,jrucker@acs.org,1390,100020
+ArisGlobal,IT Director at ArisGlobal Company,Luka,Sustarsic,lsustarsic@arisglobal.com,1620,100030
+ArisGlobal,"Vice President, IT Operations",Darren,Newbould,dnewbould@arisglobal.com,1620,100040
+ArisGlobal,Director Technology,Juby,Rajan,jrajan@arisglobal.com,1620,100050
+Armstrong World Industries,Director of Information Technology ,Jermey,M,m@armstrongceilings.com,1640,100060
+Armstrong World Industries,"Senior Director, Technology",Micheal,Lorenz,michael_lorenz@armstrongceilings.com,1640,100070
+Armstrong World Industries,Director - Business Development,Tom,Stafford,tstafford@armstrongceilings.com,1640,100080
+Fitch Ratings,"Senior Director, Technology Operations",Mike,Brooks,mike.brooks@fitchratings.com,3410,100090
+Fitch Ratings,Director of Information Technology ,Geraldine,Foster,geraldine.foster@fitchratings.com,3410,100100
+Fitch Ratings,Director Of Information Technology ,Micheal,Gordon,michael.gordon@fitchratings.com,3410,100110
+Irvine Company,Chief Technology Officer,Abe,Wong,abe.wong@irvinecompany.com,4300,100120
+Irvine Company,"Senior Director, Technology Enablement",Lisa,Larkin,llarkin@irvinecompany.com,4300,100130
+Irvine Company,"Vice President,Technology and Innovation",Tim,McClain,tmcclain@irvinecompany.com,4300,100140
+National Geographic,Chief Technology Officer,Jason,Southern,jason.southern@nationalgeographic.com,5380,100150
+Shure Incorporated,Executive Vice President & Chief Technology Officer,Sameh,Sabet,sabets@shure.com,6590,100160
+Shure Incorporated,"Senior Vice President, Chief Information Officer",Robin,Lane,robin@shure.com,6590,100170
+Shure Incorporated,"Senior Director, IT Infrastructure",Timothy,Lambe,lambet@shure.com,6590,100180
+Shure Incorporated,Vice President of Corporate Development ,Brian,Woodland,brian@shure.com,6590,100190
+Evoqua Water Technologies,Director of Technology and Innovation,Richard,Joshi,richard.joshi@evoqua.com,3290,100200
+Evoqua Water Technologies,Head of Technology and Applications,Xiangyi,Qiao,xiangyi.qiao@evoqua.com,3290,100210
+SS&C Intralinks,Vice President of Infrastructure Services,Tom,Catalano,tom.catalano@intralinks.com,6320,100220
+SS&C Intralinks,Director of Technical Program Operations ,Sandra-Jane,Mancini,sandrajane.mancini@intralinks.com,6320,100230
+SS&C Intralinks,Head of Corporate Development,Luis Felipe,Bíscaro,felipe@intralinks.com,6320,100240
+Phibro Animal Health,Chief Information Officer,Gary,Fling,gary.fling@pahc.com,5870,100250
+Buckman,Chief Digital Officer,NM,Rao,nmrao@buckman.com,2160,100260
+Tennant Company,Chief Information Officer,Micheal,Mathews,michael@tennantco.com,7100,100270
+S&C Electric Company,Chief Information Officer,Bob,King,bob.king@sandc.com,6230,100280
+S&C Electric Company,Chief Operating Officer,Jim ,Johnson,jim@sandc.com,6230,100290
+S&C Electric Company,VP Operations,Anthony,Bezina,anthony.bezina@sandc.com,6230,100300
+"EMD Serono, Inc.",Senior Vice President,Gaby,Murphy,gaby.murphy@emdserono.com,2990,100310
+Simpson Strong-Tie,"EVP, Chief Technology Officer",Udit,Mehta,udit@strongtie.com,6600,100320
+Simpson Strong-Tie,"Vice President, IT Infrastructure & Operations",John,Meng,jmeng@strongtie.com,6600,100330
+Simpson Strong-Tie,Information Technology Operations Manager,Kirk,Smith,kirk.smith@strongtie.com,6600,100340
+Avanos Medical,Director of Global IT Infrastructure,Seth,Majors,seth.majors@avanos.com,1730,100350
+Avanos Medical,Chief Information Officer,Siobhan,Smyth,siobhan.smyth@avanos.com,1730,100360
+Avanos Medical,Chief Executive Officer,Joe,Woody,joe.woody@avanos.com,1730,100370
+Hollister Incorporated,"Director, Global IT Business Solutions ",Robin,Sacher,robin.sachar@hollister.com,4050,100380
+Hollister Incorporated,"Vice President, Business Transformation",Stephen,Collum,stephen.collum@hollister.com,4050,100390
+Hollister Incorporated,President and COO,Abinash,Nayak,abinash.nayak@hollister.com,4050,100400
