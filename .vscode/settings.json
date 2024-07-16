@@ -11,7 +11,8 @@
             "driver": "MySQL",
             "name": "ERPCRMDB",
             "username": "erpcrm",
-            "database": "erpcrmdb"
+            "database": "erpcrmdb",
+            "password": "Erpcrmpass1!"
         }
     ]
 }
