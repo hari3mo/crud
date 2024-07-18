@@ -1,0 +1,94 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Header{
+  display: flex;
+  justify-content: space-between;
+}
+
+ /* Following is navbar */
+.navbar ul{
+  list-style-type: none;
+  background-color:rgb(65, 63, 63);
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.navbar a{
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  display: block;
+  text-align: center;
+}
+.navbar a:hover{
+  background-color: rgb(0, 157, 255);
+}
+.navbar li{
+  float: left;
+
+}
+
+ /* following is Leads menu */
+.leadsMenu {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: #adadad;
+  padding: 10px;
+  
+}
+.lead-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(180, 180, 187, 0.8);  
+  padding: 50px;
+  font-size: 20px; 
+  text-align: center;
+  border-radius: 10px; /*added round edges(can change)*/
+}
+.lead-item a {  /* These are Leads menu texts */
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+
+}
+.lead-item:hover {
+  background-color: rgb(0, 157, 255);
+  color: black;
+}
+.lead-item a.active {
+  background-color: #2189c5;
+  color: rgb(253, 255, 255);
+}
+
+
+ /* Following is for Accounts menu */
+.AccountsMenu {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: #adadad;
+  padding: 10px;
+}
+.Accounts-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(180, 180, 187, 0.8);
+  padding: 50px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px; /*added round edges(can change)*/
+}
+.Accounts-item a {   /* These are Account menu texts */
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+
+}
+.Accounts-item:hover {
+  background-color: rgb(0, 157, 255);
+  color: black;
+}
+.Accounts-item a.active {
+  background-color: #2189c5;
+  color: rgb(253, 255, 255);
+}
+
+
+
