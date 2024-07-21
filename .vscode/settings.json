@@ -13,6 +13,7 @@
             "username": "erpcrm",
             "database": "erpcrmdb",
             "password": "Erpcrmpass1!"
+
         }
     ]
 }
