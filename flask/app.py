@@ -1,4 +1,5 @@
-from flask import Flask, render_template, redirect, url_for, request, session
+import sqlalchemy
+from flask import Flask, render_template, redirect, url_for, request, session, flash
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -18,8 +19,10 @@ def index():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST': 
+        session.permanent = True
         user = request.form['nm']
         session['user'] = user
+        flash('Login succesful.', 'info')
         return redirect(url_for('index'))
     else:
         if 'user' in session:
@@ -29,6 +32,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('user', None)
+    flash('Successfully logged out.', "info")
     return redirect(url_for('login'))
 
 
@@ -36,7 +40,7 @@ def logout():
 def user():
     if 'user' in session:
         usr = session['user']
-        return f'<h1>{usr}</h1>'
+        return render_template('user.html', user=usr)
     else:
         return redirect(url_for('login'))
 
