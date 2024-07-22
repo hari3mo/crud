@@ -16,21 +16,23 @@ def index():
 
 
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login/', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST': 
         session.permanent = True
         user = request.form['nm']
+        password = request.form['pass']
         session['user'] = user
+        session['pass'] = password
         
-        flash('Login succesful.', 'info')
+        flash('Login successful.', 'info')
         return redirect(url_for('index'))
     else:
         if 'user' in session:
             return redirect(url_for('index'))
         return render_template('login.html')
 
-@app.route('/logout')
+@app.route('/logout/')
 def logout():
     session.pop('user', None)
     
@@ -39,14 +41,46 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/user')
+@app.route('/user/')
 def user():
     if 'user' in session:
         usr = session['user']
-        return render_template('user.html', user=usr)
+        pswrd = session['pass']
+        return render_template('user.html', user=usr, password=pswrd)
     else:
         return redirect(url_for('login'))
 
+@app.route('/accounts/')
+def accounts():
+    return render_template('accounts.html')
+
+@app.route('/leads/')
+def leads():
+    return render_template('leads.html')
+
+@app.route('/opportunities/')
+def opportunities():
+    return render_template('opportunities.html')
+
+@app.route('/sales/')
+def sales():
+    return render_template('sales.html')
+
+@app.route('/marketing/')
+def marketing():
+    return render_template('marketing.html')
+
+@app.route('/service/')
+def service():
+    return render_template('service.html')
+
+@app.route('/analytics/')
+def analytics():
+    return render_template('analytics.html')
+
+@app.route('/help/')
+def help():
+    return render_template('help.html')
 
 
 # @app.route('/test', methods=['POST', 'GET'])
