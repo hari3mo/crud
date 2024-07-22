@@ -5,12 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb'
 app.secret_key = 'key'
-app.permanent_session_lifetime = timedelta(minutes=60)
+app.permanent_session_lifetime = timedelta(minutes=30)
 
 @app.route('/')
 def index():
     if 'user' in session:
-        return render_template('index.html')
+        usr = session['user']
+        return render_template('index.html', user=usr)
     else:
         return redirect(url_for('login'))
 
@@ -52,7 +53,10 @@ def user():
 
 @app.route('/accounts/')
 def accounts():
-    return render_template('accounts.html')
+    if 'user' in session:
+        return render_template('accounts.html')
+    else:
+        return redirect(url_for('login'))
 
 @app.route('/leads/')
 def leads():
