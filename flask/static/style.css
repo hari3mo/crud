@@ -83,7 +83,7 @@ body{
   padding: 18px;
   display: block;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .navbar a:hover {
@@ -98,7 +98,8 @@ body{
 .navbar-right {
   margin-left: auto; /* Pushes the ClientID to the far right */
   margin-right: 20px;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .leadsMenu,
