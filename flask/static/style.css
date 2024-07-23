@@ -114,7 +114,6 @@ body{
  {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  background-color: #ffffff;
   padding: 10px;
   justify-content: center;
 
@@ -145,7 +144,7 @@ body{
 .userManagement-item,
 .help-item
 {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(243, 243, 243, 0.238);
   border: 2px solid rgba(0, 0, 0, 0.8);  
   padding: 45px;
   font-size: 20px; 
