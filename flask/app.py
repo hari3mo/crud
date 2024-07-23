@@ -54,9 +54,17 @@ def user():
 @app.route('/accounts/')
 def accounts():
     if 'user' in session:
+
         return render_template('accounts.html')
     else:
         return redirect(url_for('login'))
+
+
+@app.route('/base/')
+def base():
+    return render_template('base.html')
+
+# Need login/user authentication:
 
 @app.route('/leads/')
 def leads():
@@ -85,6 +93,11 @@ def analytics():
 @app.route('/help/')
 def help():
     return render_template('help.html')
+
+
+@app.route('/test/')
+def test():
+    return render_template('test.html')
 
 
 # @app.route('/test', methods=['POST', 'GET'])

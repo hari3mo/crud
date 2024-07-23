@@ -87,6 +87,7 @@ body{
 
 .navbar a:hover {
   background-color: rgb(0, 157, 255);
+  transition: background-color 0.25s;
 }
 
 .navbar li {
@@ -95,7 +96,7 @@ body{
 }
 
 .navbar-right {
-  margin-left: auto; /* Pushes the ClientID to the far right */
+  margin-left: auto; /* Pushes the UserID to the far right */
   margin-right: 20px;
   font-size: 20px;
   font-weight: bold;
@@ -113,9 +114,25 @@ body{
  {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
-  background-color: #adadad;
+  background-color: #ffffff;
   padding: 10px;
+  justify-content: center;
+
  }
+
+.leadsMenu a,
+.helpMenu a,
+.AccountsMenu a,
+.AnalyticsMenu a,
+.MarketingMenu a, 
+.OpportunitiesMenu a,
+.SalesMenu a,
+.ServiceMenu a,
+.UserManagementMenu a{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
 
 .lead-item,
 .help-item,
@@ -129,11 +146,12 @@ body{
 .help-item
 {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 2px solid rgba(180, 180, 187, 0.8);  
-  padding: 50px;
+  border: 2px solid rgba(0, 0, 0, 0.8);  
+  padding: 45px;
   font-size: 20px; 
   text-align: center;
   border-radius: 10px; /*added round edges(can change)*/
+  transition: background-color 0.25s;
 }
 .lead-item a,
 .accounts-item a,
@@ -144,7 +162,7 @@ body{
 .service-item a,
 .userManagement-item a,
 .help-item a
-{  /* These are Leads menu texts */
+{ 
   color: rgb(0, 0, 0);
   text-decoration: none;
 

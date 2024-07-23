@@ -22,7 +22,7 @@
             <li><a href="{{url_for('user')}}">User</a></li>
             <li><a href="{{url_for('help')}}">Help</a></li>  
             <li><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
-            <li class='navbar-right'>UserID: {{user}}</li>
+            <li class='navbar-right'>UserID: {{session['user'] if session['user']}}</li>
         </ul>
     </nav>
 
