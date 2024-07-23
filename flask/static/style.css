@@ -144,10 +144,11 @@ body{
 .userManagement-item,
 .help-item
 {
-  background-color: rgba(243, 243, 243, 0.238);
+  background-color: rgba(248, 248, 248, 0.90);
   border: 2px solid rgba(0, 0, 0, 0.8);  
   padding: 45px;
   font-size: 20px; 
+  font-weight: bold;
   text-align: center;
   border-radius: 10px; /*added round edges(can change)*/
   transition: background-color 0.25s;

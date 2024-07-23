@@ -1,14 +1,29 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from datetime import timedelta
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+import mysql.connector
+
+
+import pandas as pd
+import numpy as np
+
+
+
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'key'
-app.permanent_session_lifetime = timedelta(minutes=30)
+app.permanent_session_lifetime = timedelta(minutes=30) 
+
+db = SQLAlchemy(app)
+
 
 @app.route('/')
 def index():
+
     if 'user' in session:
         usr = session['user']
         return render_template('index.html', user=usr)
@@ -54,7 +69,6 @@ def user():
 @app.route('/accounts/')
 def accounts():
     if 'user' in session:
-
         return render_template('accounts.html')
     else:
         return redirect(url_for('login'))
