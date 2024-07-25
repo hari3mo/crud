@@ -36,7 +36,7 @@ class Test(db.Model):
     name = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
-    date_added = db.Column(db.DateTime, default=datetime.datetime.now(datetime.timezone.utc))
+    date_added = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     
     # Create a string
     def __repr__(self):
