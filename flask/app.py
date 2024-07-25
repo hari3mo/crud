@@ -1,10 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
-from wtforms.validators import DataRequired
+from wtforms import StringField, SubmitField, PasswordField, EmailField
+from wtforms.validators import DataRequired, Email
+import datetime
 from datetime import timedelta
-from datetime import datetime
 import mysql.connector
 
 
@@ -26,29 +26,47 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'key'
 
-app.permanent_session_lifetime = timedelta(minutes=30) # Sets session timeout 
+app.permanent_session_lifetime = timedelta(minutes=30) # Sets session timeout duration
 
+
+# Initialize Database
 db = SQLAlchemy(app)
 
-# Form class
+# Create Model
+class Test(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(200), nullable=False)
+    email = db.Column(db.String(100), nullable=False, unique=True)
+    password = db.Column(db.String(100), nullable=False)
+    date_added = db.Column(db.DateTime, default=datetime.datetime.now(datetime.timezone.utc))
+    
+    # Create a string
+    def __repr__(self):
+        return '<Name %r>' % self.name
+    
+
+# Form Class
 class TestForm(FlaskForm):
     name = StringField('UserID:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
+    email = EmailField('Email:', validators=[DataRequired(), Email()])
     submit = SubmitField('Submit')
 
-# Test form
+# Test Form
 @app.route('/name/', methods=['GET', 'POST'])
 def test():
     name = None
     password = None
+    email = None
     form = TestForm()
     # Validate form
     if form.validate_on_submit():
         name = form.name.data
         password = form.password.data
+        email = form.email.data
         form.name.data = ''
         flash('Logged in successfully.')
-    return render_template('name.html', form=form, name=name, password=password)
+    return render_template('name.html', form=form, name=name, password=password, email=email)
 
 @app.route('/')
 def index():
