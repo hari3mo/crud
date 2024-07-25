@@ -149,7 +149,7 @@ def base():
 
 
 
-# Need login/user authentication
+# TODO
 @app.route('/accounts/')
 def accounts():
         return render_template('accounts.html')
