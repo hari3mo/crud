@@ -102,3 +102,15 @@ body{
   font-weight: bold;
 }
 
+/* Shadowed div */
+.rounded {
+  width: 50%;
+  max-width: 500px;
+  margin: auto; 
+}
+
+.table {
+  max-width: 1000px;
+  margin: auto; 
+  
+}

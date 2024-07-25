@@ -6,8 +6,6 @@ from wtforms.validators import DataRequired, Email
 import datetime
 from datetime import timedelta
 import mysql.connector
-
-
 import pandas as pd
 import numpy as np
 
@@ -34,7 +32,7 @@ db = SQLAlchemy(app)
 
 # Create Model
 class Test(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
@@ -61,12 +59,21 @@ def test():
     form = TestForm()
     # Validate form
     if form.validate_on_submit():
+        user = Test.query.filter_by(email=form.email.data).first()
+        if user is None:     
+            user = Test(name=form.name.data, email=form.email.data, password=form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            
         name = form.name.data
         password = form.password.data
         email = form.email.data
         form.name.data = ''
-        flash('Logged in successfully.')
-    return render_template('name.html', form=form, name=name, password=password, email=email)
+        form.email.data = ''
+        form.password.data = ''
+        flash('User added successfully.')
+    our_users = Test.query.order_by(Test.date_added)
+    return render_template('name.html', form=form, name=name, password=password, email=email, our_users=our_users)
 
 @app.route('/')
 def index():
