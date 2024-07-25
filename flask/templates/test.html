@@ -17,10 +17,10 @@
     <p>Password: {{password}}</p>
     
     <table class="table table-striped table-hover">
-        {% for our_user in our_users %}
+        {% for user in users %}
             <tr>
                 <td>
-                    {{ our_user.id }}. <a href="{{ url_for('update', id=our_user.id) }}">{{ our_user.name }}</a> - {{ our_user.email }}. {{ our_user.password }}
+                    {{ user.id }}. <a href="{{ url_for('update', id=user.id) }}">{{ user.name }}</a> - {{ user.email }}. {{ user.password }}
                 </td>
             </tr>
         {% endfor %}
@@ -50,10 +50,10 @@
 <br/>
 
 <table class="table table-striped table-hover">
-{% for our_user in our_users %}
+{% for user in users %}
     <tr>
         <td>
-            {{ our_user.id }}. <a href="{{ url_for('update', id=our_user.id) }}">{{ our_user.name }}</a> - {{ our_user.email }} - {{ our_user.password }}
+            {{ user.id }}. <a href="{{ url_for('update', id=user.id) }}">{{ user.name }}</a> - {{ user.email }} - {{ user.password }}
         </td>
     </tr>
 {% endfor %}

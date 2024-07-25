@@ -9,22 +9,16 @@ import mysql.connector
 
 
 
-# # Invalid URL
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     return render_template('404.html'), 404
-
-# # Internal Server Error
-# @app.errorhandler(500)
-# def server_error(e):
-#     return render_template('404.html'), 500
-
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' # MySQL Database
 app.config['SECRET_KEY'] = 'key'
 
-app.permanent_session_lifetime = timedelta(minutes=30) # Sets session timeout duration
+# MySQL Database Connection
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' 
+
+
+# Sets session timeout duration
+app.permanent_session_lifetime = timedelta(minutes=30) 
 
 
 db = SQLAlchemy(app)
@@ -44,7 +38,7 @@ class Test(db.Model):
 
 
 # Form Class
-class TestForm(FlaskForm):
+class ImportForm(FlaskForm):
     name = StringField('UserID:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
     email = EmailField('Email:', validators=[DataRequired(), Email()])
@@ -56,7 +50,7 @@ def test():
     name = None
     password = None
     email = None
-    form = TestForm()
+    form = ImportForm()
     # Validate form
     if form.validate_on_submit():
         user = Test.query.filter_by(email=form.email.data).first()
@@ -72,13 +66,13 @@ def test():
         form.email.data = ''
         form.password.data = ''
         flash('User added successfully.')
-    our_users = Test.query.order_by(Test.date_added)
-    return render_template('test.html', form=form, name=name, password=password, email=email, our_users=our_users)
+    users = Test.query.order_by(Test.date_added)
+    return render_template('test.html', form=form, name=name, password=password, email=email, users=users)
 
 # Test update
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
-    form = TestForm()
+    form = ImportForm()
     user_to_update = Test.query.get_or_404(id)
     if form.validate_on_submit():
         user_to_update.name = request.form['name']
@@ -93,9 +87,20 @@ def update(id):
             return render_template('update.html', form=form, user_to_update=user_to_update)
     else:
         return render_template('update.html', form=form, user_to_update=user_to_update)
+    
+# Invalid URL
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+# # Internal Server Error
+# @app.errorhandler(500)
+# def server_error(e):
+#     return render_template('404.html'), 500
         
     
-
+########################################################################################################################################################################################
 
 
 @app.route('/')
