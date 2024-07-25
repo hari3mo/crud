@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% if name %}
+    <p>User: {{name}}</p>
+    <p>Password: {{password}}</p>
+{% else %}
+    <h1>ERPCRM</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.name.label(class="form-label") }}
+        <p>{{ form.name(class="form-control") }}</p>
+        {{ form.password.label(class="form-label") }}
+        <p>{{ form.password(class="form-control") }}</p>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+
+
+{% endif %}
+
+{% endblock %}

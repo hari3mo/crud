@@ -64,7 +64,7 @@ body{
   border: 2px solid black;
   border-radius: 15px; /* new update 7/19; made round edges */
   padding: 0;
-  margin: 0;
+  margin: 1px; /* added due to bootstrap formatting */
 }
 
 .navbar ul {
@@ -144,7 +144,7 @@ body{
 .userManagement-item,
 .help-item
 {
-  background-color: rgba(248, 248, 248, 0.90);
+  background-color: rgba(250, 250, 250, 0.90);
   border: 2px solid rgba(0, 0, 0, 0.8);  
   padding: 45px;
   font-size: 20px; 

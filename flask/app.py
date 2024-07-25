@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired
 from datetime import timedelta
 from datetime import datetime
@@ -31,19 +31,22 @@ db = SQLAlchemy(app)
 
 # Form class
 class TestForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    name = StringField('Name:', validators=[DataRequired()])
+    password = PasswordField('Password:', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-
+# Test form
 @app.route('/name/', methods=['GET', 'POST'])
 def name():
     name = None
+    password = None
     form = TestForm()
     # Validate form
     if form.validate_on_submit():
         name = form.name.data
+        password = form.password.data
         form.name.data = ''
-    return render_template('name.html', name=name, form=form)
+    return render_template('name.html', form=form, name=name, password=password)
 
 @app.route('/')
 def index():
@@ -101,8 +104,10 @@ def accounts():
 def base():
     return render_template('base.html')
 
-# Need login/user authentication
 
+
+
+# Need login/user authentication
 @app.route('/leads/')
 def leads():
     return render_template('leads.html')
