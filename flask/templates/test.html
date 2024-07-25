@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Import Test{% endblock %}
+
 {% block content %}
 
 {% for message in get_flashed_messages() %}
@@ -18,7 +20,7 @@
         {% for our_user in our_users %}
             <tr>
                 <td>
-                    {{ our_user.id }}. {{ our_user.name }}. {{ our_user.email }}. {{ our_user.password }}
+                    {{ our_user.id }}. <a href="{{ url_for('update', id=our_user.id) }}">{{ our_user.name }}</a> - {{ our_user.email }}. {{ our_user.password }}
                 </td>
             </tr>
         {% endfor %}
@@ -28,15 +30,19 @@
 {% else %}
     <br>
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-        <h1 class="text-center">ERPCRM</h1>
+        <h2 class="text-center"><strong>CRM IMPORT</strong></h2>
         <form method="POST">
             {{ form.hidden_tag() }}
+
             {{ form.name.label(class="form-label") }}
             <p>{{ form.name(class="form-control") }}</p>
+
             {{ form.email.label(class="form-label" )}}
             <p>{{ form.email(class="form-control") }}</p>
+
             {{ form.password.label(class="form-label") }}
             <p>{{ form.password(class="form-control") }}</p>
+            
             {{ form.submit(class="btn btn-primary") }}
         </form>
     </div>
@@ -47,7 +53,7 @@
 {% for our_user in our_users %}
     <tr>
         <td>
-            {{ our_user.id }} - {{ our_user.name }} - {{ our_user.email }} - {{ our_user.password }}
+            {{ our_user.id }}. <a href="{{ url_for('update', id=our_user.id) }}">{{ our_user.name }}</a> - {{ our_user.email }} - {{ our_user.password }}
         </td>
     </tr>
 {% endfor %}

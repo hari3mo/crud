@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Update User{% endblock %}
+
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+    <br>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h2 class="text-center"><strong>CRM UPDATE</strong></h2>
+        <form action="{{ url_for('update', id=user_to_update.id)}}"method="POST">
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label(class="form-label") }}
+            <p>{{ form.name(class="form-control", value=user_to_update.name) }}</p>
+
+            {{ form.email.label(class="form-label" )}}
+            <p>{{ form.email(class="form-control", value=user_to_update.email) }}</p>
+
+            {{ form.password.label(class="form-label") }}
+            <p>{{ form.password(class="form-control") }}</p>
+
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
+
+<br/>
+
+{% endblock %}

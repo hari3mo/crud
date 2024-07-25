@@ -6,8 +6,8 @@ from wtforms.validators import DataRequired, Email
 import datetime
 from datetime import timedelta
 import mysql.connector
-import pandas as pd
-import numpy as np
+
+
 
 # # Invalid URL
 # @app.errorhandler(404)
@@ -19,16 +19,16 @@ import numpy as np
 # def server_error(e):
 #     return render_template('404.html'), 500
 
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' # MySQL Database
 app.config['SECRET_KEY'] = 'key'
 
 app.permanent_session_lifetime = timedelta(minutes=30) # Sets session timeout duration
 
 
-# Initialize Database
 db = SQLAlchemy(app)
+
 
 # Create Model
 class Test(db.Model):
@@ -41,7 +41,7 @@ class Test(db.Model):
     # Create a string
     def __repr__(self):
         return '<Name %r>' % self.name
-    
+
 
 # Form Class
 class TestForm(FlaskForm):
@@ -51,7 +51,7 @@ class TestForm(FlaskForm):
     submit = SubmitField('Submit')
 
 # Test Form
-@app.route('/name/', methods=['GET', 'POST'])
+@app.route('/test/', methods=['GET', 'POST'])
 def test():
     name = None
     password = None
@@ -73,7 +73,30 @@ def test():
         form.password.data = ''
         flash('User added successfully.')
     our_users = Test.query.order_by(Test.date_added)
-    return render_template('name.html', form=form, name=name, password=password, email=email, our_users=our_users)
+    return render_template('test.html', form=form, name=name, password=password, email=email, our_users=our_users)
+
+# Test update
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    form = TestForm()
+    user_to_update = Test.query.get_or_404(id)
+    if form.validate_on_submit():
+        user_to_update.name = request.form['name']
+        user_to_update.email = request.form['email']
+        user_to_update.password = request.form['password']
+        try:
+            db.session.commit()
+            flash('User updated successfully.')
+            return render_template('update.html', form=form, user_to_update=user_to_update)
+        except:
+            flash('User update failed.')
+            return render_template('update.html', form=form, user_to_update=user_to_update)
+    else:
+        return render_template('update.html', form=form, user_to_update=user_to_update)
+        
+    
+
+
 
 @app.route('/')
 def index():
