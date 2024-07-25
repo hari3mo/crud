@@ -25,19 +25,20 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'key'
-app.permanent_session_lifetime = timedelta(minutes=30) 
+
+app.permanent_session_lifetime = timedelta(minutes=30) # Sets session timeout 
 
 db = SQLAlchemy(app)
 
 # Form class
 class TestForm(FlaskForm):
-    name = StringField('Name:', validators=[DataRequired()])
+    name = StringField('UserID:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 # Test form
 @app.route('/name/', methods=['GET', 'POST'])
-def name():
+def test():
     name = None
     password = None
     form = TestForm()
@@ -46,11 +47,11 @@ def name():
         name = form.name.data
         password = form.password.data
         form.name.data = ''
+        flash('Logged in successfully.')
     return render_template('name.html', form=form, name=name, password=password)
 
 @app.route('/')
 def index():
-
     if 'user' in session:
         usr = session['user']
         return render_template('index.html', user=usr)
@@ -92,13 +93,6 @@ def user():
     else:
         return redirect(url_for('login'))
 
-@app.route('/accounts/')
-def accounts():
-    if 'user' in session:
-        return render_template('accounts.html')
-    else:
-        return redirect(url_for('login'))
-
 
 @app.route('/base/')
 def base():
@@ -108,6 +102,11 @@ def base():
 
 
 # Need login/user authentication
+@app.route('/accounts/')
+def accounts():
+        return render_template('accounts.html')
+
+
 @app.route('/leads/')
 def leads():
     return render_template('leads.html')
@@ -135,11 +134,6 @@ def analytics():
 @app.route('/help/')
 def help():
     return render_template('help.html')
-
-
-@app.route('/test/')
-def test():
-    return render_template('test.html')
 
 @app.route('/home')
 def home():

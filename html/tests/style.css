@@ -102,3 +102,95 @@ body{
   font-weight: bold;
 }
 
+.leadsMenu,
+.helpMenu,
+.AccountsMenu,
+.AnalyticsMenu,
+.MarketingMenu, 
+.OpportunitiesMenu,
+.SalesMenu,
+.ServiceMenu,
+.UserManagementMenu
+ {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  padding: 10px;
+  justify-content: center;
+
+ }
+
+.leadsMenu a,
+.helpMenu a,
+.AccountsMenu a,
+.AnalyticsMenu a,
+.MarketingMenu a, 
+.OpportunitiesMenu a,
+.SalesMenu a,
+.ServiceMenu a,
+.UserManagementMenu a{
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.lead-item,
+.help-item,
+.accounts-item,
+.analytics-item,
+.marketing-item,
+.opportunities-item,
+.sales-item,
+.service-item,
+.userManagement-item,
+.help-item
+{
+  background-color: rgba(250, 250, 250, 0.90);
+  border: 2px solid rgba(0, 0, 0, 0.8);  
+  padding: 45px;
+  font-size: 20px; 
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px; /*added round edges(can change)*/
+  transition: background-color 0.25s;
+}
+.lead-item a,
+.accounts-item a,
+.analytics-item a,
+.marketing-item a,
+.opportunities-item a,
+.sales-item a,
+.service-item a,
+.userManagement-item a,
+.help-item a
+{ 
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+
+}
+.lead-item:hover,
+.accounts-item:hover,
+.analytics-item:hover,
+.marketing-item:hover,
+.opportunities-item:hover,
+.sales-item:hover,
+.service-item:hover,
+.userManagement-item:hover,
+.help-item a:hover
+{
+  background-color: rgb(0, 157, 255);
+  color: black;
+}
+
+.lead-item a.active,
+.accounts-item a.active,
+.analytics-item a.active,
+.marketing-item a.active,
+.opportunities-item a.active,
+.sales-item a.active,
+.service-item a.active,
+.userManagement-item a.active,
+.help-item a a.active
+{
+  background-color: #2189c5;
+  color: rgb(253, 255, 255);
+}
