@@ -2,13 +2,14 @@ from flask import Flask, render_template, redirect, url_for, request, session, f
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from flask_migrate import Migrate
-from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField
-from flask_wtf.file import FileField, FileRequired, FileAllowed
+from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField
+from flask_wtf.file import FileRequired
 from werkzeug.utils import secure_filename
 from wtforms.validators import DataRequired, Email
 import datetime
 from datetime import timedelta
 import mysql.connector
+import os
 
 from sqlalchemy import create_engine, desc
 
@@ -20,6 +21,8 @@ app.config['SECRET_KEY'] = 'key'
 
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' 
+
+app.config['UPLOAD_FOLDER'] = 'static/files'
 
 engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
 
@@ -84,29 +87,47 @@ class AccountForm(FlaskForm):
 class DeleteForm(FlaskForm):
     submit = SubmitField('Delete')
     
-# class FileForm(FlaskForm):
-#     upload = FileField('File')  
-#     submit = SubmitField('Submit')s
-    
-class UploadForm(FlaskForm):
-    upload = FileField('File', validators=[FileRequired()])
+
+class FileForm(FlaskForm):
+    file = FileField('File', validators=[FileRequired()])
     submit = SubmitField('Submit')
 
 
 # Import account
 @app.route('/account_import/', methods=['GET', 'POST'])
 def account_import():
-    form = UploadForm()
-    if form.validate_on_submit():
-        f = form.upload.data
-        filename = f.filename  
-        # Read the file data
-        file_content = f.read()
-        flash('Account import successful.')
-        return render_template('account_import.html', form=form)
-    else:
-        return render_template('account_import.html', form=form)
+    form = FileForm()
+    data = None
+    filename = None
+    if form.validate_on_submit():        
+        file = form.file.data
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        
+        if filename.split('.')[-1] != 'csv':
+            flash('Import failed: Please upload a .CSV file.')
+            return redirect(url_for('account_import'))
+        
+        while os.path.exists(filepath):
+            filename = filename.split('.')[0] + ' copy.csv'
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                
+        file.save(filepath)
+        df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+        
+        cursor = mysql.connection.cursor()
+        # for i, row in df.itterrows():
+            
+
+        return render_template('account_import.html', form=form, data=data) 
     
+    return render_template('account_import.html', form=form, data=data)
+    
+
+
+
+
+
 
 # Accounts list    
 @app.route('/accounts_list/')
@@ -119,7 +140,6 @@ def accounts_list():
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     form = AccountForm()
-    delete_form = DeleteForm()
     account = Accounts.query.get_or_404(id)
     if form.validate_on_submit():
 
@@ -138,17 +158,7 @@ def update(id):
             return redirect(url_for('accounts_list'))
         except:
             flash('User update failed.')
-            return render_template('update.html', form=form, delete_form=delete_form, account=account)
-    
-    if delete_form.validate_on_submit():
-        try:
-            db.session.delete(account)
-            db.session.commit()
-            flash('Account deleted successfully.')
-            return redirect(url_for('accounts_list'))
-        except:
-            flash('Record delete failed.')
-            return render_template('update.html', form=form, delete_form=delete_form, account=account)
+            return render_template('update.html', form=form, account=account)
     
     form.company_name.data = ''
     form.company_revenue.data = ''
@@ -159,25 +169,23 @@ def update(id):
     form.city.data = ''
     form.timezone.data = ''    
     
-    return render_template('update.html', form=form, delete_form=delete_form, account=account)        
+    return render_template('update.html', form=form, account=account, id=id)        
             
             
-# Delete account record
-# @app.route('/account/<int:id>')
-# def delete(id):
-#     account = Accounts.query.get_or_404(id)
-#     form = AccountForm()
+# Delete record
+@app.route('/accounts/<int:id>')
+def delete(id):
+    account = Accounts.query.get_or_404(id)
+    form = AccountForm()
+    try:
+        db.session.delete(account)
+        db.session.commit()
+        flash('Account deleted successfully.')
+        return redirect(url_for('accounts_list'))
     
-#     try:
-#         db.session.delete(account)
-#         db.session.commit()
-#         accounts = Accounts.query.order_by(desc(Accounts.AccountID))
-#         flash('Account deleted successfully.')
-#         return render_template('accounts_list', form=form, accounts=accounts)
-    
-#     except:
-#         flash('Error deleting account.')
-#         return render_template('new_account.html', form=form, accounts=accounts)
+    except:
+        flash('Error deleting account.')
+        return render_template('new_account.html', form=form, accounts=accounts)
         
  
 

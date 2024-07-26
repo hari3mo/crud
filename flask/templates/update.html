@@ -20,7 +20,7 @@
 
         <form action="{{ url_for('update', id=account.AccountID)}}" method="POST">
            
-            {{ delete_form.hidden_tag()}}
+            {{ form.hidden_tag()}}
     
             {{ form.company_name.label(class="form-label") }}
             <p>{{ form.company_name(class="form-control", value=account.CompanyName) }}</p>
@@ -46,22 +46,14 @@
             {{ form.timezone.label(class="form-label" )}}
             <p>{{ form.timezone(class="form-control", value=account.Timezone) }}</p>
     
+
             {{ form.submit(class="btn btn-primary") }}
 
+            <a href="{{ url_for('delete', id=id)}}" class="btn btn-secondary">Delete</a>
             </form>
 
-
         </form>
     </div>
-    
-    <div class="text-center">
-        <form method="POST">
-            {{ form.hidden_tag() }}
-            {{ delete_form.submit(class="btn btn-secondary") }}
-
-        </form>
-    </div>
- 
 
 <br/>
 

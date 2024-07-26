@@ -15,11 +15,11 @@
 </div>
 {% endfor %}
 
+    {{ filename }}
+    {{ data }}
     <form method="POST", enctype="multipart/form-data">
-
-        {{ form.upload.label }}
-        {{ form.upload() }}
-
+        {{ form.hidden_tag() }}
+        {{ form.file() }}
         {{ form.submit(class="btn btn-primary") }}
 
 
