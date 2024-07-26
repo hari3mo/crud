@@ -137,15 +137,16 @@ def accounts_import():
         if ids['AccountID'].empty:
             id = 1000
         else:
-            id = ids['AccountID'].max() + 10
+            id = ids['AccountID'].max()
         
         
         for index, row in df.iterrows():
             dct = row.to_dict()
             dct.update({'AccountID': id})
+            id += 10
             account = Accounts(**dct)
             db.session.add(account)
-            id += 10
+
         
         
         db.session.commit()            
@@ -211,7 +212,7 @@ def update(id):
             
             
 # Delete record
-@app.route('/accounts/<int:id>')
+@app.route('/delete/<int:id>')
 def delete(id):
     account = Accounts.query.get_or_404(id)
     try:
@@ -222,7 +223,7 @@ def delete(id):
     
     except:
         flash('Error deleting account.')
-        return render_template('new_account.html', form=form, accounts=accounts)
+        return redirect(url_for('accounts_list'))
         
  
 
@@ -235,7 +236,7 @@ def accounts_export():
 
 
 # Add record
-@app.route('/new_account/', methods=['GET', 'POST'])
+@app.route('/account_new/', methods=['GET', 'POST'])
 def new_account():
     company_name = None
     company_revenue = None

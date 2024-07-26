@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Import Test{% endblock %}
+
+{% block content %}
+
+<!-- Flashed message -->
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+{% if name %}
+    <p>User: {{name}}</p>
+    <p>Email: {{email}}</p>
+    <p>Password: {{password}}</p>
+    
+    <table class="table table-striped table-hover">
+        {% for user in users %}
+            <tr>
+                <td>
+                    {{ user.id }}. <a href="{{ url_for('update', id=user.id) }}">{{ user.name }}</a> - {{ user.email }}. {{ user.password }}
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+        
+
+{% else %}
+    <br>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h2 class="text-center"><strong>CRM IMPORT</strong></h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label(class="form-label") }}
+            <p>{{ form.name(class="form-control") }}</p>
+
+            {{ form.email.label(class="form-label" )}}
+            <p>{{ form.email(class="form-control") }}</p>
+
+            {{ form.password.label(class="form-label") }}
+            <p>{{ form.password(class="form-control") }}</p>
+            
+            {{ form.submit(class="btn btn-primary") }}
+        </form>
+    </div>
+
+<br/>
+
+<table class="table table-striped table-hover">
+{% for user in users %}
+    <tr>
+        <td>
+            {{ user.id }}. <a href="{{ url_for('update', id=user.id) }}">{{ user.name }}</a> - {{ user.email }} - {{ user.password }}
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endif %}
+{% endblock %}
