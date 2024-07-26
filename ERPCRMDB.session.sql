@@ -1,6 +1,7 @@
 --@block
 ALTER TABLE Accounts
-ADD PRIMARY KEY (AccountID)
+ADD PRIMARY KEY (AccountID),
+AUTO_INCREMENT = 1000;
 
 --@block
 ALTER TABLE Leads
@@ -23,10 +24,15 @@ ADD PRIMARY KEY (TicketID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 
-
 --@block
 --ALTER TABLE Accounts AUTO_INCREMENT=1000;
 --ALTER TABLE Leads AUTO_INCREMENT=100000;
 
 --@block
 DELETE FROM Accounts WHERE (AccountID=7971);
+
+--@block
+DELETE FROM Accounts
+
+--@block
+DROP TABLE alembic_version

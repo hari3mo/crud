@@ -11,7 +11,7 @@ from datetime import timedelta
 import mysql.connector
 import os
 
-from sqlalchemy import create_engine, desc
+from sqlalchemy import create_engine, desc, insert
 
 import pandas as pd
 import numpy as np
@@ -32,6 +32,13 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 # Initialize database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+mydb = mysql.connector.connect(
+    host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
+    user = 'erpcrm', 
+    passwd = 'Erpcrmpass1!',
+    database = 'erpcrmdb'
+)
+
 
 # Accounts model
 class Accounts(db.Model):
@@ -113,12 +120,12 @@ def account_import():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 
         file.save(filepath)
-        df = pd.read_csv('static/files/{filename}'.format(filename=filename))
         
-        cursor = mysql.connection.cursor()
-        # for i, row in df.itterrows():
+        df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+        df.to_sql('Accounts', con=engine, if_exists='append', index=False)
+        
             
-
+        
         return render_template('account_import.html', form=form, data=data) 
     
     return render_template('account_import.html', form=form, data=data)
@@ -209,7 +216,7 @@ def new_account():
 
     
     ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
-    next_id = ids.iloc[-1, 0] + 10
+    next_id = ids['AccountID'].max() + 10
     
     form = AccountForm()
     if form.validate_on_submit():
@@ -238,6 +245,7 @@ def new_account():
         form.timezone.data = ''
         
         flash('New account added successfully.')
+        return redirect(url_for('accounts_list'))
            
     return render_template('new_account.html', form=form, company_name=company_name, company_revenue=company_revenue)
 
@@ -251,7 +259,7 @@ def new_account():
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return redirect(url_for('index'))
 
 
 # # Internal Server Error
