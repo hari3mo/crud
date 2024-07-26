@@ -30,7 +30,7 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Accounts table model
+# Accounts model
 class Accounts(db.Model):
     __tablename__ = 'Accounts'
     AccountID = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -47,7 +47,7 @@ class Accounts(db.Model):
     # Test = db.Column(db.String(10))
 
 
-# Create model
+# Test model
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200), nullable=False)
@@ -60,7 +60,7 @@ class Test(db.Model):
         return '<Name %r>' % self.name
     
     
-# Form class
+# Test form class
 class ImportForm(FlaskForm):
     name = StringField('UserID:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
@@ -80,6 +80,10 @@ class AccountForm(FlaskForm):
     timezone = StringField('Timezone:')
     submit = SubmitField('Submit')
     
+# Delete form
+class DeleteForm(FlaskForm):
+    submit = SubmitField('Delete')
+    
 # class FileForm(FlaskForm):
 #     upload = FileField('File')  
 #     submit = SubmitField('Submit')s
@@ -89,6 +93,7 @@ class UploadForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+# Import account
 @app.route('/account_import/', methods=['GET', 'POST'])
 def account_import():
     form = UploadForm()
@@ -102,15 +107,86 @@ def account_import():
     else:
         return render_template('account_import.html', form=form)
     
+
+# Accounts list    
+@app.route('/accounts_list/')
+def accounts_list():
+    accounts = Accounts.query.order_by(desc(Accounts.AccountID))
+    return render_template('accounts_list.html', accounts=accounts)
+
+
+# Update record
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    form = AccountForm()
+    delete_form = DeleteForm()
+    account = Accounts.query.get_or_404(id)
+    if form.validate_on_submit():
+
+        account.CompanyName = request.form['company_name']
+        account.CompanyRevenue = request.form['company_revenue']
+        account.EmployeeHeadCount = request.form['employee_head_count']
+        account.CompanySpecialties = request.form['company_specialties']
+        account.CompanyType = request.form['company_type']
+        account.Country = request.form['country']
+        account.City = request.form['city']
+        account.Timezone = request.form['timezone']
         
+        try:
+            db.session.commit()
+            flash('User updated successfully.')
+            return redirect(url_for('accounts_list'))
+        except:
+            flash('User update failed.')
+            return render_template('update.html', form=form, delete_form=delete_form, account=account)
+    
+    if delete_form.validate_on_submit():
+        try:
+            db.session.delete(account)
+            db.session.commit()
+            flash('Account deleted successfully.')
+            return redirect(url_for('accounts_list'))
+        except:
+            flash('Record delete failed.')
+            return render_template('update.html', form=form, delete_form=delete_form, account=account)
+    
+    form.company_name.data = ''
+    form.company_revenue.data = ''
+    form.employee_head_count.data = ''
+    form.company_specialties.data = ''
+    form.company_type.data = ''
+    form.country.data = ''
+    form.city.data = ''
+    form.timezone.data = ''    
+    
+    return render_template('update.html', form=form, delete_form=delete_form, account=account)        
+            
+            
+# Delete account record
+# @app.route('/account/<int:id>')
+# def delete(id):
+#     account = Accounts.query.get_or_404(id)
+#     form = AccountForm()
+    
+#     try:
+#         db.session.delete(account)
+#         db.session.commit()
+#         accounts = Accounts.query.order_by(desc(Accounts.AccountID))
+#         flash('Account deleted successfully.')
+#         return render_template('accounts_list', form=form, accounts=accounts)
+    
+#     except:
+#         flash('Error deleting account.')
+#         return render_template('new_account.html', form=form, accounts=accounts)
+        
+ 
 
  
-    
-@app.route('/account_list/')
-def account_list():
-    accounts = Accounts.query.order_by(desc(Accounts.AccountID))
-    return render_template('account_list.html', accounts=accounts)
+ 
 
+
+
+# Add account
 @app.route('/new_account/', methods=['GET', 'POST'])
 def new_account():
     company_name = None;
@@ -201,25 +277,6 @@ def test():
     users = Test.query.order_by(Test.date_added)
     return render_template('test.html', form=form, name=name, password=password, email=email, users=users)
 
-# Test update
-@app.route('/update/<int:id>', methods=['GET', 'POST'])
-def update(id):
-    form = ImportForm()
-    user_to_update = Test.query.get_or_404(id)
-    if form.validate_on_submit():
-        user_to_update.name = request.form['name']
-        user_to_update.email = request.form['email']
-        user_to_update.password = request.form['password']
-        try:
-            db.session.commit()
-            flash('User updated successfully.')
-            return render_template('update.html', form=form, user_to_update=user_to_update)
-        except:
-            flash('User update failed.')
-            return render_template('update.html', form=form, user_to_update=user_to_update)
-    else:
-        return render_template('update.html', form=form, user_to_update=user_to_update)
-    
 
 
 

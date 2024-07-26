@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Update User{% endblock %}
+{% block title %}Update Account{% endblock %}
 
 {% block content %}
 
@@ -12,23 +12,56 @@
 {% endfor %}
 
     <br>
+
+    <h2 class="text-center"><strong>Update Account</strong></h2> 
+    
+    <br>
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-        <h2 class="text-center"><strong>CRM UPDATE</strong></h2>
-        <form action="{{ url_for('update', id=user_to_update.id)}}"method="POST">
-            {{ form.hidden_tag() }}
 
-            {{ form.name.label(class="form-label") }}
-            <p>{{ form.name(class="form-control", value=user_to_update.name) }}</p>
-
-            {{ form.email.label(class="form-label" )}}
-            <p>{{ form.email(class="form-control", value=user_to_update.email) }}</p>
-
-            {{ form.password.label(class="form-label") }}
-            <p>{{ form.password(class="form-control") }}</p>
-
+        <form action="{{ url_for('update', id=account.AccountID)}}" method="POST">
+           
+            {{ delete_form.hidden_tag()}}
+    
+            {{ form.company_name.label(class="form-label") }}
+            <p>{{ form.company_name(class="form-control", value=account.CompanyName) }}</p>
+    
+            {{ form.company_revenue.label(class="form-label" )}}
+            <p>{{ form.company_revenue(class="form-control", value=account.CompanyRevenue) }}</p>
+            
+            {{ form.employee_head_count.label(class="form-label" )}}
+            <p>{{ form.employee_head_count(class="form-control", value=account.EmployeeHeadCount) }}</p>
+    
+            {{ form.company_specialties.label(class="form-label" )}}
+            <p>{{ form.company_specialties(class="form-control", value=account.CompanySpecialties) }}</p>
+    
+            {{ form.company_type.label(class="form-label" )}}
+            <p>{{ form.company_type(class="form-control", value=account.CompanyType) }}</p>
+    
+            {{ form.country.label(class="form-label" )}}
+            <p>{{ form.country(class="form-control", value=account.Country) }}</p>
+    
+            {{ form.city.label(class="form-label" )}}
+            <p>{{ form.city(class="form-control", value=account.City) }}</p>
+            
+            {{ form.timezone.label(class="form-label" )}}
+            <p>{{ form.timezone(class="form-control", value=account.Timezone) }}</p>
+    
             {{ form.submit(class="btn btn-primary") }}
+
+            </form>
+
+
         </form>
     </div>
+    
+    <div class="text-center">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ delete_form.submit(class="btn btn-secondary") }}
+
+        </form>
+    </div>
+ 
 
 <br/>
 

@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+
 <br>
 <h1 class="text-center"><strong>Accounts List</strong></h1>
 <br>
@@ -21,7 +30,7 @@
     <tbody>
         {% for account in accounts %}
         <tr>
-            <th scope="row">{{ account.AccountID }}</th>
+            <th scope="row"><a href="{{ url_for('update', id=account.AccountID) }}">{{ account.AccountID }}</th>
             <td>{{ account.CompanyName }}</td>
             <td>{{ account.EmployeeHeadCount }}</td>
             <td>{{ account.CompanyIndustry }}</td>
