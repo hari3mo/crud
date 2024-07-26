@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
+from flask_migrate import Migrate
 from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 from werkzeug.utils import secure_filename
@@ -25,21 +26,25 @@ engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf
 # Sets session timeout duration
 app.permanent_session_lifetime = timedelta(minutes=30) 
 
-
+# Initialize database
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
+# Accounts table model
 class Accounts(db.Model):
     __tablename__ = 'Accounts'
     AccountID = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    CompanyName = db.Column(db.String(100))
-    CompanyRevenue = db.Column(db.Integer)
-    EmployeeHeadCount = db.Column(db.Integer)
+    CompanyName = db.Column(db.String(100), nullable=False)
+    CompanyRevenue = db.Column(db.Integer, nullable=False)
+    EmployeeHeadCount = db.Column(db.Integer, nullable=False)
     CompanyIndustry = db.Column(db.String(100))
     CompanySpecialties = db.Column(db.Text)
     CompanyType = db.Column(db.String(50))
-    Country = db.Column(db.String(50))
+    Country = db.Column(db.String(50), nullable=False)
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
+    
+    # Test = db.Column(db.String(10))
 
 
 # Create model
@@ -65,7 +70,7 @@ class ImportForm(FlaskForm):
     
 # Account form
 class AccountForm(FlaskForm):
-    company_name = StringField('Name:*', validators=[DataRequired()])
+    company_name = StringField('Company Name:*', validators=[DataRequired()])
     company_revenue = IntegerField('Revenue:*', validators=[DataRequired()])
     employee_head_count = IntegerField('Head Count:*', validators=[DataRequired()])
     company_specialties = StringField('Company Specialties:')
@@ -77,25 +82,26 @@ class AccountForm(FlaskForm):
     
 # class FileForm(FlaskForm):
 #     upload = FileField('File')  
-#     submit = SubmitField('Submit')
+#     submit = SubmitField('Submit')s
     
 class UploadForm(FlaskForm):
-    file = FileField('File', validators=[
-        FileRequired(),
-        FileAllowed(['csv'], 'Please upload a .CSV file')])
+    upload = FileField('File', validators=[FileRequired()])
+    submit = SubmitField('Submit')
 
 
 @app.route('/account_import/', methods=['GET', 'POST'])
 def account_import():
-    flash('Accounts import.')
     form = UploadForm()
     if form.validate_on_submit():
-        f = form.file.data
+        f = form.upload.data
         filename = f.filename  
         # Read the file data
         file_content = f.read()
         flash('Account import successful.')
-    return render_template('account_import.html', form=form)
+        return render_template('account_import.html', form=form)
+    else:
+        return render_template('account_import.html', form=form)
+    
         
 
  
@@ -129,7 +135,6 @@ def new_account():
         db.session.add(account)
         db.session.commit()
         
-        
         company_name = request.form['company_name']
         company_revenue = request.form['company_revenue']
         employee_head_count = request.form['employee_head_count']
@@ -139,12 +144,17 @@ def new_account():
         city = request.form['city']
         timezone = request.form['timezone']
         
-        
-        form.company_name = ''
+        form.company_name.data = ''
+        form.company_revenue.data = ''
+        form.employee_head_count.data = ''
+        form.company_specialties.data = ''
+        form.company_type.data = ''
+        form.country.data = ''
+        form.city.data = ''
+        form.timezone.data = ''
         
         flash('New account added successfully.')
-        
-    
+           
     return render_template('new_account.html', form=form, company_name=company_name, company_revenue=company_revenue)
 
 
