@@ -119,37 +119,43 @@ def accounts_import():
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         
-        if filename.split('.')[-1] != 'csv':
-            flash('Import failed: Please upload a .CSV file.')
-            return redirect(url_for('accounts_import'))
-        
-        while os.path.exists(filepath):
-            filename = filename.split('.')[0] + ' copy.csv'
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        try:
+            if filename.split('.')[-1] != 'csv':
+                flash('Import failed: Please upload a .CSV file.')
+                return redirect(url_for('accounts_import'))
+            
+            while os.path.exists(filepath):
+                filename = filename.split('.')[0] + ' copy.csv'
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    
+            file.save(filepath)
+            
+            df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+            df = df.where(pd.notnull(df), None)
+            
+            ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+
+            if ids['AccountID'].empty:
+                id = 1000
+            else:
+                id = ids['AccountID'].max() + 10
+            
+            
+            for index, row in df.iterrows():
+                dct = row.to_dict()
+                dct.update({'AccountID': id})
+                id += 10
+                account = Accounts(**dct)
+                db.session.add(account)
                 
-        file.save(filepath)
-        
-        df = pd.read_csv('static/files/{filename}'.format(filename=filename))
-        df = df.where(pd.notnull(df), None)
-        
-        ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
-
-        if ids['AccountID'].empty:
-            id = 1000
-        else:
-            id = ids['AccountID'].max()
-        
-        
-        for index, row in df.iterrows():
-            dct = row.to_dict()
-            dct.update({'AccountID': id})
-            id += 10
-            account = Accounts(**dct)
-            db.session.add(account)
-
-        
-        
-        db.session.commit()            
+            db.session.commit()
+            flash('Import successful.')
+            return redirect(url_for('accounts_list'))    
+                
+        except:
+            flash('Import failed.')
+            return redirect(url_for('account_import'))
+                   
         
         flash('Import successful.')
         return redirect(url_for('accounts_list')) 

@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Accounts List{% endblock %}
+
 {% block content %}
 
 {% for message in get_flashed_messages() %}
@@ -8,9 +10,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 {% endfor %}
+<a class="btn btn-secondary btn-lg" href="{{ url_for('new_account') }}" role="button">New Account</a>
+<a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_import') }}" role="button">Account Import</a>
+<a class="btn btn-secondary btn-lg btn-outline-primary" href="{{ url_for('accounts_list') }}" role="button">Refresh</a>   
 
-<br>
-<h1 class="text-center"><strong>Accounts List</strong></h1>
+    <h1 class="text-center"><strong>Accounts List</strong></h1>
 <br>
 <table class="table table-striped table-hover">
     <thead>
