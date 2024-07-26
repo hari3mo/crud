@@ -1,7 +1,9 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField
+from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField
+from flask_wtf.file import FileField, FileRequired, FileAllowed
+from werkzeug.utils import secure_filename
 from wtforms.validators import DataRequired, Email
 import datetime
 from datetime import timedelta
@@ -77,12 +79,24 @@ class AccountForm(FlaskForm):
 #     upload = FileField('File')  
 #     submit = SubmitField('Submit')
     
-    
+class UploadForm(FlaskForm):
+    file = FileField('File', validators=[
+        FileRequired(),
+        FileAllowed(['csv'], 'Please upload a .CSV file')])
+
+
 @app.route('/account_import/', methods=['GET', 'POST'])
 def account_import():
-    flash('Accounts import successful')
-    return render_template('account_import.html')
-    
+    flash('Accounts import.')
+    form = UploadForm()
+    if form.validate_on_submit():
+        f = form.file.data
+        filename = f.filename  
+        # Read the file data
+        file_content = f.read()
+        flash('Account import successful.')
+    return render_template('account_import.html', form=form)
+        
 
  
     

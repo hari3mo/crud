@@ -15,8 +15,9 @@
 </div>
 {% endfor %}
 
-    <form method="POST">
-
+    <form method="POST", enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ form.file.label }} {{ form.file() }}
 
 
     </form>
