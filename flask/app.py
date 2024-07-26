@@ -47,6 +47,10 @@ def account_list():
     accounts = Accounts.query
     return render_template('account_list.html', accounts=accounts)
 
+@app.route('/new_account/')
+def new_account():
+    return render_template('new_account.html')
+
 # Create Model
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
