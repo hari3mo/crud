@@ -15,8 +15,6 @@
 </div>
 {% endfor %}
 
-    {{ filename }}
-    {{ data }}
     <form method="POST", enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         {{ form.file() }}

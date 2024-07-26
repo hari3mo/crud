@@ -1,7 +1,6 @@
 --@block
 ALTER TABLE Accounts
-ADD PRIMARY KEY (AccountID),
-AUTO_INCREMENT = 1000;
+ADD PRIMARY KEY (AccountID)
 
 --@block
 ALTER TABLE Leads
@@ -29,10 +28,7 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 --ALTER TABLE Leads AUTO_INCREMENT=100000;
 
 --@block
-DELETE FROM Accounts WHERE (AccountID=7971);
 
 --@block
 DELETE FROM Accounts
 
---@block
-DROP TABLE alembic_version

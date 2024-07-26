@@ -59,7 +59,7 @@ class Accounts(db.Model):
 
 # Test model
 class Test(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(200), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
@@ -84,6 +84,7 @@ class AccountForm(FlaskForm):
     company_revenue = IntegerField('Revenue:*', validators=[DataRequired()])
     employee_head_count = IntegerField('Head Count:*', validators=[DataRequired()])
     company_specialties = StringField('Company Specialties:')
+    company_industry = StringField('Company Industry:')
     company_type = StringField('Company Type:')
     country = StringField('Country:*', validators=[DataRequired()])
     city = StringField('City:')
@@ -122,11 +123,28 @@ def account_import():
         file.save(filepath)
         
         df = pd.read_csv('static/files/{filename}'.format(filename=filename))
-        df.to_sql('Accounts', con=engine, if_exists='append', index=False)
+        df = df.where(pd.notnull(df), None)
         
-            
+        ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+
+        if ids['AccountID'].empty:
+            id = 1000
+        else:
+            id = ids['AccountID'].max() + 10
         
-        return render_template('account_import.html', form=form, data=data) 
+        
+        for index, row in df.iterrows():
+            dct = row.to_dict()
+            dct.update({'AccountID': id})
+            account = Accounts(**dct)
+            db.session.add(account)
+            id += 10
+        
+        
+        db.session.commit()            
+        
+        flash('Import successful.')
+        return redirect(url_for('accounts_list')) 
     
     return render_template('account_import.html', form=form, data=data)
     
@@ -196,32 +214,36 @@ def delete(id):
         
  
 
+    
  
- 
 
 
 
-# Add account
+# Add record
 @app.route('/new_account/', methods=['GET', 'POST'])
 def new_account():
-    company_name = None;
+    company_name = None
     company_revenue = None
     employee_head_count = None
     company_specialties = None
     company_type = None
     country = None
+    company_industry = None
     city = None
     timezone = None
-    submit = None
-
+    submit = None    
     
     ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
-    next_id = ids['AccountID'].max() + 10
+    
+    if ids['AccountID'].empty:
+        next_id = 1000
+    else:
+        next_id = (ids['AccountID'].max()) + 10
     
     form = AccountForm()
     if form.validate_on_submit():
         account = Accounts(AccountID=next_id, CompanyName=form.company_name.data, CompanyRevenue=form.company_revenue.data, 
-                           EmployeeHeadCount=form.employee_head_count.data, CompanySpecialties=form.company_specialties.data,
+                           EmployeeHeadCount=form.employee_head_count.data, CompanySpecialties=form.company_specialties.data, CompanyIndustry=form.company_industry.data,
                            CompanyType = form.company_type.data, Country=form.country.data, City=form.city.data, Timezone=form.timezone.data)
         db.session.add(account)
         db.session.commit()
