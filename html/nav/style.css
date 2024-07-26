@@ -1,0 +1,46 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #2b579a;
+  overflow: auto;
+}
+
+.navbar ul{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  border-radius: 0px; 
+}
+
+.navbar a{
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  display: block;
+  text-align: center;
+}
+.navbar a:hover{
+  background-color: rgb(185, 185, 185);
+}
+.navbar li{
+  float: left;
+}
+.navbar img{
+  margin: 15px;
+  height: 20px;
+}
+
+.navbar p{
+  float: right;
+  color: white;
+  margin: 18px;
+}

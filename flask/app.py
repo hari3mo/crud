@@ -24,6 +24,29 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 db = SQLAlchemy(app)
 
 
+class Accounts(db.Model):
+    __tablename__ = 'Accounts'
+    AccountID = db.Column(db.Text, primary_key=True)
+    CompanyName = db.Column(db.String(100))
+    CompanyRevenue = db.Column(db.Integer)
+    EmployeeHeadCount = db.Column(db.Integer)
+    CompanyIndustry = db.Column(db.String(100))
+    CompanySpecialties = db.Column(db.Text)
+    CompanyType = db.Column(db.String(50))
+    Country = db.Column(db.String(50))
+    City = db.Column(db.String(50))
+    Timezone = db.Column(db.String(50))
+    
+
+
+
+
+    
+@app.route('/account_list/')
+def account_list():
+    accounts = Accounts.query
+    return render_template('account_list.html', accounts=accounts)
+
 # Create Model
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -35,8 +58,7 @@ class Test(db.Model):
     # Create a string
     def __repr__(self):
         return '<Name %r>' % self.name
-
-
+    
 # Form Class
 class ImportForm(FlaskForm):
     name = StringField('UserID:', validators=[DataRequired()])

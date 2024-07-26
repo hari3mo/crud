@@ -1,4 +1,4 @@
-AccountID,Company Name,Company Revenue (in millions),Employee Head Count,Company Industry,Company Specialities,Company Type,Company Location Country Name,Company Location City,Company Location Timezone
+AccountID,CompanyName,CompanyRevenue,EmployeeHeadCount,CompanyIndustry,CompanySpecialties,CompanyType,Country,City,Timezone
 1000,-X-,3800,12000,Food Production,,Public Company,United States,,EST
 1010,1st Source Bank,300,1150,Banking,"Retail Banking, Private Banking, Business Banking, Online Banking and Bill Payment Services, Cash Management Services, Trust and Wealth Management, Investments, Financial Planning, Insurance, Specialty Finance, Agricultural Services",Public Company,United States,South Bend,EST
 1020,AMETEK,6600,21500,Electrical & Electronic Manufacturing,,Public Company,United States,Berwyn,EST

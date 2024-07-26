@@ -25,4 +25,3 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 
 
 --@block
-DROP TABLE test;

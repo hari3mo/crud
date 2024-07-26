@@ -5,19 +5,11 @@
 {% block content %}
 
 
-<div class="accountsMenu"> 
-    <a href="#New Account" class="Accounts-item-link">
-        <div class="Accounts-item">New Account</div>
-    </a>
-    <a href="#Account List" class="Accounts-item-link">
-        <div class="Accounts-item">Account List</div>
-    </a>
-    <a href="#Account Import" class="Accounts-item-link">
-        <div class="Accounts-item">Account Import</div>
-    </a>
-    <a href="#Account Scoring" class="Accounts-item-link">
-        <div class="Accounts-item">Account Scoring</div>
-    </a>
+<div class="accountsMenu">   <!--Accounts menu-->
+    <a class="btn btn-primary btn-lg" href="#" role="button">New Account</a>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('account_list')}}" role="button">Account List</a>    
+    <a class="btn btn-primary btn-lg" href="#" role="button">Account Import</a>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Account Scoring</a>
 </div>
 
  {% endblock %}

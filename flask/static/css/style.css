@@ -110,7 +110,7 @@ body{
 }
 
 .table {
-  max-width: 1000px;
+  width: 90%;
   margin: auto; 
   
 }
