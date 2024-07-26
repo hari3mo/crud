@@ -1,14 +1,16 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, EmailField
+from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField
 from wtforms.validators import DataRequired, Email
 import datetime
 from datetime import timedelta
 import mysql.connector
 
+from sqlalchemy import create_engine, desc
 
-
+import pandas as pd
+import numpy as np
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'key'
@@ -16,6 +18,7 @@ app.config['SECRET_KEY'] = 'key'
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' 
 
+engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
 
 # Sets session timeout duration
 app.permanent_session_lifetime = timedelta(minutes=30) 
@@ -23,10 +26,9 @@ app.permanent_session_lifetime = timedelta(minutes=30)
 
 db = SQLAlchemy(app)
 
-
 class Accounts(db.Model):
     __tablename__ = 'Accounts'
-    AccountID = db.Column(db.Text, primary_key=True)
+    AccountID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     CompanyName = db.Column(db.String(100))
     CompanyRevenue = db.Column(db.Integer)
     EmployeeHeadCount = db.Column(db.Integer)
@@ -36,22 +38,9 @@ class Accounts(db.Model):
     Country = db.Column(db.String(50))
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
-    
 
 
-
-
-    
-@app.route('/account_list/')
-def account_list():
-    accounts = Accounts.query
-    return render_template('account_list.html', accounts=accounts)
-
-@app.route('/new_account/')
-def new_account():
-    return render_template('new_account.html')
-
-# Create Model
+# Create model
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(200), nullable=False)
@@ -63,14 +52,107 @@ class Test(db.Model):
     def __repr__(self):
         return '<Name %r>' % self.name
     
-# Form Class
+    
+# Form class
 class ImportForm(FlaskForm):
     name = StringField('UserID:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
     email = EmailField('Email:', validators=[DataRequired(), Email()])
     submit = SubmitField('Submit')
+    
+    
+# Account form
+class AccountForm(FlaskForm):
+    company_name = StringField('Name:*', validators=[DataRequired()])
+    company_revenue = IntegerField('Revenue:*', validators=[DataRequired()])
+    employee_head_count = IntegerField('Head Count:*', validators=[DataRequired()])
+    company_specialties = StringField('Company Specialties:')
+    company_type = StringField('Company Type:')
+    country = StringField('Country:*', validators=[DataRequired()])
+    city = StringField('City:')
+    timezone = StringField('Timezone:')
+    submit = SubmitField('Submit')
+    
+# class FileForm(FlaskForm):
+#     upload = FileField('File')  
+#     submit = SubmitField('Submit')
+    
+    
+@app.route('/account_import/', methods=['GET', 'POST'])
+def account_import():
+    flash('Accounts import successful')
+    return render_template('account_import.html')
+    
 
-# Test Form
+ 
+    
+@app.route('/account_list/')
+def account_list():
+    accounts = Accounts.query.order_by(desc(Accounts.AccountID))
+    return render_template('account_list.html', accounts=accounts)
+
+@app.route('/new_account/', methods=['GET', 'POST'])
+def new_account():
+    company_name = None;
+    company_revenue = None
+    employee_head_count = None
+    company_specialties = None
+    company_type = None
+    country = None
+    city = None
+    timezone = None
+    submit = None
+
+    
+    ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+    next_id = ids.iloc[-1, 0] + 10
+    
+    form = AccountForm()
+    if form.validate_on_submit():
+        account = Accounts(AccountID=next_id, CompanyName=form.company_name.data, CompanyRevenue=form.company_revenue.data, 
+                           EmployeeHeadCount=form.employee_head_count.data, CompanySpecialties=form.company_specialties.data,
+                           CompanyType = form.company_type.data, Country=form.country.data, City=form.city.data, Timezone=form.timezone.data)
+        db.session.add(account)
+        db.session.commit()
+        
+        
+        company_name = request.form['company_name']
+        company_revenue = request.form['company_revenue']
+        employee_head_count = request.form['employee_head_count']
+        company_specialties = request.form['company_specialties']
+        company_type = request.form['company_type']
+        country = request.form['country']
+        city = request.form['city']
+        timezone = request.form['timezone']
+        
+        
+        form.company_name = ''
+        
+        flash('New account added successfully.')
+        
+    
+    return render_template('new_account.html', form=form, company_name=company_name, company_revenue=company_revenue)
+
+
+
+
+
+    
+########################################################################################################################################################################################
+
+# Invalid URL
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+# # Internal Server Error
+# @app.errorhandler(500)
+# def server_error(e):
+#     return render_template('404.html'), 500
+        
+
+# Test form
 @app.route('/test/', methods=['GET', 'POST'])
 def test():
     name = None
@@ -114,19 +196,7 @@ def update(id):
     else:
         return render_template('update.html', form=form, user_to_update=user_to_update)
     
-# Invalid URL
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
 
-
-# # Internal Server Error
-# @app.errorhandler(500)
-# def server_error(e):
-#     return render_template('404.html'), 500
-        
-    
-########################################################################################################################################################################################
 
 
 @app.route('/')

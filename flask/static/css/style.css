@@ -62,7 +62,7 @@ body{
   justify-content: center;
   background-color: white;
   border: 2px solid black;
-  border-radius: 15px; /* new update 7/19; made round edges */
+  border-radius: 5px; /* new update 7/19; made round edges */
   padding: 0;
   margin: 1px; /* added due to bootstrap formatting */
 }
@@ -110,7 +110,8 @@ body{
 }
 
 .table {
-  width: 90%;
-  margin: auto; 
+  width: 95%;
+  margin: auto;
+  border: 2px solid black; 
   
 }

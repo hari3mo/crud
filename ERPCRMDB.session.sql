@@ -25,3 +25,8 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 
 
 --@block
+--ALTER TABLE Accounts AUTO_INCREMENT=1000;
+--ALTER TABLE Leads AUTO_INCREMENT=100000;
+
+@block
+DELETE FROM Accounts WHERE (AccountID=7971);

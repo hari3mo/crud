@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}New Title{% endblock %}
+
+{% block content %}
+
+<!-- Flashed message -->
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+{% if company_name %}
+
+{% else %}
+<br>
+<u><h2 class="text-center"><strong>New Account</strong></h2></u>
+<br>
+<div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.company_name.label(class="form-label") }}
+        <p>{{ form.company_name(class="form-control") }}</p>
+
+        {{ form.company_revenue.label(class="form-label" )}}
+        <p>{{ form.company_revenue(class="form-control") }}</p>
+        
+        {{ form.employee_head_count.label(class="form-label" )}}
+        <p>{{ form.employee_head_count(class="form-control") }}</p>
+
+        {{ form.company_specialties.label(class="form-label" )}}
+        <p>{{ form.company_specialties(class="form-control") }}</p>
+
+        {{ form.company_type.label(class="form-label" )}}
+        <p>{{ form.company_type(class="form-control") }}</p>
+
+        {{ form.country.label(class="form-label" )}}
+        <p>{{ form.country(class="form-control") }}</p>
+
+        {{ form.city.label(class="form-label" )}}
+        <p>{{ form.city(class="form-control") }}</p>
+
+        
+
+        {{ form.timezone.label(class="form-label" )}}
+        <p>{{ form.timezone(class="form-control") }}</p>
+
+
+
+
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+
+<br/>
+
+
+
+
+{% endif %}
+
+{% endblock %}

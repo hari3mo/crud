@@ -5,9 +5,9 @@
 {% block content %}
 
 <div class="accountsMenu">   <!--Accounts menu-->
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('new_account')}}" role="button">New Account</a>
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('account_list')}}" role="button">Account List</a>    
-    <a class="btn btn-secondary btn-lg" href="#" role="button">Account Import</a>
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('new_account') }}" role="button">New Account</a>
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('account_list') }}" role="button">Account List</a>    
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('account_import') }}" role="button">Account Import</a>
     <a class="btn btn-secondary btn-lg" href="#" role="button">Account Scoring</a>
 </div>
 
