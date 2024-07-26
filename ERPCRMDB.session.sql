@@ -29,6 +29,7 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 
 --@block
 
+
 --@block
 DELETE FROM Accounts
 

@@ -17,7 +17,10 @@
 
     <form method="POST", enctype="multipart/form-data">
         {{ form.hidden_tag() }}
-        {{ form.file() }}
+
+
+        <p>{{ form.file(class="form-control") }}</p>
+        
         {{ form.submit(class="btn btn-primary") }}
 
 

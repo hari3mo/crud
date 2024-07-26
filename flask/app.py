@@ -11,7 +11,7 @@ from datetime import timedelta
 import mysql.connector
 import os
 
-from sqlalchemy import create_engine, desc, insert
+from sqlalchemy import create_engine, desc, insert, text
 
 import pandas as pd
 import numpy as np
@@ -39,6 +39,13 @@ mydb = mysql.connector.connect(
     database = 'erpcrmdb'
 )
 
+
+
+
+
+
+    
+########################################################################################################################################################################################
 
 # Accounts model
 class Accounts(db.Model):
@@ -102,8 +109,8 @@ class FileForm(FlaskForm):
 
 
 # Import account
-@app.route('/account_import/', methods=['GET', 'POST'])
-def account_import():
+@app.route('/accounts_import/', methods=['GET', 'POST'])
+def accounts_import():
     form = FileForm()
     data = None
     filename = None
@@ -114,7 +121,7 @@ def account_import():
         
         if filename.split('.')[-1] != 'csv':
             flash('Import failed: Please upload a .CSV file.')
-            return redirect(url_for('account_import'))
+            return redirect(url_for('accounts_import'))
         
         while os.path.exists(filepath):
             filename = filename.split('.')[0] + ' copy.csv'
@@ -146,9 +153,15 @@ def account_import():
         flash('Import successful.')
         return redirect(url_for('accounts_list')) 
     
-    return render_template('account_import.html', form=form, data=data)
+    return render_template('accounts_import.html', form=form, data=data)
     
-
+@app.route('/clear/')
+def clear():
+    Accounts.query.delete()
+    db.session.commit()
+    
+    flash('Accounts list cleared.')
+    return redirect(url_for('accounts_list'))
 
 
 
@@ -201,7 +214,6 @@ def update(id):
 @app.route('/accounts/<int:id>')
 def delete(id):
     account = Accounts.query.get_or_404(id)
-    form = AccountForm()
     try:
         db.session.delete(account)
         db.session.commit()
@@ -215,7 +227,10 @@ def delete(id):
  
 
     
- 
+# Export records
+@app.route('/accounts_list/export/')
+def accounts_export():
+     ...
 
 
 
@@ -256,15 +271,7 @@ def new_account():
         country = request.form['country']
         city = request.form['city']
         timezone = request.form['timezone']
-        
-        form.company_name.data = ''
-        form.company_revenue.data = ''
-        form.employee_head_count.data = ''
-        form.company_specialties.data = ''
-        form.company_type.data = ''
-        form.country.data = ''
-        form.city.data = ''
-        form.timezone.data = ''
+
         
         flash('New account added successfully.')
         return redirect(url_for('accounts_list'))
@@ -275,8 +282,8 @@ def new_account():
 
 
 
-    
-########################################################################################################################################################################################
+
+
 
 # Invalid URL
 @app.errorhandler(404)
