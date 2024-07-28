@@ -116,7 +116,6 @@ class FileForm(FlaskForm):
 @app.route('/accounts_import/', methods=['GET', 'POST'])
 def accounts_import():
     form = FileForm()
-    data = None
     filename = None
     if form.validate_on_submit():        
         file = form.file.data
@@ -125,7 +124,7 @@ def accounts_import():
         
         try:
             if filename.split('.')[-1] != 'csv':
-                flash('Import failed: Please upload a .CSV file.')
+                flash('Import failed. Please upload a .CSV file.')
                 return redirect(url_for('accounts_import'))
             
             while os.path.exists(filepath):
@@ -156,8 +155,9 @@ def accounts_import():
             return redirect(url_for('accounts_list'))    
                 
         except:
-            flash('Import failed.')
-            return redirect(url_for('account_import'))
+            flash('Import failed. Please ensure .CSV is formatted as follows: CompanyName,CompanyRevenue,EmployeeHeadCount,CompanyIndustry,CompanySpecialties,CompanyType,Country,City,Timezone')
+            return redirect(url_for('accounts_import'))
+        
                    
        
     return render_template('accounts_import.html', form=form)
