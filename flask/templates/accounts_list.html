@@ -12,7 +12,8 @@
 {% endfor %}
 <a class="btn btn-secondary btn-lg" href="{{ url_for('new_account') }}" role="button">New Account</a>
 <a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_import') }}" role="button">Account Import</a>
-<a class="btn btn-secondary btn-lg btn-outline-primary" href="{{ url_for('accounts_list') }}" role="button">Refresh</a>   
+<a class="btn btn-primary btn-lg" href="{{ url_for('accounts_list') }}" role="button">Refresh</a>   
+<a class="btn btn-danger btn-lg" href="{{ url_for('clear')}}" role="button">Clear List</a>
 
     <h1 class="text-center"><strong>Accounts List</strong></h1>
 <br>

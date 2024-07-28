@@ -46,10 +46,12 @@
             {{ form.timezone.label(class="form-label" )}}
             <p>{{ form.timezone(class="form-control", value=account.Timezone) }}</p>
     
+            <br>
+            {{ form.submit(class="btn btn-primary", value="Modify") }}
 
-            {{ form.submit(class="btn btn-primary") }}
+            <a href="{{ url_for('accounts_list')}}" class = "btn btn-secondary" style="float: center;">Discard</a>
 
-            <a href="{{ url_for('delete', id=id)}}" class="btn btn-secondary">Delete</a>
+            <a href="{{ url_for('delete', id=id)}}"  class="btn btn-danger text-center">Delete</a>
             </form>
 
         </form>

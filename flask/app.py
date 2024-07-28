@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField
 from flask_wtf.file import FileRequired
 from werkzeug.utils import secure_filename
+from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms.validators import DataRequired, Email
 import datetime
 from datetime import timedelta
@@ -108,6 +109,9 @@ class FileForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
+# Error string: {} import failed. Please ensure file is in .CSV format with and structured as followed: col_names
+
+
 # Import account
 @app.route('/accounts_import/', methods=['GET', 'POST'])
 def accounts_import():
@@ -140,7 +144,6 @@ def accounts_import():
             else:
                 id = ids['AccountID'].max() + 10
             
-            
             for index, row in df.iterrows():
                 dct = row.to_dict()
                 dct.update({'AccountID': id})
@@ -156,11 +159,8 @@ def accounts_import():
             flash('Import failed.')
             return redirect(url_for('account_import'))
                    
-        
-        flash('Import successful.')
-        return redirect(url_for('accounts_list')) 
-    
-    return render_template('accounts_import.html', form=form, data=data)
+       
+    return render_template('accounts_import.html', form=form)
     
 @app.route('/clear/')
 def clear():
