@@ -155,10 +155,11 @@ def accounts_import():
             return redirect(url_for('accounts_list'))    
                 
         except:
+            db.session.rollback()
             flash('Import failed. Please ensure .csv file is ordered as \
                 follows: Company Name, Company Revenue, Employee Head Count, \
                 Company Industry, Company Specialties, Company Type, Country, \
-                City, Timezone.') 
+                City, Timezone.')
             return redirect(url_for('accounts_import'))
         
                    
@@ -261,6 +262,8 @@ def new_account():
     city = None
     timezone = None
     submit = None    
+
+    db.session.rollback()
     
     ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
     
@@ -290,7 +293,7 @@ def new_account():
         flash('New account added successfully.')
         return redirect(url_for('accounts_list'))
            
-    return render_template('new_account.html', form=form, company_name=company_name, company_revenue=company_revenue)
+    return render_template('new_account.html', form=form, company_name=company_name)
 
 
 
