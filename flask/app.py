@@ -112,7 +112,7 @@ class FileForm(FlaskForm):
 # Error string: {} import failed. Please ensure file is in .CSV format with and structured as followed: col_names
 
 
-# Import account
+# Accounts import
 @app.route('/accounts_import/', methods=['GET', 'POST'])
 def accounts_import():
     form = FileForm()
@@ -124,7 +124,7 @@ def accounts_import():
         
         try:
             if filename.split('.')[-1] != 'csv':
-                flash('Import failed. Please upload a .CSV file.')
+                flash('Import failed. Please upload a .csv file.')
                 return redirect(url_for('accounts_import'))
             
             while os.path.exists(filepath):
@@ -155,7 +155,10 @@ def accounts_import():
             return redirect(url_for('accounts_list'))    
                 
         except:
-            flash('Import failed. Please ensure .CSV is formatted as follows: CompanyName,CompanyRevenue,EmployeeHeadCount,CompanyIndustry,CompanySpecialties,CompanyType,Country,City,Timezone')
+            flash('Import failed. Please ensure .csv file is ordered as \
+                follows: Company Name, Company Revenue, Employee Head Count, \
+                Company Industry, Company Specialties, Company Type, Country, \
+                City, Timezone.') 
             return redirect(url_for('accounts_import'))
         
                    
@@ -177,8 +180,12 @@ def clear():
 # Accounts list    
 @app.route('/accounts_list/')
 def accounts_list():
-    accounts = Accounts.query.order_by(desc(Accounts.AccountID))
-    return render_template('accounts_list.html', accounts=accounts)
+    try:
+        accounts = Accounts.query.order_by(desc(Accounts.AccountID))
+        return render_template('accounts_list.html', accounts=accounts)
+    except:
+        flash('Error loading database.')
+        return redirect(url_for('accounts'))
 
 
 # Update record
