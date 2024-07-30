@@ -56,7 +56,32 @@ class Accounts(db.Model):
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
     
-    # Test = db.Column(db.String(10))
+    def __repr__(self):
+        return '<Name %r>' % self.name
+    
+# Users model (for login)
+class Users(db.Model):
+    __tablename__ = 'Users'
+    UserID = db.Column(db.String(50), primary_key=True)
+    PasswordHash = db.Column(db.String(128), nullable=False)
+    ClientID = db.Column(db.String(20), nullable=False)
+    Subscriber = db.Column(db.String(50), nullable=False)
+    ValidFrom = db.Column(db.Date, nullable=False) # Add option on form to set current date as ValidFrom date
+    ValidTo = db.Column(db.Date, nullable=False)
+    
+    @property
+    def password(self):
+        raise AttributeError('Password is not a readable attribute.')
+    
+    @password.setter
+    def password(self, password):
+        self.PasswordHash = generate_password_hash(password)
+        
+    def verify_password(self, password):
+        return check_password_hash(self.PasswordHash, password)
+    
+    def __repr__(self):
+        return '<Name %r>' % self.name
 
 
 # Test model
@@ -101,9 +126,6 @@ class DeleteForm(FlaskForm):
 class FileForm(FlaskForm):
     file = FileField('File', validators=[FileRequired()])
     submit = SubmitField('Submit')
-
-
-# Error string: {} import failed. Please ensure file is in .CSV format with and structured as followed: col_names
 
 
 # Accounts import
@@ -268,9 +290,15 @@ def new_account():
     
     form = AccountForm()
     if form.validate_on_submit():
-        account = Accounts(AccountID=next_id, CompanyName=form.company_name.data, CompanyRevenue=form.company_revenue.data, 
-                           EmployeeHeadCount=form.employee_head_count.data, CompanySpecialties=form.company_specialties.data, CompanyIndustry=form.company_industry.data,
-                           CompanyType = form.company_type.data, Country=form.country.data, City=form.city.data, Timezone=form.timezone.data)
+        account = Accounts(AccountID=next_id, 
+                           CompanyName=form.company_name.data, 
+                           CompanyRevenue=form.company_revenue.data, 
+                           EmployeeHeadCount=form.employee_head_count.data, 
+                           CompanySpecialties=form.company_specialties.data, 
+                           CompanyIndustry=form.company_industry.data,
+                           CompanyType = form.company_type.data, 
+                           Country=form.country.data, City=form.city.data, 
+                           Timezone=form.timezone.data)
         db.session.add(account)
         db.session.commit()
         
@@ -320,7 +348,8 @@ def test():
     if form.validate_on_submit():
         user = Test.query.filter_by(email=form.email.data).first()
         if user is None:     
-            user = Test(name=form.name.data, email=form.email.data, password=form.password.data)
+            user = Test(name=form.name.data, email=form.email.data, 
+                        password=form.password.data)
             db.session.add(user)
             db.session.commit()
             
@@ -332,7 +361,8 @@ def test():
         form.password.data = ''
         flash('User added successfully.')
     users = Test.query.order_by(Test.date_added)
-    return render_template('test.html', form=form, name=name, password=password, email=email, users=users)
+    return render_template('test.html', form=form, name=name, 
+                           password=password, email=email, users=users)
 
 
 
