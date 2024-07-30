@@ -1,6 +1,8 @@
 --@block
 ALTER TABLE Accounts
-ADD PRIMARY KEY (AccountID)
+ADD PRIMARY KEY (AccountID),
+MODIFY AccountID INT AUTO_INCREMENT,
+AUTO_INCREMENT = 10000; --Fix in code
 
 --@block
 ALTER TABLE Leads
