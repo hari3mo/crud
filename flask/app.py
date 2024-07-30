@@ -56,14 +56,11 @@ class Accounts(db.Model):
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
     
-    def __repr__(self):
-        return '<Name %r>' % self.name
-    
 # Users model (for login)
 class Users(db.Model):
     __tablename__ = 'Users'
     UserID = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    Username = db.Column(db.String(50), nullable=False)
+    Username = db.Column(db.String(50), unique=True, nullable=False)
     PasswordHash = db.Column(db.String(128), nullable=False)
     ClientID = db.Column(db.String(20), nullable=False)
     ValidFrom = db.Column(db.Date, nullable=False) # Add option on form to set current date as ValidFrom date
@@ -82,8 +79,6 @@ class Users(db.Model):
     def verify_password(self, password):
         return check_password_hash(self.PasswordHash, password)
     
-    def __repr__(self):
-        return '<Name %r>' % self.name
 
     
     
@@ -104,17 +99,22 @@ class AccountForm(FlaskForm):
     
 # User form
 class UserForm(FlaskForm):
-    username = StringField('User:', validators=[DataRequired()])
+    username = EmailField('User:', validators=[DataRequired()])
     client_id = StringField('ClientID:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
-
+# File form
 class FileForm(FlaskForm):
     file = FileField('File', validators=[FileRequired()])
     submit = SubmitField('Submit')
  
+# Password form
+class PasswordForm(FlaskForm):
+    hashed_password = StringField('Hashed Password:', validators=[DataRequired()])
+    password = StringField('Password:', validators=[DataRequired()])
+    submit = SubmitField('Submit')
     
     
     
@@ -126,7 +126,7 @@ def new_user():
     form = UserForm()
     if form.validate_on_submit():
         # user = Users.query.filter_by(UserID=form.user.data).first()
-        # if user is None:
+        # if user is None: # User does not exist
         # Hash password
         hashed_password = generate_password_hash(form.password.data, 'scrypt')
         new_user = Users(Username=form.username.data,
@@ -145,7 +145,24 @@ def new_user():
         #     return redirect(url_for('new_user'))
     return render_template('new_user.html', form=form)
 
+@app.route('/password/', methods=['GET', 'POST'])
+def password():
+    hashed_password = None
+    password = None
+    passed = None
+    submit = False
+    form = PasswordForm()
+    
+    if form.validate_on_submit():
+        hashed_password = form.hashed_password.data
+        password = form.password.data
+        passed = check_password_hash(hashed_password, password)
+        submit = True
 
+        
+    return render_template('password.html', form=form, passed=passed,
+                           password=password, hashed_password=hashed_password,
+                           submit=submit)
 
 # Test add
 # @app.route('/test/', methods=['GET', 'POST'])

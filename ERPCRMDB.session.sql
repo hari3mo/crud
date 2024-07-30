@@ -1,6 +1,8 @@
 --@block
 ALTER TABLE Accounts
 ADD PRIMARY KEY (AccountID),
+
+
 MODIFY AccountID INT AUTO_INCREMENT,
 AUTO_INCREMENT = 10000; --Fix in code
 
@@ -28,7 +30,8 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 --@block
 ALTER TABLE Users
 ADD PRIMARY KEY (UserID),
-MODIFY UserID INT AUTO_INCREMENT;
+MODIFY UserID INT AUTO_INCREMENT,
+ADD UNIQUE (Username);
 
 --@block
 DELETE FROM Users
