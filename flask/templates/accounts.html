@@ -14,13 +14,11 @@
 
 <div class="accountsMenu">   <!--Accounts menu-->
 
+<a class="btn btn-secondary btn-lg" href="{{ url_for('new_account') }}" role="button">New Account</a>
+<a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_import') }}" role="button">Accounts Import</a>
+<a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_list') }}" role="button">Accounts List</a>    
+<a class="btn btn-secondary btn-lg" href="#" role="button">Account Scoring</a>
 
-    
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('new_account') }}" role="button">New Account</a>
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_import') }}" role="button">Accounts Import</a>
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_list') }}" role="button">Accounts List</a>    
-    <a class="btn btn-secondary btn-lg" href="#" role="button">Account Scoring</a>
-    
 </div>
 
  {% endblock %}

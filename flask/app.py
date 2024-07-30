@@ -2,11 +2,11 @@ from flask import Flask, render_template, redirect, url_for, request, session, f
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from flask_migrate import Migrate
-from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField
+from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField, BooleanField, ValidationError
 from flask_wtf.file import FileRequired
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import DataRequired, Email, EqualTo, Length
 import datetime
 from datetime import timedelta
 import mysql.connector
@@ -62,12 +62,14 @@ class Accounts(db.Model):
 # Users model (for login)
 class Users(db.Model):
     __tablename__ = 'Users'
-    UserID = db.Column(db.String(50), primary_key=True)
+    UserID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    Username = db.Column(db.String(50), nullable=False)
     PasswordHash = db.Column(db.String(128), nullable=False)
     ClientID = db.Column(db.String(20), nullable=False)
-    Subscriber = db.Column(db.String(50), nullable=False)
     ValidFrom = db.Column(db.Date, nullable=False) # Add option on form to set current date as ValidFrom date
     ValidTo = db.Column(db.Date, nullable=False)
+    
+    # date_added = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     
     @property
     def password(self):
@@ -83,26 +85,6 @@ class Users(db.Model):
     def __repr__(self):
         return '<Name %r>' % self.name
 
-
-# Test model
-class Test(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(200), nullable=False)
-    email = db.Column(db.String(100), nullable=False, unique=True)
-    password = db.Column(db.String(100), nullable=False)
-    date_added = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
-    
-    # Create a string
-    def __repr__(self):
-        return '<Name %r>' % self.name
-    
-    
-# Test form class
-class ImportForm(FlaskForm):
-    name = StringField('UserID:', validators=[DataRequired()])
-    password = PasswordField('Password:', validators=[DataRequired()])
-    email = EmailField('Email:', validators=[DataRequired(), Email()])
-    submit = SubmitField('Submit')
     
     
 # Account form
@@ -118,14 +100,80 @@ class AccountForm(FlaskForm):
     timezone = StringField('Timezone:')
     submit = SubmitField('Submit')
     
-# Delete form
-class DeleteForm(FlaskForm):
-    submit = SubmitField('Delete')
+    # email = EmailField('Email:', validators=[DataRequired(), Email()])
+    
+# User form
+class UserForm(FlaskForm):
+    username = StringField('User:', validators=[DataRequired()])
+    client_id = StringField('ClientID:', validators=[DataRequired()])
+    password = PasswordField('Password:', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
+    submit = SubmitField('Submit')
     
 
 class FileForm(FlaskForm):
     file = FileField('File', validators=[FileRequired()])
     submit = SubmitField('Submit')
+ 
+    
+    
+    
+##############################################################################
+    
+@app.route('/new_user/', methods=['GET', 'POST'])
+def new_user():
+    user = None
+    form = UserForm()
+    if form.validate_on_submit():
+        # user = Users.query.filter_by(UserID=form.user.data).first()
+        # if user is None:
+        # Hash password
+        hashed_password = generate_password_hash(form.password.data, 'scrypt')
+        new_user = Users(Username=form.username.data,
+                        PasswordHash=hashed_password,
+                        ClientID=form.client_id.data, 
+                        ValidFrom=datetime.datetime.now(datetime.timezone.utc),
+                        ValidTo=datetime.datetime.now(datetime.timezone.utc))
+            
+        db.session.add(new_user)
+        db.session.commit()
+        flash('User added successfully.')
+        return redirect(url_for('new_user'))
+            
+        # else:
+        #     flash('User already exists.')
+        #     return redirect(url_for('new_user'))
+    return render_template('new_user.html', form=form)
+
+
+
+# Test add
+# @app.route('/test/', methods=['GET', 'POST'])
+# def test():
+#     name = None
+#     password = None
+#     email = None
+#     form = ImportForm()
+#     # Validate form
+#     if form.validate_on_submit():
+#         user = Test.query.filter_by(email=form.email.data).first()
+#         if user is None:     
+#             user = Test(name=form.name.data, email=form.email.data, 
+#                         password=form.password.data)
+#             db.session.add(user)
+#             db.session.commit()
+            
+#         name = form.name.data
+#         password = form.password.data
+#         email = form.email.data
+#         form.name.data = ''
+#         form.email.data = ''
+#         form.password.data = ''
+#         flash('User added successfully.')
+#     users = Test.query.order_by(Test.date_added)
+#     return render_template('test.html', form=form, name=name, 
+#                            password=password, email=email, users=users)
+
 
 
 # Accounts import
@@ -178,8 +226,6 @@ def accounts_import():
                 City, Timezone.')
             return redirect(url_for('accounts_import'))
         
-                   
-       
     return render_template('accounts_import.html', form=form)
     
 @app.route('/clear/')
@@ -189,10 +235,6 @@ def clear():
     
     flash('Accounts list cleared.')
     return redirect(url_for('accounts_list'))
-
-
-
-
 
 # Accounts list    
 @app.route('/accounts_list/')
@@ -265,7 +307,7 @@ def accounts_export():
 
 
 
-# Add record
+# Add account
 @app.route('/account_new/', methods=['GET', 'POST'])
 def new_account():
     company_name = None
@@ -334,35 +376,10 @@ def page_not_found(e):
 # # Internal Server Error
 # @app.errorhandler(500)
 # def server_error(e):
-#     return render_template('404.html'), 500
+#     return render_template('.html'), 500
         
 
-# Test form
-@app.route('/test/', methods=['GET', 'POST'])
-def test():
-    name = None
-    password = None
-    email = None
-    form = ImportForm()
-    # Validate form
-    if form.validate_on_submit():
-        user = Test.query.filter_by(email=form.email.data).first()
-        if user is None:     
-            user = Test(name=form.name.data, email=form.email.data, 
-                        password=form.password.data)
-            db.session.add(user)
-            db.session.commit()
-            
-        name = form.name.data
-        password = form.password.data
-        email = form.email.data
-        form.name.data = ''
-        form.email.data = ''
-        form.password.data = ''
-        flash('User added successfully.')
-    users = Test.query.order_by(Test.date_added)
-    return render_template('test.html', form=form, name=name, 
-                           password=password, email=email, users=users)
+
 
 
 

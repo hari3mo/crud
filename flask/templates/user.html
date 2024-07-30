@@ -2,11 +2,15 @@
 {% block title %}User{% endblock %}
 {% block content %}
 
-<div class="userManagementMenu">  <!-- menu-->
-    <div class="UserManagement-item"> <a href="#">User Management</a></div>    
-    <div class="UserManagement-item"> <a href="#">Role Management</a></div>  
-    <div class="UserManagement-item"> <a href="#">Custom Fields</a></div>
-    <div class="UserManagement-item"> <a href="#">System Configuration</a></div>
+
+
+<div class="userMenu">
+    
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('new_user') }}" role="button">User Management</a> <!-- Change link -->
+    <a class="btn btn-secondary btn-lg" href="#" role="button">Role Management</a>
+    <a class="btn btn-secondary btn-lg" href="" role="button">Custom Fields</a>    
+    <a class="btn btn-secondary btn-lg" href="#" role="button">System Configuration</a>
+    
 </div>
 <br/>
 <p>User: {{user}}</p>
