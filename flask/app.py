@@ -289,6 +289,7 @@ def new_account():
         city = request.form['city']
         timezone = request.form['timezone']
 
+
         
         flash('New account added successfully.')
         return redirect(url_for('accounts_list'))
