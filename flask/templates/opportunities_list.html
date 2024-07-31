@@ -37,15 +37,17 @@
     <tbody>
         {% for opportunity in opportunities %}
         <tr>
+            
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
-                href="{{ url_for('update_account', id=account.AccountID) }}">{{ account.CompanyName }}</th>
-            <td>{{ account.EmployeeHeadCount }}</td>
-            <td>{{ account.CompanyIndustry }}</td>
-            <td>{{ account.CompanySpecialties }}</td>
-            <td>{{ account.CompanyType }}</td>
-            <td>{{ account.Country }}</td>
-            <td>{{ account.City }}</td>
-            <td>{{ account.Timezone }}</td>
+                href="#"></th>
+            <td></td>
+            <td></td>
+            <td>{{ opportunity.Opportunity }}</td>
+            
+            <td>{{ opportunity.Value }}</td>
+            <td>{{ opportunity.Stage }}</td>
+            <td>{{ opportunity.CreationDate }}</td>
+            <td></td>
         </tr>
         {% endfor %}
 </table>

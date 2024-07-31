@@ -20,33 +20,14 @@
     <form method="POST">
         {{ form.hidden_tag() }}
 
-        {{ form.company_name.label(class="form-label") }}
-        <p>{{ form.company_name(class="form-control") }}</p>
+        {{ form.opportunity.label(class="form-label") }}
+        <p>{{ form.opportunity(class="form-control") }}</p>
 
-        {{ form.company_revenue.label(class="form-label" )}}
-        <p>{{ form.company_revenue(class="form-control") }}</p>
-        
-        {{ form.employee_head_count.label(class="form-label" )}}
-        <p>{{ form.employee_head_count(class="form-control") }}</p>
+        {{ form.value.label(class="form-label") }}
+        <p>{{ form.value(class="form-control") }}</p>
 
-        {{ form.company_specialties.label(class="form-label" )}}
-        <p>{{ form.company_specialties(class="form-control") }}</p>
-
-        {{ form.company_industry.label(class="form-label" )}}
-        <p>{{ form.company_industry(class="form-control") }}</p>
-
-
-        {{ form.company_type.label(class="form-label" )}}
-        <p>{{ form.company_type(class="form-control") }}</p>
-
-        {{ form.country.label(class="form-label" )}}
-        <p>{{ form.country(class="form-control") }}</p>
-
-        {{ form.city.label(class="form-label" )}}
-        <p>{{ form.city(class="form-control") }}</p>
-
-        {{ form.timezone.label(class="form-label" )}}
-        <p>{{ form.timezone(class="form-control") }}</p>
+        {{ form.stage.label(class="form-label") }}
+        <p>{{ form.stage(class="form-control") }}</p>
 
         {{ form.submit(class="btn btn-primary") }}
 

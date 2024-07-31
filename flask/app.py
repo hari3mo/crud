@@ -135,7 +135,10 @@ class UserForm(FlaskForm):
     
 # Opportunities form
 class OpportunityForm(FlaskForm):
-    ...
+    opportunity = StringField('Opportunity:', validators=[DataRequired()])
+    value = StringField('Value:', validators=[DataRequired()])
+    stage = StringField('Stage:', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 # File form
 class FileForm(FlaskForm):
@@ -153,13 +156,15 @@ class PasswordForm(FlaskForm):
 ##############################################################################
 
 # New opportunity
-@app.route('/new_opportunity/')
+@app.route('/new_opportunity/', methods=['GET', 'POST'])
 def new_opportunity():
     form = OpportunityForm()
     
     if form.validate_on_submit():
-        opportunity = Opportunities()
-        db.session.add(account)
+        opportunity = Opportunities(Opportunity=form.opportunity.data,
+                                    Value=form.value.data,
+                                    Stage=form.stage.data)
+        db.session.add(opportunity)
         db.session.commit()
         
         flash('Opportunity added successfully.')
@@ -171,7 +176,14 @@ def new_opportunity():
 # Opportunities list
 @app.route('/opportunities_list')
 def opportunities_list():
-    return render_template('opportunities_list.html')
+    db.session.rollback()
+    try:
+        opportunities = Opportunities.query.order_by(Opportunities.OpportunityID.desc())
+        return render_template('opportunities_list.html', opportunities=opportunities)
+    except:
+        # flash('Error loading database, please try again.')
+        return redirect(url_for('opportunities_list'))
+
 
 
 # New user

@@ -23,7 +23,7 @@ MODIFY UserID INT AUTO_INCREMENT,
 ADD UNIQUE (Email);
 
 --@block
-DELETE FROM Users
+DELETE FROM Opportunities
 
 --@block
 -- Opportunities --
