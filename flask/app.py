@@ -155,6 +155,17 @@ class PasswordForm(FlaskForm):
     
 ##############################################################################
 
+# Clear opportunities
+@app.route('/clear_opportunities/')
+def clear_opportunities():
+    Opportunities.query.delete()
+    db.session.commit()
+    
+    flash('Opportunities list cleared.')
+    return redirect(url_for('opportunities_list'))
+    
+
+
 # New opportunity
 @app.route('/new_opportunity/', methods=['GET', 'POST'])
 def new_opportunity():
