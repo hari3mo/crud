@@ -12,20 +12,24 @@ from datetime import timedelta
 import mysql.connector
 import os
 
-from sqlalchemy import create_engine, desc, insert, text
+from sqlalchemy import create_engine
 
 import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
+
+# Secret key
 app.config['SECRET_KEY'] = 'key'
 
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' 
 
+# Uploads folder
 app.config['UPLOAD_FOLDER'] = 'static/files'
 
-engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
+# Standard engine
+# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
 
 # Sets session timeout duration
 app.permanent_session_lifetime = timedelta(minutes=30) 
@@ -40,12 +44,14 @@ mydb = mysql.connector.connect(
     database = 'erpcrmdb'
 )
     
-########################################################################################################################################################################################
+##############################################################################
+
+# Models
 
 # Accounts model
 class Accounts(db.Model):
     __tablename__ = 'Accounts'
-    AccountID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    AccountID = db.Column(db.Integer, primary_key=True)
     CompanyName = db.Column(db.String(100), nullable=False)
     CompanyRevenue = db.Column(db.Integer, nullable=False)
     EmployeeHeadCount = db.Column(db.Integer, nullable=False)
@@ -56,17 +62,25 @@ class Accounts(db.Model):
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
     
+# Clients model
+class Clients(db.Model):
+    __tablename__ = 'Clients'
+    ClientID = db.Column(db.Integer, primary_key=True)
+    Subscriber = db.Column(db.String(50), nullable=False, unique=True)
+    License = db.Column(db.String(20), nullable=False, unique=True)
+    ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
+    ValidTo = db.Column(db.Date)
+    
 # Users model (for login)
 class Users(db.Model):
     __tablename__ = 'Users'
     UserID = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    Username = db.Column(db.String(50), unique=True, nullable=False)
+    Email = db.Column(db.String(50), unique=True, nullable=False)
     PasswordHash = db.Column(db.String(128), nullable=False)
-    ClientID = db.Column(db.String(20), nullable=False)
-    ValidFrom = db.Column(db.Date, nullable=False) # Add option on form to set current date as ValidFrom date
-    ValidTo = db.Column(db.Date, nullable=False)
-    
-    # date_added = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
+    License = db.Column(db.String(20), nullable=False)
+    Subscriber = db.Column(db.String(50), nullable=False)
+    ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
+    ValidTo = db.Column(db.Date)
     
     @property
     def password(self):
@@ -77,10 +91,11 @@ class Users(db.Model):
         self.PasswordHash = generate_password_hash(password)
         
     def verify_password(self, password):
-        return check_password_hash(self.PasswordHash, password)
+        return check_password_hash(self.PasswordHash, password)  
     
-
-    
+##############################################################################  
+ 
+# Forms
     
 # Account form
 class AccountForm(FlaskForm):
@@ -96,11 +111,11 @@ class AccountForm(FlaskForm):
     submit = SubmitField('Submit')
     
     # email = EmailField('Email:', validators=[DataRequired(), Email()])
-    
+
 # User form
 class UserForm(FlaskForm):
-    username = EmailField('User:', validators=[DataRequired()])
-    client_id = StringField('ClientID:', validators=[DataRequired()])
+    email = EmailField('Email:', validators=[DataRequired(), Email()])
+    license = StringField('License Key:', validators=[DataRequired()])
     password = PasswordField('Password:', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
     submit = SubmitField('Submit')
@@ -119,30 +134,41 @@ class PasswordForm(FlaskForm):
     
     
 ##############################################################################
-    
+
+# New user
 @app.route('/new_user/', methods=['GET', 'POST'])
 def new_user():
     user = None
+    license = None
     form = UserForm()
+    # Method == Post
     if form.validate_on_submit():
-        # user = Users.query.filter_by(UserID=form.user.data).first()
-        # if user is None: # User does not exist
-        # Hash password
-        hashed_password = generate_password_hash(form.password.data, 'scrypt')
-        new_user = Users(Username=form.username.data,
-                        PasswordHash=hashed_password,
-                        ClientID=form.client_id.data, 
-                        ValidFrom=datetime.datetime.now(datetime.timezone.utc),
-                        ValidTo=datetime.datetime.now(datetime.timezone.utc))
+        user = Users.query.filter_by(Email=form.email.data).first()
+        license = Clients.query.filter_by(License=form.license.data).first()
+        # User does not exist
+        if user is None:
+            # Valid license key 
+            if license:
+                # Hash password
+                hashed_password = generate_password_hash(form.password.data, 'scrypt')
+                new_user = Users(Email=form.email.data,
+                                PasswordHash=hashed_password,
+                                License=form.license.data,
+                                Subscriber=license.Subscriber,
+                                ValidTo='00-00-0000')
+                    
+                db.session.add(new_user)
+                db.session.commit()
+                flash('User added successfully.')
+                return redirect(url_for('new_user'))
+        
+            else:
+                flash('Invalid license key.')
+                return redirect(url_for('new_user'))
             
-        db.session.add(new_user)
-        db.session.commit()
-        flash('User added successfully.')
-        return redirect(url_for('new_user'))
-            
-        # else:
-        #     flash('User already exists.')
-        #     return redirect(url_for('new_user'))
+        else:
+            flash('User already exists.')
+            return redirect(url_for('new_user'))
     return render_template('new_user.html', form=form)
 
 @app.route('/password/', methods=['GET', 'POST'])
@@ -159,7 +185,6 @@ def password():
         passed = check_password_hash(hashed_password, password)
         submit = True
 
-        
     return render_template('password.html', form=form, passed=passed,
                            password=password, hashed_password=hashed_password,
                            submit=submit)
@@ -193,7 +218,7 @@ def password():
 
 
 
-# Accounts import
+# Account import
 @app.route('/accounts_import/', methods=['GET', 'POST'])
 def accounts_import():
     form = FileForm()
@@ -217,12 +242,20 @@ def accounts_import():
             df = pd.read_csv('static/files/{filename}'.format(filename=filename))
             df = df.where(pd.notnull(df), None)
             
-            ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
-
-            if ids['AccountID'].empty:
+            id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
+    
+            if id is None:
                 id = 1000
             else:
-                id = ids['AccountID'].max() + 10
+                id = id.AccountID + 10
+    
+            
+            # ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+
+            # if ids['AccountID'].empty:
+            #     id = 1000
+            # else:
+            #     id = ids['AccountID'].max() + 10
             
             for index, row in df.iterrows():
                 dct = row.to_dict()
@@ -256,12 +289,13 @@ def clear():
 # Accounts list    
 @app.route('/accounts_list/')
 def accounts_list():
+    db.session.rollback()
     try:
-        accounts = Accounts.query.order_by(desc(Accounts.AccountID))
+        accounts = Accounts.query.order_by(Accounts.AccountID.desc())
         return render_template('accounts_list.html', accounts=accounts)
     except:
-        flash('Error loading database.')
-        return redirect(url_for('accounts'))
+        # flash('Error loading database, please try again.')
+        return redirect(url_for('accounts_list'))
 
 
 # Update record
@@ -287,16 +321,7 @@ def update(id):
         except:
             flash('User update failed.')
             return render_template('update.html', form=form, account=account)
-    
-    form.company_name.data = ''
-    form.company_revenue.data = ''
-    form.employee_head_count.data = ''
-    form.company_specialties.data = ''
-    form.company_type.data = ''
-    form.country.data = ''
-    form.city.data = ''
-    form.timezone.data = ''    
-    
+        
     return render_template('update.html', form=form, account=account, id=id)        
             
             
@@ -324,7 +349,7 @@ def accounts_export():
 
 
 
-# Add account
+# New account
 @app.route('/account_new/', methods=['GET', 'POST'])
 def new_account():
     company_name = None
@@ -340,16 +365,23 @@ def new_account():
 
     db.session.rollback()
     
-    ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+    id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
     
-    if ids['AccountID'].empty:
-        next_id = 1000
+    if id is None:
+        id = 1000
     else:
-        next_id = (ids['AccountID'].max()) + 10
+        id = id.AccountID + 10
+    
+    # ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+    
+    # if ids['AccountID'].empty:
+    #     next_id = 1000
+    # else:
+    #     next_id = (ids['AccountID'].max()) + 10
     
     form = AccountForm()
     if form.validate_on_submit():
-        account = Accounts(AccountID=next_id, 
+        account = Accounts(AccountID=id,
                            CompanyName=form.company_name.data, 
                            CompanyRevenue=form.company_revenue.data, 
                            EmployeeHeadCount=form.employee_head_count.data, 
@@ -372,7 +404,7 @@ def new_account():
 
 
         
-        flash('New account added successfully.')
+        flash('Account added successfully.')
         return redirect(url_for('accounts_list'))
            
     return render_template('new_account.html', form=form, company_name=company_name)

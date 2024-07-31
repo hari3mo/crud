@@ -14,19 +14,19 @@
 {% endfor %}
 
 <a class="btn btn-secondary btn-lg" href="{{ url_for('user')}}" role="button">Back</a>
-<h2 class="text-center"><strong>New User</strong></h2>
+<h2 class="text-center"><strong>Signup</strong></h2>
 <br>
 <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
 
     <form method="POST">
         {{ form.hidden_tag() }}
 
-        {{ form.username.label(class="form-label") }}
-        <p>{{ form.username(class="form-control") }}</p>
+        {{ form.email.label(class="form-label") }}
+        <p>{{ form.email(class="form-control") }}</p>
 
-
-        {{ form.client_id.label(class="form-label" )}}
-        <p>{{ form.client_id(class="form-control") }}</p>
+        
+        {{ form.license.label(class="form-label" )}}
+        <p>{{ form.license(class="form-control") }}</p>
 
         {{ form.password.label(class="form-label" )}}
         <p>{{ form.password(class="form-control") }}</p>
