@@ -156,7 +156,17 @@ class PasswordForm(FlaskForm):
 @app.route('/new_opportunity/')
 def new_opportunity():
     form = OpportunityForm()
-    return render_template('new_opportunity.html')
+    
+    if form.validate_on_submit():
+        opportunity = Opportunities()
+        db.session.add(account)
+        db.session.commit()
+        
+        flash('Opportunity added successfully.')
+        return redirect(url_for('opportunities_list'))
+    
+    
+    return render_template('new_opportunity.html', form=form)
 
 # Opportunities list
 @app.route('/opportunities_list')
@@ -411,8 +421,6 @@ def new_account():
                            Timezone=form.timezone.data)
         db.session.add(account)
         db.session.commit()
-        
-
         
         flash('Account added successfully.')
         return redirect(url_for('accounts_list'))
