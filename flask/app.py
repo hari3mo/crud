@@ -71,7 +71,20 @@ class Clients(db.Model):
     ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     ValidTo = db.Column(db.Date)
     
-# Users model (for login)
+# Opportunities model    
+class Opportunities(db.Model):
+    __tablename__ = 'Opportunities'
+    OpportunityID = db.Column(db.Integer, primary_key=True)
+    AccountID = db.Column(db.Integer)
+    LeadID = db.Column(db.Integer)
+    ClientID = db.Column(db.Integer)
+    Opportunity = db.Column(db.Text)
+    Value = db.Column(db.String(255))
+    Stage = db.Column(db.String(100))
+    CreationDate = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
+    CloseDate = db.Column(db.Date)
+
+# Users model
 class Users(db.Model):
     __tablename__ = 'Users'
     UserID = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -120,6 +133,10 @@ class UserForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
+# Opportunities form
+class OpportunityForm(FlaskForm):
+    ...
+
 # File form
 class FileForm(FlaskForm):
     file = FileField('File', validators=[FileRequired()])
@@ -134,6 +151,18 @@ class PasswordForm(FlaskForm):
     
     
 ##############################################################################
+
+# New opportunity
+@app.route('/new_opportunity/')
+def new_opportunity():
+    form = OpportunityForm()
+    return render_template('new_opportunity.html')
+
+# Opportunities list
+@app.route('/opportunities_list')
+def opportunities_list():
+    return render_template('opportunities_list.html')
+
 
 # New user
 @app.route('/new_user/', methods=['GET', 'POST'])
@@ -278,8 +307,8 @@ def accounts_import():
         
     return render_template('accounts_import.html', form=form)
     
-@app.route('/clear/')
-def clear():
+@app.route('/clear_accounts/')
+def clear_accounts():
     Accounts.query.delete()
     db.session.commit()
     
@@ -299,8 +328,8 @@ def accounts_list():
 
 
 # Update record
-@app.route('/update/<int:id>', methods=['GET', 'POST'])
-def update(id):
+@app.route('/update_account/<int:id>', methods=['GET', 'POST'])
+def update_account(id):
     form = AccountForm()
     account = Accounts.query.get_or_404(id)
     if form.validate_on_submit():
@@ -320,14 +349,14 @@ def update(id):
             return redirect(url_for('accounts_list'))
         except:
             flash('User update failed.')
-            return render_template('update.html', form=form, account=account)
+            return render_template('update_account.html', form=form, account=account)
         
-    return render_template('update.html', form=form, account=account, id=id)        
+    return render_template('update_account.html', form=form, account=account, id=id)        
             
             
 # Delete record
-@app.route('/delete/<int:id>')
-def delete(id):
+@app.route('/delete_account/<int:id>')
+def delete_account(id):
     account = Accounts.query.get_or_404(id)
     try:
         db.session.delete(account)
@@ -343,25 +372,15 @@ def delete(id):
 
     
 # Export records
-@app.route('/accounts_list/export/')
-def accounts_export():
-     ...
+# @app.route('/accounts_list/export/')
+# def accounts_export():
+#      ...
 
 
 
 # New account
 @app.route('/account_new/', methods=['GET', 'POST'])
 def new_account():
-    company_name = None
-    company_revenue = None
-    employee_head_count = None
-    company_specialties = None
-    company_type = None
-    country = None
-    company_industry = None
-    city = None
-    timezone = None
-    submit = None    
 
     db.session.rollback()
     
@@ -393,21 +412,12 @@ def new_account():
         db.session.add(account)
         db.session.commit()
         
-        company_name = request.form['company_name']
-        company_revenue = request.form['company_revenue']
-        employee_head_count = request.form['employee_head_count']
-        company_specialties = request.form['company_specialties']
-        company_type = request.form['company_type']
-        country = request.form['country']
-        city = request.form['city']
-        timezone = request.form['timezone']
-
 
         
         flash('Account added successfully.')
         return redirect(url_for('accounts_list'))
            
-    return render_template('new_account.html', form=form, company_name=company_name)
+    return render_template('new_account.html', form=form)
 
 
 

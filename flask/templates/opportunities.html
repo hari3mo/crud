@@ -4,9 +4,12 @@
 {% block content %}
 
 <div class="opportunitiesMenu">  <!-- menu-->
-    <div class="Opportunities-item"> <a href="#New Oppurtunity">New Oppurtunity</a></div>    
-    <div class="Opportunities-item"> <a href="#Oppurtunity List">Oppurtunity List</a></div>  
-    <div class="Opportunities-item"> <a href="#Pipeline View">Pipeline View</a></div>  
-    <div class="Opportunities-item"> <a href="#Sales & Forecasts">Sales & Forecasts</a></div>  
+
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('new_opportunity') }}" role="button">New Opportunity</a>
+    <a class="btn btn-secondary btn-lg" href="#" role="button">Opportunities List</a>
+    <a class="btn btn-secondary btn-lg" href="#" role="button">Pipeline View</a>    
+    <a class="btn btn-secondary btn-lg" href="#" role="button">Sales & Forecasts</a>
+
 </div>
+
 {% endblock %}
