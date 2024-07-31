@@ -128,7 +128,10 @@ class AccountForm(FlaskForm):
 # User form
 class UserForm(FlaskForm):
     email = EmailField('Email:', validators=[DataRequired(), Email()])
-    license = StringField('License Key:', validators=[DataRequired()])
+    license = StringField('License Key:', validators=[DataRequired(),
+                                            Length(min=20, max=20, 
+                                                    message='License key must be\
+                                                20 characters.')])
     password = PasswordField('Password:', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
     submit = SubmitField('Submit')
@@ -162,7 +165,7 @@ def clear_opportunities():
     db.session.commit()
     
     flash('Opportunities list cleared.')
-    return redirect(url_for('opportunities_list'))
+    return redirect(url_for('accounts_list'))
     
 
 
@@ -221,16 +224,19 @@ def new_user():
                     
                 db.session.add(new_user)
                 db.session.commit()
-                flash('User added successfully.')
+                flash('User added successfully.', 'success')
                 return redirect(url_for('new_user'))
         
             else:
-                flash('Invalid license key.')
+                flash('Invalid license key.', 'error')
                 return redirect(url_for('new_user'))
             
         else:
             flash('User already exists.')
             return redirect(url_for('new_user'))
+    for fieldName, errorMessages in form.errors.items():
+        for err in errorMessages:
+            flash(err, 'error')    
     return render_template('new_user.html', form=form)
 
 @app.route('/password/', methods=['GET', 'POST'])
@@ -415,38 +421,41 @@ def delete_account(id):
 @app.route('/account_new/', methods=['GET', 'POST'])
 def new_account():
 
-    db.session.rollback()
+    try:
     
-    id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
-    
-    if id is None:
-        id = 1000
-    else:
-        id = id.AccountID + 10
-    
-    # ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
-    
-    # if ids['AccountID'].empty:
-    #     next_id = 1000
-    # else:
-    #     next_id = (ids['AccountID'].max()) + 10
-    
-    form = AccountForm()
-    if form.validate_on_submit():
-        account = Accounts(AccountID=id,
-                           CompanyName=form.company_name.data, 
-                           CompanyRevenue=form.company_revenue.data, 
-                           EmployeeHeadCount=form.employee_head_count.data, 
-                           CompanySpecialties=form.company_specialties.data, 
-                           CompanyIndustry=form.company_industry.data,
-                           CompanyType = form.company_type.data, 
-                           Country=form.country.data, City=form.city.data, 
-                           Timezone=form.timezone.data)
-        db.session.add(account)
-        db.session.commit()
+        id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
         
-        flash('Account added successfully.')
-        return redirect(url_for('accounts_list'))
+        if id is None:
+            id = 1000
+        else:
+            id = id.AccountID + 10
+        
+        # ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
+        
+        # if ids['AccountID'].empty:
+        #     next_id = 1000
+        # else:
+        #     next_id = (ids['AccountID'].max()) + 10
+        
+        form = AccountForm()
+        if form.validate_on_submit():
+            account = Accounts(AccountID=id,
+                            CompanyName=form.company_name.data, 
+                            CompanyRevenue=form.company_revenue.data, 
+                            EmployeeHeadCount=form.employee_head_count.data, 
+                            CompanySpecialties=form.company_specialties.data, 
+                            CompanyIndustry=form.company_industry.data,
+                            CompanyType = form.company_type.data, 
+                            Country=form.country.data, City=form.city.data, 
+                            Timezone=form.timezone.data)
+            db.session.add(account)
+            db.session.commit()
+            
+            flash('Account added successfully.')
+            return redirect(url_for('accounts_list'))
+        
+    except:
+        return redirect('new_account')
            
     return render_template('new_account.html', form=form)
 
