@@ -556,9 +556,10 @@ def page_not_found(e):
 
 # Index/favorites page
 @app.route('/')
-@login_required
 def index():
-    return render_template('index.html')
+    if current_user.is_authenticated:
+        return render_template('index.html')
+    return redirect(url_for('login'))
 
 
 # Logout function
