@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>Login</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</body>
+
+<style>  /*to change background color in page*/
+body{
+    background-color: rgb(211, 211, 211);
+}
+
+</style>
+
+<div class="loginPage">
+    <div class="loginForm">
+            <h1>ERPCRM</h1>
+        <div class="inputValues">
+            <form action ="#", method='post'>
+                <div class="UserID">
+                    <label for="UserID">UserID: </label>
+                    <input type="text" id="name" name="nm">
+                </div>
+
+                 <div class="passwordInput">
+                    <label type = "password">Password:</label>
+                    <input type="password" name="pass" id="password">
+                </div>
+
+        </div>
+
+        <div class="loginSubmit">
+            <button type="submit" value='Submit'>Login</button>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html>

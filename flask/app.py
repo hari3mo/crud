@@ -7,7 +7,7 @@ from flask_wtf.file import FileRequired
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms.validators import DataRequired, Email, EqualTo, Length
-from flask_login import UserMixin, login_user, 
+from flask_login import UserMixin, login_user, logout_user, current_user, login_required, LoginManager
 import datetime
 from datetime import timedelta
 import mysql.connector
@@ -29,21 +29,60 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws
 # Uploads folder
 app.config['UPLOAD_FOLDER'] = 'static/files'
 
-# Standard engine
-# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
+# Set session timeout duration
+app.permanent_session_lifetime = timedelta(minutes=25) 
 
-# Sets session timeout duration
-app.permanent_session_lifetime = timedelta(minutes=30) 
+# Login initialize
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(int(user_id))
+
 
 # Initialize database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-mydb = mysql.connector.connect(
-    host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
-    user = 'erpcrm', 
-    passwd = 'Erpcrmpass1!',
-    database = 'erpcrmdb'
-)
+
+# Standard engine(s)
+# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
+
+# mydb = mysql.connector.connect(
+#     host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
+#     user = 'erpcrm', 
+#     passwd = 'Erpcrmpass1!',
+#     database = 'erpcrmdb'
+# )
+
+
+
+# Login page
+@app.route('/login/', methods=['POST', 'GET'])
+def login():
+    user = None
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = Users.query.filter_by(Email=form.email.data).first()
+        # User exists
+        if user:  
+            if user.verify_password(form.password.data):
+                login_user(user)
+                session['client'] = Clients.query.filter_by(License=user.License).first().Subscriber
+                flash('Login successful.', 'success')
+                return redirect(url_for('index'))
+            else:
+                flash('Incorrect password.')
+                return redirect(url_for('login'))
+        else:
+            flash('User does not exist.')
+            return redirect(url_for('login'))
+    for fieldName, errorMessages in form.errors.items():
+        for err in errorMessages:
+            flash(err, 'error')    
+    return render_template('login.html', form=form)
+
     
 ##############################################################################
 
@@ -86,7 +125,7 @@ class Opportunities(db.Model):
     CloseDate = db.Column(db.Date)
 
 # Users model
-class Users(db.Model):
+class Users(db.Model, UserMixin):
     __tablename__ = 'Users'
     UserID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Email = db.Column(db.String(50), unique=True, nullable=False)
@@ -107,8 +146,16 @@ class Users(db.Model):
     def verify_password(self, password):
         return check_password_hash(self.PasswordHash, password)  
     
+    
+    # Override get_id to return the correct identifier
+    def get_id(self):
+        return str(self.UserID)
+
+    @property
+    def is_authenticated(self):
+        return True  # Assuming the presence of a valid session token
 ##############################################################################  
- 
+
 # Forms
     
 # Account form
@@ -154,13 +201,19 @@ class PasswordForm(FlaskForm):
     hashed_password = StringField('Hashed Password:', validators=[DataRequired()])
     password = StringField('Password:', validators=[DataRequired()])
     submit = SubmitField('Submit')
-    
+
+# Login form
+class LoginForm(FlaskForm):
+    email = EmailField('Email:', validators=[DataRequired(), Email()])
+    password = PasswordField('Password:', validators=[DataRequired()])
+    submit = SubmitField('Submit')
     
 
 ##############################################################################
 
 # Clear opportunities
 @app.route('/clear_opportunities/')
+@login_required
 def clear_opportunities():
     Opportunities.query.delete()
     db.session.commit()
@@ -172,6 +225,7 @@ def clear_opportunities():
 
 # New opportunity
 @app.route('/new_opportunity/', methods=['GET', 'POST'])
+@login_required
 def new_opportunity():
     form = OpportunityForm()
     
@@ -190,6 +244,7 @@ def new_opportunity():
 
 # Opportunities list
 @app.route('/opportunities_list')
+@login_required
 def opportunities_list():
     db.session.rollback()
     try:
@@ -203,6 +258,7 @@ def opportunities_list():
 
 # New user
 @app.route('/new_user/', methods=['GET', 'POST'])
+@login_required
 def new_user():
     user = None
     license = None
@@ -241,6 +297,7 @@ def new_user():
     return render_template('new_user.html', form=form)
 
 @app.route('/password/', methods=['GET', 'POST'])
+@login_required
 def password():
     hashed_password = None
     password = None
@@ -259,8 +316,49 @@ def password():
                            submit=submit)
 
 
+# User signup page
+@app.route('/signup/', methods=['GET', 'POST'])
+def signup():
+    user = None
+    license = None
+    form = UserForm()
+    # Method == Post
+    if form.validate_on_submit():
+        user = Users.query.filter_by(Email=form.email.data).first()
+        license = Clients.query.filter_by(License=form.license.data).first()
+        # User does not exist
+        if user is None:
+            # Valid license key 
+            if license:
+                # Hash password
+                hashed_password = generate_password_hash(form.password.data, 'scrypt')
+                new_user = Users(Email=form.email.data,
+                                PasswordHash=hashed_password,
+                                License=form.license.data,
+                                Subscriber=license.Subscriber,
+                                ValidTo='00-00-0000')
+                    
+                db.session.add(new_user)
+                db.session.commit()
+                flash('User added successfully.', 'success')
+                return redirect(url_for('index'))
+        
+            else:
+                flash('Invalid license key.', 'error')
+                return redirect(url_for('signup'))
+            
+        else:
+            flash('User already exists.')
+            return redirect(url_for('signup'))
+    for fieldName, errorMessages in form.errors.items():
+        for err in errorMessages:
+            flash(err, 'error')    
+    return render_template('signup.html', form=form)
+
+
 # Account import
 @app.route('/accounts_import/', methods=['GET', 'POST'])
+@login_required
 def accounts_import():
     form = FileForm()
     filename = None
@@ -320,6 +418,7 @@ def accounts_import():
     return render_template('accounts_import.html', form=form)
     
 @app.route('/clear_accounts/')
+@login_required
 def clear_accounts():
     Accounts.query.delete()
     db.session.commit()
@@ -329,6 +428,7 @@ def clear_accounts():
 
 # Accounts list    
 @app.route('/accounts_list/')
+@login_required
 def accounts_list():
     db.session.rollback()
     try:
@@ -341,6 +441,7 @@ def accounts_list():
 
 # Update record
 @app.route('/update_account/<int:id>', methods=['GET', 'POST'])
+@login_required
 def update_account(id):
     form = AccountForm()
     account = Accounts.query.get_or_404(id)
@@ -368,6 +469,7 @@ def update_account(id):
             
 # Delete record
 @app.route('/delete_account/<int:id>')
+@login_required
 def delete_account(id):
     account = Accounts.query.get_or_404(id)
     try:
@@ -392,6 +494,7 @@ def delete_account(id):
 
 # New account
 @app.route('/account_new/', methods=['GET', 'POST'])
+@login_required
 def new_account():
 
     try:
@@ -449,57 +552,31 @@ def page_not_found(e):
 # @app.errorhandler(500)
 # def server_error(e):
 #     return render_template('.html'), 500
-        
-
-
-
-
-
-
-@app.route('/')
-def index():
-    if 'user' in session:
-        usr = session['user']
-        return render_template('index.html', user=usr)
-    else:
-        return redirect(url_for('login'))
-
-
-@app.route('/login/', methods=['POST', 'GET'])
-def login():
-    if request.method == 'POST': 
-        session.permanent = True
-        user = request.form['nm']
-        password = request.form['pass']
-        session['user'] = user
-        session['pass'] = password
-        
-        flash('Login successful.', 'info')
-        return redirect(url_for('index'))
-    else:
-        if 'user' in session:
-            return redirect(url_for('index'))
-        return render_template('login.html')
-
-@app.route('/logout/')
-def logout():
-    session.pop('user', None)
     
-    session.pop('email', None) # Test
-    flash('Successfully logged out.', "info")
+
+# Index/favorites page
+@app.route('/')
+@login_required
+def index():
+    return render_template('index.html')
+
+
+# Logout function
+@app.route('/logout/')
+@login_required
+def logout():
+    session.pop('client', None)
+    flash('Successfully logged out.', 'success')
+    logout_user()
     return redirect(url_for('login'))
 
 
 @app.route('/user/')
+@login_required
 def user():
-    if 'user' in session:
-        user = session['user']
-        password = session['pass']
-        return render_template('user.html', user=user, password=password)
-    else:
-        return redirect(url_for('login'))
-
-
+    client = session['client']
+    return render_template('user.html', client=client)
+    
 @app.route('/base/')
 def base():
     return render_template('base.html')

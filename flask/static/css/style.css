@@ -2,60 +2,9 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/*following is for login page*/
-.loginForm{
 
-  /*posititioning and radius*/
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  line-height: 2;
-  margin-left: 35%;
-  margin-right: 35%;
-  margin-top: 10%;
-  background-color: rgb(255, 255, 255);
-  border: 2px solid rgb(66, 65, 67);
-  border-radius: 10%;
-  
-  /* is for input Boxes for UserID and Password */
-.inputValues{
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 30px;
-  }
 
-}
 
-/*login button*/
-.loginSubmit{
-  button[type=submit] {
-    width: 100%;
-    padding: 12px 50px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #d2caca;
-    box-sizing: border-box;
-    border-radius: 30px;
-    color: white;
-    font-size: 20px;
-    background-color: #000000
-    
-  }
-
-  /*Hovering for Login button*/
-  button:hover[type="submit"]{
-    background-color: #ccc6c6;
-
-  }
-}
-
-}
 /* Following is navbar */
 .navbar {
   display: flex;
@@ -119,3 +68,53 @@ body{
 .btn {
   
 }
+
+/* 
+.loginForm{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: 2;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 10%;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(66, 65, 67);
+  border-radius: 10%;
+  
+.inputValues{
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 30px;
+  }
+
+}
+
+.loginSubmit{
+  button[type=submit] {
+    width: 100%;
+    padding: 12px 50px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #d2caca;
+    box-sizing: border-box;
+    border-radius: 30px;
+    color: white;
+    font-size: 20px;
+    background-color: #000000
+    
+  }
+
+  button:hover[type="submit"]{
+    background-color: #ccc6c6;
+
+  }
+} 
+*/

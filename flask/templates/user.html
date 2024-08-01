@@ -13,10 +13,10 @@
     <a class="btn btn-secondary btn-lg" href="#" role="button">System Configuration</a>
     <br>
     <br>
-    <a class="btn btn-primary btn-lg" href="{{ url_for('password') }}" role="Test">Test Hash</a>
+    <!-- <a class="btn btn-primary btn-lg" href="{{ url_for('password') }}" role="Test">Test Hash</a> -->
 </div>
-<br/>
-<p>User: {{user}}</p>
-<p>Password: {{password}}</p>
+
+<p>Email: {{ current_user.Email }}</p>
+<p>Client: {{ client }}
 
 {% endblock %}
