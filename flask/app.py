@@ -536,12 +536,6 @@ def new_account():
     return render_template('new_account.html', form=form)
 
 
-
-
-
-
-
-
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
