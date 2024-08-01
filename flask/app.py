@@ -58,7 +58,7 @@ migrate = Migrate(app, db)
 
 
 
-# Login page
+# Login
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
     user = None
@@ -84,6 +84,15 @@ def login():
     return render_template('login.html', form=form)
 
     
+# User management
+@app.route('/user_management/')
+def user_management():
+    return render_template('user_management.html')
+
+# Update user
+@app.route('/update_user/<int:<id>/')
+def update_user(id):
+    return redirect(url_for('user_management'))
 ##############################################################################
 
 # Models
