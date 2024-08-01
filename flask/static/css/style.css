@@ -53,8 +53,8 @@ body{
 
 /* Shadowed div */
 .rounded {
-  width: 50%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 400px;
   margin: auto; 
 }
 

@@ -575,8 +575,7 @@ def logout():
 @app.route('/user/')
 @login_required
 def user():
-    client = session['client']
-    return render_template('user.html', client=client)
+    return render_template('user.html')
     
 @app.route('/base/')
 def base():

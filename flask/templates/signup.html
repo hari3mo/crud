@@ -22,9 +22,9 @@
     </div>
     {% endfor %}
     <br>
-    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-        <h1 class="text-center"><strong>ERPCRM</strong></h1>
-        <h4 class="text-center"><strong>Sign Up</strong></h4>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded" style="width: 100%; max-width: 400px;">
+        <h2 class="text-center"><strong>Sign Up</strong></h2>
+
         <form method="POST">
             {{ form.hidden_tag() }}
 
@@ -41,9 +41,10 @@
             {{ form.confirm_password.label(class="form-label" )}}
             <p>{{ form.confirm_password(class="form-control") }}</p>
 
+            <br>
+      
             {{ form.submit(class="btn btn-primary") }}
 
-            
             <a href="{{ url_for('login')}}" class="btn btn-secondary" style="float: center;">Back to login</a>
 
         </form>
