@@ -61,6 +61,7 @@ migrate = Migrate(app, db)
 # Login
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
+    db.session.rollback()
     user = None
     form = LoginForm()
     if form.validate_on_submit():
