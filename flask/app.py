@@ -483,7 +483,6 @@ def delete_account(id):
         return redirect(url_for('accounts_list'))
         
  
-
     
 # Export records
 # @app.route('/accounts_list/export/')
