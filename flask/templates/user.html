@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
-{% block title %}User{% endblock %}
+
+{% block title %}ERPCRM - User{% endblock %}
+
 {% block content %}
 
-
-
 <div class="userMenu">
-    
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('new_user') }}" role="button">New User</a>
     <a class="btn btn-secondary btn-lg" href="#" role="button">User Management</a> <!-- Change link -->
     <a class="btn btn-secondary btn-lg" href="#" role="button">Role Management</a>
     <a class="btn btn-secondary btn-lg" href="" role="button">Custom Fields</a>    
     <a class="btn btn-secondary btn-lg" href="#" role="button">System Configuration</a>
     <br>
-    <br>
-    <!-- <a class="btn btn-primary btn-lg" href="{{ url_for('password') }}" role="Test">Test Hash</a> -->
 </div>
 
+<br>
 <p>Email: {{ current_user.Email }}</p>
 <p>Client: {{ client }}
 
