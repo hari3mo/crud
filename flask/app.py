@@ -105,7 +105,7 @@ class Accounts(db.Model):
 # Clients model
 class Clients(db.Model):
     __tablename__ = 'Clients'
-    ClientID = db.Column(db.Integer, primary_key=True)
+    ClientID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Subscriber = db.Column(db.String(50), nullable=False, unique=True)
     License = db.Column(db.String(20), nullable=False, unique=True)
     ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
@@ -206,7 +206,7 @@ class PasswordForm(FlaskForm):
 class LoginForm(FlaskForm):
     email = EmailField('Email:', validators=[DataRequired(), Email()])
     password = PasswordField('Password:', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Login')
     
 
 ##############################################################################
