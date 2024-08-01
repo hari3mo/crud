@@ -70,6 +70,7 @@ def login():
             if user.verify_password(form.password.data):
                 login_user(user)
                 session['client'] = Clients.query.filter_by(License=user.License).first().Subscriber
+                session['image'] = Clients.query.filter_by(License=user.License).first().Image
                 flash('Login successful.', 'success')
                 return redirect(url_for('index'))
             else:
@@ -90,9 +91,9 @@ def user_management():
     return render_template('user_management.html')
 
 # Update user
-@app.route('/update_user/<int:<id>/')
-def update_user(id):
-    return redirect(url_for('user_management'))
+# @app.route('/update_user/<int:<id>/')
+# def update_user(id):
+#     return redirect(url_for('user_management'))
 ##############################################################################
 
 # Models
@@ -117,6 +118,7 @@ class Clients(db.Model):
     ClientID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Subscriber = db.Column(db.String(50), nullable=False, unique=True)
     License = db.Column(db.String(20), nullable=False, unique=True)
+    Image = db.Column(db.String(255), unique=True)
     ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     ValidTo = db.Column(db.Date)
     

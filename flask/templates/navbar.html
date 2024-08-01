@@ -1,7 +1,7 @@
 <nav class="navbar">    
     <ul>
         <li><a class="navbar-brand" href="{{url_for('index')}}">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" width="120"></img>
+            <img src="{{ url_for('static', filename=session['image']) }}" width="120"></img>
         </a></li>
         <li><a href="{{url_for('index')}}">Favorites</a></li>
         <li><a href="{{url_for('accounts')}}">Accounts</a></li>
