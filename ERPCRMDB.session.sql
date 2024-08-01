@@ -7,7 +7,8 @@ ADD PRIMARY KEY (AccountID)
 -- Leads --
 ALTER TABLE Leads
 ADD PRIMARY KEY (LeadID),
-ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
+ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
+ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 
 --@block
 -- Clients --

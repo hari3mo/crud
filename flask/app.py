@@ -257,34 +257,6 @@ def password():
                            password=password, hashed_password=hashed_password,
                            submit=submit)
 
-# Test add
-# @app.route('/test/', methods=['GET', 'POST'])
-# def test():
-#     name = None
-#     password = None
-#     email = None
-#     form = ImportForm()
-#     # Validate form
-#     if form.validate_on_submit():
-#         user = Test.query.filter_by(email=form.email.data).first()
-#         if user is None:     
-#             user = Test(name=form.name.data, email=form.email.data, 
-#                         password=form.password.data)
-#             db.session.add(user)
-#             db.session.commit()
-            
-#         name = form.name.data
-#         password = form.password.data
-#         email = form.email.data
-#         form.name.data = ''
-#         form.email.data = ''
-#         form.password.data = ''
-#         flash('User added successfully.')
-#     users = Test.query.order_by(Test.date_added)
-#     return render_template('test.html', form=form, name=name, 
-#                            password=password, email=email, users=users)
-
-
 
 # Account import
 @app.route('/accounts_import/', methods=['GET', 'POST'])
@@ -317,7 +289,7 @@ def accounts_import():
             else:
                 id = id.AccountID + 10
     
-            
+            # Grab max id
             # ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
 
             # if ids['AccountID'].empty:
@@ -442,7 +414,7 @@ def new_account():
             account = Accounts(AccountID=id,
                             CompanyName=form.company_name.data, 
                             CompanyRevenue=form.company_revenue.data, 
-                            EmployeeHeadCount=form.employee_head_count.data, 
+                            EmployeeHeadCount=form.employee_head_count.data,
                             CompanySpecialties=form.company_specialties.data, 
                             CompanyIndustry=form.company_industry.data,
                             CompanyType = form.company_type.data, 
