@@ -155,7 +155,7 @@ class PasswordForm(FlaskForm):
     submit = SubmitField('Submit')
     
     
-    
+
 ##############################################################################
 
 # Clear opportunities
