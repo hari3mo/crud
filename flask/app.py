@@ -7,6 +7,7 @@ from flask_wtf.file import FileRequired
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms.validators import DataRequired, Email, EqualTo, Length
+from flask_login import UserMixin, login_user, 
 import datetime
 from datetime import timedelta
 import mysql.connector
@@ -17,10 +18,10 @@ from sqlalchemy import create_engine
 import pandas as pd
 import numpy as np
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 # Secret key
-app.config['SECRET_KEY'] = 'key'
+app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
 
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' 
