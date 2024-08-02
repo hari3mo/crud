@@ -62,6 +62,11 @@ migrate = Migrate(app, db)
 #     database = 'erpcrmdb'
 # )
 
+@app.route('/admin/')
+def admin():
+    ...
+
+
 ##############################################################################
 
 # Models
@@ -151,7 +156,7 @@ def login():
             if user.verify_password(form.password.data):
                 login_user(user)
                 session['image'] = Clients.query.filter_by(License=user.License).first().Image
-                flash('Login successful.', 'success')
+                flash('Logged in successfully.', 'success')
                 return redirect(url_for('index'))
             else:
                 flash('Incorrect password.', 'error')
