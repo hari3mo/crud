@@ -4,4 +4,36 @@
 
 {% block content %}
 
+a class="btn btn-secondary btn-lg" href="{{ url_for('user')}}" role="button">Back</a>
+
+    <h2 class="text-center"><strong>User Management</strong></h2> 
+    
+    <br>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <form action="{{ url_for('update_account', id=account.AccountID)}}" method="POST">
+           
+            {{ form.hidden_tag() }}
+
+            <p align="right"><b> {{ client.Subscriber }}</b></p>
+            <p align="right"><b> {{ client.License }}</b></p>
+            
+            {{ form.company_name.label(class="form-label") }}
+            <p>{{ form.company_name(class="form-control", value=account.CompanyName) }}</p>
+    
+            {{ form.company_revenue.label(class="form-label" )}}
+            <p>{{ form.company_revenue(class="form-control", value=account.CompanyRevenue) }}</p>
+        
+            <br>
+            {{ form.submit(class="btn btn-primary", value="Modify") }}
+
+            <a href="{{ url_for('accounts_list')}}" class="btn btn-secondary" style="float: center;">Discard</a>
+
+            <a href="{{ url_for('delete_account', id=id)}}"  class="btn btn-danger text-center">Delete</a>
+            </form>
+
+        </form>
+    </div>
+
+<br/>
+
 {% endblock %}

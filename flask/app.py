@@ -89,6 +89,8 @@ def login():
 # User management
 @app.route('/user_management/')
 def user_management():
+    form = UserUpForm()
+    if form.validate_on_submit()
     return render_template('user_management.html')
 
 # Update user
@@ -219,6 +221,13 @@ class LoginForm(FlaskForm):
     email = EmailField('Email:', validators=[DataRequired(), Email()])
     password = PasswordField('Password:', validators=[DataRequired()])
     submit = SubmitField('Login')
+    
+# User update form
+class UserUpForm(FlaskForm):
+    email = EmailField('Email:', validators=[DataRequired(), Email()])
+    password = PasswordField('Password:', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
+    submit = SubmitField('Submit')
     
 
 ##############################################################################
