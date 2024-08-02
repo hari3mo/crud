@@ -111,7 +111,7 @@ class Users(db.Model, UserMixin):
     Email = db.Column(db.String(50), unique=True, nullable=False)
     PasswordHash = db.Column(db.String(128), nullable=False)
     License = db.Column(db.String(20), nullable=False)
-    Subscriber = db.Column(db.String(50), nullable=False)
+    Client = db.Column(db.String(50), nullable=False)
     ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     ValidTo = db.Column(db.Date)
     
@@ -212,15 +212,14 @@ def login():
         if user:  
             if user.verify_password(form.password.data):
                 login_user(user)
-                session['client'] = Clients.query.filter_by(License=user.License).first().Subscriber
                 session['image'] = Clients.query.filter_by(License=user.License).first().Image
                 flash('Login successful.', 'success')
                 return redirect(url_for('index'))
             else:
-                flash('Incorrect password.')
+                flash('Incorrect password.', 'error')
                 return redirect(url_for('login'))
         else:
-            flash('User does not exist.')
+            flash('User does not exist.', 'error')
             return redirect(url_for('login'))
         
     for fieldName, errorMessages in form.errors.items():
@@ -230,7 +229,7 @@ def login():
 
     
 # User update/management
-@app.route('/user_management/', methods=['GET', 'POST'])
+@app.route('/user/user_management/', methods=['GET', 'POST'])
 @login_required
 def user_management():
     form = UserUpdateForm()
@@ -238,13 +237,13 @@ def user_management():
         if current_user.verify_password(form.password.data):
             current_user.Email = form.email.data
             hashed_password = generate_password_hash(form.new_password.data, 'scrypt')
-            user.PasswordHash = hashed_password
+            current_user.PasswordHash = hashed_password
             try:
                 db.session.commit()
-                flash('User updated successfully.')
+                flash('User updated successfully.', 'success')
                 return redirect(url_for('user_management'))
             except:
-                flash('User update failed.')
+                flash('User update failed.', 'error')
                 return render_template('update_account.html', form=form)
             
     for fieldName, errorMessages in form.errors.items():
@@ -268,7 +267,7 @@ def clear_opportunities():
 
 
 # New opportunity
-@app.route('/new_opportunity/', methods=['GET', 'POST'])
+@app.route('/opportunities/new_opportunity/', methods=['GET', 'POST'])
 @login_required
 def new_opportunity():
     form = OpportunityForm()
@@ -287,7 +286,7 @@ def new_opportunity():
     return render_template('new_opportunity.html', form=form)
 
 # Opportunities list
-@app.route('/opportunities_list')
+@app.route('/opportunities/opportunities_list')
 @login_required
 def opportunities_list():
     db.session.rollback()
@@ -401,7 +400,7 @@ def signup():
 
 
 # Account import
-@app.route('/accounts_import/', methods=['GET', 'POST'])
+@app.route('/accounts/accounts_import/', methods=['GET', 'POST'])
 @login_required
 def accounts_import():
     form = FileForm()
@@ -471,7 +470,7 @@ def clear_accounts():
     return redirect(url_for('accounts_list'))
 
 # Accounts list    
-@app.route('/accounts_list/')
+@app.route('/accounts/accounts_list/')
 @login_required
 def accounts_list():
     db.session.rollback()
@@ -536,7 +535,7 @@ def delete_account(id):
 
 
 # New account
-@app.route('/account_new/', methods=['GET', 'POST'])
+@app.route('/accounts/new_account/', methods=['GET', 'POST'])
 @login_required
 def new_account():
 

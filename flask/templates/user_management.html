@@ -15,11 +15,11 @@
 
 <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('user')}}" role="button">Back</a>
 
-    <h2 class="text-center"><strong>User Management</strong></h2> 
-    
-    <br>
+  
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-        <form action="{{ url_for('user_management', id=current_user.UserID)}}" method="POST">
+        <h2 class="text-center"><strong>User Management</strong></h2> 
+        <br>
+        <form action="{{ url_for('user_management')}}" method="POST">
            
             {{ form.hidden_tag() }}
 
