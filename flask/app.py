@@ -1,30 +1,31 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
+from flask_login import UserMixin, login_user, logout_user, current_user, login_required, LoginManager
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import FlaskForm
 from flask_migrate import Migrate
-from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField, BooleanField, ValidationError
-from flask_wtf.file import FileRequired
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
-from wtforms.validators import DataRequired, Email, EqualTo, Length
-from flask_login import UserMixin, login_user, logout_user, current_user, login_required, LoginManager
-import datetime
 from datetime import timedelta
+import datetime
 import mysql.connector
 import os
 
-from sqlalchemy import create_engine
+# Redundant
+# from sqlalchemy import create_engine
 
 import pandas as pd
 import numpy as np
 
-app = Flask(__name__) 
+# Forms 
+from forms import LoginForm, UserForm, PasswordForm, FileForm, UserUpdateForm,\
+    AccountForm, OpportunityForm
 
-# Secret key
-app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
+app = Flask(__name__) 
 
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb' 
+
+# Secret key
+app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
 
 # Uploads folder
 app.config['UPLOAD_FOLDER'] = 'static/files'
@@ -56,13 +57,6 @@ migrate = Migrate(app, db)
 #     database = 'erpcrmdb'
 # )
 
-
-
-
-# Update user
-# @app.route('/update_user/<int:<id>/')
-# def update_user(id):
-#     return redirect(url_for('user_management'))
 ##############################################################################
 
 # Models
@@ -134,71 +128,8 @@ class Users(db.Model, UserMixin):
     @property
     def is_authenticated(self):
         return True  # Assuming the presence of a valid session token
+    
 ##############################################################################  
-
-# Forms
-    
-# Account form
-class AccountForm(FlaskForm):
-    company_name = StringField('Company Name:*', validators=[DataRequired()])
-    company_revenue = IntegerField('Revenue:*', validators=[DataRequired()])
-    employee_head_count = IntegerField('Head Count:*', validators=[DataRequired()])
-    company_specialties = StringField('Company Specialties:')
-    company_industry = StringField('Company Industry:')
-    company_type = StringField('Company Type:')
-    country = StringField('Country:*', validators=[DataRequired()])
-    city = StringField('City:')
-    timezone = StringField('Timezone:')
-    submit = SubmitField('Submit')
-    
-    # email = EmailField('Email:', validators=[DataRequired(), Email()])
-
-# User form
-class UserForm(FlaskForm):
-    email = EmailField('Email:', validators=[DataRequired(), Email()])
-    license = StringField('License Key:', validators=[DataRequired(),
-                                            Length(min=20, max=20, 
-                                                    message='License key must be\
-                                                20 characters.')])
-    password = PasswordField('Password:', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
-    submit = SubmitField('Submit')
-    
-# Opportunities form
-class OpportunityForm(FlaskForm):
-    opportunity = StringField('Opportunity:', validators=[DataRequired()])
-    value = StringField('Value:', validators=[DataRequired()])
-    stage = StringField('Stage:', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
-# File form
-class FileForm(FlaskForm):
-    file = FileField('File', validators=[FileRequired()])
-    submit = SubmitField('Submit')
- 
-# Password form
-class PasswordForm(FlaskForm):
-    hashed_password = StringField('Hashed Password:', validators=[DataRequired()])
-    password = StringField('Password:', validators=[DataRequired()])
-    submit = SubmitField('Submit')
-
-# Login form
-class LoginForm(FlaskForm):
-    email = EmailField('Email:', validators=[DataRequired(), Email()])
-    password = PasswordField('Password:', validators=[DataRequired()])
-    submit = SubmitField('Login')
-    
-# User update form
-class UserUpdateForm(FlaskForm):
-    email = EmailField('Email:', validators=[Email()])
-    password = PasswordField('Old Password:*', validators=[DataRequired()])
-    new_password = PasswordField('New Password:')
-    confirm_password = PasswordField('Confirm Password:', validators=[EqualTo('new_password', message='Passwords do not match.')])
-    submit = SubmitField('Submit')
-    
-
-##############################################################################
-
 
 # Login
 @app.route('/login/', methods=['POST', 'GET'])
@@ -466,7 +397,6 @@ def accounts_import():
 def clear_accounts():
     Accounts.query.delete()
     db.session.commit()
-    
     flash('Accounts list cleared.')
     return redirect(url_for('accounts_list'))
 
@@ -539,9 +469,7 @@ def delete_account(id):
 @app.route('/accounts/new_account/', methods=['GET', 'POST'])
 @login_required
 def new_account():
-
     try:
-    
         id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
         
         if id is None:
@@ -578,7 +506,6 @@ def new_account():
            
     return render_template('new_account.html', form=form)
 
-
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
@@ -613,12 +540,6 @@ def logout():
 def user():
     return render_template('user.html')
     
-@app.route('/base/')
-def base():
-    return render_template('base.html')
-
-
-
 
 # TODO
 @app.route('/accounts/')
