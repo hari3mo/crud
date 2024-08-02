@@ -14,6 +14,6 @@
         <li><a href="{{url_for('user')}}">User</a></li>
         <li><a href="{{url_for('help')}}">Help</a></li>  
         <li><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
-        <li class='navbar-right'>User: {{ current_user.Email.split('@')[0] }}</li>
+        <li class='navbar-right'>{{ current_user.Email }}</li>
     </ul>
   </nav>

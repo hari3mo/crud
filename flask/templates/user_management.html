@@ -4,31 +4,45 @@
 
 {% block content %}
 
-a class="btn btn-secondary btn-lg" href="{{ url_for('user')}}" role="button">Back</a>
+<!-- Flashed message -->
+{% for message in get_flashed_messages() %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+
+<a class="btn btn-outline-secondary btn-lg" href="{{ url_for('user')}}" role="button">Back</a>
 
     <h2 class="text-center"><strong>User Management</strong></h2> 
     
     <br>
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-        <form action="{{ url_for('update_account', id=account.AccountID)}}" method="POST">
+        <form action="{{ url_for('user_management', id=current_user.UserID)}}" method="POST">
            
             {{ form.hidden_tag() }}
 
-            <p align="right"><b> {{ client.Subscriber }}</b></p>
-            <p align="right"><b> {{ client.License }}</b></p>
+            <p align="left"><b>License:</b> {{ current_user.License }}</p>
+
             
-            {{ form.company_name.label(class="form-label") }}
-            <p>{{ form.company_name(class="form-control", value=account.CompanyName) }}</p>
+            {{ form.email.label(class="form-label") }}
+            <p>{{ form.email(class="form-control", value=current_user.Email) }}</p>
     
-            {{ form.company_revenue.label(class="form-label" )}}
-            <p>{{ form.company_revenue(class="form-control", value=account.CompanyRevenue) }}</p>
-        
+            {{ form.password.label(class="form-label" )}}
+            <p>{{ form.password(class="form-control") }}</p>
+
+            {{ form.new_password.label(class="form-label" )}}
+            <p>{{ form.new_password(class="form-control") }}</p>
+
+            {{ form.confirm_password.label(class="form-label" )}}
+            <p>{{ form.confirm_password(class="form-control") }}</p>
+
             <br>
-            {{ form.submit(class="btn btn-primary", value="Modify") }}
 
-            <a href="{{ url_for('accounts_list')}}" class="btn btn-secondary" style="float: center;">Discard</a>
+            {{ form.submit(class="btn btn-primary", value="Update") }}
 
-            <a href="{{ url_for('delete_account', id=id)}}"  class="btn btn-danger text-center">Delete</a>
+            <a href="{{ url_for('user') }}" class="btn btn-secondary" style="float: center;">Discard</a>
             </form>
 
         </form>

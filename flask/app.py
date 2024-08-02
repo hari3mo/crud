@@ -58,40 +58,6 @@ migrate = Migrate(app, db)
 
 
 
-# Login
-@app.route('/login/', methods=['POST', 'GET'])
-def login():
-    db.session.rollback()
-    user = None
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = Users.query.filter_by(Email=form.email.data).first()
-        # User exists
-        if user:  
-            if user.verify_password(form.password.data):
-                login_user(user)
-                session['client'] = Clients.query.filter_by(License=user.License).first().Subscriber
-                session['image'] = Clients.query.filter_by(License=user.License).first().Image
-                flash('Login successful.', 'success')
-                return redirect(url_for('index'))
-            else:
-                flash('Incorrect password.')
-                return redirect(url_for('login'))
-        else:
-            flash('User does not exist.')
-            return redirect(url_for('login'))
-    for fieldName, errorMessages in form.errors.items():
-        for err in errorMessages:
-            flash(err, 'error')    
-    return render_template('login.html', form=form)
-
-    
-# User management
-@app.route('/user_management/')
-def user_management():
-    form = UserUpForm()
-    if form.validate_on_submit()
-    return render_template('user_management.html')
 
 # Update user
 # @app.route('/update_user/<int:<id>/')
@@ -223,14 +189,71 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
     
 # User update form
-class UserUpForm(FlaskForm):
-    email = EmailField('Email:', validators=[DataRequired(), Email()])
-    password = PasswordField('Password:', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password:', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])
+class UserUpdateForm(FlaskForm):
+    email = EmailField('Email:', validators=[Email()])
+    password = PasswordField('Old Password:', validators=[DataRequired()])
+    new_password = PasswordField('New Password:')
+    confirm_password = PasswordField('Confirm Password:', validators=[EqualTo('new_password', message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
 
 ##############################################################################
+
+
+# Login
+@app.route('/login/', methods=['POST', 'GET'])
+def login():
+    db.session.rollback()
+    user = None
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = Users.query.filter_by(Email=form.email.data).first()
+        # User exists
+        if user:  
+            if user.verify_password(form.password.data):
+                login_user(user)
+                session['client'] = Clients.query.filter_by(License=user.License).first().Subscriber
+                session['image'] = Clients.query.filter_by(License=user.License).first().Image
+                flash('Login successful.', 'success')
+                return redirect(url_for('index'))
+            else:
+                flash('Incorrect password.')
+                return redirect(url_for('login'))
+        else:
+            flash('User does not exist.')
+            return redirect(url_for('login'))
+        
+    for fieldName, errorMessages in form.errors.items():
+        for err in errorMessages:
+            flash(err, 'error')    
+    return render_template('login.html', form=form)
+
+    
+# User update/management
+@app.route('/user_management/', methods=['GET', 'POST'])
+@login_required
+def user_management():
+    form = UserUpdateForm()
+    if form.validate_on_submit():
+        if current_user.verify_password(form.password.data):
+            current_user.Email = form.email.data
+            hashed_password = generate_password_hash(form.new_password.data, 'scrypt')
+            user.PasswordHash = hashed_password
+            try:
+                db.session.commit()
+                flash('User updated successfully.')
+                return redirect(url_for('user_management'))
+            except:
+                flash('User update failed.')
+                return render_template('update_account.html', form=form)
+            
+    for fieldName, errorMessages in form.errors.items():
+        for err in errorMessages:
+            flash(err, 'error')    
+        
+    return render_template('user_management.html', form=form)
+
+
 
 # Clear opportunities
 @app.route('/clear_opportunities/')
@@ -428,7 +451,7 @@ def accounts_import():
             flash('Import successful.')
             return redirect(url_for('accounts_list'))    
                 
-        except:
+        except():
             db.session.rollback()
             flash('Import failed. Please ensure .csv file is ordered as \
                 follows: Company Name, Company Revenue, Employee Head Count, \
@@ -460,7 +483,7 @@ def accounts_list():
         return redirect(url_for('accounts_list'))
 
 
-# Update record
+# Update account
 @app.route('/update_account/<int:id>', methods=['GET', 'POST'])
 @login_required
 def update_account(id):
@@ -479,10 +502,10 @@ def update_account(id):
         
         try:
             db.session.commit()
-            flash('User updated successfully.')
+            flash('Account updated successfully.')
             return redirect(url_for('accounts_list'))
         except:
-            flash('User update failed.')
+            flash('Account update failed.')
             return render_template('update_account.html', form=form, account=account)
         
     return render_template('update_account.html', form=form, account=account, id=id)        
