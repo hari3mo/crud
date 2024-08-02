@@ -492,7 +492,7 @@ def search_accounts():
     accounts = Accounts.query
     if form.validate_on_submit():
         search = form.search.data
-        accounts = Accounts.query.filter(Accounts.CompanyName.like('%' + \
+        accounts = accounts.filter(Accounts.CompanyName.like('%' + \
             search + ''))
         accounts = accounts.order_by(Accounts.CompanyName).all()
         return render_template('search.html', form=form, search=search,
