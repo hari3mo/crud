@@ -17,26 +17,23 @@
 
   
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
-        <h2 class="text-center"><strong>User Management</strong></h2> 
+        <h2 class="text-center"><strong>Manage User</strong></h2> 
         <br>
         <form action="{{ url_for('user_management')}}" method="POST">
            
             {{ form.hidden_tag() }}
-
-            <p align="left"><b>License:</b> {{ current_user.License }}</p>
-
             
             {{ form.email.label(class="form-label") }}
             <p>{{ form.email(class="form-control", value=current_user.Email) }}</p>
-    
-            {{ form.password.label(class="form-label" )}}
-            <p>{{ form.password(class="form-control") }}</p>
-
+            
             {{ form.new_password.label(class="form-label" )}}
             <p>{{ form.new_password(class="form-control") }}</p>
 
             {{ form.confirm_password.label(class="form-label" )}}
             <p>{{ form.confirm_password(class="form-control") }}</p>
+
+            {{ form.password.label(class="form-label" )}}
+            <p>{{ form.password(class="form-control") }}</p>
 
             <br>
 

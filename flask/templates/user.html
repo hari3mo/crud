@@ -5,18 +5,28 @@
 {% block content %}
 
 <div class="userMenu">
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('user_management')}}" role="button">User Management</a> <!-- Change link -->
-    <a class="btn btn-secondary btn-lg" href="#" role="button">Role Management</a>
-    <a class="btn btn-secondary btn-lg" href="" role="button">Custom Fields</a>    
-    <a class="btn btn-secondary btn-lg" href="#" role="button">System Configuration</a>
+    <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('user_management')}}" role="button">User Management</a> <!-- Change link -->
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Role Management</a>
+    <a class="btn btn-outline-secondary btn-lg" href="" role="button">Custom Fields</a>    
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">System Configuration</a>
     <br>
 </div>
 
 <br>
 
-<p><b>Client:</b> {{ current_user.Client }}</p>
-<p><b>Email: </b> {{ current_user.Email }}</p>
-<p><b>License: </b></p>
+<div class="card">
+
+    <div class="card-header">
+        {{ current_user.Client }}
+    </div>
+    
+    <div class="card-body">
+        <p class="card-text"><b>User: </b>{{ current_user.Email }}</p>
+        <p class="card-text"><b>License: </b> {{ current_user.License}} </p>
+        <p class="card-text"><b>Valid From: </b>{{ current_user.ValidFrom }}</p>
+        <p class="card-text"><b>Valid To: </b>{{ current_user.ValidTo }}</p>
+    </div>
+  </div>
 
 
 

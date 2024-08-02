@@ -85,7 +85,7 @@ class Accounts(db.Model):
 class Clients(db.Model):
     __tablename__ = 'Clients'
     ClientID = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    Subscriber = db.Column(db.String(50), nullable=False, unique=True)
+    Client = db.Column(db.String(50), nullable=False, unique=True)
     License = db.Column(db.String(20), nullable=False, unique=True)
     Image = db.Column(db.String(255), unique=True)
     ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
@@ -191,7 +191,7 @@ class LoginForm(FlaskForm):
 # User update form
 class UserUpdateForm(FlaskForm):
     email = EmailField('Email:', validators=[Email()])
-    password = PasswordField('Old Password:', validators=[DataRequired()])
+    password = PasswordField('Old Password:*', validators=[DataRequired()])
     new_password = PasswordField('New Password:')
     confirm_password = PasswordField('Confirm Password:', validators=[EqualTo('new_password', message='Passwords do not match.')])
     submit = SubmitField('Submit')
@@ -240,11 +240,12 @@ def user_management():
             current_user.PasswordHash = hashed_password
             try:
                 db.session.commit()
-                flash('User updated successfully.', 'success')
-                return redirect(url_for('user_management'))
+                logout_user()
+                flash('User updated successfully. Please sign in again.', 'success')
+                return redirect(url_for('login'))
             except:
                 flash('User update failed.', 'error')
-                return render_template('update_account.html', form=form)
+                return redirect(url_for('user_management'))
             
     for fieldName, errorMessages in form.errors.items():
         for err in errorMessages:
@@ -319,7 +320,7 @@ def new_user():
                 new_user = Users(Email=form.email.data,
                                 PasswordHash=hashed_password,
                                 License=form.license.data,
-                                Subscriber=license.Subscriber,
+                                Client=license.Client,
                                 ValidTo='00-00-0000')
                     
                 db.session.add(new_user)
@@ -378,7 +379,7 @@ def signup():
                 new_user = Users(Email=form.email.data,
                                 PasswordHash=hashed_password,
                                 License=form.license.data,
-                                Subscriber=license.Subscriber,
+                                Client=license.Client,
                                 ValidTo='00-00-0000')
                     
                 db.session.add(new_user)
@@ -602,7 +603,6 @@ def index():
 @app.route('/logout/')
 @login_required
 def logout():
-    session.pop('client', None)
     flash('Successfully logged out.', 'success')
     logout_user()
     return redirect(url_for('login'))

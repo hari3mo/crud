@@ -59,7 +59,7 @@ body{
 }
 
 .table {
-  width: 95%;
+  width: 100%;
   margin: auto;
   border: 2px solid black; 
   
@@ -67,6 +67,11 @@ body{
 
 .btn {
   
+}
+
+.card {
+  width: 30%;
+  margin: left;
 }
 
 /* 
