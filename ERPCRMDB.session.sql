@@ -30,7 +30,8 @@ DELETE FROM Users
 --@block
 -- Opportunities --
 ALTER TABLE Opportunities
-ADD PRIMARY KEY (OpportunityID)
+ADD PRIMARY KEY (OpportunityID),
+ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
 
 
 --@block

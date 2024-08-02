@@ -14,6 +14,13 @@
         <li><a href="{{url_for('user')}}">User</a></li>
         <li><a href="{{url_for('help')}}">Help</a></li>  
         <li><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
-        <li class='navbar-right'>{{ current_user.Email }}</li>
+        <!-- <li class='navbar-right'>{{ current_user.Email }}</li> -->
+
+        <form method='POST' action="{{ url_for('search_accounts') }}" class="d-flex" role="search">
+            {{ form.hidden_tag() }}
+
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search", name='search'>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
     </ul>
   </nav>

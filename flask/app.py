@@ -16,8 +16,8 @@ import pandas as pd
 import numpy as np
 
 # Forms 
-from forms import LoginForm, UserForm, PasswordForm, FileForm, UserUpdateForm,\
-    AccountForm, OpportunityForm
+from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
+    UserUpdateForm, AccountForm, OpportunityForm
 
 app = Flask(__name__) 
 
@@ -42,6 +42,11 @@ login_manager.login_view = 'login'
 def load_user(user_id):
     return Users.query.get(int(user_id))
 
+# Pass to base file
+@app.context_processor
+def base():
+    form = SearchForm()
+    return dict(form=form)
 
 # Initialize database
 db = SQLAlchemy(app)
@@ -74,6 +79,7 @@ class Accounts(db.Model):
     Country = db.Column(db.String(50), nullable=False)
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
+    Opportunities = db.relationship('Opportunities', backref='opportunities')
     
 # Clients model
 class Clients(db.Model):
@@ -89,7 +95,8 @@ class Clients(db.Model):
 class Opportunities(db.Model):
     __tablename__ = 'Opportunities'
     OpportunityID = db.Column(db.Integer, primary_key=True)
-    AccountID = db.Column(db.Integer)
+    # Foreign Key to AccountID
+    AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID))
     LeadID = db.Column(db.Integer)
     ClientID = db.Column(db.Integer)
     Opportunity = db.Column(db.Text)
@@ -155,7 +162,7 @@ def login():
         
     for fieldName, errorMessages in form.errors.items():
         for err in errorMessages:
-            flash(err, 'error')    
+            flash(err, 'error')      
     return render_template('login.html', form=form)
 
     
@@ -164,20 +171,29 @@ def login():
 @login_required
 def user_management():
     form = UserUpdateForm()
+    email = None
     if form.validate_on_submit():
-        if current_user.verify_password(form.password.data):
-            current_user.Email = form.email.data
-            hashed_password = generate_password_hash(form.new_password.data, 'scrypt')
-            current_user.PasswordHash = hashed_password
-            try:
-                db.session.commit()
-                logout_user()
-                flash('User updated successfully. Please sign in again.', 'success')
-                return redirect(url_for('login'))
-            except:
-                flash('User update failed.', 'error')
+        email = Users.query.filter_by(Email=form.email.data).first()
+        if email is None:
+            if current_user.verify_password(form.password.data):
+                current_user.Email = form.email.data
+                hashed_password = generate_password_hash(form.new_password.data, 'scrypt')
+                current_user.PasswordHash = hashed_password
+                try:
+                    db.session.commit()
+                    logout_user()
+                    flash('User updated successfully. Please sign in again.', 'success')
+                    return redirect(url_for('login'))
+                except:
+                    flash('User update failed.', 'error')
+                    return redirect(url_for('user_management'))
+            else:
+                flash('Incorrect password.')
                 return redirect(url_for('user_management'))
-            
+                
+        else:
+            flash('User with specified email already exists.', 'error')
+            return redirect(url_for('user_management'))
     for fieldName, errorMessages in form.errors.items():
         for err in errorMessages:
             flash(err, 'error')    
@@ -203,17 +219,20 @@ def clear_opportunities():
 @login_required
 def new_opportunity():
     form = OpportunityForm()
-    
     if form.validate_on_submit():
-        opportunity = Opportunities(Opportunity=form.opportunity.data,
-                                    Value=form.value.data,
-                                    Stage=form.stage.data)
-        db.session.add(opportunity)
-        db.session.commit()
-        
-        flash('Opportunity added successfully.')
-        return redirect(url_for('opportunities_list'))
-    
+        try:
+            opportunity = Opportunities(Opportunity=form.opportunity.data,
+                                        Value=form.value.data,
+                                        Stage=form.stage.data)
+            db.session.add(opportunity)
+            db.session.commit()
+            
+            flash('Opportunity added successfully.')
+            return redirect(url_for('opportunities_list'))
+        except:
+            db.session.rollback()
+            flash('Opportunity add failed.')
+            return redirect(url_for('new_opportunity'))
     
     return render_template('new_opportunity.html', form=form)
 
@@ -347,6 +366,7 @@ def accounts_import():
                 flash('Import failed. Please upload a .csv file.')
                 return redirect(url_for('accounts_import'))
             
+            # Rename function
             while os.path.exists(filepath):
                 filename = filename.split('.')[0] + ' copy.csv'
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -354,6 +374,7 @@ def accounts_import():
             file.save(filepath)
             
             df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+            # Replace NaN with None
             df = df.where(pd.notnull(df), None)
             
             id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
@@ -463,7 +484,19 @@ def delete_account(id):
 # def accounts_export():
 #      ...
 
-
+# Search function
+@app.route('/search_accounts/', methods=['POST'])
+@login_required
+def search_accounts():
+    form = SearchForm()
+    accounts = Accounts.query
+    if form.validate_on_submit():
+        search = form.search.data
+        accounts = Accounts.query.filter(Accounts.CompanyName.like('%' + \
+            search + ''))
+        accounts = accounts.order_by(Accounts.CompanyName).all()
+        return render_template('search.html', form=form, search=search,
+                               accounts=accounts)
 
 # New account
 @app.route('/accounts/new_account/', methods=['GET', 'POST'])
@@ -530,8 +563,8 @@ def index():
 @app.route('/logout/')
 @login_required
 def logout():
-    flash('Successfully logged out.', 'success')
     logout_user()
+    flash('Logged out successfully.', 'success')
     return redirect(url_for('login'))
 
 

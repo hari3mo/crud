@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+
+You searched for {{ form.search.data }}
+<br>
+
+{% for account in accounts %}
+{{ account.CompanyName }}
+<br>
+{{ account.AccountID }}
+<br>
+{% endfor %}
+
+{% endblock %}

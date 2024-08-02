@@ -59,6 +59,11 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password:', validators=[DataRequired()])
     submit = SubmitField('Login')
     
+# Search form
+class SearchForm(FlaskForm):
+    search = StringField('Search', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
 # User update form
 class UserUpdateForm(FlaskForm):
     email = EmailField('Email:', validators=[Email()])
