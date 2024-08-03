@@ -142,6 +142,11 @@ class Users(db.Model, UserMixin):
     def is_authenticated(self):
         return True  # Assuming the presence of a valid session token
     
+# Admins model
+class Admins(db.Model):
+    __tablename__ = 'Admins'
+    User = db.Column(db.String(50), primary_key=True)
+    
 ##############################################################################  
 
 # Login
@@ -153,10 +158,12 @@ def login():
     if form.validate_on_submit():
         user = Users.query.filter_by(Email=form.email.data).first()
         # User exists
-        if user:  
+        if user:
+            admin = None  
             if user.verify_password(form.password.data):
                 login_user(user)
-                session['admin'] = True if current_user.UserID == 5 else False
+                admin = Admins.query.filter_by(User=current_user.Email).first()
+                session['admin'] = True if admin else False
                 session['image'] = Clients.query.filter_by(License=user.License).first().Image
                 flash('Logged in successfully.', 'success')
                 return redirect(url_for('index'))

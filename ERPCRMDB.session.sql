@@ -50,3 +50,5 @@ ALTER TABLE SupportTickets
 ADD PRIMARY KEY (TicketID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
+
+--@block
