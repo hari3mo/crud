@@ -79,25 +79,28 @@
 //           "comment.block",
 //           "entity.other.attribute-name.class.css"
 //         ],
-//         "settings": {
+//         "settings": {s
 //           "fontStyle": ""
 //         }
 //       }
 //     ]
 //   }
 
-// "editor.tokenColorCustomizations": {
-//     "[Theme]": {
-//         "textMateRules": [
-//             {
-//                 "scope": [
-//                  "variable.parameter",
-//                 ],
-//                 "settings": {
-//                     "foreground": "#f9c859"
-//                 }
-//             }
-//         ]
-//     }
-// }
+"editor.tokenColorCustomizations": {
+    "[Theme Flat]": {
+        "textMateRules": [
+            {
+                "scope": [
+                 "variable.parameter",
+                ],
+                "settings": {
+                    "foreground": "#f9c959d0"
+                    // "foreground": "#ff946ada"
+                    // "foreground": "#3691ff"
+                    
+                }
+            }
+        ]
+    }
+}
 }

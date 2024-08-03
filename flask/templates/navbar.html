@@ -11,8 +11,11 @@
         <li><a href="{{url_for('marketing')}}">Marketing</a></li>
         <li><a href="{{url_for('service')}}">Service</a></li>
         <li><a href="{{url_for('analytics')}}">Analytics</a></li>
-        <li><a href="{{url_for('user')}}">User</a></li>
         <li><a href="{{url_for('help')}}">Help</a></li>  
+        <li><a href="{{url_for('user')}}">User</a></li>
+        {% if session['admin'] %}
+        <li><a href="{{ url_for('admin') }}">Admin</a></li> 
+        {% endif %}
         <li><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
         <!-- <li class='navbar-right'>{{ current_user.Email }}</li> -->
 

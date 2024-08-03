@@ -64,7 +64,8 @@ migrate = Migrate(app, db)
 
 @app.route('/admin/')
 def admin():
-    ...
+    users = Users.query
+    return render_template('admin.html', users=users)
 
 
 ##############################################################################
@@ -155,6 +156,7 @@ def login():
         if user:  
             if user.verify_password(form.password.data):
                 login_user(user)
+                session['admin'] = True if current_user.UserID == 5 else False
                 session['image'] = Clients.query.filter_by(License=user.License).first().Image
                 flash('Logged in successfully.', 'success')
                 return redirect(url_for('index'))
