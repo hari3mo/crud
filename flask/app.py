@@ -86,7 +86,9 @@ class Accounts(db.Model):
     Country = db.Column(db.String(50), nullable=False)
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
-    Opportunities = db.relationship('Opportunities', backref='opportunities')
+    
+    # Opportunities reference 
+    Opportunity = db.relationship('Opportunities', backref='Account')
     
 # Clients model
 class Clients(db.Model):
@@ -111,6 +113,8 @@ class Opportunities(db.Model):
     Stage = db.Column(db.String(100))
     CreationDate = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     CloseDate = db.Column(db.Date)
+    
+
 
 # Users model
 class Users(db.Model, UserMixin):
@@ -243,7 +247,8 @@ def new_opportunity():
     form = OpportunityForm()
     if form.validate_on_submit():
         try:
-            opportunity = Opportunities(Opportunity=form.opportunity.data,
+            opportunity = Opportunities(AccountID=form.account.data,
+                                        Opportunity=form.opportunity.data,
                                         Value=form.value.data,
                                         Stage=form.stage.data)
             db.session.add(opportunity)

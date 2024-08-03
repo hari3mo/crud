@@ -13,7 +13,6 @@
 </div>
 
 <br>
-
 <div class="card">
 
     <div class="card-header">
@@ -21,16 +20,19 @@
     </div>
     
     <div class="card-body">
+       
         <p class="card-text"><b>User: </b>{{ current_user.Email }}</p>
         <p class="card-text"><b>License: </b> {{ current_user.License}} </p>
         <p class="card-text"><b>Valid From: </b>{{ current_user.ValidFrom }}</p>
         <p class="card-text"><b>Valid To: </b>{{ current_user.ValidTo }}</p>
+        <img width="280" src="{{ url_for('static', filename=session['image'])}}">
+        
     </div>
   </div>
 
 <br>
 
-<img src="{{ url_for('static', filename=session['image'])}}">
+
 
 
 

@@ -14,6 +14,9 @@
     <form method="POST">
         {{ form.hidden_tag() }}
 
+        {{ form.account.label(class="form-label") }}
+        <p>{{ form.account(class="form-control") }}</p>
+
         {{ form.opportunity.label(class="form-label") }}
         <p>{{ form.opportunity(class="form-control") }}</p>
 

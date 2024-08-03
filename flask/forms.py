@@ -37,6 +37,7 @@ class UserForm(FlaskForm):
     
 # Opportunities form
 class OpportunityForm(FlaskForm):
+    account = StringField('Account:', validators=[DataRequired()])
     opportunity = StringField('Opportunity:', validators=[DataRequired()])
     value = StringField('Value:', validators=[DataRequired()])
     stage = StringField('Stage:', validators=[DataRequired()])

@@ -27,7 +27,7 @@ AUTO_INCREMENT=0,
 ADD UNIQUE (Email);
 
 --@block
-DELETE FROM Users
+DELETE FROM Opportunities
 
 --@block
 -- Opportunities --
@@ -55,4 +55,3 @@ ADD PRIMARY KEY (TicketID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 
---@block
