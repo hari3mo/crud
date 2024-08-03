@@ -62,6 +62,7 @@ migrate = Migrate(app, db)
 #     database = 'erpcrmdb'
 # )
 
+# Admin page
 @app.route('/admin/')
 def admin():
     if session['admin']:
@@ -104,8 +105,7 @@ class Clients(db.Model):
 class Opportunities(db.Model):
     __tablename__ = 'Opportunities'
     OpportunityID = db.Column(db.Integer, primary_key=True)
-    # Foreign Key to AccountID
-    AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID))
+    AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID)) # Foreign Key to AccountID
     LeadID = db.Column(db.Integer)
     ClientID = db.Column(db.Integer)
     Opportunity = db.Column(db.Text)
@@ -262,6 +262,29 @@ def new_opportunity():
             return redirect(url_for('new_opportunity'))
     
     return render_template('new_opportunity.html', form=form)
+
+# New opportunity from AccountID
+@app.route('/opportunities/new_opportunity/<int:id>', methods=['GET', 'POST'])
+@login_required
+def new_opportunity_id(id):
+    form = OpportunityForm()
+    if form.validate_on_submit():
+        try:
+            opportunity = Opportunities(AccountID=form.account.data,
+                                        Opportunity=form.opportunity.data,
+                                        Value=form.value.data,
+                                        Stage=form.stage.data)
+            db.session.add(opportunity)
+            db.session.commit()
+            
+            flash('Opportunity added successfully.')
+            return redirect(url_for('opportunities_list'))
+        except:
+            db.session.rollback()
+            flash('Opportunity add failed.')
+            return redirect(url_for('new_opportunity_id', id=id))
+    
+    return render_template('new_opportunity.html', form=form, id=id)
 
 # Opportunities list
 @app.route('/opportunities/opportunities_list')

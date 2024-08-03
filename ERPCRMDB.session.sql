@@ -15,7 +15,7 @@ ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 ALTER TABLE Clients
 ADD PRIMARY KEY (ClientID),
 MODIFY ClientID INT AUTO_INCREMENT,
-AUTO_INCREMENT=0,
+AUTO_INCREMENT=100,
 ADD UNIQUE (License);
 
 --@block
@@ -23,7 +23,6 @@ ADD UNIQUE (License);
 ALTER TABLE Users
 ADD PRIMARY KEY (UserID),
 MODIFY UserID INT AUTO_INCREMENT,
-AUTO_INCREMENT=0,
 ADD UNIQUE (Email);
 
 --@block
@@ -34,8 +33,7 @@ DELETE FROM Opportunities
 ALTER TABLE Opportunities
 ADD PRIMARY KEY (OpportunityID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
-MODIFY OpportunityID INT AUTO_INCREMENT,
-AUTO_INCREMENT=0;
+MODIFY OpportunityID INT AUTO_INCREMENT;
 
 
 --@block
@@ -54,4 +52,8 @@ ALTER TABLE SupportTickets
 ADD PRIMARY KEY (TicketID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
+
+
+--@block
+INSERT INTO Clients VALUES (2, 'Southern California Edison', '9b2a012a1a1c425a8c86', '/images/9b2a012a1a1c425a8c86.png', 1, 1)
 
