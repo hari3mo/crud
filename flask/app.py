@@ -487,7 +487,7 @@ def accounts_list():
 # Update account
 @app.route('/accounts/<int:id>', methods=['GET', 'POST'])
 @login_required
-def update_account(id):
+def account(id):
     form = AccountForm()
     account = Accounts.query.get_or_404(id)
     if form.validate_on_submit():
@@ -507,9 +507,9 @@ def update_account(id):
             return redirect(url_for('accounts_list'))
         except:
             flash('Account update failed.')
-            return render_template('update_account.html', form=form, account=account)
+            return render_template('account.html', form=form, account=account)
         
-    return render_template('update_account.html', form=form, account=account, id=id)        
+    return render_template('account.html', form=form, account=account, id=id)        
             
             
 # Delete record

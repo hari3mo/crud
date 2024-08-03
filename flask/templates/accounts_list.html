@@ -33,7 +33,7 @@
         {% for account in accounts %}
         <tr>
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
-                href="{{ url_for('update_account', id=account.AccountID) }}">{{ account.CompanyName }}</th>
+                href="{{ url_for('account', id=account.AccountID) }}">{{ account.CompanyName }}</th>
             <td>{{ account.EmployeeHeadCount }}</td>
             <td>{{ account.CompanyIndustry }}</td>
             <td>{{ account.CompanySpecialties }}</td>
