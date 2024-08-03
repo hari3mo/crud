@@ -549,7 +549,6 @@ def new_account():
 def page_not_found(e):
     return redirect(url_for('index'))
 
-
 # # Internal Server Error
 # @app.errorhandler(500)
 # def server_error(e):
