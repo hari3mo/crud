@@ -4,14 +4,21 @@
 
 {% block content %}
 
-You searched for {{ form.search.data }}
-<br>
 
-{% for account in accounts %}
-{{ account.CompanyName }}
-<br>
-{{ account.AccountID }}
-<br>
-{% endfor %}
+{% if accounts %}
+    <h3>You searched for: <em>{{ form.search.data }}<em></h3>
+
+    <br>
+    {% for account in accounts %}
+        {{ account.CompanyName }}
+        <br>
+        {{ account.AccountID }}
+        <br>
+    {% endfor %}
+
+{% else %}
+    <p>No Results for <b>{{ search }}</b> found.</p>
+
+{% endif %}
 
 {% endblock %}

@@ -15,6 +15,7 @@ ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 ALTER TABLE Clients
 ADD PRIMARY KEY (ClientID),
 MODIFY ClientID INT AUTO_INCREMENT,
+AUTO_INCREMENT=0,
 ADD UNIQUE (License);
 
 --@block
@@ -22,6 +23,7 @@ ADD UNIQUE (License);
 ALTER TABLE Users
 ADD PRIMARY KEY (UserID),
 MODIFY UserID INT AUTO_INCREMENT,
+AUTO_INCREMENT=0,
 ADD UNIQUE (Email);
 
 --@block
@@ -31,7 +33,9 @@ DELETE FROM Users
 -- Opportunities --
 ALTER TABLE Opportunities
 ADD PRIMARY KEY (OpportunityID),
-ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID)
+ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
+MODIFY OpportunityID INT AUTO_INCREMENT,
+AUTO_INCREMENT=0;
 
 
 --@block

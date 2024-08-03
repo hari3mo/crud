@@ -17,7 +17,7 @@ import numpy as np
 
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
-    UserUpdateForm, AccountForm, OpportunityForm
+    UserUpdateForm, AccountForm, OpportunityForm, TextForm
 
 app = Flask(__name__) 
 
@@ -64,9 +64,10 @@ migrate = Migrate(app, db)
 
 @app.route('/admin/')
 def admin():
-    users = Users.query
-    return render_template('admin.html', users=users)
-
+    if session['admin']:
+        users = Users.query
+        return render_template('admin.html', users=users)
+    return redirect(url_for('index'))
 
 ##############################################################################
 
@@ -159,7 +160,7 @@ def login():
         user = Users.query.filter_by(Email=form.email.data).first()
         # User exists
         if user:
-            admin = None  
+            admin = None
             if user.verify_password(form.password.data):
                 login_user(user)
                 admin = Admins.query.filter_by(User=current_user.Email).first()
@@ -179,7 +180,14 @@ def login():
             flash(err, 'error')      
     return render_template('login.html', form=form)
 
-    
+# Test 
+@app.route('/test/', methods=['GET', 'POST'])
+def text():
+    form = TextForm()
+    if form.validate_on_submit():
+        return render_template('test.html', form=form)
+    return render_template('test.html', form=form)
+
 # User update/management
 @app.route('/user/user_management/', methods=['GET', 'POST'])
 @login_required

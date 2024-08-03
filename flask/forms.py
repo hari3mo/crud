@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField, BooleanField, ValidationError
+from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField, TextAreaField, BooleanField, ValidationError 
 from flask_wtf.file import FileRequired
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
@@ -74,5 +74,10 @@ class UserUpdateForm(FlaskForm):
                                                          message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
+    
+# Text field form
+class TextForm(FlaskForm):
+    text = TextAreaField('Text:')
+    submit = SubmitField('Submit')
 
 ##############################################################################
