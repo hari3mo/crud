@@ -485,7 +485,7 @@ def accounts_list():
 
 
 # Update account
-@app.route('/update_account/<int:id>', methods=['GET', 'POST'])
+@app.route('/accounts/<int:id>', methods=['GET', 'POST'])
 @login_required
 def update_account(id):
     form = AccountForm()
