@@ -524,6 +524,7 @@ def search_accounts():
         accounts = accounts.order_by(Accounts.CompanyName).all()
         return render_template('search.html', form=form, search=search,
                                accounts=accounts)
+    return redirect(url_for('index'))
 
 # New account
 @app.route('/accounts/new_account/', methods=['GET', 'POST'])
