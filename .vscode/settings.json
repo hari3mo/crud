@@ -6,7 +6,7 @@
                 "enableSsl": "Disabled"
             },
             "previewLimit": 50,
-            "server": "aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com",
+            "server": "erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com",
             "port": 3306,
             "driver": "MySQL",
             "name": "ERPCRMDB",
