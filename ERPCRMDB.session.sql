@@ -57,3 +57,4 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 --@block
 INSERT INTO Clients VALUES (2, 'Southern California Edison', '9b2a012a1a1c425a8c86', '/images/9b2a012a1a1c425a8c86.png', 1, 1)
 
+--@block
