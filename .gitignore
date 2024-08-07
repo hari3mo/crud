@@ -1,4 +1,4 @@
 .vscode/
-flask/env/
-flask/static/files/*.csv
+env/
+static/files/*.csv
 .DS_Store
