@@ -1,2 +1,3 @@
-.DS_Store
 .vscode/
+flask/env/
+.DS_Store

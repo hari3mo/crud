@@ -1,6 +1,5 @@
-.vscode/
 notebooks/
 misc/
 
-.DS_Store
+ERPCRMDB.session.sql
 
