@@ -86,32 +86,4 @@
 //     ]
 //   }
 
-"editor.tokenColorCustomizations": {
-    "[Theme Flat]": {
-        "textMateRules": [
-            {
-                "scope": [
-                 "variable.parameter",
-                ],
-                "settings": {
-                    "foreground": "#f9c959e1"
-                    // "foreground": "#ff946ada"
-                    // "foreground": "#3691ff"
-                    
-                }
-            }
-        ]
-    }
-}
-
- // Set the font
- "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
- // Set the font size
- "editor.fontSize": 13,
- // Turn on font ligatures
- "editor.fontLigatures": true,
- // Enable smooth scrolling in the editor
- "editor.smoothScrolling": true,
-
-
 }

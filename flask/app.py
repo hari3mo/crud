@@ -158,7 +158,6 @@ class Admins(db.Model):
 # Login
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
-    db.session.rollback()
     user = None
     form = LoginForm()
     if form.validate_on_submit():
@@ -201,7 +200,8 @@ def user_management():
     email = None
     if form.validate_on_submit():
         email = Users.query.filter_by(Email=form.email.data).first()
-        if email is None:
+        admin = Admins.query.filter_by(User=form.email.data).first()
+        if email is None and admin is None:
             if current_user.verify_password(form.password.data):
                 current_user.Email = form.email.data
                 hashed_password = generate_password_hash(form.new_password.data, 'scrypt')
@@ -578,7 +578,8 @@ def new_account():
                             CompanySpecialties=form.company_specialties.data, 
                             CompanyIndustry=form.company_industry.data,
                             CompanyType = form.company_type.data, 
-                            Country=form.country.data, City=form.city.data, 
+                            Country=form.country.data, 
+                            City=form.city.data, 
                             Timezone=form.timezone.data)
             db.session.add(account)
             db.session.commit()
