@@ -158,6 +158,8 @@ class Admins(db.Model):
 # Login
 @app.route('/login/', methods=['POST', 'GET'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
     user = None
     form = LoginForm()
     if form.validate_on_submit():
