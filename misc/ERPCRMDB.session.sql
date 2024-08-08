@@ -14,8 +14,6 @@ ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 -- Clients --
 ALTER TABLE Clients
 ADD PRIMARY KEY (ClientID),
-MODIFY ClientID INT AUTO_INCREMENT,
-AUTO_INCREMENT=100,
 ADD UNIQUE (License);
 
 --@block
