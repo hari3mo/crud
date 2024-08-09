@@ -294,6 +294,7 @@ def new_opportunity_id(id):
 @login_required
 def opportunities_list():
     try:
+        opportunities = None
         opportunities = Opportunities.query.order_by(Opportunities.OpportunityID.desc())
         return render_template('opportunities_list.html', opportunities=opportunities)
     except:
