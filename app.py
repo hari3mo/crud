@@ -293,7 +293,6 @@ def new_opportunity_id(id):
 @app.route('/opportunities/opportunities_list')
 @login_required
 def opportunities_list():
-    db.session.rollback()
     try:
         opportunities = Opportunities.query.order_by(Opportunities.OpportunityID.desc())
         return render_template('opportunities_list.html', opportunities=opportunities)
