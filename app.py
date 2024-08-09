@@ -444,7 +444,7 @@ def accounts_import():
             #     id = 1000
             # else:
             #     id = ids['AccountID'].max() + 10
-            
+              
             for index, row in df.iterrows():
                 dct = row.to_dict()
                 dct.update({'AccountID': id})
@@ -456,7 +456,7 @@ def accounts_import():
             flash('Import successful.')
             return redirect(url_for('accounts_list'))    
                 
-        except():
+        except:
             db.session.rollback()
             flash('Import failed. Please ensure .csv file is ordered as \
                 follows: Company Name, Company Revenue, Employee Head Count, \
