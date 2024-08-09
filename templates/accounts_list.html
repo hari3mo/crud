@@ -30,6 +30,7 @@
         </tr>
     </thead>
     <tbody>
+        {% if accounts %}
         {% for account in accounts %}
         <tr>
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
@@ -43,6 +44,7 @@
             <td>{{ account.Timezone }}</td>
         </tr>
         {% endfor %}
+        {% endif %}
 </table>
 
 {% endblock %}

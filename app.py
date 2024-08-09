@@ -67,6 +67,7 @@ migrate = Migrate(app, db)
 @app.route('/admin/')
 def admin():
     if session['admin']:
+        users = None
         users = Users.query
         return render_template('admin.html', users=users)
     return redirect(url_for('index'))
@@ -237,7 +238,6 @@ def user_management():
 def clear_opportunities():
     Opportunities.query.delete()
     db.session.commit()
-    
     flash('Opportunities list cleared.')
     return redirect(url_for('opportunities_list'))
     
@@ -476,8 +476,8 @@ def clear_accounts():
 @app.route('/accounts/accounts_list/')
 @login_required
 def accounts_list():
-    db.session.rollback()
     try:
+        accounts = None
         accounts = Accounts.query.order_by(Accounts.AccountID.desc())
         return render_template('accounts_list.html', accounts=accounts)
     except:
@@ -513,7 +513,7 @@ def account(id):
     return render_template('account.html', form=form, account=account, id=id)        
             
             
-# Delete record
+# Delete account
 @app.route('/delete_account/<int:id>')
 @login_required
 def delete_account(id):
