@@ -239,7 +239,7 @@ def clear_opportunities():
     db.session.commit()
     
     flash('Opportunities list cleared.')
-    return redirect(url_for('accounts_list'))
+    return redirect(url_for('opportunities_list'))
     
 
 
@@ -298,10 +298,8 @@ def opportunities_list():
         opportunities = Opportunities.query.order_by(Opportunities.OpportunityID.desc())
         return render_template('opportunities_list.html', opportunities=opportunities)
     except:
-        # flash('Error loading database, please try again.')
-        return redirect(url_for('opportunities_list'))
-
-
+        flash('Error loading database, please try again.')
+        return redirect(url_for('opportunities'))
 
 # New user
 @app.route('/new_user/', methods=['GET', 'POST'])
