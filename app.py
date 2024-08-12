@@ -76,6 +76,20 @@ def admin():
 
 # Models
 
+# Clients model
+class Clients(db.Model):
+    __tablename__ = 'Clients'
+    ClientID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    Client = db.Column(db.String(50), nullable=False, unique=True)
+    License = db.Column(db.String(20), nullable=False, unique=True)
+    Image = db.Column(db.String(255), unique=True)
+    ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
+    ValidTo = db.Column(db.Date)
+    
+    # References
+    Account = db.relationship('Accounts', backref='Client')
+    User = db.relationship('Users', backref='Client')
+    
 # Accounts model
 class Accounts(db.Model):
     __tablename__ = 'Accounts'
@@ -89,19 +103,11 @@ class Accounts(db.Model):
     Country = db.Column(db.String(50), nullable=False)
     City = db.Column(db.String(50))
     Timezone = db.Column(db.String(50))
+    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
     
-    # Opportunities reference 
+    # References
     Opportunity = db.relationship('Opportunities', backref='Account')
     
-# Clients model
-class Clients(db.Model):
-    __tablename__ = 'Clients'
-    ClientID = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    Client = db.Column(db.String(50), nullable=False, unique=True)
-    License = db.Column(db.String(20), nullable=False, unique=True)
-    Image = db.Column(db.String(255), unique=True)
-    ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
-    ValidTo = db.Column(db.Date)
     
 # Opportunities model    
 class Opportunities(db.Model):
@@ -115,19 +121,17 @@ class Opportunities(db.Model):
     Stage = db.Column(db.String(100))
     CreationDate = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     CloseDate = db.Column(db.Date)
-    
-
-
+      
 # Users model
 class Users(db.Model, UserMixin):
     __tablename__ = 'Users'
     UserID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Email = db.Column(db.String(50), unique=True, nullable=False)
-    PasswordHash = db.Column(db.String(128), nullable=False)
+    PasswordHash = db.Column(db.String(255), nullable=False)
     License = db.Column(db.String(20), nullable=False)
-    Client = db.Column(db.String(50), nullable=False)
     ValidFrom = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     ValidTo = db.Column(db.Date)
+    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
     
     @property
     def password(self):
@@ -140,14 +144,13 @@ class Users(db.Model, UserMixin):
     def verify_password(self, password):
         return check_password_hash(self.PasswordHash, password)  
     
-    
     # Override get_id to return the correct identifier
     def get_id(self):
         return str(self.UserID)
 
     @property
     def is_authenticated(self):
-        return True  # Assuming the presence of a valid session token
+        return True  # Assuming the presence of a valid session tokenp
     
 # Admins model
 class Admins(db.Model):
@@ -301,46 +304,6 @@ def opportunities_list():
         flash('Error loading database, please try again.')
         return redirect(url_for('opportunities'))
 
-# New user
-@app.route('/new_user/', methods=['GET', 'POST'])
-@login_required
-def new_user():
-    user = None
-    license = None
-    form = UserForm()
-    # Method == Post
-    if form.validate_on_submit():
-        user = Users.query.filter_by(Email=form.email.data).first()
-        license = Clients.query.filter_by(License=form.license.data).first()
-        # User does not exist
-        if user is None:
-            # Valid license key 
-            if license:
-                # Hash password
-                hashed_password = generate_password_hash(form.password.data, 'scrypt')
-                new_user = Users(Email=form.email.data,
-                                PasswordHash=hashed_password,
-                                License=form.license.data,
-                                Client=license.Client,
-                                ValidTo='00-00-0000')
-                    
-                db.session.add(new_user)
-                db.session.commit()
-                flash('User added successfully.', 'success')
-                return redirect(url_for('new_user'))
-        
-            else:
-                flash('Invalid license key.', 'error')
-                return redirect(url_for('new_user'))
-            
-        else:
-            flash('User already exists.')
-            return redirect(url_for('new_user'))
-    for fieldName, errorMessages in form.errors.items():
-        for err in errorMessages:
-            flash(err, 'error')    
-    return render_template('new_user.html', form=form)
-
 @app.route('/password/', methods=['GET', 'POST'])
 @login_required
 def password():
@@ -365,23 +328,23 @@ def password():
 @app.route('/signup/', methods=['GET', 'POST'])
 def signup():
     user = None
-    license = None
+    client = None
     form = UserForm()
     # Method == Post
     if form.validate_on_submit():
         user = Users.query.filter_by(Email=form.email.data).first()
-        license = Clients.query.filter_by(License=form.license.data).first()
+        client = Clients.query.filter_by(License=form.license.data).first()
         # User does not exist
         if user is None:
             # Valid license key 
-            if license:
+            if client:
                 # Hash password
                 hashed_password = generate_password_hash(form.password.data, 'scrypt')
                 new_user = Users(Email=form.email.data,
                                 PasswordHash=hashed_password,
                                 License=form.license.data,
-                                Client=license.Client,
-                                ValidTo='00-00-0000')
+                                ValidTo='00-00-0000',
+                                ClientID=client.ClientID)
                     
                 db.session.add(new_user)
                 db.session.commit()
@@ -416,41 +379,41 @@ def accounts_import():
             if filename.split('.')[-1] != 'csv':
                 flash('Import failed. Please upload a .csv file.')
                 return redirect(url_for('accounts_import'))
-            
+                
             # Rename function
             while os.path.exists(filepath):
                 filename = filename.split('.')[0] + ' copy.csv'
-                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                    
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                    
+               
+            
             file.save(filepath)
             
             df = pd.read_csv('static/files/{filename}'.format(filename=filename))
             # Replace NaN with None
-            df = df.where(pd.notnull(df), None)
+            df = df.replace({np.nan: None})
             
+            # Grab max id
             id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
-    
+        
             if id is None:
-                id = 1000
+                    id = 1000
             else:
                 id = id.AccountID + 10
-    
-            # Grab max id
+            
             # ids = pd.read_sql("SELECT AccountID FROM Accounts", con=engine)
 
             # if ids['AccountID'].empty:
             #     id = 1000
-            # else:
+                # else:
             #     id = ids['AccountID'].max() + 10
-              
+                
             for index, row in df.iterrows():
                 dct = row.to_dict()
-                dct.update({'AccountID': id})
+                dct.update({'AccountID': id, 'ClientID': current_user.ClientID})
                 id += 10
                 account = Accounts(**dct)
                 db.session.add(account)
-                
-            db.session.commit()
+            db.session.commit()            
             flash('Import successful.')
             return redirect(url_for('accounts_list'))    
                 

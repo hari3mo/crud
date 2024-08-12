@@ -2,3 +2,4 @@
 env/
 static/files/*.csv
 .DS_Store
+migrations/
