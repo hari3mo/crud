@@ -253,6 +253,7 @@ def new_opportunity():
     if form.validate_on_submit():
         try:
             opportunity = Opportunities(AccountID=form.account.data,
+                                        ClientID=current_user.ClientID,
                                         Opportunity=form.opportunity.data,
                                         Value=form.value.data,
                                         Stage=form.stage.data)
