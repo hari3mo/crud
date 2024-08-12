@@ -259,9 +259,9 @@ def new_opportunity():
                                         Stage=form.stage.data)
             db.session.add(opportunity)
             db.session.commit()
-            
             flash('Opportunity added successfully.')
             return redirect(url_for('opportunities_list'))
+        
         except:
             db.session.rollback()
             flash('Opportunity add failed.')
@@ -277,6 +277,7 @@ def new_opportunity_id(id):
     if form.validate_on_submit():
         try:
             opportunity = Opportunities(AccountID=form.account.data,
+                                        ClientID=current_user.ClientID,
                                         Opportunity=form.opportunity.data,
                                         Value=form.value.data,
                                         Stage=form.stage.data)
