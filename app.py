@@ -411,7 +411,8 @@ def accounts_import():
                 id += 10
                 account = Accounts(**dct)
                 db.session.add(account)
-            db.session.commit()            
+            db.session.commit()
+            os.remove(filepath)        
             flash('Import successful.')
             return redirect(url_for('accounts_list'))    
                 
