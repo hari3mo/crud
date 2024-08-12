@@ -383,8 +383,7 @@ def accounts_import():
             # Rename function
             while os.path.exists(filepath):
                 filename = filename.split('.')[0] + ' copy.csv'
-                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                    
-               
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                        
             
             file.save(filepath)
             
