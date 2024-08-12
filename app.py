@@ -238,7 +238,7 @@ def user_management():
 @app.route('/clear_opportunities/')
 @login_required
 def clear_opportunities():
-    Opportunities.query.delete()
+    Opportunities.query.filter_by(ClientID=current_user.ClientID).delete()
     db.session.commit()
     flash('Opportunities list cleared.')
     return redirect(url_for('opportunities_list'))
@@ -297,7 +297,7 @@ def new_opportunity_id(id):
 def opportunities_list():
     try:
         opportunities = None
-        opportunities = Opportunities.query.order_by(Opportunities.OpportunityID.desc())
+        opportunities = Opportunities.query.filter_by(ClientID=current_user.ClientID).order_by(Opportunities.OpportunityID.desc())
         return render_template('opportunities_list.html', opportunities=opportunities)
     except:
         flash('Error loading database, please try again.')
@@ -429,7 +429,7 @@ def accounts_import():
 @app.route('/clear_accounts/')
 @login_required
 def clear_accounts():
-    Accounts.query.delete()
+    Accounts.query.filter_by(ClientID=current_user.ClientID).delete()
     db.session.commit()
     flash('Accounts list cleared.')
     return redirect(url_for('accounts_list'))
