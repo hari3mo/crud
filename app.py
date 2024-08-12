@@ -174,7 +174,7 @@ def login():
                 login_user(user)
                 admin = Admins.query.filter_by(User=current_user.Email).first()
                 session['admin'] = True if admin else False
-                session['image'] = Clients.query.filter_by(License=user.License).first().Image
+                session['image'] = current_user.Client.Image
                 flash('Logged in successfully.', 'success')
                 return redirect(url_for('index'))
             else:

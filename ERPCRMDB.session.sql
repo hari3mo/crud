@@ -53,11 +53,7 @@ ADD FOREIGN KEY (ContactID) REFERENCES Contacts(ContactID)
 
 
 --@block
-INSERT INTO Clients VALUES (100010, 'Southern California Edison', '9b2a012a1a1c425a8c86', '/images/9b2a012a1a1c425a8c86.png', 1, 1)
+INSERT INTO Clients VALUES (100100, 'Southern California Edison', '9b2a012a1a1c425a8c86', '/images/9b2a012a1a1c425a8c86.png', 1, 1)
 
 --@block
 INSERT INTO Clients VALUES(100000, 'ERP Center, Inc.', '3a95d70c85864ab99603', '/images/3a95d70c85864ab99603.png', 1, 1)
-
-
---@block
-DELETE FROM Users
