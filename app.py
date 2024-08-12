@@ -439,7 +439,8 @@ def clear_accounts():
 def accounts_list():
     try:
         accounts = None
-        accounts = Accounts.query.order_by(Accounts.AccountID.desc())
+        accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
+            .order_by(Accounts.AccountID.desc())
         return render_template('accounts_list.html', accounts=accounts)
     except:
         # flash('Error loading database, please try again.')
