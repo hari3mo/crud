@@ -78,7 +78,7 @@ def admin():
 # Clients model
 class Clients(db.Model):
     __tablename__ = 'Clients'
-    ClientID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    ClientID = db.Column(db.Integer, primary_key=True)
     Client = db.Column(db.String(50), nullable=False, unique=True)
     License = db.Column(db.String(20), nullable=False, unique=True)
     Image = db.Column(db.String(255), unique=True)
@@ -389,6 +389,16 @@ def accounts_import():
             df = pd.read_csv('static/files/{filename}'.format(filename=filename))
             # Replace NaN with None
             df = df.replace({np.nan: None})
+            
+            df = df.rename(columns={df.columns[0]: 'CompanyName',
+                                    df.columns[1]: 'CompanyRevenue',
+                                    df.columns[2]: 'EmployeeHeadCount',
+                                    df.columns[3]: 'CompanyIndustry',
+                                    df.columns[4]: 'CompanySpecialties',
+                                    df.columns[5]: 'CompanyType',
+                                    df.columns[6]: 'Country',
+                                    df.columns[7]: 'City',
+                                    df.columns[8]: 'Timezone'})
             
             # Grab max id
             id = Accounts.query.order_by(Accounts.AccountID.desc()).first()
