@@ -86,8 +86,9 @@ class Clients(db.Model):
     ValidTo = db.Column(db.Date)
     
     # References
-    Account = db.relationship('Accounts', backref='Client')
     User = db.relationship('Users', backref='Client')
+    Account = db.relationship('Accounts', backref='Client')
+    Opportunity = db.relationship('Opportunities', backref='Client')
     
 # Accounts model
 class Accounts(db.Model):
@@ -114,12 +115,12 @@ class Opportunities(db.Model):
     OpportunityID = db.Column(db.Integer, primary_key=True)
     AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID)) # Foreign Key to AccountID
     LeadID = db.Column(db.Integer)
-    ClientID = db.Column(db.Integer)
     Opportunity = db.Column(db.Text)
     Value = db.Column(db.String(255))
     Stage = db.Column(db.String(100))
     CreationDate = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     CloseDate = db.Column(db.Date)
+    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign Key to ClientID
       
 # Users model
 class Users(db.Model, UserMixin):
@@ -253,14 +254,15 @@ def new_opportunity():
     if form.validate_on_submit():
         try:
             opportunity = Opportunities(AccountID=form.account.data,
+                                        ClientID=current_user.ClientID,
                                         Opportunity=form.opportunity.data,
                                         Value=form.value.data,
                                         Stage=form.stage.data)
             db.session.add(opportunity)
             db.session.commit()
-            
             flash('Opportunity added successfully.')
             return redirect(url_for('opportunities_list'))
+        
         except:
             db.session.rollback()
             flash('Opportunity add failed.')
@@ -276,6 +278,7 @@ def new_opportunity_id(id):
     if form.validate_on_submit():
         try:
             opportunity = Opportunities(AccountID=form.account.data,
+                                        ClientID=current_user.ClientID,
                                         Opportunity=form.opportunity.data,
                                         Value=form.value.data,
                                         Stage=form.stage.data)

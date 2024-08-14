@@ -1,7 +1,7 @@
 import mysql.connector
 
 mydb = mysql.connector.connect(
-    host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
+    host = 'erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com',
     user = 'erpcrm', 
     passwd = 'Erpcrmpass1!',
     database = 'erpcrmdb'
@@ -9,7 +9,7 @@ mydb = mysql.connector.connect(
 
 cursor = mydb.cursor()
 
-cursor.execute('SELECT * FROM test')
+cursor.execute('SELECT * FROM Accounts')
 
 for row in cursor:
     print(row)
