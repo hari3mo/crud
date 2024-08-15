@@ -71,6 +71,8 @@ def admin():
         return render_template('admin.html', users=users)
     return redirect(url_for('index'))
 
+@app.route('user/<int:id>', methods=['GET', 'POST'])
+
 ##############################################################################
 
 # Models
