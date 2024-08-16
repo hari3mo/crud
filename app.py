@@ -457,24 +457,57 @@ def accounts_list():
     accounts = None
     accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
         .order_by(Accounts.AccountID.desc())
-                               
-    countries = db.session.query(Accounts.Country).distinct()
-    countries = sorted([str(country).strip('(').strip(')').strip(',').strip("'") for country in countries])
-    country = request.args.get('country')
-    
-    if country:
-        accounts = accounts.filter_by(Country=country)
-    
+        
+    # Industry filter query
     industries = db.session.query(Accounts.CompanyIndustry).distinct()
     industries = sorted([str(industry).strip('(').strip(')').strip(',').strip("'") for industry in industries])
+    if 'None' in industries:
+        industries.remove('None')
     industry = request.args.get('industry')
-    
     if industry:
         accounts = accounts.filter_by(CompanyIndustry=industry)
         
+    # Company type filter query
+    types = db.session.query(Accounts.CompanyType).distinct()
+    types = sorted([str(type).strip('(').strip(')').strip(',').strip("'") for type in types])
+    if 'None' in types:
+        types.remove('None')
+    type = request.args.get('type')
+    if type:
+        accounts = accounts.filter_by(CompanyType=type)
+    
+    # Countries filter query                    
+    countries = db.session.query(Accounts.Country).distinct()
+    countries = sorted([str(country).strip('(').strip(')').strip(',').strip("'") for country in countries])
+    if 'None' in countries:
+        countries.remove('None')
+    country = request.args.get('country')
+    if country:
+        accounts = accounts.filter_by(Country=country)
+    
+    # Cities filter query
+    cities = db.session.query(Accounts.City).distinct()
+    cities = sorted([str(city).strip('(').strip(')').strip(',').strip("'") for city in cities])
+    # cities = sorted(['Hail' if str(city).strip('(').strip(')').strip(',').strip("'") == '"Ha\'Il"' \
+    #     else str(city).strip('(').strip(')').strip(',').strip("'") for city in cities])
+    if 'None' in cities:
+        cities.remove('None')
+    city = request.args.get('city')  
+    if city:
+        accounts = accounts.filter_by(City=city)
+    
+    # Timezone filter query
+    timezones = db.session.query(Accounts.Timezone).distinct()
+    timezones = sorted([str(timezone).strip('(').strip(')').strip(',').strip("'") for timezone in timezones])
+    if 'None' in timezones:
+        timezones.remove('None')
+    timezone = request.args.get('timezone')
+    if timezone:
+        accounts = accounts.filter_by(Timezone=timezone)
                           
-    return render_template('accounts_list.html', accounts=accounts,\
-        countries=countries, industries=industries)
+    return render_template('accounts_list.html', accounts=accounts,
+        countries=countries, industries=industries, types=types, cities=cities,
+        timezones=timezones)
     # except:
     #     flash('Error loading database, please try again.')
     #     return redirect(url_for('accounts'))
