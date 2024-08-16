@@ -15,51 +15,51 @@
         
     </div>
     <br>
-    <h1 class="text-center"><strong>Accounts List</strong></h1>
-<br>
-<div class="dropdown">
-    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter by Industry
-      </button>
-      <ul class="dropdown-menu scrollable-menu">
-          {% for industry in industries %}
-          <li><a class="dropdown-item" href="{{ url_for('accounts_list', industry=industry)}}">{{ industry }} </a></li>
-          {% endfor %}
-    </ul>
-    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter by Type
-      </button>
-      <ul class="dropdown-menu scrollable-menu">
-          {% for type in types %}
-          <li><a class="dropdown-item" href="{{ url_for('accounts_list', type=type)}}">{{ type }} </a></li>
-          {% endfor %}            
-    </ul>
-    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Filter by Country
-    </button>
-    <ul class="dropdown-menu scrollable-menu">
-        {% for country in countries %}
-        <li><a class="dropdown-item" href="{{ url_for('accounts_list', country=country)}}">{{ country }} </a></li>
-        {% endfor %}          
-    </ul>
-    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter by City
-      </button>
-      <ul class="dropdown-menu scrollable-menu">
-          {% for city in cities %}
-          <li><a class="dropdown-item" href="{{ url_for('accounts_list', city=city)}}">{{ city }} </a></li>
-          {% endfor %}            
-    </ul>
-    <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Filter by Timezone
-      </button>
-      <ul class="dropdown-menu scrollable-menu">
-          {% for timezone in timezones %}
-          <li><a class="dropdown-item" href="{{ url_for('accounts_list', timezone=timezone)}}">{{ timezone }} </a></li>
-          {% endfor %}            
-    </ul>
-</div>
-<br>
+    <h1 class="text-center"><strong><u>Accounts List</u></strong></h1>
+    <br>
+    <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Industry
+        </button>
+        <ul class="dropdown-menu scrollable-menu">
+            {% for industry in industries %}
+            <li><a class="dropdown-item" href="{{ url_for('accounts_list', industry=industry)}}">{{ industry }} </a></li>
+            {% endfor %}
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Type
+        </button>
+        <ul class="dropdown-menu scrollable-menu">
+            {% for type in types %}
+            <li><a class="dropdown-item" href="{{ url_for('accounts_list', type=type)}}">{{ type }} </a></li>
+            {% endfor %}            
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter by Country
+        </button>
+        <ul class="dropdown-menu scrollable-menu">
+            {% for country in countries %}
+            <li><a class="dropdown-item" href="{{ url_for('accounts_list', country=country)}}">{{ country }} </a></li>
+            {% endfor %}          
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by City
+        </button>
+        <ul class="dropdown-menu scrollable-menu">
+            {% for city in cities %}
+            <li><a class="dropdown-item" href="{{ url_for('accounts_list', city=city)}}">{{ city }} </a></li>
+            {% endfor %}            
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Timezone
+        </button>
+        <ul class="dropdown-menu scrollable-menu">
+            {% for timezone in timezones %}
+            <li><a class="dropdown-item" href="{{ url_for('accounts_list', timezone=timezone)}}">{{ timezone }} </a></li>
+            {% endfor %}            
+        </ul>
+    </div>
+    <br>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
