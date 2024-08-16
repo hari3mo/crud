@@ -31,7 +31,7 @@ app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
 app.config['UPLOAD_FOLDER'] = 'static/files'
 
 # Set session timeout duration
-app.permanent_session_lifetime = timedelta(minutes=25) 
+app.permanent_session_lifetime = timedelta(minutes=30) 
 
 # Login initialize
 login_manager = LoginManager()
@@ -71,7 +71,7 @@ def admin():
         return render_template('admin.html', users=users)
     return redirect(url_for('index'))
 
-@app.route('user/<int:id>', methods=['GET', 'POST'])
+# @app.route('user/<int:id>', methods=['GET', 'POST'])
 
 ##############################################################################
 
@@ -453,14 +453,31 @@ def clear_accounts():
 @app.route('/accounts/accounts_list/')
 @login_required
 def accounts_list():
-    try:
-        accounts = None
-        accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
-            .order_by(Accounts.AccountID.desc())
-        return render_template('accounts_list.html', accounts=accounts)
-    except:
-        # flash('Error loading database, please try again.')
-        return redirect(url_for('accounts_list'))
+    # try:
+    accounts = None
+    accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
+        .order_by(Accounts.AccountID.desc())
+                               
+    countries = db.session.query(Accounts.Country).distinct()
+    countries = sorted([str(country).strip('(').strip(')').strip(',').strip("'") for country in countries])
+    country = request.args.get('country')
+    
+    if country:
+        accounts = accounts.filter_by(Country=country)
+    
+    industries = db.session.query(Accounts.CompanyIndustry).distinct()
+    industries = sorted([str(industry).strip('(').strip(')').strip(',').strip("'") for industry in industries])
+    industry = request.args.get('industry')
+    
+    if industry:
+        accounts = accounts.filter_by(CompanyIndustry=industry)
+        
+                          
+    return render_template('accounts_list.html', accounts=accounts,\
+        countries=countries, industries=industries)
+    # except:
+    #     flash('Error loading database, please try again.')
+    #     return redirect(url_for('accounts'))
 
 
 # Update account

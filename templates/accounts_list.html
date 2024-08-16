@@ -12,6 +12,37 @@
         <a class="btn btn-secondary btn-lg" href="{{ url_for('accounts_import') }}" role="button">Accounts Import</a>
         <a class="btn btn-primary btn-lg" href="{{ url_for('accounts_list') }}" role="button">Refresh</a>
         <a class="btn btn-danger btn-lg" href="{{ url_for('clear_accounts')}}" role="button">Clear List</a>
+        
+    </div>
+    <br>
+    <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Industry
+          </button>
+          <ul class="dropdown-menu">
+              {% for industry in industries %}
+              <li><a class="dropdown-item" href="{{ url_for('accounts_list', industry=industry)}}">{{ industry }} </a></li>
+              {% endfor %}
+            
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Filter by Company Type
+          </button>
+          <ul class="dropdown-menu">
+              {% for country in countries %}
+              <li><a class="dropdown-item" href="{{ url_for('accounts_list', country=country)}}">{{ country }} </a></li>
+              {% endfor %}
+            
+        </ul>
+        <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter by Country
+        </button>
+        <ul class="dropdown-menu">
+            {% for country in countries %}
+            <li><a class="dropdown-item" href="{{ url_for('accounts_list', country=country)}}">{{ country }} </a></li>
+            {% endfor %}
+          
+        </ul>
     </div>
     <br>
     <h1 class="text-center"><strong>Accounts List</strong></h1>
