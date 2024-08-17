@@ -16,7 +16,7 @@ import numpy as np
 
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
-    UserUpdateForm, AccountForm, OpportunityForm, TextForm
+    UserUpdateForm, AccountForm, OpportunityForm, TextForm, AdminUpdateForm
 
 app = Flask(__name__) 
 
@@ -67,7 +67,7 @@ migrate = Migrate(app, db)
 def admin():
     if session['admin']:
         users = None
-        users = Users.query
+        users = Users.query.order_by(Users.UserID.desc())
         return render_template('admin.html', users=users)
     return redirect(url_for('index'))
 
@@ -240,7 +240,7 @@ def user_management():
 @login_required
 def update_user(userID):
     user = Users.query.get_or_404(userID)
-    form = UserUpdateForm()
+    form = AdminUpdateForm()
     if form.validate_on_submit():
         admin = None
         admin = Admins.query.filter_by(User=user.Email).first()
@@ -391,7 +391,18 @@ def signup():
             if client:
                 # Hash password
                 hashed_password = generate_password_hash(form.password.data, 'scrypt')
-                new_user = Users(Email=form.email.data,
+                
+                # Grab max id
+                id = None
+                id = Users.query.order_by(Users.UserID.desc()).first()
+            
+                if id is None:
+                        id = 100
+                else:
+                    id = id.UserID + 1
+                    
+                new_user = Users(UserID=id,
+                                 Email=form.email.data,
                                 PasswordHash=hashed_password,
                                 License=form.license.data,
                                 ValidTo='00-00-0000',

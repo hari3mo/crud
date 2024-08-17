@@ -76,7 +76,7 @@ class UserUpdateForm(FlaskForm):
     submit = SubmitField('Submit')
     
 # Admin user update form
-class UserUpdateForm(FlaskForm):
+class AdminUpdateForm(FlaskForm):
     email = EmailField('Email:', validators=[Email()])
     password = PasswordField('New Password:')
     confirm_password = PasswordField('Confirm Password:', 

@@ -63,4 +63,6 @@ ALTER TABLE Leads
 ADD PRIMARY KEY (LeadID)
 
 --@block
-DELETE FROM Users WHERE (Email='ahad.ahmad@erp-center.com')
+UPDATE Users
+SET UserID = 101
+WHERE (Email='jshah@erp-center.com')
