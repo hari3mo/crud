@@ -200,7 +200,7 @@ def text():
         return render_template('test.html', form=form)
     return render_template('test.html', form=form)
 
-# User update/management
+# Update user/management
 @app.route('/user/user_management/', methods=['GET', 'POST'])
 @login_required
 def user_management():
@@ -235,6 +235,53 @@ def user_management():
         
     return render_template('user_management.html', form=form)
 
+# Admin: Update user
+@app.route('/admin/update_user/<int:userID>', methods=['GET', 'POST'])
+@login_required
+def update_user(userID):
+    user = Users.query.get_or_404(userID)
+    form = UserUpdateForm()
+    if form.validate_on_submit():
+        admin = None
+        admin = Admins.query.filter_by(User=user.Email).first()
+        if admin:
+            flash('Access denied.')
+            return redirect(url_for('admin'))
+        user.Email = form.email.data
+        db.session.commit()
+        return redirect(url_for('admin'))
+    
+    return render_template('update_user.html', form=form, user=user)
+
+
+
+# Admin: Delete user
+@app.route('/user/delete/<int:userID>')
+@login_required
+def delete_user(userID):
+    if session['admin']:
+        user = Users.query.get_or_404(userID)
+        
+        # Admin restriction
+        admin = None
+        admin = Admins.query.filter_by(User=user.Email).first()
+        if admin:
+            flash('Access denied.')
+            return redirect(url_for('admin'))
+        
+        # try:
+        db.session.delete(user)
+        db.session.commit()
+        flash('User deleted successfully.')
+        return redirect(url_for('admin'))
+        
+        # except:
+        #     flash('Error deleting user.')
+        #     return redirect(url_for('user'))
+    else: 
+        flash('Access denied.')
+        return redirect(url_for('user'))
+ 
 
 
 # Clear opportunities

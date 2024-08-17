@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}EPRCRM - Manage User{% endblock %}
+
+{% block content %}
+
+
+
+<a class="btn btn-outline-secondary btn-lg" href="{{ url_for('admin')}}" role="button">Back</a>
+
+  
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        <h2 class="text-center"><strong>Manage User</strong></h2> 
+        <br>
+        <form action="{{ url_for('update_user', userID=user.UserID)}}" method="POST">
+           
+            {{ form.hidden_tag() }}
+
+            <p align="left"><b>UserID: {{ user.UserID }}</b><p>
+            
+            {{ form.email.label(class="form-label") }}
+            <p>{{ form.email(class="form-control", value=user.Email) }}</p>
+            
+            {{ form.password.label(class="form-label" )}}
+            <p>{{ form.password(class="form-control") }}</p>
+
+            {{ form.confirm_password.label(class="form-label" )}}
+            <p>{{ form.confirm_password(class="form-control") }}</p>
+
+
+            <br>
+
+            {{ form.submit(class="btn btn-primary", value="Update") }}
+
+            <a href="{{ url_for('admin') }}" class="btn btn-secondary" style="float: center;">Discard</a>
+            <a href="{{ url_for('delete_user', userID=user.UserID) }}" class="btn btn-danger" style="float: center;">Delete</a>
+            </form>
+
+        </form>
+    </div>
+
+<br/>
+
+{% endblock %}

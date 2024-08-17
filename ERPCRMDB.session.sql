@@ -63,6 +63,4 @@ ALTER TABLE Leads
 ADD PRIMARY KEY (LeadID)
 
 --@block
-UPDATE Clients
-SET `Image` = '/images/100010.png'
-WHERE (ClientID=100010);
+DELETE FROM Users WHERE (Email='ahad.ahmad@erp-center.com')

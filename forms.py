@@ -75,6 +75,16 @@ class UserUpdateForm(FlaskForm):
                                                          message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
+# Admin user update form
+class UserUpdateForm(FlaskForm):
+    email = EmailField('Email:', validators=[Email()])
+    password = PasswordField('New Password:')
+    confirm_password = PasswordField('Confirm Password:', 
+                                     validators=[EqualTo('password', 
+                                                         message='Passwords do not match.')])
+    submit = SubmitField('Submit')
+    
+    
     
 # Text field form
 class TextForm(FlaskForm):
