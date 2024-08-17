@@ -58,3 +58,11 @@ INSERT INTO Clients VALUES (100100, 'Southern California Edison', '9b2a012a1a1c4
 --@block
 INSERT INTO Clients VALUES(100000, 'ERP Center, Inc.', '3a95d70c85864ab99603', '/images/3a95d70c85864ab99603.png', 1, 1)
 
+--@block
+ALTER TABLE Leads
+ADD PRIMARY KEY (LeadID)
+
+--@block
+UPDATE Clients
+SET `Image` = '/images/100010.png'
+WHERE (ClientID=100010);

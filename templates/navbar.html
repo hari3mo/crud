@@ -1,29 +1,34 @@
-<nav class="navbar">    
-    <ul>
-        <li><a class="navbar-brand" href="{{url_for('index')}}">
-            <img src="{{ url_for('static', filename=session['image']) }}" width="120"></img>
-        </a></li>
-        <li><a href="{{url_for('index')}}">Favorites</a></li>
-        <li><a href="{{url_for('accounts')}}">Accounts</a></li>
-        <li><a href="{{url_for('leads')}}">Leads</a></li>
-        <li><a href="{{url_for('opportunities')}}">Opportunities</a></li>
-        <li><a href="{{url_for('sales')}}">Sales</a></li>
-        <li><a href="{{url_for('marketing')}}">Marketing</a></li>
-        <li><a href="{{url_for('service')}}">Service</a></li>
-        <li><a href="{{url_for('analytics')}}">Analytics</a></li>
-        <li><a href="{{url_for('help')}}">Help</a></li>  
-        <li><a href="{{url_for('user')}}">User</a></li>
-        {% if session['admin'] %}
-        <li><a href="{{ url_for('admin') }}">Admin</a></li> 
-        {% endif %}
-        <li><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
-        <!-- <li class='navbar-right'>{{ current_user.Email }}</li> -->
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{url_for('index')}}">
+        <img src="{{ url_for('static', filename=session['image']) }}" width="120" alt="Brand Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="{{url_for('index')}}">Favorites</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('accounts')}}">Accounts</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('leads')}}">Leads</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('opportunities')}}">Opportunities</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('sales')}}">Sales</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('marketing')}}">Marketing</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('service')}}">Service</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('analytics')}}">Analytics</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('help')}}">Help</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{url_for('user')}}">User</a></li>
+          {% if session['admin'] %}
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('admin') }}">Admin</a></li>
+          {% endif %}
+          <li class="nav-item"><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
+        </ul>
         <form method='POST' action="{{ url_for('search_accounts') }}" class="d-flex" role="search">
-            {{ form.hidden_tag() }}
-
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search", name='search'>
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          {{ form.hidden_tag() }}
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+          <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-    </ul>
+      </div>
+    </div>
   </nav>
+  
