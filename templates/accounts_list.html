@@ -64,6 +64,9 @@
     <thead>
         <tr>
             <th scope="col">Company Name</th>
+            <th scope="col">Company Revenue (millions)
+                
+            </th>
             <th scope="col">Employee Head Count</th>
             <th scope="col">Company Industry</th>
             <th scope="col">Company Specialties</th>
@@ -79,6 +82,7 @@
         <tr>
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
                 href="{{ url_for('account', id=account.AccountID) }}">{{ account.CompanyName }}</th>
+            <td>{{ account.CompanyRevenue }}</td>
             <td>{{ account.EmployeeHeadCount }}</td>
             <td>{{ account.CompanyIndustry }}</td>
             <td>{{ account.CompanySpecialties }}</td>
