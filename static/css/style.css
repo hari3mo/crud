@@ -2,8 +2,10 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
+/* 
+.navbar-nav .nav-item {
+  margin-right: 15px;
+} */
 
 /* Following is navbar */
 .navbar {
@@ -28,10 +30,10 @@ body{
 .navbar a {
   color: rgb(0, 0, 0);
   text-decoration: none;
-  padding: 18px;
+  padding: 15px;
   display: block;
   text-align: center;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .navbar a:hover {
@@ -70,7 +72,7 @@ body{
 }
 
 .d-flex {
-  margin-left: auto; /* Pushes the UserID to the far right */
+  margin-left: auto; /* Pushes search to the far right */
   margin-right: 20px;
   font-size: 20px;
   font-weight: bold;

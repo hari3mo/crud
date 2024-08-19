@@ -248,6 +248,8 @@ def update_user(userID):
             flash('Access denied.')
             return redirect(url_for('admin'))
         user.Email = form.email.data
+        hashed_password = generate_password_hash(form.password.data, 'scrypt')
+        user.PasswordHash = hashed_password
         db.session.commit()
         return redirect(url_for('admin'))
     

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="{{url_for('index')}}">
-        <img src="{{ url_for('static', filename=session['image']) }}" width="120" alt="Brand Logo">
+        <img src="{{ url_for('static', filename=session['image']) }}" width="115" alt="Brand Logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -22,6 +22,7 @@
           <li class="nav-item"><a class="nav-link" href="{{ url_for('admin') }}">Admin</a></li>
           {% endif %}
           <li class="nav-item"><a class="nav-link" href={{url_for('logout')}}>Logout</a></li>
+          
         </ul>
         <form method='POST' action="{{ url_for('search_accounts') }}" class="d-flex" role="search">
           {{ form.hidden_tag() }}
