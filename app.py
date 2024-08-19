@@ -742,8 +742,8 @@ def marketing():
 def service():
     return render_template('service.html')
 
-# @app.route('/analytics/')
-# def analytics():
+@app.route('/analytics/')
+def analytics():
 #     accounts = pd.read_sql('SELECT * FROM Accounts', con=engine)
     
 #     completion = client.chat.completions.create(
@@ -758,7 +758,7 @@ def service():
 #         }
 #     ])
     
-#     return render_template('analytics.html', completion=completion, accounts=accounts)
+    return render_template('analytics.html', completion=completion, accounts=accounts)
 
 @app.route('/help/')
 def help():
