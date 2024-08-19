@@ -9,7 +9,9 @@ import datetime
 import os
 
 # Redundant
-# from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
+
+from openai import OpenAI
 
 import pandas as pd
 import numpy as np
@@ -22,7 +24,10 @@ app = Flask(__name__)
 
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb'
+
+# OpenAI API Client
+client = OpenAI(
+    api_key = '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')
 
 # Secret key
 app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
@@ -53,7 +58,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Standard engine(s)
-# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com:3306/erpcrmdb')
+engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
 
 # mydb = mysql.connector.connect(
 #     host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
@@ -742,7 +747,20 @@ def service():
 
 @app.route('/analytics/')
 def analytics():
-    return render_template('analytics.html')
+    accounts = pd.read_sql('SELECT * FROM Accounts', con=engine)
+    
+    completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": "You are an intelligent assistant that provides summaries and insights about a list of accounts in our CRM. Our company is called\
+            ERP Center, Inc. and we connect businesses with the proper SAP software for their needs."},
+        {
+            "role": "user",
+            "content": f"Provide a summary of the following accounts {accounts} and point out notable companies that would be good to pursue business opportunities with."
+        }
+    ])
+    
+    return render_template('analytics.html', completion=completion, accounts=accounts)
 
 @app.route('/help/')
 def help():
