@@ -11,7 +11,6 @@
     <div class="Analytics-item"> <a href="#Custom Reports"> Custom Reports</a></div>  
 </div>
 <hr>
-<br>
 {% autoescape false %}
 {{ completion.choices[0].message.content | replace('\n', '<br>') }}
 {% endautoescape %}
