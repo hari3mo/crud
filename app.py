@@ -26,8 +26,10 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
 
 # OpenAI API Client
+with open('api_key.txt', 'r') as f:
+    key = f.read()
 client = OpenAI(
-    api_key = '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')
+    api_key = key)
 
 # Secret key
 app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
@@ -756,7 +758,8 @@ def analytics():
             ERP Center, Inc. and we connect businesses with the proper SAP software for their needs."},
         {
             "role": "user",
-            "content": f"Provide a summary of the following accounts {accounts} and point out notable companies that would be good to pursue business opportunities with."
+            "content": f"First provide a summary of the accounts with useful statistics from the data provided. Then provide a list of notable companies that may be good\
+                candidates to pursue business opportunities with and the reasoning for why they may be. Here are the accounts: {accounts}"
         }
     ])
     
