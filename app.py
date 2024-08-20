@@ -248,8 +248,7 @@ def user_management():
 @app.route('/admin/update_user/<int:userID>', methods=['GET', 'POST'])
 @login_required
 def update_user(userID):
-    user = db.session.get(userID)
-    # user = Users.query.get_or_404(userID)
+    user = Users.query.get_or_404(userID)
     form = AdminUpdateForm()
     if form.validate_on_submit():
         admin = None
