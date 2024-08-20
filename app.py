@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
+from dotenv import load_dotenv
 import datetime
 import os
 
@@ -26,8 +27,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
 
 # OpenAI API Client
-key = ...
-client = OpenAI(api_key = key)
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+client = OpenAI(api_key = OPENAI_API_KEY)
 
 # Secret key
 app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
@@ -57,7 +59,7 @@ def base():
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-# Standard engine(s)
+# Standard engine
 engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
 
 # mydb = mysql.connector.connect(
@@ -69,6 +71,7 @@ engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iism
 
 # Admin page
 @app.route('/admin/')
+@login_required
 def admin():
     if session['admin']:
         users = None
@@ -520,64 +523,64 @@ def clear_accounts():
 @app.route('/accounts/accounts_list/')
 @login_required
 def accounts_list():
-    # try:
-    accounts = None
-    accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
-        .order_by(Accounts.AccountID.desc())
+    try:
+        accounts = None
+        accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
+            .order_by(Accounts.AccountID.desc())
+            
+        # Industry filter query
+        industries = db.session.query(Accounts.CompanyIndustry).distinct().filter_by(ClientID=current_user.ClientID).all()
+        industries = sorted([str(industry).strip('(').strip(')').strip(',').strip("'") for industry in industries])
+        if 'None' in industries:
+            industries.remove('None')
+        industry = request.args.get('industry')
+        if industry:
+            accounts = accounts.filter_by(CompanyIndustry=industry)
+            
+        # Company type filter query
+        types = db.session.query(Accounts.CompanyType).distinct().filter_by(ClientID=current_user.ClientID).all()
+        types = sorted([str(type).strip('(').strip(')').strip(',').strip("'") for type in types])
+        if 'None' in types:
+            types.remove('None')
+        type = request.args.get('type')
+        if type:
+            accounts = accounts.filter_by(CompanyType=type)
         
-    # Industry filter query
-    industries = db.session.query(Accounts.CompanyIndustry).distinct()
-    industries = sorted([str(industry).strip('(').strip(')').strip(',').strip("'") for industry in industries])
-    if 'None' in industries:
-        industries.remove('None')
-    industry = request.args.get('industry')
-    if industry:
-        accounts = accounts.filter_by(CompanyIndustry=industry)
+        # Countries filter query                    
+        countries = db.session.query(Accounts.Country).distinct().filter_by(ClientID=current_user.ClientID).all()
+        countries = sorted([str(country).strip('(').strip(')').strip(',').strip("'") for country in countries])
+        if 'None' in countries:
+            countries.remove('None')
+        country = request.args.get('country')
+        if country:
+            accounts = accounts.filter_by(Country=country)
         
-    # Company type filter query
-    types = db.session.query(Accounts.CompanyType).distinct()
-    types = sorted([str(type).strip('(').strip(')').strip(',').strip("'") for type in types])
-    if 'None' in types:
-        types.remove('None')
-    type = request.args.get('type')
-    if type:
-        accounts = accounts.filter_by(CompanyType=type)
-    
-    # Countries filter query                    
-    countries = db.session.query(Accounts.Country).distinct()
-    countries = sorted([str(country).strip('(').strip(')').strip(',').strip("'") for country in countries])
-    if 'None' in countries:
-        countries.remove('None')
-    country = request.args.get('country')
-    if country:
-        accounts = accounts.filter_by(Country=country)
-    
-    # Cities filter query
-    cities = db.session.query(Accounts.City).distinct()
-    cities = sorted([str(city).strip('(').strip(')').strip(',').strip("'") for city in cities])
-    # cities = sorted(['Hail' if str(city).strip('(').strip(')').strip(',').strip("'") == '"Ha\'Il"' \
-    #     else str(city).strip('(').strip(')').strip(',').strip("'") for city in cities])
-    if 'None' in cities:
-        cities.remove('None')
-    city = request.args.get('city')  
-    if city:
-        accounts = accounts.filter_by(City=city)
-    
-    # Timezone filter query
-    timezones = db.session.query(Accounts.Timezone).distinct()
-    timezones = sorted([str(timezone).strip('(').strip(')').strip(',').strip("'") for timezone in timezones])
-    if 'None' in timezones:
-        timezones.remove('None')
-    timezone = request.args.get('timezone')
-    if timezone:
-        accounts = accounts.filter_by(Timezone=timezone)
-                          
-    return render_template('accounts_list.html', accounts=accounts,
-        countries=countries, industries=industries, types=types, cities=cities,
-        timezones=timezones)
-    # except:
-    #     flash('Error loading database, please try again.')
-    #     return redirect(url_for('accounts'))
+        # Cities filter query
+        cities = db.session.query(Accounts.City).distinct().filter_by(ClientID=current_user.ClientID).all()
+        cities = sorted([str(city).strip('(').strip(')').strip(',').strip("'") for city in cities])
+        # cities = sorted(['Hail' if str(city).strip('(').strip(')').strip(',').strip("'") == '"Ha\'Il"' \
+        #     else str(city).strip('(').strip(')').strip(',').strip("'") for city in cities])
+        if 'None' in cities:
+            cities.remove('None')
+        city = request.args.get('city')  
+        if city:
+            accounts = accounts.filter_by(City=city)
+        
+        # Timezone filter query
+        timezones = db.session.query(Accounts.Timezone).distinct().filter_by(ClientID=current_user.ClientID).all()
+        timezones = sorted([str(timezone).strip('(').strip(')').strip(',').strip("'") for timezone in timezones])
+        if 'None' in timezones:
+            timezones.remove('None')
+        timezone = request.args.get('timezone')
+        if timezone:
+            accounts = accounts.filter_by(Timezone=timezone)
+                            
+        return render_template('accounts_list.html', accounts=accounts,
+            countries=countries, industries=industries, types=types, cities=cities,
+            timezones=timezones)
+    except:
+        flash('Error loading database, please try again.')
+        return redirect(url_for('accounts'))
 
 
 # Update account
@@ -723,31 +726,38 @@ def user():
 
 # TODO
 @app.route('/accounts/')
+@login_required
 def accounts():
         return render_template('accounts.html')
 
 
 @app.route('/leads/')
+@login_required
 def leads():
     return render_template('leads.html')
 
 @app.route('/opportunities/')
+@login_required
 def opportunities():
     return render_template('opportunities.html')
 
 @app.route('/sales/')
+@login_required
 def sales():
     return render_template('sales.html')
 
 @app.route('/marketing/')
+@login_required
 def marketing():
     return render_template('marketing.html')
 
 @app.route('/service/')
+@login_required
 def service():
     return render_template('service.html')
 
 @app.route('/analytics/')
+@login_required
 def analytics():
     accounts = pd.read_sql('SELECT * FROM Accounts', con=engine)
     
@@ -766,10 +776,12 @@ def analytics():
     return render_template('analytics.html', completion=completion, accounts=accounts)
 
 @app.route('/help/')
+@login_required
 def help():
-    return render_template('help.html')
+    return OPENAI_API_KEY#render_template('help.html')
 
 @app.route('/home')
+@login_required
 def home():
     return render_template('home.html')
 

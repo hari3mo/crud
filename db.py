@@ -11,7 +11,6 @@ cursor = mydb.cursor()
 
 cursor.execute('SELECT * FROM Accounts')
 
-for row in cursor:
-    print(row)
+accounts = cursor.fetchall()
 
 

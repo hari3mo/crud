@@ -1,6 +1,7 @@
 .vscode/
 env/
 static/files/*.csv
-.DS_Store
 migrations/
-__pycache__
+__pycache__/
+.DS_Store
+.env
