@@ -7,10 +7,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import timedelta
 from dotenv import load_dotenv
 import datetime
+import json
 import os
 
 # Redundant
-from sqlalchemy import create_engine, text
+# from sqlalchemy import create_engine, text
 
 from openai import OpenAI
 
@@ -60,7 +61,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # Standard engine
-engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
+# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
 
 # mydb = mysql.connector.connect(
 #     host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
@@ -247,7 +248,8 @@ def user_management():
 @app.route('/admin/update_user/<int:userID>', methods=['GET', 'POST'])
 @login_required
 def update_user(userID):
-    user = Users.query.get_or_404(userID)
+    user = db.session.get(userID)
+    # user = Users.query.get_or_404(userID)
     form = AdminUpdateForm()
     if form.validate_on_submit():
         admin = None
@@ -759,26 +761,28 @@ def service():
 @app.route('/analytics/')
 @login_required
 def analytics():
-    accounts = pd.read_sql('SELECT * FROM Accounts', con=engine)
+    assistant = client.beta.assistants.retrieve("asst_X75bBijkhsWoJDJm2IYUTK44")
+    thread = client.beta.threads.create()
+    run = client.beta.threads.runs.create_and_poll(thread_id=thread.id,
+                                                   assistant_id=assistant.id,
+                                                   instructions="Please provide insights on the accounts, useful statistics on aspects of the data, and accounts \
+    that could be good potential clients and your reasoning as for why. The name of our company is \
+      ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands.")
+    if run.status == 'completed': 
+        message = client.beta.threads.messages.list(
+            thread_id=thread.id
+        )
+        message = json.loads(message.json())
+        message = message['data'][0]['content'][0]['text']['value']
+    else:
+        message = None
     
-    completion = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {"role": "system", "content": f"You are an intelligent assistant that provides summaries and insights about a list of accounts in our CRM. Our company is called\
-            {current_user.Client} and we connect businesses with the proper SAP software for their needs."},
-        {
-            "role": "user",
-            "content": f"First provide a summary of the accounts as well as useful statistics regarding revenue, location, size, etc. from the data provided. Then provide a list of notable companies that may be good\
-                candidates to pursue business opportunities with and the reasoning for why they may be. Here are the accounts: {accounts}. Revenue column is in units of millions"
-        }
-    ])
-    
-    return render_template('analytics.html', completion=completion, accounts=accounts)
+    return render_template('analytics.html', message=message)
 
 @app.route('/help/')
 @login_required
 def help():
-    return OPENAI_API_KEY#render_template('help.html')
+    return render_template('help.html')
 
 @app.route('/home')
 @login_required

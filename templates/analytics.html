@@ -13,7 +13,7 @@
 <hr>
 
 {% autoescape false %}
-{{ completion.choices[0].message.content | replace('\n', '<br>') }}
+{{ message | replace('\n', '<br>') }}
 {% endautoescape %}
 
 {% endblock %}
