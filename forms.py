@@ -24,6 +24,8 @@ class AccountForm(FlaskForm):
 # User form
 class UserForm(FlaskForm):
     email = EmailField('Email:', validators=[DataRequired(), Email()])
+    first_name = StringField('First Name:', validators=[DataRequired()])
+    last_name = StringField('Last Name:', validators=[DataRequired()])
     license = StringField('License Key:', validators=[DataRequired(),
                                             Length(min=20, max=20, 
                                                     message='License key must be\

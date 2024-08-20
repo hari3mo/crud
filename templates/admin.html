@@ -8,6 +8,7 @@
     <thead>
         <tr>
             <th scope="col">Email</th>
+            <th scope="col">User</th>
             <th scope="col">Client</th>
             <th scope="col">Valid From</th>
             <th scope="col">Valid To</th>
@@ -19,6 +20,7 @@
         <tr>
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
                 href="{{ url_for('update_user', userID=user.UserID) }}">{{ user.Email }} </th>
+            <td>{{user.FirstName}} {{ user.LastName }}</td>
             <td>{{ user.Client.Client }}</td>
             <td>{{ user.ValidFrom }}</td>
             <td>{{ user.ValidTo }}</td>

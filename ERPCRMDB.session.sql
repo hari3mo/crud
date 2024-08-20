@@ -64,5 +64,5 @@ ADD PRIMARY KEY (LeadID)
 
 --@block
 UPDATE Users
-SET UserID = 101
-WHERE (Email='jshah@erp-center.com')
+SET FirstName = 'Haris', LastName = 'Saif'
+WHERE (Email='haris.saif@erp-center.com')
