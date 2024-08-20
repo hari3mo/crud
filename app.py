@@ -20,7 +20,8 @@ import numpy as np
 
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
-    UserUpdateForm, AccountForm, OpportunityForm, TextForm, AdminUpdateForm
+    UserUpdateForm, AccountForm, OpportunityForm, TextForm, AdminUpdateForm,\
+        GenerateForm
 
 app = Flask(__name__) 
 
@@ -773,24 +774,29 @@ def marketing():
 def service():
     return render_template('service.html')
 
-@app.route('/analytics/')
+@app.route('/analytics/', methods=['GET', 'POST'])
 @login_required
 def analytics():
-    assistant = client.beta.assistants.retrieve("asst_X75bBijkhsWoJDJm2IYUTK44")
-    thread = client.beta.threads.create()
-    run = client.beta.threads.runs.create_and_poll(thread_id=thread.id,
-                                                   assistant_id=assistant.id,
-                                                   instructions="Please provide insights on the accounts, useful statistics on aspects of the data, and accounts \
-    that could be good potential clients and your reasoning as for why. The name of our company is \
-      ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands.")
-    if run.status == 'completed': 
-        message = client.beta.threads.messages.list(thread_id=thread.id)
-        message = json.loads(message.json())
-        message = message['data'][0]['content'][0]['text']['value']
-    else:
-        message = None
+    message = None
+    form = GenerateForm()
+    if form.validate_on_submit():
+        assistant = client.beta.assistants.retrieve("asst_X75bBijkhsWoJDJm2IYUTK44")
+        thread = client.beta.threads.create()
+        run = client.beta.threads.runs.create_and_poll(thread_id=thread.id,
+                                                    assistant_id=assistant.id,
+                                                    instructions="Please provide insights on the accounts, useful statistics on aspects of the data, and accounts \
+        that could be good potential clients and your reasoning as for why. The name of our company is \
+        ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands.")
+        if run.status == 'completed': 
+            message = client.beta.threads.messages.list(thread_id=thread.id)
+            message = json.loads(message.json())
+            message = message['data'][0]['content'][0]['text']['value']
+        else:
+            message = None
+            
+        return render_template('analytics.html', message=message, form=form)
     
-    return render_template('analytics.html', message=message)
+    return render_template('analytics.html', message=message, form=form)
 
 @app.route('/help/')
 @login_required

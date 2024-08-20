@@ -86,7 +86,10 @@ class AdminUpdateForm(FlaskForm):
                                                          message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
-    
+# Generate analytics form
+class GenerateForm(FlaskForm):
+    submit = SubmitField('Submit')
+
     
 # Text field form
 class TextForm(FlaskForm):

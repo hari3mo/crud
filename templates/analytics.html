@@ -12,8 +12,21 @@
 </div>
 <hr>
 
+<form method="POST">
+           
+    {{ form.hidden_tag()}}
+
+   
+    {{ form.submit(class="btn btn-primary", value="Generate Suggestions") }}
+
+</form>
+
+<br>
+
+{% if message %}
 {% autoescape false %}
 {{ message | replace('\n', '<br>') }}
 {% endautoescape %}
+{% endif %}
 
 {% endblock %}
