@@ -527,8 +527,24 @@ def clear_accounts():
 def accounts_list():
     try:
         accounts = None
-        accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)\
-            .order_by(Accounts.AccountID.desc())
+        accounts = Accounts.query.filter_by(ClientID=current_user.ClientID)
+            
+        # Sorting
+        sort_by = request.args.get('sort_by')
+        order = request.args.get('order')
+        
+        if sort_by == 'revenue':
+            if order == 'asc':
+                accounts = accounts.order_by(Accounts.CompanyRevenue)
+            else:
+                accounts = accounts.order_by(Accounts.CompanyRevenue.desc())
+        elif sort_by == 'head_count':
+            if order == 'asc':
+                accounts = accounts.order_by(Accounts.EmployeeHeadCount)
+            else:
+                accounts = accounts.order_by(Accounts.EmployeeHeadCount.desc())
+        else:
+                accounts = accounts.order_by(Accounts.AccountID.desc())
             
         # Industry filter query
         industries = db.session.query(Accounts.CompanyIndustry).distinct().filter_by(ClientID=current_user.ClientID).all()
@@ -769,9 +785,7 @@ def analytics():
     that could be good potential clients and your reasoning as for why. The name of our company is \
       ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands.")
     if run.status == 'completed': 
-        message = client.beta.threads.messages.list(
-            thread_id=thread.id
-        )
+        message = client.beta.threads.messages.list(thread_id=thread.id)
         message = json.loads(message.json())
         message = message['data'][0]['content'][0]['text']['value']
     else:
