@@ -785,7 +785,7 @@ def analytics():
         run = client.beta.threads.runs.create_and_poll(thread_id=thread.id,
                                                     assistant_id=assistant.id,
                                                     instructions="Please provide insights on the accounts, useful statistics on aspects of the data, and accounts \
-        that could be good potential clients and your reasoning as for why. The name of our company is \
+        that could be good potential clients and your reasoning for why. The name of our company is \
         ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands.")
         if run.status == 'completed': 
             message = client.beta.threads.messages.list(thread_id=thread.id)
