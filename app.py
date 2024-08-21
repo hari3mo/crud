@@ -29,9 +29,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
 
 # OpenAI API Client
-load_dotenv()
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-client = OpenAI(api_key = OPENAI_API_KEY)
+# load_dotenv()
+# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# client = OpenAI(api_key = OPENAI_API_KEY)
 
 # Secret key
 app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
