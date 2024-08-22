@@ -21,7 +21,7 @@ import numpy as np
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
     UserUpdateForm, AccountForm, LeadForm, OpportunityForm, TextForm, \
-        AdminUpdateForm, GenerateForm
+        AdminUpdateForm, GenerateForm, LeadUpdateForm
 
 app = Flask(__name__) 
 
@@ -779,10 +779,16 @@ def leads_list():
 # Update lead    
 @app.route('/leads/<int:id>', methods=['GET', 'POST'])
 @login_required
-def account(leadID):
-    form = AccountForm()
-    lead = Accounts.query.get_or_404(id)
+def lead(id):
+    form = LeadUpdateForm()
+    lead = Leads.query.get_or_404(id)
     if form.validate_on_submit():
+        
+        lead.Email = form.email.data
+        lead.FirstName = form.first_name.data
+        lead.LastName = form.last_name.data
+        lead.Position = form.position.data
+
         try:
             db.session.commit()
             flash('Lead updated successfully.')

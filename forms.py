@@ -29,6 +29,14 @@ class LeadForm(FlaskForm):
     position = StringField('Position:', validators=[DataRequired()])
     company = StringField('Company Name or AccountID:', validators=[DataRequired()])
     submit = SubmitField('Submit')
+    
+# Lead update form
+class LeadUpdateForm(FlaskForm):
+    first_name = StringField('First Name:', validators=[DataRequired()])
+    last_name = StringField('Last Name:', validators=[DataRequired()])
+    email  = StringField('Email:', validators=[DataRequired(), Email()])
+    position = StringField('Position:', validators=[DataRequired()])
+    submit = SubmitField('Submit')
 
 # User form
 class UserForm(FlaskForm):

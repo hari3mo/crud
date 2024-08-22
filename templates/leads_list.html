@@ -32,7 +32,7 @@
         {% for lead in leads %}
         <tr>
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
-                href="#">{{ lead.FirstName }} {{ lead.LastName }}</th>
+                href="{{ url_for('lead', id=lead.LeadID) }}">{{ lead.FirstName }} {{ lead.LastName }}</th>
             <td>{{ lead.Email }}</td>
             <td>{{ lead.Position }}</td>
             <td>{{ lead.CompanyName }}</td>
