@@ -4,20 +4,18 @@
 
 {% block content %}
 
-
-
     <div>
         <a class="btn btn-secondary btn-lg" href="{{ url_for('leads')}}" role="button">Back</a>
         <a class="btn btn-secondary btn-lg" href="{{ url_for('new_lead') }}" role="button">New Lead</a>
-        <a class="btn btn-secondary btn-lg" href="#" role="button">Leads Import</a>
+        <a class="btn btn-secondary btn-lg" href="{{ url_for('leads_import') }}" role="button">Leads Import</a>
         <a class="btn btn-primary btn-lg" href="{{ url_for('leads_list') }}" role="button">Refresh</a>
-        <a class="btn btn-danger btn-lg" href="#" role="button">Clear List</a>
+        <a class="btn btn-danger btn-lg" href="{{ url_for('clear_leads') }}" role="button">Clear List</a>
         
     </div>
     <br>
     <h1 class="text-center"><strong><u>Leads List</u></strong></h1>
     <br>
-    
+
 <table class="table table-striped table-hover">
     <thead>
         <tr>
@@ -36,11 +34,10 @@
             <td>{{ lead.Email }}</td>
             <td>{{ lead.Position }}</td>
             <td>{{ lead.CompanyName }}</td>
-
-
         </tr>
         {% endfor %}
         {% endif %}
+        
 </table>
 
 {% endblock %}

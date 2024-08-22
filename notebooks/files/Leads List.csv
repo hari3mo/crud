@@ -1,554 +1,1555 @@
-Company Name,Position,First Name,Last Name,Email
-S&C Electric Company,Chief Information Officer,Bob,King,bob.king@sandc.com
-S&C Electric Company,Chief Operating Officer,Jim,Johnson,jim@sandc.com
-S&C Electric Company,VP Operations,Anthony,Bezina,anthony.bezina@sandc.com
-Bob's Discount Furniture,Chief Information Officer,Adam,Kuta,akuta@mybobs.com
-Bob's Discount Furniture,"Senior Director, Business Technology",Irene,Valentine,irene.valentine@mybobs.com
-Bob's Discount Furniture,Senior Director - Business Technology,Shiju,David,sdavid@mybobs.com
-Corsair,Chief Information Officer,Shamyo,Chatterjee,shamyo.chatterjee@corsair.com
-Corsair,"Sr. Director, Global IT Infrastructure",Micheal,Talens,michael.talens@corsair.com
-TUMI,Vice President Information Technology,Bob,Weingartner,bob.weingartner@samsonite.com
-TUMI,Head of Technology & Data Analytics,Kchitij,Kumar,kchitij.kumar@tumi.com
-"EMD Serono, Inc.",Senior Vice President,Gaby,Murphy,gaby.murphy@emdserono.com
-Toptal,Chief Technology Officer,Ismael,Peinado,ismael.peinado@toptal.com
-Ellucian,Chief Information Officer,Josh,Berry,josh@ellucian.com
-Ellucian,"Vice President, Information Technology",Matthew,Chase,mathew.chase@ellucian.com
-Ellucian,"Vice President, IT",Matt,Littlefield,matt.littlefield@ellucian.com
-Iris Software Inc.,"CTO, Senior Technology",Ravikumar,Thiagarajan,ravikumar.thiagarajan@irissoftware.com
-Affirm,Senior IT Administrator,Vito,Pileggi,vito.pileggi@affirm.com
-ArisGlobal,IT Director ,Luka,Sustarsic,lsustarsic@arisglobal.com
-ArisGlobal,"Vice President, IT Operations",Darren,Newbould,dnewbould@arisglobal.com
-ArisGlobal,Director Technology,Juby,Rajan,jrajan@arisglobal.com
-GWC | Official,Director Corporate IT,Khurram,Inam,khurram.inam@gwclogistics.com
-Freeman Company,Director Technologies,Kyle,Gaul,kyle.gaul@freeman.com
-Radisys Corporation,"SVP, Head of Technology",Prakash,Siva,sp@radisys.com
-Superior Industries,Director Global IT Operations,Saad,Chaudhry,schaudhry@supind.com
-CyberArk,Senior Director of Technologies,Dima,Barboi,dima.barboi@cyberark.com
-CyberArk,"Senior Director, Global Technology",Brandon,Traffanstedt,brandon.traffanstedt@cyberark.com
-Donnelley Financial Solutions (DFIN),VP of Information Technology,Chad,Kohl,chad@dfinsolutions.com
-Donnelley Financial Solutions (DFIN),Director of Information Technology,Brandon,G,b.g@dfinsolutions.com
-Donnelley Financial Solutions (DFIN),Vice President of Information Technology,Desi,Sendaydiego,desi.sendaydiego@dfinsolutions.com
-Ebix,Director Information Technology Operations,Navneet,Bemby,nbemby@ebix.com
-Ebix,Associate Vice President - Technology,Steve,Oilai,steve@ebix.com
-Rogers Corporation,Chief Technology Officer,Griffin,Gappert,griffin.gappert@rogerscorp.com
-Rogers Corporation,Director Information Security and Compliance,Brian,Curl,brian.curl@rogerscorp.com
-Neovia Logistics,"Senior Director, Global IT Operations",Jack,Smith,jack.smith@neovialogistics.com
-Neovia Logistics,"Director, Global IT Infrastructure",Tom,Collins,tom.collins@neovialogistics.com
-Specialized Bicycle Components,Director of Technology & Operations,Rich,Perez,pr@specialized.com
-Carhartt,Vice President of IT Infrastructure,Jason,Bloink,jason@carhartt.com
-Carhartt,Information Technology Ops Manager,Ernesto,Morales,ernesto.noguez@carhartt.com
-Carhartt,Chief Information Officer,Katrina,Agusti,katrina@carhartt.com
-Tommy Bahama,Senior Director IT Operations and Infrastructure,Brent,Rannow,brent.rannow@tommybahama.com
-Hudson,Information Technology VP,Joseph,Fischer,joseph@hudsongroup.com
-American Chemical Society,"Director, Technology Strategy & Execution",Jennifer,Arndt,jarndt@acs.org
-American Chemical Society,Director of Product Development and Solutions Architecture,Mitchell,Bakos,mbakos@acs.org
-American Chemical Society,"Senior Director & Chief of Staff, Product Strategy & Operations",Jessica,Rucker,jrucker@acs.org
-Autotrader US,Vice President,MJ,Jaros,mj.jaros@autotrader.com
-Autotrader US,Associate Vice President,Debbie,Carroll,debbie.carroll@autotrader.com
-NEORIS,Activetrac CTO,Alejandro,Barbosa,alejandro.torres@neoris.com
-Avanos Medical,Director of Global IT Infrastructure,Seth,Majors,seth.majors@avanos.com
-Avanos Medical,Chief Information Officer,Siobhan,Smyth,siobhan.smyth@avanos.com
-Avanos Medical,Chief Executive Officer,Joe,Woody,joe.woody@avanos.com
-Beacon Building Products,"Vice President, IT and Acquisitions",Margi,Harney,margi@becn.com
-Beacon Building Products,"EVP, Chief Technology Officer",Chris,Nelson,chris.nelson@becn.com
-Beacon Building Products,"IT Director, ERP",Chris,Drake,chris@becn.com
-Boardriders,Head of IT operations,Philippe,Gaige,philippe.gaige@boardriders.com
-Belkin,Vice President of Information Technology,Jeff,Salisbury,jeffs@belkin.com
-Belkin,Chief Technology Officer,Brian,Harlingen,brian@belkin.com
-Belkin,"Director, Global Information Technology",Curtis,Cale,curtis.cale@belkin.com
-Evoke Technologies,Vice President,Sridhar,Koppula,skoppula@evoketechnologies.com
-Tavant,VP of Technology,Devesh,Raghubanshi,devesh.raghubanshi@tavant.com
-Tavant,Sr Director Of Technology,Praveen,Soni,praveen.soni@tavant.com
-West Marine,Chief Information Officer,John,Devine,jdevine@westmarine.com
-Chobani,Chief Information Officer,Tom,Cullen,tom.cullen@chobani.com
-Chobani,"Senior Director, People Systems and Technology",Colleen,Campbell,colleen.campbell@chobani.com
-Chobani,Global IT Director,Rajnish,Meta,rajnish.mehta@chobani.com
-Crescent Electric Supply Company,Director Technology Strategy,Chandra,Singh,chandra.singh@gspann.com
-Esprit,Vice President Digital / Information Technology,Benny,Leung,benny.leung@esprit.com
-Lids,Chief Information Officer,Dave,Sturgis,dave.sturgis@lids.com
-Lids,"Director, IT",Colin,Lobo,colin.lobo@lids.com
-Lids,VP of Infrastructure and Operations,Shay,VanVlymen,shay.vanvlymen@lids.com
-Libbey,"Director, Global Information Technology",Randy,Zickefoose,randy.zickefoose@libbey.com
-Qualfon,Senior Vice President of Technology,Ian,Catolico,ian.catolico@qualfon.com
-Qualfon,VP of Information Technology,John,Batchelor,john.batchelor@qualfon.com
-Qualfon,Chief Information Officer,Prashant,Cherukuri,pcherukuri@qualfon.com
-Qualfon,Vice President Information Technology,James,Wagner,james.wagner@qualfon.com
-Ceridian,Head of Technology,Haseeb,Asghar,haseeb.asghar@ceridian.com
-Ceridian,Director of IT Business Systems,Tom,Williams,tom.williams@ceridian.com
-Johnsonville,Director - IT Data & Analytics,Melissa,Bink,mbink@johnsonville.com
-Johnsonville,IT Director,Jason,Beyersdorf,jbeyersdorf@johnsonville.com
-"Baker Concrete Construction, Inc.",Chief Information and Technology Officer,Jennifer,Hohman,jennifer.hohman@bakerconcrete.com
-Solidigm,Senior Director IT,Anupam,Jain,anupam@solidigm.com
-Solidigm,"Director, IT Operations & Planning",John,Santillan,john.santillan@solidigm.com
-Farm Credit Mid-America,Chief Information Officer,Kevin,Geron,kevin.geron@fcma.com
-Armstrong World Industries,Director of Information Technology,Jermey,M,m@armstrongceilings.com
-Armstrong World Industries,"Senior Director, Technology",Micheal,Lorenz,michael_lorenz@armstrongceilings.com
-Armstrong World Industries,Director - Business Development,Tom,Stafford,tstafford@armstrongceilings.com
-Ditch Witch,IT Director,Zane,Schwab,zschwab@ditchwitch.com
-Havertys Furniture,Executive Vice President and Chief Information Officer,Ed,Clary,eclary@havertys.com
-SS&C Intralinks,Vice President of Infrastructure Services,Tom,Catalano,tom.catalano@intralinks.com
-SS&C Intralinks,Director of Technical Program Operations,Sandra-Jane,Mancini,sandrajane.mancini@intralinks.com
-SS&C Intralinks,Head of Corporate Development,Luis Felipe,Bíscaro,felipe@intralinks.com
-Pierce Manufacturing,Director of IT ,Ben,Lucia,blucia@piercemfg.com
-Hexcel Corporation,Senior Vice President & Chief Technology Officer,Paul,Mackenzie,paul@hexcel.com
-Hexcel Corporation,Vice President Corporate Development,Neil,Howard,neil.howard@hexcel.com
-Lands'​ End,"EVP, Chief Technology Officer",Martin,Christopher,martin.christopher@landsend.com
-Lands'​ End,Sr. Director - IT Infrastructure & Operations,Dominic,Parks,dominic.parks@landsend.com
-Lands'​ End,"Senior Director, IT Planning",Duane,Walz,duane.walz@landsend.com
-MTS Systems Corporation,Vice President of Information Technology,Jay,Wiedemann,jay.wiedemann@mts.com
-Evertec,Head of Information Technology,Pedro,Aggierni,pedro.aggierni@evertecinc.com
-Lidl US,Chief Information Officer,Roman,Gerlicher,roman.gerlicher@lidl.com
-Lidl US,Head of IT Infrastructure and IT Support,Lior,Kocas,lior.kocas@lidl.com
-Shure Incorporated,Executive Vice President & Chief Technology Officer,Sameh,Sabet,sabets@shure.com
-Shure Incorporated,"Senior Vice President, Chief Information Officer",Robin,Lane,robin@shure.com
-Shure Incorporated,"Senior Director, IT Infrastructure",Timothy,Lambe,lambet@shure.com
-Shure Incorporated,Vice President of Corporate Development,Brian,Woodland,brian@shure.com
-Papa Murphy's International,"Senior Director, IT Project & Request Management",Nathan,Young,nathan.young@papamurphys.com
-Kellanova,Chief Information Officer,Eric,Firer,eric.firer@kellanova.com
-Kellanova,"Director, Global IT Support",Dr.Keepak,Kota,dkota@kellanova.com
-First United Bank,Director of IT Operations,Kevin,Pilgrim,kpilgrim@firstunitedbank.com
-First United Bank,"VP, Director of IT Infrastructure",Kevin,Nguyen,knguyen@firstunitedbank.com
-First United Bank,Chief Technology Officer,Tadd,Tobkin,tadd.d@firstunitedbank.com
-National Geographic,Chief Technology Officer,Jason,Southern,jason.southern@nationalgeographic.com
-AtlantiCare,Chief Information Officer,Jordan,Ruch,jordan.ruch@atlanticare.org
-AtlantiCare,Corporate Director Information Technology,Joshua,Rosen,joshua.rosen@atlanticare.org
-AtlantiCare,Senior Vice President - Chief Digital & Technology Executive,Christopher,Scanzera,christopher.scanzera@atlanticare.org
-"J. J. Keller & Associates, Inc.",Vice President of Information Technology,Josh,Djupstrom,jdjupstrom@jjkeller.com
-"J. J. Keller & Associates, Inc.",Executive Vice President of Technology Solutions,Lacie,Callan,lcallan@jjkeller.com
-The Doctors Company,Chief Information Officer,Rick,Getter,rgetter@thedoctors.com
-Oxford Global Resources,"Senior Director, Technology",Andrew,Shandor,andrew_shandor@oxfordcorp.com
-Oxford Global Resources,"Vice President, Technology",Stefan,Feldmeir,stefan_feldmeier@oxfordcorp.com
-FFF Enterprises,Cheif Technology Officer,Ashutosh,Tripathi,atripathi@fffenterprises.com
-FFF Enterprises,Chief Information Officer,John,Hahn,jhahn@fffenterprises.com
-FFF Enterprises,"Senior Director, IT Infrastructure",Brant,Kelly,bkelley@fffenterprises.com
-Fujitsu Network Communications,Chief Information Officer,Jay,Warsaw,jw@fujitsu.com
-Amsted Rail,"Director, Information Technology",Anthony,Graham,agraham@amstedrail.com
-Amsted Rail,"Vice President, Information Technology",Mike,McDonnell,mmcdonnell@amstedrail.com
-Magic Leap,"Vice President, Platform & Cloud",Leonid,Zolotarev,lzolotarev@magicleap.com
-Magic Leap,Chief Information Officer,Adnan,Adil,a.adil@magicleap.com
-Batesville,Chief Technology Officer,Ali,Sareea,ali.sareea@batesville.com
-Batesville,"Director, Technology",Brandon,Wiedeman,brandon.wiedeman@batesville.com
-NW Natural,IT Director,J.Justin,Meier,j.justin@nwnatural.com
-NW Natural,"Director, IT Project Management",Linda,Stone,linda.stone@nwnatural.com
-Bally's Interactive,Head of Enterprise IT,Bartek,Sierakowski,bartek.sierakowski@ballysinteractive.com
-Bally's Interactive,Director of Core IT Systems,Henry,Gauci,henry.gauci@ballysinteractive.com
-CalPortland,Chief Information Officer,Luis,Angulo,langulo@calportland.com
-CalPortland,Manager of IT Operations,Bill,Leonard,bleonard@calportland.com
-CalPortland,IT Administrator,April,Avila,aavila@calportland.com
-CMC,Director IT Infrastructure,Chad,Heath,heath@cmc.com
-CMC,IT Director,Kumar,Kalidini,kumar.kalidindi@cmc.com
-CMC,"Vice President, Information Technology",Adam,Hickey,adam.hickey@cmc.com
-"KARL STORZ Endoscopy-America, Inc.",Vice President Information Technology,Matt,Butcher,bm@karlstorz.com
-"KARL STORZ Endoscopy-America, Inc.",Global Information Technology Director,Torsten,Brzezinski,tbrzezinski@karlstorz.com
-Alnylam Pharmaceuticals,VP Strategic Technologies,Lawrence,Egan,legan@alnylam.com
-Alnylam Pharmaceuticals,"Associate Director, Information Technology",Jonathan,Lopez,jl@alnylam.com
-Alnylam Pharmaceuticals,Head of IT Data Management,Murtaza,Cherawala,murtaza@alnylam.com
-Oldcastle BuildingEnvelope,VP of IT Services,Aaron,Rundall,arundall@obe.com
-Oldcastle BuildingEnvelope,IT Director of Operations,Steven,Letzring,sletzring@obe.com
-Oldcastle BuildingEnvelope,Chief Information Officer,Rusty,Kennington,rkennington@obe.com
-Seneca Foods Corporation,Director of Technology Operations,Timothy,Nolan,tnolan@senecafoods.com
-Matthews International,Chief Technology Officer,Greg,Babe,gbabe@matw.com
-Matthews International,Head Of Information Technology,Norm,Williams,williams@matw.com
-Matthews International,Director of IT,John,Salava,jsalava@matw.com
-Daktronics,"Vice President, IT & Business Development",Rich,Hintz,rich.hintz@daktronics.com
-Daktronics,Chief Technology Officer,Micheal,Cioffi,michael.cioffi@daktronics.com
-Daktronics,Director of IT,Ken,Smith,ken.smith@daktronics.com
-"Southco, Inc.","Vice President, Information Technology",William,Doyle,wdoyle@southco.com
-Vestis Corporation,Vice President Information Technology,Padmaja,Mushti,padmaja.mushti@vestis.com
-Vestis Corporation,Director - Global IT Operations,Geoff,Soard,geoff.soard@vestis.com
-Vestis Corporation,Vice President - Global Head of Infrastructure,Mohammad,Zahid,mohammad.zahid@vestis.com
-Vestis Corporation,Executive Vice President and Chief Technology Officer,Grant,Shih,grant.shih@vestis.com
-Julphar,Head Of Information Technology,Srinivasa,N,srinivasa@julphar.net
-Julphar,Chief Technical Officer,Malik,Metahri,malik.metahri@julphar.net
-IEHP,Director Of Information Technology,Ramesh,Kumar,ramesh.kumar@iehp.org
-IEHP,Chief Information and Digital Officer,Vinil,Devabhaktuni,vinil.devabhaktuni@iehp.org
-IEHP,IT Strategic Programs Director,Malena,Cabrera,malena.cabrera@iehp.org
-IEHP,Director- Technology,Jose,Lopez,jose.lopez@iehp.org
-Drury Hotels,"Director of Technical Services",Steve,Hickle,steve.hickle@druryhotels.com
-Drury Hotels,Director of IT Operations,Kim,Spear,kim@druryhotels.com
-The Hillman Group,Senior Vice President Information Technology,Nick,Spann,nick.spann@hillmangroup.com
-The Hillman Group,Sr IT Director Enterprise Applications,Kirk,Townsley,kirk.townsley@hillmangroup.com
-Mobile Mini Solutions,Director Of Information Technology,Geoffrey,Joe,gjoe@mobilemini.com
-Mobile Mini Solutions,Director IT Engineering,Jerry,Dennington,jerry.dennington@mobilemini.com
-TranSystems,Senior Vice President of Information Technology,Scott,Nash,scott.nash@transystems.com
-TranSystems,Vice President of Information Systems,Jason,Platts,jason.platts@transystems.com
-StandardAero,Chief Technology Officer,Christian,Martins,christian.martins@standardaero.com
-StandardAero,Sr. IT Director,Etel,Ergun-Avimelek,etel.ergunavimelek@standardaero.com
-Oakley,"Director - Information Technology",Ramkumar,Appahji,rappahji@oakley.com
-Barton Malow,Sr. Director of Enterprise Systems,Vince,Notarantonio,vince.notarantonio@bartonmalow.com
-Hilti North America,IT Director - Solution Architecture,Alonzo,Burns,alonzo.burns@hilti.com
-Hilti North America,Solutions Director,Julie,Sherman,julie.sherman@hilti.com
-San Francisco Unified School District,Executive Director of Technology & Innovation,Joshua,Wittman,joshua.wittman@sfusd.edu
-San Francisco Unified School District,Chief Technology Officer,Melissa,Dodd,melissa.dodd@sfusd.edu
-San Francisco Unified School District,Director of IT Operations,Lai,Song,song.lai@sfusd.edu
-San Francisco Unified School District,Director of IT Infrastructure,Sean,Rozell,sean.rozell@sfusd.edu
-Hollister Incorporated,"Director, Global IT Business Solutions ",Robin,Sacher,robin.sachar@hollister.com
-Hollister Incorporated,"Vice President, Business Transformation",Stephen,Collum,stephen.collum@hollister.com
-Hollister Incorporated,President and COO,Abinash,Nayak,abinash.nayak@hollister.com
-"North American Lighting, Inc.",Vice President Design and Development,Scott,White,swhite@nal.com
-NAFFCO ELECTROMECHANICAL CO. LLC,Technical Director,Hassan,Fathy,hassan@naffco.com
-Buckman,Chief Digital Officer,NM,Rao,nmrao@buckman.com
-Vista,"Vice President, Technology",Sagini,Ramesh,rs@vistaprint.com
-Vista,"Director, Technology",Gary,Gao,gary@vistaprint.com
-Vista,Director of Technology,Alejandro,Batista,alejandro.batista@vistaprint.com
-Vista,"Director, Engineering",Basil,Darwaza,basil.darwaza@vistaprint.com
-Invacare Corporation,Vice President of IT ,Helen,Lewis,helen.lewis@invacare.com
-Invacare Corporation,Vice President Information Technology,Dylan,Powell,dylan.powell@invacare.com
-Invacare Corporation,"Director, IT",Roger,Crayton,roger.crayton@invacare.com
-Shane Co.,"Executive Vice President, Chief Information Officer ",Howard,Barron,howard.barron@shaneco.com
-Shane Co.,Vice President of Enterprise Application,Patrick,Laufenburger,patrick.laufenburger@shaneco.com
-Shane Co.,Information Technology Leader,Baron,Fendler,baron.fendler@shaneco.com
-Poly,Senior Director Business Operations,Kerry,MacLennan,kerry.maclennan@poly.com
-St. John's Riverside Hospital,Director of Director of Infrastructure,Niall,Pariag,npariag@riversidehealth.org
-St. John's Riverside Hospital,"Director, Infrastructure",Micheal,Motilal,michael.a@riversidehealth.org
-Hypertherm Associates,Director Information Security,James,Thompson,james.t@hyperthermassociates.com
-Hypertherm Associates,Chief Information Officer,Shridhar,Karale,karale@hyperthermassociates.com
-Hypertherm Associates,"Director, IT - Business Relationship Management",Ryan,Ray,ryanr@hyperthermassociates.com
-Checkers & Rally’s Drive-In Restaurants,Chief Information Officer,Minh,Le,lem@checkers.com
-Checkers & Rally’s Drive-In Restaurants,"Director, Infrastructure",Rodney,Jones,jr@checkers.com
-Checkers & Rally’s Drive-In Restaurants,Sr. Director - Strategic Planning & Analytics,Christine,Davies,daviesc@checkers.com
-CTS Corporation,Director IT Operations,Sanjay,Sharma,sanjay.sharma@ctscorp.com
-CTS Corporation,Vice President IT,Vinod,Neelakantan,vinod.neelakantan@ctscorp.com
-Minneapolis Public Schools,Director of Technology,Bryan,Hennekens,bryan.hennekens@colheights.k12.mn.us
-Englewood Hospital,Director of IT Infrastructure,Gentian,Lamcaj,gentian.lamcaj@englewoodhealth.org
-Englewood Hospital,Director of IT,Nitin,Agarwal,nitin@englewoodhealth.org
-Englewood Hospital,IT Infrastructure Manager,Ronald,Sarcauga,ronald.sarcauga@englewoodhealth.org
-Englewood Hospital,Director of Information Technology,Samia,M,sm@englewoodhealth.org
-White Lodging,Sr. Corporate IT Director,Justin,Marion,jmarion@whitelodging.com
-White Lodging,Senior Director of IT,Brian,Richter,brichter@whitelodging.com
-White Lodging,Chief Information Officer,David,Todd,dtodd@cvisionintl.com
-TRIUMPH,Chief Technology Officer,Jason,Heilig,jason@invoicefactoring.com
-Cigniti Technologies,Vice President Global IT,Amol,Deshpande,da@cigniti.com
-Cigniti Technologies,Chief Information Officer,Jagdish,Kumar,jagdish@cigniti.com
-Cigniti Technologies,Sr. Vice President,Umashankar,Saketharaman,umashankar.saketharaman@cigniti.com
-PharMerica,"Director, IT",Ahmed,Aleemuddin,ahmed.aleemuddin@pharmerica.com
-Langan Engineering & Environmental Services,Senior Technical Director,Alexandros,Yiagos,ayiagos@langan.com
-Langan Engineering & Environmental Services,Senior Technical Director,Dean,Cadby,dean.cadby@langan.com
-Starkey Hearing,"Director, Global IT Operations",Mike,Miller,mike_miller@starkey.com
-Starkey Hearing,Director IT ,Pete,Tetrick,tetrick@starkey.com
-Starkey Hearing,Chief Information Officer,Eric,Hanson,eric_hanson@starkey.com
-Starkey Hearing,Senior Director of Technology,Jasmeet,Singh,singhj@starkey.com
-HORNBECK OFFSHORE®,Director of Information Technology,Don,D'Arcourt,don@hornbeckoffshore.com
-HORNBECK OFFSHORE®,Business Development Technical Director,Jason,Dennis,jason.dennis@hornbeckoffshore.com
-Keyloop,IT PMO Director,Caroline,Moore,caroline@keyloop.com
-Keyloop,Chief Technology Officer,Amit,Monovich,am@keyloop.com
-Fitch Ratings,"Senior Director, Technology Operations",Mike,Brooks,mike.brooks@fitchratings.com
-Fitch Ratings,Director of Information Technology,Geraldine,Foster,geraldine.foster@fitchratings.com
-Fitch Ratings,Director Of Information Technology,Micheal,Gordon,michael.gordon@fitchratings.com
-Impetus,Information Security and Technology leader,Vikas,Khandelwal,vikas.khandelwal@clear-trail.com
-Tennant Company,Chief Information Officer,Micheal,Mathews,michael@tennantco.com
-Nebraska Public Power District,Director of Information Technology and Cybersecurity,Wyatt,Leehy,wyatt.leehy@nppd.com
-Playa Hotels & Resorts,Senior Vice President Information Technology,Lior,Collins,lior.collins@playaresorts.com
-Playa Hotels & Resorts,Director of IT,Rawle,Shortridge,rawle.shortridge@playaresorts.com
-Playa Hotels & Resorts,Senior Director of Infrastructure,Irfan,Sajil,isajil@playaresorts.com
-Baker Construction,Chief Information and Technology Officer,Jennifer,Hohman,jennifer.hohman@bakerconcrete.com
-Baker Construction,Director IT PMO,Lanna,Mollet,l.mollet@bakerconcrete.com
-BlueTriton Brands,Director Of Information Technology,Mike,Garcia,mike.garcia@bluetriton.com
-BlueTriton Brands,Chief Information Officer,Eric,Lord,eric.lord@bluetriton.com
-BlueTriton Brands,Sr. Director IT Business Solutions,Orville,Dunn,orville.dunn@bluetriton.com
-BlueTriton Brands,Director of Applications and Projects,Micheal,Vullo,michael.vullo@bluetriton.com
-"Chart Industries, Inc.",Chief Information Officer,Bryan,Turner,bryan.turner@chartindustries.com
-Simpson Strong-Tie,"EVP, Chief Technology Officer",Udit,Mehta,udit@strongtie.com
-Simpson Strong-Tie,"Vice President, IT Infrastructure & Operations",John,Meng,jmeng@strongtie.com
-Simpson Strong-Tie,Information Technology Operations Manager,Kirk,Smith,kirk.smith@strongtie.com
-United Bank,"VP, Data Governance Manager",Mary,Knippschild,mary.knippschild@bankwithunited.com
-cxLoyalty,Chief Technology Officer,Loic,Blondel,loic.blondel@tenerity.com
-KARL STORZ United States,"VP, Information Technology",Matt,Butcher,bm@karlstorz.com
-KARL STORZ United States,Global Information Technology Director,Torsten,Brzezinski,tbrzezinski@karlstorz.com
-KARL STORZ United States,Global IT Leadership,Niranjan,Holay,niranjan.holay@karlstorz.com
-KARL STORZ United States,"Director Of Technical Services",Cynthia,Garcia,cgarcia@karlstorz.com
-Evoqua Water Technologies,Director of Technology and Innovation,Richard,Joshi,richard.joshi@evoqua.com
-Evoqua Water Technologies,Head of Technology and Applications,Xiangyi,Qiao,xiangyi.qiao@evoqua.com
-Phibro Animal Health,Chief Information Officer,Gary,Fling,gary.fling@pahc.com
-Harte Hanks,VP of Information Technology,Kevin,Coutu,kevin.coutu@hartehanks.com
-Harte Hanks,Vice President of Solutions,Matthew,Pollock,mpollock@hartehanks.com
-Astound Digital,Technical Director,Jamie,Smith,j.smith@astoundcommerce.com
-Astound Digital,Global Technical Director,Gyunay,Ulviev,gyunay.ulviev@astoundcommerce.com
-Astound Digital,Technical Director,Mike,Bowen,m.bowen@astoundcommerce.com
-Techwave,Director of Information Technology,Thag,Adhikari,thag.adhikari@techwave.net
-Techwave,Associate Director of Technology,Laxma,Kandimalla,laxma@techwave.net
-MSX International,Chief Technology Officer,Steve,Jones,steve.jones@msxi.com
-MSX International,"Global VP, Learning Solutions",Deborah,Mulholland,dmulholland@msxi.com
-Mintz,Director of IT Infrastructure,Paul,Kohan,paul@mintz.com
-Mintz,Chief Information Officer,David,Carlson,david@mintz.com
-Mintz,"Director, Technology Transfer",Kim,Rosenfield,kim.rosenfield@dartmouth.edu
-Contech Engineered Solutions,Director of Technology,LaShena,Smith,lsmith@conteches.com
-Contech Engineered Solutions,Senior Vice President of Operations,Neil,Tollas,ntollas@conteches.com
-Contech Engineered Solutions,Director Of Operations,Jacob,Waugh,jwaugh@conteches.com
-Drake University,Chief Information Technology Officer,Chris,Gill,chris.gill@drake.edu
-Drake University,Information Technology Services - Director of Infrastructure,Chris,Mielke,chris.mielke@drake.edu
-American National,Chief Information Officr,Meredith,Mitchell,meredith.mitchell@americannational.com
-MSA - The Safety Company,"Director, Global IT Infrastructure Operations",Chris,Platt,chris.platt@msasafety.com
-MSA - The Safety Company,IT Director International ,Pawel,Seremak,pawel.seremak@msasafety.com
-PROS,Director Of Information Technology,Floyd,Montgomery,f.montgomery@pros.com
-Eastman Kodak Company,Chief Technology Officer,Terry,Taber,terry.taber@kodak.com
-Eastman Kodak Company,IT Director,JR,Garcia,jr.garcia@kodak.com
-Wabash,"Vice President, Corporate Development",Ryan,Reed,ryan.reed@onewabash.com
-Syniti,Chief Technology Officer,Javeed,Nizami,javeed.nizami@syniti.com
-Syniti,"Vice President, Direct Solutions",Brian,Haering,brian.haering@syniti.com
-Janus Henderson Investors,"Director, Institutional Solutions",Greg,Clarke,greg.clarke@janushenderson.com
-Abt Global,"Vice President, Technology Delivery",Mauricio,Poodts,p.m@abtassociates.com
-Abt Global,Sr Director of Technology Experience,Rich,Schnell,rich.schnell@abtassociates.com
-Abt Global,"Vice President, Corporate Development",Kevin,O'Reilly,kevin@abtassociates.com
-BORN,Head of Technology,Kevin,Yao,kevin.yao@borngroup.com
-Irvine Company,Chief Technology Officer,Abe,Wong,abe.wong@irvinecompany.com
-Irvine Company,"Senior Director, Technology Enablement",Lisa,Larkin,llarkin@irvinecompany.com
-Irvine Company,"Vice President,Technology and Innovation",Tim,McClain,tmcclain@irvinecompany.com
-NEC Corporation of America,VP of Solutions Development,Gary,Lac,gary.lac@necam.com
-NEC Corporation of America,Director of IT,Jim,Hawes,jim.hawes@necam.com
-NEC Corporation of America,Director Of Operations,Loretta,Biglin,loretta.biglin@necam.com
-NAKILAT,Head of IT Operations,Naveed,Khader,nabdul@nakilat.com
-NAKILAT,Head of IT Operations,Abdul,Mohammed,ma@nakilat.com
-NAKILAT,Information Technology Manager,Hamad,Suwaid,h.suwaid@nakilat.com
-Maui Jim Sunglasses,Information Technology,Jose,Pietri,jose@mauijim.com
-Maui Jim Sunglasses,IT Infrastructure Manager,Taylor,Moore,taylor.moore@mauijim.com
-Maui Jim Sunglasses,Systems Administrator,Sam,Sonnenberg,sam.sonnenberg@mauijim.com
-Composites One,Director of Infrastructure and Operations,John,Jupa,jjupa@compositesone.com
-Composites One,"Director of IT",Kevin,McDaniel,kevin.mcdaniel@compositesone.com
-Samsung Ads,Director of Data Solutions,George,Carens,george.carens@samsungads.com
-Samsung Ads,Information Technology Manager,Dnyaneshwar,Gadekarpatil,dnyaneshwar@samsungads.com
-FGX International,Senior Director of Information Technology,Stephen,June,sjune@fgxi.com
-GreyOrange,Global Director & Head - Information Technology,Krishnamurthy,Rajesh,k.rajesh@greyorange.com
-Metagenics,Chief Technology Officer,Prasad,Pola,phehim@metagenics.com
-RailWorks Corporation,Chief Information Officer,Bob,Cummings,bob@railworks.com
-"Lakeside Foods, Inc.",Director of Information Technology,Scott,Ferguson,sferguson@lakesidefoods.com
-"Lakeside Foods, Inc.",Senior Manager of IT Operations,Jason,Schwoerer,jschwoerer@lakesidefoods.com
-KLX Energy Services,Senior Information Technology Specialist,Josafat,Galindo,josafat.galindo@klxenergy.com
-Brakebush Chicken,Vice President of Information Technology,Chari,Schieber,cschieber@brakebush.com
-Tosca,Global Chief Information Officer,Nigel,Lemmon,nlemmon@toscaltd.com
-Tosca,Vice-president Information Technology,Raf,Fonteyn,raf.fonteyn@toscaltd.com
-AVL in North America,Director Of Information Technology,Rees,Matthew,mr@adp.com
-Pepper Construction Group,Senior Vice President Information Technology,Tom,Lapidus,tlapidus@pepperconstruction.com
-GrafTech International Ltd.,Vice President Information Technology,Dennis,Jones,dennis.jones@graftech.com
-GrafTech International Ltd.,Director of Technology,Francois,Dodeller,francois.dodeller@graftech.com
-Saudi Readymix Concrete Co,IT Director,Mohammed,Jabiti,mohammed.jabiti@saudireadymix.com
-Genesis10,Chief Information Officer,Vincent,Rualo,vrualo@genesis10.com
-Genesis10,Business Development Director - IT,Razz,Sitthideth,rsitthideth@genesis10.com
-Welch Allyn,Vice President Information Technology,Randy,George,rosanna.giampaolo@welchallyn.com
-Welch Allyn,Senior IT Manager,Eric,Zeller,eric.zeller@hillrom.com
-Elevations Credit Union,Chief Technology Officer,Dustin,Montoya,dustin.montoya@elevationscu.com
-Pinnacle Foods,Chief Information Officer,Julie,Rafferty,julie.rafferty@pinnaclefoods.com
-Lindsay Corporation,Head of IT Operations,Ahmet,Ucar,ahmet.ucar@lindsay.com
-Lindsay Corporation,Vice President and General Manager,Cole,Hansen,cole.hansen@lindsay.com
-Lindsay Corporation,Director of Infrastructure,Trent,Heiser,trent.heiser@lindsay.com
-W.C. Bradley Co.,"Information Technology Service Desk Analyst, Sr.",Tony,Buchholz,tony.buchholz@wcbradley.com
-Midis Group,Senior Vice President – Information Technology,Bashir,Kassis,bashir.kassis@midisgroup.com
-Midis Group,IT Operations,Christopher,Stephane,christopher.stephane@midisgroup.com
-Drive DeVilbiss Healthcare,Director of IT Infrastructure,Joe,Pascale,jpascale@drivemedical.com
-Drive DeVilbiss Healthcare,"Director, IT",Amy,Donia,adonia@drivemedical.com
-Drive DeVilbiss Healthcare,VP of Enterprise Applications and Integration,Paul,Dorney,pdorney@drivemedical.com
-TESSCO Technologies,Chief Technology Officer,Thad,Lowe,thad@ventevinfra.com
-Town Pump Company,IT Project Manager,John,Tamietti,johnt@townpump.com
-Franke Foodservice Systems,Vice President of Information Technology,Bill,Wilson,bill.wilson@franke.com
-Sonny's Enterprises Inc.,Senior Vice President of Information Technology,Dave,Richardson,drichardson@sonnysdirect.com
-Sonny's Enterprises Inc.,Chief Technology Officer,Regi,Flanagan,rflanagan@sonnysdirect.com
-Sonny's Enterprises Inc.,IT Operations Manager,Sebastian,Nardo,sebastian.nardo@sonnysdirect.com
-Sonny's Enterprises Inc.,IT Systems Administrator,Stephen,Tucker,stephen.tucker@sonnysdirect.com
-Schluter Systems,Director of Information Technology,Joshua,Forgette,jforgette@schluter.com
-Schluter Systems,Director of IT North America,Susan,Maloney,smaloney@schluter.com
-Webasto Americas,IT Team Lead,Joseph,Willett,joseph.willett@webasto.com
-ZimVie Dental,Director Global Information Security,Kevin,Sullivan,kevin.sullivan@zimvie.com
-ZimVie Dental,Head of IT,Markus,Schmidtgall,markus.schmidtgall@zimvie.com
-Diriyah Gate Development Authority,Executive Director Infrastructure,Paul,Pring,ppring@dgda.gov.sa
-Diriyah Gate Development Authority,Infrastructure Director,John,Rodgers,jrodgers@dgda.gov.sa
-Aldridge Electric,IT Director,Patrick,Laud,pkrupper@aldridgegroup.com
-Aldridge Electric,Systems Administrator,Nat,Thongchai,nthongchai@aldridgegroup.com
-Sharjah Coop,IT Director,Jasim,AlAbdouli,j.alabdouli@shjcoop.ae
-WK Kellogg Co,Senior Director Information Technology,Federico,Conde,federico.conde@unleashingourpotential.com
-WK Kellogg Co,"Senior Vice President, Chief Information Officer",Bill,Rex,bill.rex@unleashingourpotential.com
-WK Kellogg Co,Director IT,Shao,Lee,shao.yu@unleashingourpotential.com
-WK Kellogg Co,IT Director,Vipul,Lad,vipul.lad@unleashingourpotential.com
-WK Kellogg Co,"IT Director, Infrastructure and Cloud",Carlos,Perales,carlos@unleashingourpotential.com
-Affinity Plus Federal Credit Union,Chief Information Officer,Radha,Chavali,rchavali@affinityplus.org
-Affinity Plus Federal Credit Union,Sr Application Administrator,DeVonna,Scheuffele,devonna.scheuffele@affinityplus.org
-Affinity Plus Federal Credit Union,IT Application Administrator,Niki,Thornton,niki.thornton@affinityplus.org
-Affinity Plus Federal Credit Union,IT Application Administrator,Steve,Kelly,skelly@affinityplus.org
-Vicor Corporation,VP Chief Information Security Officer,Mike,Hamilton,mhamilton@vicorpower.com
-Zekelman Industries,Director Of Information Technology,Jerry,Baum,jerry.baum@zekelman.com
-Zekelman Industries,Vice President Information Technology,William,Kempert,william.kempert@zekelman.com
-Zekelman Industries,Director of Applications,Ketul,Patel,ketul.patel@zekelman.com
-Zekelman Industries,IT Technical Director,Zenon,Rykala,zenon.rykala@zekelman.com
-Bankmed,Head of Information Technology,Toufic,Shbib,shbibt@bankmed.com.lb
-Bankmed,Head of Infrastructure,Omar,Mashaka,mashakao@bankmed.com.lb
-G3 Enterprises,Director Of Information Technology,Daniel,Sadowski,daniel.sadowski@g3enterprises.com
-G3 Enterprises,Senior Manager - Cloud Architecture,Mahesh,Pakala,mahesh@g3enterprises.com
-Heatcraft Worldwide Refrigeration,IT Manager,William,Xie,william@heatcraftrpd.com
-STRATA Manufacturing PJSC,Information System Manager,Amadou,Diakite,adiakite@strata.ae
-The Marvin Group,Chief Information Officer,Matt,Reynolds,matt.reynolds@marvingroup.com
-The Marvin Group,System Administrator,Mike,Hershewe,mhershewe@marvingroup.com
-The Marvin Group,IT Technician / Network Admin,Christian,Saavedra,christian@marvingroup.com
-First Midwest Bank,Sr. Director of IT,Hetal,Patel,hetal.patel@primetherapeutics.com
-First Midwest Bank,IT Sr. System Engineer ,Mike,Macikanycz,mike.macikanycz@oldnational.com
-Snohomish County PUD,Chief Information Officer,Kristi,Sterling,s@snopud.com
-Ultratech - a Division of Veeco,Vice President of Technology,Ganesh,Sundaram,ganesh.sundaram@veeco.com
-Ultratech - a Division of Veeco,"Vice President, Applications",Warren,Flack,warren@veeco.com
-Ultratech - a Division of Veeco,Technical Director,Koichiro,Kawamura,kkawamura@veeco.com
-NIBCO INC.,"VP, Chief Information Officer",Cody,Huffines,cody@nibco.com
-TTX Company,Vice President IT & CIO,Bruce,Schinelli,bruce.schinelli@ttx.com
-TTX Company,Director - IT Infrastructure,Monica,Malkowski,monica.malkowski@ttx.com
-TTX Company,Director Business Systems,Kyle,Lowry,kyle@ttx.com
-Rizing Enterprise Asset Management,IT Project Coordinator,Manvi,Gupta,manvi.gupta@rizing.com
-Amreli Steels Limited,Chief Information Officer,Javed,Syed,syed@amrelisteels.com
-Amreli Steels Limited,Information Technology Officer,Maaz,Yousif,maaz.yousuf@amrelisteels.com
-Amreli Steels Limited,Executive IT,Zohaib,Sheikh,zohaib@amrelisteels.com
-Amreli Steels Limited,Sr. Sap Coordinator,Muhammad,Akhtar,muhammad@amrelisteels.com
-"Coeur Mining, Inc.","Sr. Director, IT Infrastructure",Ross,Atwood,ross.atwood@coeur.com
-"Coeur Mining, Inc.","Senior Director, Technical Services",Christopher,Pascoe,cpascoe@coeur.com
-"Coeur Mining, Inc.",IT Business Intelligence Manager,Luis,Chavez,luis.chavez@coeur.com
-"Coeur Mining, Inc.",Senior Information Technology Business Analyst,Gisel,Mendoza,gisel.mendoza@coeur.com
-"Coeur Mining, Inc.",Information Technology Supervisor,Ben,Ruel,ben.ruel@coeur.com
-Alaincoop,Corporate IT Manager,Manoj,Bhatnagar,manojbhatnagar@alaincoop.com
-Civeo North America,"Manager, Global IT Infrastructure",Jason,Crichton,jason.crichton@civeo.com
-Toms King,Director Of Operations,Theresa,Lanzi,tlanzi@pacificbells.com
-Rosen Hotels & Resorts,Chief Information Officer,Michael,Schubach,michael.schubach@rosenhotels.com
-Rosen Hotels & Resorts,Director of Technology,Jeff,Hatcher,jhatcher@mtg-fl.com
-Sophos Solutions,Chief Technology Innovation Officer,Joseph,Guevara,joseph.guevara@sophossolutions.com
-"Blumont, Inc.",Sr Director for Information Technology,Scott,Vickland,scottv@blumont.org
-"Blumont, Inc.",Senior IT Officer,Hiba,Zangana,hibaz@blumont.org
-"Blumont, Inc.",Infrastructure Manager,Azizullah,Samoon,azizullah.samoon@blumont.org
-"Blumont, Inc.",IT Officer,Ahmed,Ahmed,ahmeda@blumont.org
-Jazz Semiconductor,Vice President of Information Technology,Rozencweig,Rafi,rozencweig.rafi@towersemi.com
-Jazz Semiconductor,"Vice President, Corporate Development",Andy,Chan,andy.chan@towerjazz.com
-Advanced Petrochemical Company,Director of Information Technology,Saud,Alotaibi,a.s@advancedpetrochem.com
-Advanced Petrochemical Company,Sr. Network Administrator,Anwar,Ghamdi,anwar.ghamdi@advancedpetrochem.com
-Trinchero Family Estates,Enterprise System Architect,Erin,Filbert,erin@tfewines.com
-Trinchero Family Estates,"Senior Director, IT Infrastructure",Jermey,Mostafanejad,jmostafanejad@tfewines.com
-Trinchero Family Estates,IT Director,Brandon,Groves,brandon.groves@tfewines.com
-Seaboard Triumph Foods,IT Manager,Michael,Guthrie,michael.guthrie@seaboardtriumphfoods.com
-Power International Holding,Head Of Information Technology,Malik,Awan,mshahzad@powerholding-intl.com
-Power International Holding,Group IT Infrastructure,Ganesh,Vaniyan,ganesh@powerholding-intl.com
-Al Rostamani Group,Group Chief Technology Officer,Hilmi,Rifai,hilmi@alrostamanigroup.ae
-Al Rostamani Group,Group Chief Information Officer,Wael,Abdel-Qader,wael.abdelqader@alrostamanigroup.ae
-Al Rostamani Group,IT Manager Data Center & Infrastructure,Mohammed,Ansari,mohammedaqel@alrostamanigroup.ae
-Titan America,Corporate Director of Technology,Corporate,Burgoa,m.burgoa@titanamerica.com
-Titan America,Vice President of Information Technology,Brian,Whitley,bwhitley@titanamerica.com
-Titan America,Technical Director,Sooduck,Hwang,sooduck.hwang@titanamerica.com
-Titan America,Director Infrastructure Services,Todd,Fifield,tfifield@titanamerica.com
-"LiveArea, a Merkle Company",SAP Solution Architect,Ramanjaneyulu,M,ramanjaneyulu@liveareacx.com
-Sun Communities & Sun Outdoors,Director of IT Operations,Jeffrey,Naudi,jeffrey.naudi@sunoutdoors.com
-Sun Communities & Sun Outdoors,"SVP, Information Techology",Jim,Higgins,jim.higgins@sunoutdoors.com
-"Hillyard, Inc.",Director of Information Technology,Krista,Chilcoat,kchilcoat@hillyard.com
-"Hillyard, Inc.",Information Technology,Bill,Grimwood,bill.grimwood@hillyard.com
-"Hillyard, Inc.",Technical Service Director,Eric,Meadows,emeadows@hillyard.com
-BTG plc,Vice President- Technology,Edward,Cole,cole.lafferty@bostonscientific.com
-Redbox Entertainment Inc.,"Director, Data Services and IT Operations",Maulin,Patel,mpatel@redbox.com
-Xerxes,"Director, Technology Engineering",Blaine,Weller,blaine.weller@xerxes.com
-Ivoclar NA,IT Infrastructure Technologist,Emmanuel,Pamilaran,emmanuel.pamilaran@ivoclar.com
-ST Engineering North America,"Sr. Director IT,",Umang,Jokhaker,umang.jokhaker@stengg.us
-Sloan,Vice President of Global IT Infrastructure and Operations,David,Aseltine,david.aseltine@sloan.com
-Sloan,Director Enterprise Applications,Narayana,Kakarla,narayana.kakarla@sloan.com
-Sloan,"Sr Manager, IT Resource",Dan,Arlt,dan@sloan.com
-Holston Medical Group,Chief Technology Officer,Darren,Ramsey,darren.ramsey@holstonmedicalgroup.com
-Paramount Television Studios,Vice President Of Development,Gary,King,gary.king@paramount.com
-Paramount Television Studios,Technical Director,Melissa,Kroek,melissa@paramount.com
-Orion S.A.,Director IT Infrastructure & CISO,Valon,Hoxha,valon.hoxha@orioncarbons.com
-Orion S.A.,Chief Information Officer,Benjamin,Scherer,benjamin.scherer@orioncarbons.com
-Orion S.A.,Head of Technology,Jens,Geppert,jens@orioncarbons.com
-Western Midstream,Chief Information Officer,Keith,Herndon,keith.herndon@westernmidstream.com
-Western Midstream,"Vice President, Corporate Development",Jonathan,Greenberg,jonathan.greenberg@westernmidstream.com
-"Universal Pressure Pumping, Inc.",VP Digital Operations,Douglas,Taylor,douglas@nextierofs.com
-University at Albany,Director of Information Technology,Sheldon,Goddard,sgoddard@albany.edu
-University at Albany,Director for Innovative Project Systems and Data Management,Jayme,Wood,mba@albany.edu
-UC James L. Winkle College of Pharmacy,Assistant IT Director,Nicholas,Lotts,nicholas.lotts@uc.edu
-GENEWIZ from Azenta Life Sciences,Information Technology Administrator,Olivia,Kim,olivia.kim@genewiz.com
-Gestamp North America,Information Technology Manager,Jason,Kosal,jason@gestamp.com
-Gestamp North America,IT Director US,Javier,Zabalza,javier@gestamp.com
-Gestamp North America,US Region IT Director,Ignacio,Venturini,ignacio@gestamp.com
-"Dunn Solutions, a KaarTech Company","Vice President, Digital Solutions & Development",Kenneth,Yeung,kyeung@dunnsolutions.com
-"Dunn Solutions, a KaarTech Company",Associate Director,Gururaja,R,gr@dunnsolutions.com
-Lone Star Transportation,Vice President Operations,James,Hester,jhester@lonestar-llc.com
-Denbury Inc.,Systems Administrator,Troy,Frazier,troy.frazier@exxonmobil.com
-Denbury Inc.,SAP EAM Master Data Manager,Jesse,Greene,jesse@denbury.com
-Denbury Inc.,Sr. Systems Administrator / Infrastructure Manager,Kurt,Westenhoefer,kurt@exxonmobil.com
-Denbury Inc.,SAP Applications Manager,Bin,Wang,bin.wang@denbury.com
-Denbury Inc.,SAP Technical Manager,Shamim,Ibrahim,shamim.ibrahim@denbury.com
-Rothstein Kass,Senior Network Administrator,Glenys,Pina,gpina@rkco.com
-RCIS: Rural Community Insurance Services,Senior Infrastructure Engineer/Cloud Engineer,Todd,Meyers,todd.meyers@rcis.com
-"MEC (Mayville Engineering Company, Inc.)",Chief Information Officer,Daniel,Bourquin,daniel.bourquin@mecinc.com
-AAF International (American Air Filter),Network Operations Manager,Ken,Roberts,k.roberts@aafintl.com
-AAF International (American Air Filter),IT Manager,Deepak,Chandra,dchandra@aafintl.com
-Webasto Americas,Information Technology Team Lead,Joseph,Willett,joseph.willett@webasto.com
-Resolute Tissue,Information Technology Manager,Pablo,Gomez,pablo.gomez@resolutefp.com
-Dentons US LLP,Application Analyst,Marvin,Dizon,md@dentons.com
-"Areas, United States",IT System Administrator,Lester,Martinez,lester.espinosa@areas.com
-"Areas, United States",IT Operations Manager,Jonathan,Vargas,jonathan.vargas@areas.com
-Chart Energy And Chemicals,Network Administrator,Paul,Schutzkus,paul.schutzkus@chartindustries.com
-Delicato Family Wines,Vice President Information Solutions,Mark,Higgins,mark.higgins@delicato.com
-Delicato Family Wines,"Director, IT Project Managagement Office",Chassie,Shafter,chassie.shafter@delicato.com
-Aebi Schmidt USA,SAP Master Data Manager,Will,Mckay,will.mckay@aebi-schmidt.com
-Rechtien Trucks,IT Manager,Micheal,Thomas,thomas@linktr.ee
-Rexel Automation Solutions,Regional Vice President,John,Brown,john.brown@rexelusa.com
-Rexel Automation Solutions,Regional Vice President,Dave,Gerding,dgerding@rexelusa.com
-"pSemi, A Murata Company","Director, IT Applications",Art,Wolfkind,art@psemi.com
-"pSemi, A Murata Company",Technical Director,Antony,Routledge,ra@psemi.com
-Tabreed,Senior Manager - IT Infrastructure & Operations,Tarek,Saade,tsaade@tabreed.ae
-Tabreed,Manager Enterprise Applications & Data Management ,Mohsin,Khan,mkhan@tabreed.ae
-Schindler Elevator Corporation Canada,Information Technology Manager,Deepak,Mehra,deepak.mehra@schindler.com
-Peregrine Semiconductor,Sr. Systems Analyst,Thomas,Roday,thomas@psemi.com
-Burckhardt Compression US,Service Technician,Jared,Ayala,jared.ayala@burckhardtcompression.com
-Redington,Head of IT Delivery,Chris,Brooks,chris.brooks@redington.co.uk
-Redington,"Vice President, Business Systems",Alykhan,Bharmal,alykhan.bharmal@redington.co.uk
-CCA-Wesco,Senior Information Analyst,Leslie,Lach,leslie.hanson@wesco.com
-Nucor Steel Berkeley,IT Analyst,Carlos,Cruz,ccruz@nucor.com
-Saudi Railway Company,IT Director,Faisal,Binshalan,fbinshalan@sar.com.sa
-Saudi Business Machines - SBM,"Director, Business Applications",Sherif,Youssef,syoussef@sbm.com.sa
-Saudi Business Machines - SBM,Vice President - Business Technology Services,Fadhel,Shaikh,fadhel@sbm.com.sa
-NEOM,Infastructure Director,Paul,Nicoletti,paul.nicoletti@neom.com
-NEOM,Head of Digital Technologies,Guillermo,Arrtal,guillermo.renancio@neom.com
-NEOM,"Director of Technology, Research and Innovation",Jaafar,Elmirghani,jaafar.elmirghani@neom.com
-NEOM,CTO/Director of Technology,Himanshu,Kaul,hk@neom.com
-NEOM,Head of Digital Infrastructure,Khalil,AlSobhi,khalil.alsobhi@neom.com
-Dar Al Shifa Hospital,Director of Information Technology,Haitham,Ghanem,haitham.ghanem@daralshifa.com
-Dar Al Shifa Hospital,SAP Planner ,Sherif,Shaji,sheri@daralshifa.com
-ICI Pakistan Limited,SAP Logistics Lead,Muhammad,Zia,muhammad@ici.com.pk
-Bahri,IT Solutions Director,Khalid,Albakr,khalid.albakr@bahri.sa
-Bahri,Director Information Technology Operations,Waleed,Sobayel,waleed@bahri.sa
-Pakistan Petroleum Limited,Head Of Information Technology,Sohail,Rana,sohailrana@ppl.com.pk
-COMBINED GROUP CONTRACTING COMPANY (KSC),IT Manager,Eyad,Ghazal,e.ghazal@dawami.com
-COMBINED GROUP CONTRACTING COMPANY (KSC),Information Technology Network Engineer,Saleh,Alyan,saleh@cgc-kw.com
-Magrabi Hospitals & Centers,Group IT Executive Director,Ayman,Anwar,ayman.anwar@magrabi.com.sa
-Magrabi Hospitals & Centers,Regional IT Manager,Mohamed,Magdy,mohamed@magrabi.com.sa
-Magrabi Hospitals & Centers,Information Technology Specialist,Manar,Bagabs,manar.bagabs@magrabi.com.sa
-eXtra (United Electronics Co.),Director Of Information Technology,Ahmed,Mansour,ahmed@extra.com
-Saudia Cargo,Executive Director Information Technology,Hisham,Malakah,hmalakah@saudiacargo.com
-Saudia Cargo,"Director, IT Applications & Digital Transformation",Majed,Basakran,mbasakran@saudiacargo.com
-Saudia Cargo,Manager IT Business Applications,Yaser,Basabrain,ybasabrain@saudiacargo.com
-Saudia Cargo,IT Corporate Applications Sr. Analyst,Yazeed,Mahsoun,y.mahsoun@saudiacargo.com
-Saudia Cargo,Sr. Manager - IT Infrastructure and Services,Rafat,Fallatah,rafat@saudiacargo.com
-SGS - Saudi Ground Services,Information Technology Director,Bilal,Jumaa,i@saudiags.com
-SGS - Saudi Ground Services,Senior Manager Information Technology Operations,Ayyad,Alrshidi,aalrshidi@saudiags.com
-SGS - Saudi Ground Services,Information Technology Manager,Moayad,Hennawi,mhennawi@saudiags.com
-SGS - Saudi Ground Services,IT Infrastructure Senior Officer,Abdulrahman,Frwan,abdulrahman@saudiags.com
-SGS - Saudi Ground Services,IT Performance Management & Analytics,Adnan,Alnahdi,alnahdi@saudiags.com
-BEEAH Group,Information Technology Infrastructure Manager,Anil,Kumar,akumar@beeahgroup.com
-BEEAH Group,Senior System Administrator,Swaroobh,Mathummal,smathummal@beeahgroup.com
-National Foods Limited,Sr. Manager IT Infrastructure,Muhammad,Saqib,muhammad.saqib@nfoods.com
-National Foods Limited,Director Technology & Digital Transformation,Shah,Raza,shah.abdullah@nfoods.com
-National Foods Limited,Head of IT Governance,Yasir,Sarwar,yasir.sarwar@nfoods.com
-Al Ahli Bank of Kuwait,Chief Information Officer,Salem,Alsarraf,salsarraf@eahli.com
-Al Ahli Bank of Kuwait,Sr. Manager - IT Network Infrastructure,Adil,Mhaisker,adil_mhaisker@eahli.com
-"Zakat, Tax and Customs Authority",Director of IT Project Management,Mohammad,Almalki,mohammad@zatca.gov.sa
-"Zakat, Tax and Customs Authority","IT Director, Infrastructure Operation",Waleed,Alghamdi,alghamdiw@zatca.gov.sa
-"Zakat, Tax and Customs Authority",Director of Infrastrucure,Nawaf,AlDughayim,aldughayimn@zatca.gov.sa
-Dawlance,Vice President - Head of IT ,Syed,Waqas,syed.waqas@dawlance.com.pk
-Dawlance,Senior Specialist ERP and Software Development,Jawed,Abaali,jawed@dawlance.com.pk
-National Bank of Fujairah,Head IT Application,Thiemo,Heims,thiemo.heims@nbf.ae
-National Bank of Fujairah,Senior Manager IT Internal Controls,Emmanuel,Lalude,emmanuel.lalude@nbf.ae
-National Bank of Fujairah,Senior Manager - IT Systems,Sajiv,Balan,sajiv.balan@nbf.ae
-National Bank of Fujairah,Senior Manager - IT Systems,Madhavan,Krishnan,madhavan.krishnan@nbf.ae
-IFFCO Group,Information Technology Executive,Abdalla,Alali,aa@iffco.com
-IFFCO Group,Technical Director,Sunil,Singh,ssingh@iffco.com
-Kerzner International,Executive Vice President IT,Willem,Both,willem.both@kerzner.com
-Kerzner International,Director of Global IT Systems,Afeworki,Gebreab,afeworki.gebreab@kerzner.com
-Kerzner International,"Director, Global IT Preopening & Planning",Vladimir,Bauk,vladimir.bauk@kerzner.com
-Kerzner International,"Vice President, Global IT Operations & Projects",Ralph,Poesche,ralph.poesche@kerzner.com
-Kerzner International,Vice President Information Security & Technology ,Vikalp,Shrivastava,vikalp.shrivastava@kerzner.com
-Kerzner International,"Director, Global IT Services",Jason,Ahluwalia,jason.ahluwalia@kerzner.com
-Kerzner International,"Director, Application Development",Micheal,Carr,michael@kerzner.com
-PureHealth,Chief Data Officer,Rizwan,Tufail,rizwan.tufail@purehealth.ae
-Address Hotels + Resorts,Head Of Information Technology,Oytun,Gürün,oytun.gurun@addresshotels.com
-Almosafer,Chief Technology Officer,Qais,Amori,qais.amori@almosafer.com
-Qiddiya,"Director, IT Operations",Bader,Alroqi,bader.alroqi@qiddiya.com
-Qiddiya,Director of Infrastructure,Gianfranco,Mazzapicchio,gianfranco.mazzapicchio@qiddiya.com
-Qiddiya,IT PMO Director,Yazeed,Albawardi,yazeed.albawardi@qiddiya.com
-TAQA (Industrialization & Energy Services Company),Senior Information Technology Manager,Arif,Aijaz,arif.aijaz@taqa.com.sa
+Company Name,Position,First Name,Last Name,Email,
+S&C Electric Company,Chief Information Officer,Bob,King,bob.king@sandc.com,
+S&C Electric Company,Chief Operating Officer,Jim,Johnson,jim@sandc.com,
+S&C Electric Company,VP Operations,Anthony,Bezina,anthony.bezina@sandc.com,
+Bob's Discount Furniture,Chief Information Officer,Adam,Kuta,akuta@mybobs.com,
+Bob's Discount Furniture,"Senior Director, Business Technology",Irene,Valentine,irene.valentine@mybobs.com,
+Bob's Discount Furniture,Senior Director - Business Technology,Shiju,David,sdavid@mybobs.com,
+Corsair,Chief Information Officer,Shamyo,Chatterjee,shamyo.chatterjee@corsair.com,
+Corsair,"Sr. Director, Global IT Infrastructure",Micheal,Talens,michael.talens@corsair.com,
+TUMI,Vice President Information Technology,Bob,Weingartner,bob.weingartner@samsonite.com,
+TUMI,Head of Technology & Data Analytics,Kchitij,Kumar,kchitij.kumar@tumi.com,
+"EMD Serono, Inc.",Senior Vice President,Gaby,Murphy,gaby.murphy@emdserono.com,
+Toptal,Chief Technology Officer,Ismael,Peinado,ismael.peinado@toptal.com,
+Ellucian,Chief Information Officer,Josh,Berry,josh@ellucian.com,
+Ellucian,"Vice President, Information Technology",Matthew,Chase,mathew.chase@ellucian.com,
+Ellucian,"Vice President, IT",Matt,Littlefield,matt.littlefield@ellucian.com,
+Iris Software Inc.,"CTO, Senior Technology",Ravikumar,Thiagarajan,ravikumar.thiagarajan@irissoftware.com,
+Affirm,Senior IT Administrator,Vito,Pileggi,vito.pileggi@affirm.com,
+ArisGlobal,IT Director ,Luka,Sustarsic,lsustarsic@arisglobal.com,
+ArisGlobal,"Vice President, IT Operations",Darren,Newbould,dnewbould@arisglobal.com,
+ArisGlobal,Director Technology,Juby,Rajan,jrajan@arisglobal.com,
+GWC | Official,Director Corporate IT,Khurram,Inam,khurram.inam@gwclogistics.com,
+Freeman Company,Director Technologies,Kyle,Gaul,kyle.gaul@freeman.com,
+Radisys Corporation,"SVP, Head of Technology",Prakash,Siva,sp@radisys.com,
+Superior Industries,Director Global IT Operations,Saad,Chaudhry,schaudhry@supind.com,
+CyberArk,Senior Director of Technologies,Dima,Barboi,dima.barboi@cyberark.com,
+CyberArk,"Senior Director, Global Technology",Brandon,Traffanstedt,brandon.traffanstedt@cyberark.com,
+Donnelley Financial Solutions (DFIN),VP of Information Technology,Chad,Kohl,chad@dfinsolutions.com,
+Donnelley Financial Solutions (DFIN),Director of Information Technology,Brandon,G,b.g@dfinsolutions.com,
+Donnelley Financial Solutions (DFIN),Vice President of Information Technology,Desi,Sendaydiego,desi.sendaydiego@dfinsolutions.com,
+Ebix,Director Information Technology Operations,Navneet,Bemby,nbemby@ebix.com,
+Ebix,Associate Vice President - Technology,Steve,Oilai,steve@ebix.com,
+Rogers Corporation,Chief Technology Officer,Griffin,Gappert,griffin.gappert@rogerscorp.com,
+Rogers Corporation,Director Information Security and Compliance,Brian,Curl,brian.curl@rogerscorp.com,
+Neovia Logistics,"Senior Director, Global IT Operations",Jack,Smith,jack.smith@neovialogistics.com,
+Neovia Logistics,"Director, Global IT Infrastructure",Tom,Collins,tom.collins@neovialogistics.com,
+Specialized Bicycle Components,Director of Technology & Operations,Rich,Perez,pr@specialized.com,
+Carhartt,Vice President of IT Infrastructure,Jason,Bloink,jason@carhartt.com,
+Carhartt,Information Technology Ops Manager,Ernesto,Morales,ernesto.noguez@carhartt.com,
+Carhartt,Chief Information Officer,Katrina,Agusti,katrina@carhartt.com,
+Tommy Bahama,Senior Director IT Operations and Infrastructure,Brent,Rannow,brent.rannow@tommybahama.com,
+Hudson,Information Technology VP,Joseph,Fischer,joseph@hudsongroup.com,
+American Chemical Society,"Director, Technology Strategy & Execution",Jennifer,Arndt,jarndt@acs.org,
+American Chemical Society,Director of Product Development and Solutions Architecture,Mitchell,Bakos,mbakos@acs.org,
+American Chemical Society,"Senior Director & Chief of Staff, Product Strategy & Operations",Jessica,Rucker,jrucker@acs.org,
+Autotrader US,Vice President,MJ,Jaros,mj.jaros@autotrader.com,
+Autotrader US,Associate Vice President,Debbie,Carroll,debbie.carroll@autotrader.com,
+NEORIS,Activetrac CTO,Alejandro,Barbosa,alejandro.torres@neoris.com,
+Avanos Medical,Director of Global IT Infrastructure,Seth,Majors,seth.majors@avanos.com,
+Avanos Medical,Chief Information Officer,Siobhan,Smyth,siobhan.smyth@avanos.com,
+Avanos Medical,Chief Executive Officer,Joe,Woody,joe.woody@avanos.com,
+Beacon Building Products,"Vice President, IT and Acquisitions",Margi,Harney,margi@becn.com,
+Beacon Building Products,"EVP, Chief Technology Officer",Chris,Nelson,chris.nelson@becn.com,
+Beacon Building Products,"IT Director, ERP",Chris,Drake,chris@becn.com,
+Boardriders,Head of IT operations,Philippe,Gaige,philippe.gaige@boardriders.com,
+Belkin,Vice President of Information Technology,Jeff,Salisbury,jeffs@belkin.com,
+Belkin,Chief Technology Officer,Brian,Harlingen,brian@belkin.com,
+Belkin,"Director, Global Information Technology",Curtis,Cale,curtis.cale@belkin.com,
+Evoke Technologies,Vice President,Sridhar,Koppula,skoppula@evoketechnologies.com,
+Tavant,VP of Technology,Devesh,Raghubanshi,devesh.raghubanshi@tavant.com,
+Tavant,Sr Director Of Technology,Praveen,Soni,praveen.soni@tavant.com,
+West Marine,Chief Information Officer,John,Devine,jdevine@westmarine.com,
+Chobani,Chief Information Officer,Tom,Cullen,tom.cullen@chobani.com,
+Chobani,"Senior Director, People Systems and Technology",Colleen,Campbell,colleen.campbell@chobani.com,
+Chobani,Global IT Director,Rajnish,Meta,rajnish.mehta@chobani.com,
+Crescent Electric Supply Company,Director Technology Strategy,Chandra,Singh,chandra.singh@gspann.com,
+Esprit,Vice President Digital / Information Technology,Benny,Leung,benny.leung@esprit.com,
+Lids,Chief Information Officer,Dave,Sturgis,dave.sturgis@lids.com,
+Lids,"Director, IT",Colin,Lobo,colin.lobo@lids.com,
+Lids,VP of Infrastructure and Operations,Shay,VanVlymen,shay.vanvlymen@lids.com,
+Libbey,"Director, Global Information Technology",Randy,Zickefoose,randy.zickefoose@libbey.com,
+Qualfon,Senior Vice President of Technology,Ian,Catolico,ian.catolico@qualfon.com,
+Qualfon,VP of Information Technology,John,Batchelor,john.batchelor@qualfon.com,
+Qualfon,Chief Information Officer,Prashant,Cherukuri,pcherukuri@qualfon.com,
+Qualfon,Vice President Information Technology,James,Wagner,james.wagner@qualfon.com,
+Ceridian,Head of Technology,Haseeb,Asghar,haseeb.asghar@ceridian.com,
+Ceridian,Director of IT Business Systems,Tom,Williams,tom.williams@ceridian.com,
+Johnsonville,Director - IT Data & Analytics,Melissa,Bink,mbink@johnsonville.com,
+Johnsonville,IT Director,Jason,Beyersdorf,jbeyersdorf@johnsonville.com,
+"Baker Concrete Construction, Inc.",Chief Information and Technology Officer,Jennifer,Hohman,jennifer.hohman@bakerconcrete.com,
+Solidigm,Senior Director IT,Anupam,Jain,anupam@solidigm.com,
+Solidigm,"Director, IT Operations & Planning",John,Santillan,john.santillan@solidigm.com,
+Farm Credit Mid-America,Chief Information Officer,Kevin,Geron,kevin.geron@fcma.com,
+Armstrong World Industries,Director of Information Technology,Jermey,M,m@armstrongceilings.com,
+Armstrong World Industries,"Senior Director, Technology",Micheal,Lorenz,michael_lorenz@armstrongceilings.com,
+Armstrong World Industries,Director - Business Development,Tom,Stafford,tstafford@armstrongceilings.com,
+Ditch Witch,IT Director,Zane,Schwab,zschwab@ditchwitch.com,
+Havertys Furniture,Executive Vice President and Chief Information Officer,Ed,Clary,eclary@havertys.com,
+SS&C Intralinks,Vice President of Infrastructure Services,Tom,Catalano,tom.catalano@intralinks.com,
+SS&C Intralinks,Director of Technical Program Operations,Sandra-Jane,Mancini,sandrajane.mancini@intralinks.com,
+SS&C Intralinks,Head of Corporate Development,Luis Felipe,Bíscaro,felipe@intralinks.com,
+Pierce Manufacturing,Director of IT ,Ben,Lucia,blucia@piercemfg.com,
+Hexcel Corporation,Senior Vice President & Chief Technology Officer,Paul,Mackenzie,paul@hexcel.com,
+Hexcel Corporation,Vice President Corporate Development,Neil,Howard,neil.howard@hexcel.com,
+Lands'​ End,"EVP, Chief Technology Officer",Martin,Christopher,martin.christopher@landsend.com,
+Lands'​ End,Sr. Director - IT Infrastructure & Operations,Dominic,Parks,dominic.parks@landsend.com,
+Lands'​ End,"Senior Director, IT Planning",Duane,Walz,duane.walz@landsend.com,
+MTS Systems Corporation,Vice President of Information Technology,Jay,Wiedemann,jay.wiedemann@mts.com,
+Evertec,Head of Information Technology,Pedro,Aggierni,pedro.aggierni@evertecinc.com,
+Lidl US,Chief Information Officer,Roman,Gerlicher,roman.gerlicher@lidl.com,
+Lidl US,Head of IT Infrastructure and IT Support,Lior,Kocas,lior.kocas@lidl.com,
+Shure Incorporated,Executive Vice President & Chief Technology Officer,Sameh,Sabet,sabets@shure.com,
+Shure Incorporated,"Senior Vice President, Chief Information Officer",Robin,Lane,robin@shure.com,
+Shure Incorporated,"Senior Director, IT Infrastructure",Timothy,Lambe,lambet@shure.com,
+Shure Incorporated,Vice President of Corporate Development,Brian,Woodland,brian@shure.com,
+Papa Murphy's International,"Senior Director, IT Project & Request Management",Nathan,Young,nathan.young@papamurphys.com,
+Kellanova,Chief Information Officer,Eric,Firer,eric.firer@kellanova.com,
+Kellanova,"Director, Global IT Support",Dr.Keepak,Kota,dkota@kellanova.com,
+First United Bank,Director of IT Operations,Kevin,Pilgrim,kpilgrim@firstunitedbank.com,
+First United Bank,"VP, Director of IT Infrastructure",Kevin,Nguyen,knguyen@firstunitedbank.com,
+First United Bank,Chief Technology Officer,Tadd,Tobkin,tadd.d@firstunitedbank.com,
+National Geographic,Chief Technology Officer,Jason,Southern,jason.southern@nationalgeographic.com,
+AtlantiCare,Chief Information Officer,Jordan,Ruch,jordan.ruch@atlanticare.org,
+AtlantiCare,Corporate Director Information Technology,Joshua,Rosen,joshua.rosen@atlanticare.org,
+AtlantiCare,Senior Vice President - Chief Digital & Technology Executive,Christopher,Scanzera,christopher.scanzera@atlanticare.org,
+"J. J. Keller & Associates, Inc.",Vice President of Information Technology,Josh,Djupstrom,jdjupstrom@jjkeller.com,
+"J. J. Keller & Associates, Inc.",Executive Vice President of Technology Solutions,Lacie,Callan,lcallan@jjkeller.com,
+The Doctors Company,Chief Information Officer,Rick,Getter,rgetter@thedoctors.com,
+Oxford Global Resources,"Senior Director, Technology",Andrew,Shandor,andrew_shandor@oxfordcorp.com,
+Oxford Global Resources,"Vice President, Technology",Stefan,Feldmeir,stefan_feldmeier@oxfordcorp.com,
+FFF Enterprises,Cheif Technology Officer,Ashutosh,Tripathi,atripathi@fffenterprises.com,
+FFF Enterprises,Chief Information Officer,John,Hahn,jhahn@fffenterprises.com,
+FFF Enterprises,"Senior Director, IT Infrastructure",Brant,Kelly,bkelley@fffenterprises.com,
+Fujitsu Network Communications,Chief Information Officer,Jay,Warsaw,jw@fujitsu.com,
+Amsted Rail,"Director, Information Technology",Anthony,Graham,agraham@amstedrail.com,
+Amsted Rail,"Vice President, Information Technology",Mike,McDonnell,mmcdonnell@amstedrail.com,
+Magic Leap,"Vice President, Platform & Cloud",Leonid,Zolotarev,lzolotarev@magicleap.com,
+Magic Leap,Chief Information Officer,Adnan,Adil,a.adil@magicleap.com,
+Batesville,Chief Technology Officer,Ali,Sareea,ali.sareea@batesville.com,
+Batesville,"Director, Technology",Brandon,Wiedeman,brandon.wiedeman@batesville.com,
+NW Natural,IT Director,J.Justin,Meier,j.justin@nwnatural.com,
+NW Natural,"Director, IT Project Management",Linda,Stone,linda.stone@nwnatural.com,
+Bally's Interactive,Head of Enterprise IT,Bartek,Sierakowski,bartek.sierakowski@ballysinteractive.com,
+Bally's Interactive,Director of Core IT Systems,Henry,Gauci,henry.gauci@ballysinteractive.com,
+CalPortland,Chief Information Officer,Luis,Angulo,langulo@calportland.com,
+CalPortland,Manager of IT Operations,Bill,Leonard,bleonard@calportland.com,
+CalPortland,IT Administrator,April,Avila,aavila@calportland.com,
+CMC,Director IT Infrastructure,Chad,Heath,heath@cmc.com,
+CMC,IT Director,Kumar,Kalidini,kumar.kalidindi@cmc.com,
+CMC,"Vice President, Information Technology",Adam,Hickey,adam.hickey@cmc.com,
+"KARL STORZ Endoscopy-America, Inc.",Vice President Information Technology,Matt,Butcher,bm@karlstorz.com,
+"KARL STORZ Endoscopy-America, Inc.",Global Information Technology Director,Torsten,Brzezinski,tbrzezinski@karlstorz.com,
+Alnylam Pharmaceuticals,VP Strategic Technologies,Lawrence,Egan,legan@alnylam.com,
+Alnylam Pharmaceuticals,"Associate Director, Information Technology",Jonathan,Lopez,jl@alnylam.com,
+Alnylam Pharmaceuticals,Head of IT Data Management,Murtaza,Cherawala,murtaza@alnylam.com,
+Oldcastle BuildingEnvelope,VP of IT Services,Aaron,Rundall,arundall@obe.com,
+Oldcastle BuildingEnvelope,IT Director of Operations,Steven,Letzring,sletzring@obe.com,
+Oldcastle BuildingEnvelope,Chief Information Officer,Rusty,Kennington,rkennington@obe.com,
+Seneca Foods Corporation,Director of Technology Operations,Timothy,Nolan,tnolan@senecafoods.com,
+Matthews International,Chief Technology Officer,Greg,Babe,gbabe@matw.com,
+Matthews International,Head Of Information Technology,Norm,Williams,williams@matw.com,
+Matthews International,Director of IT,John,Salava,jsalava@matw.com,
+Daktronics,"Vice President, IT & Business Development",Rich,Hintz,rich.hintz@daktronics.com,
+Daktronics,Chief Technology Officer,Micheal,Cioffi,michael.cioffi@daktronics.com,
+Daktronics,Director of IT,Ken,Smith,ken.smith@daktronics.com,
+"Southco, Inc.","Vice President, Information Technology",William,Doyle,wdoyle@southco.com,
+Vestis Corporation,Vice President Information Technology,Padmaja,Mushti,padmaja.mushti@vestis.com,
+Vestis Corporation,Director - Global IT Operations,Geoff,Soard,geoff.soard@vestis.com,
+Vestis Corporation,Vice President - Global Head of Infrastructure,Mohammad,Zahid,mohammad.zahid@vestis.com,
+Vestis Corporation,Executive Vice President and Chief Technology Officer,Grant,Shih,grant.shih@vestis.com,
+Julphar,Head Of Information Technology,Srinivasa,N,srinivasa@julphar.net,
+Julphar,Chief Technical Officer,Malik,Metahri,malik.metahri@julphar.net,
+IEHP,Director Of Information Technology,Ramesh,Kumar,ramesh.kumar@iehp.org,
+IEHP,Chief Information and Digital Officer,Vinil,Devabhaktuni,vinil.devabhaktuni@iehp.org,
+IEHP,IT Strategic Programs Director,Malena,Cabrera,malena.cabrera@iehp.org,
+IEHP,Director- Technology,Jose,Lopez,jose.lopez@iehp.org,
+Drury Hotels,"Director of Technical Services",Steve,Hickle,steve.hickle@druryhotels.com,
+Drury Hotels,Director of IT Operations,Kim,Spear,kim@druryhotels.com,
+The Hillman Group,Senior Vice President Information Technology,Nick,Spann,nick.spann@hillmangroup.com,
+The Hillman Group,Sr IT Director Enterprise Applications,Kirk,Townsley,kirk.townsley@hillmangroup.com,
+Mobile Mini Solutions,Director Of Information Technology,Geoffrey,Joe,gjoe@mobilemini.com,
+Mobile Mini Solutions,Director IT Engineering,Jerry,Dennington,jerry.dennington@mobilemini.com,
+TranSystems,Senior Vice President of Information Technology,Scott,Nash,scott.nash@transystems.com,
+TranSystems,Vice President of Information Systems,Jason,Platts,jason.platts@transystems.com,
+StandardAero,Chief Technology Officer,Christian,Martins,christian.martins@standardaero.com,
+StandardAero,Sr. IT Director,Etel,Ergun-Avimelek,etel.ergunavimelek@standardaero.com,
+Oakley,"Director - Information Technology",Ramkumar,Appahji,rappahji@oakley.com,
+Barton Malow,Sr. Director of Enterprise Systems,Vince,Notarantonio,vince.notarantonio@bartonmalow.com,
+Hilti North America,IT Director - Solution Architecture,Alonzo,Burns,alonzo.burns@hilti.com,
+Hilti North America,Solutions Director,Julie,Sherman,julie.sherman@hilti.com,
+San Francisco Unified School District,Executive Director of Technology & Innovation,Joshua,Wittman,joshua.wittman@sfusd.edu,
+San Francisco Unified School District,Chief Technology Officer,Melissa,Dodd,melissa.dodd@sfusd.edu,
+San Francisco Unified School District,Director of IT Operations,Lai,Song,song.lai@sfusd.edu,
+San Francisco Unified School District,Director of IT Infrastructure,Sean,Rozell,sean.rozell@sfusd.edu,
+Hollister Incorporated,"Director, Global IT Business Solutions ",Robin,Sacher,robin.sachar@hollister.com,
+Hollister Incorporated,"Vice President, Business Transformation",Stephen,Collum,stephen.collum@hollister.com,
+Hollister Incorporated,President and COO,Abinash,Nayak,abinash.nayak@hollister.com,
+"North American Lighting, Inc.",Vice President Design and Development,Scott,White,swhite@nal.com,
+NAFFCO ELECTROMECHANICAL CO. LLC,Technical Director,Hassan,Fathy,hassan@naffco.com,
+Buckman,Chief Digital Officer,NM,Rao,nmrao@buckman.com,
+Vista,"Vice President, Technology",Sagini,Ramesh,rs@vistaprint.com,
+Vista,"Director, Technology",Gary,Gao,gary@vistaprint.com,
+Vista,Director of Technology,Alejandro,Batista,alejandro.batista@vistaprint.com,
+Vista,"Director, Engineering",Basil,Darwaza,basil.darwaza@vistaprint.com,
+Invacare Corporation,Vice President of IT ,Helen,Lewis,helen.lewis@invacare.com,
+Invacare Corporation,Vice President Information Technology,Dylan,Powell,dylan.powell@invacare.com,
+Invacare Corporation,"Director, IT",Roger,Crayton,roger.crayton@invacare.com,
+Shane Co.,"Executive Vice President, Chief Information Officer ",Howard,Barron,howard.barron@shaneco.com,
+Shane Co.,Vice President of Enterprise Application,Patrick,Laufenburger,patrick.laufenburger@shaneco.com,
+Shane Co.,Information Technology Leader,Baron,Fendler,baron.fendler@shaneco.com,
+Poly,Senior Director Business Operations,Kerry,MacLennan,kerry.maclennan@poly.com,
+St. John's Riverside Hospital,Director of Director of Infrastructure,Niall,Pariag,npariag@riversidehealth.org,
+St. John's Riverside Hospital,"Director, Infrastructure",Micheal,Motilal,michael.a@riversidehealth.org,
+Hypertherm Associates,Director Information Security,James,Thompson,james.t@hyperthermassociates.com,
+Hypertherm Associates,Chief Information Officer,Shridhar,Karale,karale@hyperthermassociates.com,
+Hypertherm Associates,"Director, IT - Business Relationship Management",Ryan,Ray,ryanr@hyperthermassociates.com,
+Checkers & Rally’s Drive-In Restaurants,Chief Information Officer,Minh,Le,lem@checkers.com,
+Checkers & Rally’s Drive-In Restaurants,"Director, Infrastructure",Rodney,Jones,jr@checkers.com,
+Checkers & Rally’s Drive-In Restaurants,Sr. Director - Strategic Planning & Analytics,Christine,Davies,daviesc@checkers.com,
+CTS Corporation,Director IT Operations,Sanjay,Sharma,sanjay.sharma@ctscorp.com,
+CTS Corporation,Vice President IT,Vinod,Neelakantan,vinod.neelakantan@ctscorp.com,
+Minneapolis Public Schools,Director of Technology,Bryan,Hennekens,bryan.hennekens@colheights.k12.mn.us,
+Englewood Hospital,Director of IT Infrastructure,Gentian,Lamcaj,gentian.lamcaj@englewoodhealth.org,
+Englewood Hospital,Director of IT,Nitin,Agarwal,nitin@englewoodhealth.org,
+Englewood Hospital,IT Infrastructure Manager,Ronald,Sarcauga,ronald.sarcauga@englewoodhealth.org,
+Englewood Hospital,Director of Information Technology,Samia,M,sm@englewoodhealth.org,
+White Lodging,Sr. Corporate IT Director,Justin,Marion,jmarion@whitelodging.com,
+White Lodging,Senior Director of IT,Brian,Richter,brichter@whitelodging.com,
+White Lodging,Chief Information Officer,David,Todd,dtodd@cvisionintl.com,
+TRIUMPH,Chief Technology Officer,Jason,Heilig,jason@invoicefactoring.com,
+Cigniti Technologies,Vice President Global IT,Amol,Deshpande,da@cigniti.com,
+Cigniti Technologies,Chief Information Officer,Jagdish,Kumar,jagdish@cigniti.com,
+Cigniti Technologies,Sr. Vice President,Umashankar,Saketharaman,umashankar.saketharaman@cigniti.com,
+PharMerica,"Director, IT",Ahmed,Aleemuddin,ahmed.aleemuddin@pharmerica.com,
+Langan Engineering & Environmental Services,Senior Technical Director,Alexandros,Yiagos,ayiagos@langan.com,
+Langan Engineering & Environmental Services,Senior Technical Director,Dean,Cadby,dean.cadby@langan.com,
+Starkey Hearing,"Director, Global IT Operations",Mike,Miller,mike_miller@starkey.com,
+Starkey Hearing,Director IT ,Pete,Tetrick,tetrick@starkey.com,
+Starkey Hearing,Chief Information Officer,Eric,Hanson,eric_hanson@starkey.com,
+Starkey Hearing,Senior Director of Technology,Jasmeet,Singh,singhj@starkey.com,
+HORNBECK OFFSHORE®,Director of Information Technology,Don,D'Arcourt,don@hornbeckoffshore.com,
+HORNBECK OFFSHORE®,Business Development Technical Director,Jason,Dennis,jason.dennis@hornbeckoffshore.com,
+Keyloop,IT PMO Director,Caroline,Moore,caroline@keyloop.com,
+Keyloop,Chief Technology Officer,Amit,Monovich,am@keyloop.com,
+Fitch Ratings,"Senior Director, Technology Operations",Mike,Brooks,mike.brooks@fitchratings.com,
+Fitch Ratings,Director of Information Technology,Geraldine,Foster,geraldine.foster@fitchratings.com,
+Fitch Ratings,Director Of Information Technology,Micheal,Gordon,michael.gordon@fitchratings.com,
+Impetus,Information Security and Technology leader,Vikas,Khandelwal,vikas.khandelwal@clear-trail.com,
+Tennant Company,Chief Information Officer,Micheal,Mathews,michael@tennantco.com,
+Nebraska Public Power District,Director of Information Technology and Cybersecurity,Wyatt,Leehy,wyatt.leehy@nppd.com,
+Playa Hotels & Resorts,Senior Vice President Information Technology,Lior,Collins,lior.collins@playaresorts.com,
+Playa Hotels & Resorts,Director of IT,Rawle,Shortridge,rawle.shortridge@playaresorts.com,
+Playa Hotels & Resorts,Senior Director of Infrastructure,Irfan,Sajil,isajil@playaresorts.com,
+Baker Construction,Chief Information and Technology Officer,Jennifer,Hohman,jennifer.hohman@bakerconcrete.com,
+Baker Construction,Director IT PMO,Lanna,Mollet,l.mollet@bakerconcrete.com,
+BlueTriton Brands,Director Of Information Technology,Mike,Garcia,mike.garcia@bluetriton.com,
+BlueTriton Brands,Chief Information Officer,Eric,Lord,eric.lord@bluetriton.com,
+BlueTriton Brands,Sr. Director IT Business Solutions,Orville,Dunn,orville.dunn@bluetriton.com,
+BlueTriton Brands,Director of Applications and Projects,Micheal,Vullo,michael.vullo@bluetriton.com,
+"Chart Industries, Inc.",Chief Information Officer,Bryan,Turner,bryan.turner@chartindustries.com,
+Simpson Strong-Tie,"EVP, Chief Technology Officer",Udit,Mehta,udit@strongtie.com,
+Simpson Strong-Tie,"Vice President, IT Infrastructure & Operations",John,Meng,jmeng@strongtie.com,
+Simpson Strong-Tie,Information Technology Operations Manager,Kirk,Smith,kirk.smith@strongtie.com,
+United Bank,"VP, Data Governance Manager",Mary,Knippschild,mary.knippschild@bankwithunited.com,
+cxLoyalty,Chief Technology Officer,Loic,Blondel,loic.blondel@tenerity.com,
+KARL STORZ United States,"VP, Information Technology",Matt,Butcher,bm@karlstorz.com,
+KARL STORZ United States,Global Information Technology Director,Torsten,Brzezinski,tbrzezinski@karlstorz.com,
+KARL STORZ United States,Global IT Leadership,Niranjan,Holay,niranjan.holay@karlstorz.com,
+KARL STORZ United States,"Director Of Technical Services",Cynthia,Garcia,cgarcia@karlstorz.com,
+Evoqua Water Technologies,Director of Technology and Innovation,Richard,Joshi,richard.joshi@evoqua.com,
+Evoqua Water Technologies,Head of Technology and Applications,Xiangyi,Qiao,xiangyi.qiao@evoqua.com,
+Phibro Animal Health,Chief Information Officer,Gary,Fling,gary.fling@pahc.com,
+Harte Hanks,VP of Information Technology,Kevin,Coutu,kevin.coutu@hartehanks.com,
+Harte Hanks,Vice President of Solutions,Matthew,Pollock,mpollock@hartehanks.com,
+Astound Digital,Technical Director,Jamie,Smith,j.smith@astoundcommerce.com,
+Astound Digital,Global Technical Director,Gyunay,Ulviev,gyunay.ulviev@astoundcommerce.com,
+Astound Digital,Technical Director,Mike,Bowen,m.bowen@astoundcommerce.com,
+Techwave,Director of Information Technology,Thag,Adhikari,thag.adhikari@techwave.net,
+Techwave,Associate Director of Technology,Laxma,Kandimalla,laxma@techwave.net,
+MSX International,Chief Technology Officer,Steve,Jones,steve.jones@msxi.com,
+MSX International,"Global VP, Learning Solutions",Deborah,Mulholland,dmulholland@msxi.com,
+Mintz,Director of IT Infrastructure,Paul,Kohan,paul@mintz.com,
+Mintz,Chief Information Officer,David,Carlson,david@mintz.com,
+Mintz,"Director, Technology Transfer",Kim,Rosenfield,kim.rosenfield@dartmouth.edu,
+Contech Engineered Solutions,Director of Technology,LaShena,Smith,lsmith@conteches.com,
+Contech Engineered Solutions,Senior Vice President of Operations,Neil,Tollas,ntollas@conteches.com,
+Contech Engineered Solutions,Director Of Operations,Jacob,Waugh,jwaugh@conteches.com,
+Drake University,Chief Information Technology Officer,Chris,Gill,chris.gill@drake.edu,
+Drake University,Information Technology Services - Director of Infrastructure,Chris,Mielke,chris.mielke@drake.edu,
+American National,Chief Information Officr,Meredith,Mitchell,meredith.mitchell@americannational.com,
+MSA - The Safety Company,"Director, Global IT Infrastructure Operations",Chris,Platt,chris.platt@msasafety.com,
+MSA - The Safety Company,IT Director International ,Pawel,Seremak,pawel.seremak@msasafety.com,
+PROS,Director Of Information Technology,Floyd,Montgomery,f.montgomery@pros.com,
+Eastman Kodak Company,Chief Technology Officer,Terry,Taber,terry.taber@kodak.com,
+Eastman Kodak Company,IT Director,JR,Garcia,jr.garcia@kodak.com,
+Wabash,"Vice President, Corporate Development",Ryan,Reed,ryan.reed@onewabash.com,
+Syniti,Chief Technology Officer,Javeed,Nizami,javeed.nizami@syniti.com,
+Syniti,"Vice President, Direct Solutions",Brian,Haering,brian.haering@syniti.com,
+Janus Henderson Investors,"Director, Institutional Solutions",Greg,Clarke,greg.clarke@janushenderson.com,
+Abt Global,"Vice President, Technology Delivery",Mauricio,Poodts,p.m@abtassociates.com,
+Abt Global,Sr Director of Technology Experience,Rich,Schnell,rich.schnell@abtassociates.com,
+Abt Global,"Vice President, Corporate Development",Kevin,O'Reilly,kevin@abtassociates.com,
+BORN,Head of Technology,Kevin,Yao,kevin.yao@borngroup.com,
+Irvine Company,Chief Technology Officer,Abe,Wong,abe.wong@irvinecompany.com,
+Irvine Company,"Senior Director, Technology Enablement",Lisa,Larkin,llarkin@irvinecompany.com,
+Irvine Company,"Vice President,Technology and Innovation",Tim,McClain,tmcclain@irvinecompany.com,
+NEC Corporation of America,VP of Solutions Development,Gary,Lac,gary.lac@necam.com,
+NEC Corporation of America,Director of IT,Jim,Hawes,jim.hawes@necam.com,
+NEC Corporation of America,Director Of Operations,Loretta,Biglin,loretta.biglin@necam.com,
+NAKILAT,Head of IT Operations,Naveed,Khader,nabdul@nakilat.com,
+NAKILAT,Head of IT Operations,Abdul,Mohammed,ma@nakilat.com,
+NAKILAT,Information Technology Manager,Hamad,Suwaid,h.suwaid@nakilat.com,
+Maui Jim Sunglasses,Information Technology,Jose,Pietri,jose@mauijim.com,
+Maui Jim Sunglasses,IT Infrastructure Manager,Taylor,Moore,taylor.moore@mauijim.com,
+Maui Jim Sunglasses,Systems Administrator,Sam,Sonnenberg,sam.sonnenberg@mauijim.com,
+Composites One,Director of Infrastructure and Operations,John,Jupa,jjupa@compositesone.com,
+Composites One,"Director of IT",Kevin,McDaniel,kevin.mcdaniel@compositesone.com,
+Samsung Ads,Director of Data Solutions,George,Carens,george.carens@samsungads.com,
+Samsung Ads,Information Technology Manager,Dnyaneshwar,Gadekarpatil,dnyaneshwar@samsungads.com,
+FGX International,Senior Director of Information Technology,Stephen,June,sjune@fgxi.com,
+GreyOrange,Global Director & Head - Information Technology,Krishnamurthy,Rajesh,k.rajesh@greyorange.com,
+Metagenics,Chief Technology Officer,Prasad,Pola,phehim@metagenics.com,
+RailWorks Corporation,Chief Information Officer,Bob,Cummings,bob@railworks.com,
+"Lakeside Foods, Inc.",Director of Information Technology,Scott,Ferguson,sferguson@lakesidefoods.com,
+"Lakeside Foods, Inc.",Senior Manager of IT Operations,Jason,Schwoerer,jschwoerer@lakesidefoods.com,
+KLX Energy Services,Senior Information Technology Specialist,Josafat,Galindo,josafat.galindo@klxenergy.com,
+Brakebush Chicken,Vice President of Information Technology,Chari,Schieber,cschieber@brakebush.com,
+Tosca,Global Chief Information Officer,Nigel,Lemmon,nlemmon@toscaltd.com,
+Tosca,Vice-president Information Technology,Raf,Fonteyn,raf.fonteyn@toscaltd.com,
+AVL in North America,Director Of Information Technology,Rees,Matthew,mr@adp.com,
+Pepper Construction Group,Senior Vice President Information Technology,Tom,Lapidus,tlapidus@pepperconstruction.com,
+GrafTech International Ltd.,Vice President Information Technology,Dennis,Jones,dennis.jones@graftech.com,
+GrafTech International Ltd.,Director of Technology,Francois,Dodeller,francois.dodeller@graftech.com,
+Saudi Readymix Concrete Co,IT Director,Mohammed,Jabiti,mohammed.jabiti@saudireadymix.com,
+Genesis10,Chief Information Officer,Vincent,Rualo,vrualo@genesis10.com,
+Genesis10,Business Development Director - IT,Razz,Sitthideth,rsitthideth@genesis10.com,
+Welch Allyn,Vice President Information Technology,Randy,George,rosanna.giampaolo@welchallyn.com,
+Welch Allyn,Senior IT Manager,Eric,Zeller,eric.zeller@hillrom.com,
+Elevations Credit Union,Chief Technology Officer,Dustin,Montoya,dustin.montoya@elevationscu.com,
+Pinnacle Foods,Chief Information Officer,Julie,Rafferty,julie.rafferty@pinnaclefoods.com,
+Lindsay Corporation,Head of IT Operations,Ahmet,Ucar,ahmet.ucar@lindsay.com,
+Lindsay Corporation,Vice President and General Manager,Cole,Hansen,cole.hansen@lindsay.com,
+Lindsay Corporation,Director of Infrastructure,Trent,Heiser,trent.heiser@lindsay.com,
+W.C. Bradley Co.,"Information Technology Service Desk Analyst, Sr.",Tony,Buchholz,tony.buchholz@wcbradley.com,
+Midis Group,Senior Vice President – Information Technology,Bashir,Kassis,bashir.kassis@midisgroup.com,
+Midis Group,IT Operations,Christopher,Stephane,christopher.stephane@midisgroup.com,
+Drive DeVilbiss Healthcare,Director of IT Infrastructure,Joe,Pascale,jpascale@drivemedical.com,
+Drive DeVilbiss Healthcare,"Director, IT",Amy,Donia,adonia@drivemedical.com,
+Drive DeVilbiss Healthcare,VP of Enterprise Applications and Integration,Paul,Dorney,pdorney@drivemedical.com,
+TESSCO Technologies,Chief Technology Officer,Thad,Lowe,thad@ventevinfra.com,
+Town Pump Company,IT Project Manager,John,Tamietti,johnt@townpump.com,
+Franke Foodservice Systems,Vice President of Information Technology,Bill,Wilson,bill.wilson@franke.com,
+Sonny's Enterprises Inc.,Senior Vice President of Information Technology,Dave,Richardson,drichardson@sonnysdirect.com,
+Sonny's Enterprises Inc.,Chief Technology Officer,Regi,Flanagan,rflanagan@sonnysdirect.com,
+Sonny's Enterprises Inc.,IT Operations Manager,Sebastian,Nardo,sebastian.nardo@sonnysdirect.com,
+Sonny's Enterprises Inc.,IT Systems Administrator,Stephen,Tucker,stephen.tucker@sonnysdirect.com,
+Schluter Systems,Director of Information Technology,Joshua,Forgette,jforgette@schluter.com,
+Schluter Systems,Director of IT North America,Susan,Maloney,smaloney@schluter.com,
+Webasto Americas,IT Team Lead,Joseph,Willett,joseph.willett@webasto.com,
+ZimVie Dental,Director Global Information Security,Kevin,Sullivan,kevin.sullivan@zimvie.com,
+ZimVie Dental,Head of IT,Markus,Schmidtgall,markus.schmidtgall@zimvie.com,
+Diriyah Gate Development Authority,Executive Director Infrastructure,Paul,Pring,ppring@dgda.gov.sa,
+Diriyah Gate Development Authority,Infrastructure Director,John,Rodgers,jrodgers@dgda.gov.sa,
+Aldridge Electric,IT Director,Patrick,Laud,pkrupper@aldridgegroup.com,
+Aldridge Electric,Systems Administrator,Nat,Thongchai,nthongchai@aldridgegroup.com,
+Sharjah Coop,IT Director,Jasim,AlAbdouli,j.alabdouli@shjcoop.ae,
+WK Kellogg Co,Senior Director Information Technology,Federico,Conde,federico.conde@unleashingourpotential.com,
+WK Kellogg Co,"Senior Vice President, Chief Information Officer",Bill,Rex,bill.rex@unleashingourpotential.com,
+WK Kellogg Co,Director IT,Shao,Lee,shao.yu@unleashingourpotential.com,
+WK Kellogg Co,IT Director,Vipul,Lad,vipul.lad@unleashingourpotential.com,
+WK Kellogg Co,"IT Director, Infrastructure and Cloud",Carlos,Perales,carlos@unleashingourpotential.com,
+Affinity Plus Federal Credit Union,Chief Information Officer,Radha,Chavali,rchavali@affinityplus.org,
+Affinity Plus Federal Credit Union,Sr Application Administrator,DeVonna,Scheuffele,devonna.scheuffele@affinityplus.org,
+Affinity Plus Federal Credit Union,IT Application Administrator,Niki,Thornton,niki.thornton@affinityplus.org,
+Affinity Plus Federal Credit Union,IT Application Administrator,Steve,Kelly,skelly@affinityplus.org,
+Vicor Corporation,VP Chief Information Security Officer,Mike,Hamilton,mhamilton@vicorpower.com,
+Zekelman Industries,Director Of Information Technology,Jerry,Baum,jerry.baum@zekelman.com,
+Zekelman Industries,Vice President Information Technology,William,Kempert,william.kempert@zekelman.com,
+Zekelman Industries,Director of Applications,Ketul,Patel,ketul.patel@zekelman.com,
+Zekelman Industries,IT Technical Director,Zenon,Rykala,zenon.rykala@zekelman.com,
+Bankmed,Head of Information Technology,Toufic,Shbib,shbibt@bankmed.com.lb,
+Bankmed,Head of Infrastructure,Omar,Mashaka,mashakao@bankmed.com.lb,
+G3 Enterprises,Director Of Information Technology,Daniel,Sadowski,daniel.sadowski@g3enterprises.com,
+G3 Enterprises,Senior Manager - Cloud Architecture,Mahesh,Pakala,mahesh@g3enterprises.com,
+Heatcraft Worldwide Refrigeration,IT Manager,William,Xie,william@heatcraftrpd.com,
+STRATA Manufacturing PJSC,Information System Manager,Amadou,Diakite,adiakite@strata.ae,
+The Marvin Group,Chief Information Officer,Matt,Reynolds,matt.reynolds@marvingroup.com,
+The Marvin Group,System Administrator,Mike,Hershewe,mhershewe@marvingroup.com,
+The Marvin Group,IT Technician / Network Admin,Christian,Saavedra,christian@marvingroup.com,
+First Midwest Bank,Sr. Director of IT,Hetal,Patel,hetal.patel@primetherapeutics.com,
+First Midwest Bank,IT Sr. System Engineer ,Mike,Macikanycz,mike.macikanycz@oldnational.com,
+Snohomish County PUD,Chief Information Officer,Kristi,Sterling,s@snopud.com,
+Ultratech - a Division of Veeco,Vice President of Technology,Ganesh,Sundaram,ganesh.sundaram@veeco.com,
+Ultratech - a Division of Veeco,"Vice President, Applications",Warren,Flack,warren@veeco.com,
+Ultratech - a Division of Veeco,Technical Director,Koichiro,Kawamura,kkawamura@veeco.com,
+NIBCO INC.,"VP, Chief Information Officer",Cody,Huffines,cody@nibco.com,
+TTX Company,Vice President IT & CIO,Bruce,Schinelli,bruce.schinelli@ttx.com,
+TTX Company,Director - IT Infrastructure,Monica,Malkowski,monica.malkowski@ttx.com,
+TTX Company,Director Business Systems,Kyle,Lowry,kyle@ttx.com,
+Rizing Enterprise Asset Management,IT Project Coordinator,Manvi,Gupta,manvi.gupta@rizing.com,
+Amreli Steels Limited,Chief Information Officer,Javed,Syed,syed@amrelisteels.com,
+Amreli Steels Limited,Information Technology Officer,Maaz,Yousif,maaz.yousuf@amrelisteels.com,
+Amreli Steels Limited,Executive IT,Zohaib,Sheikh,zohaib@amrelisteels.com,
+Amreli Steels Limited,Sr. Sap Coordinator,Muhammad,Akhtar,muhammad@amrelisteels.com,
+"Coeur Mining, Inc.","Sr. Director, IT Infrastructure",Ross,Atwood,ross.atwood@coeur.com,
+"Coeur Mining, Inc.","Senior Director, Technical Services",Christopher,Pascoe,cpascoe@coeur.com,
+"Coeur Mining, Inc.",IT Business Intelligence Manager,Luis,Chavez,luis.chavez@coeur.com,
+"Coeur Mining, Inc.",Senior Information Technology Business Analyst,Gisel,Mendoza,gisel.mendoza@coeur.com,
+"Coeur Mining, Inc.",Information Technology Supervisor,Ben,Ruel,ben.ruel@coeur.com,
+Alaincoop,Corporate IT Manager,Manoj,Bhatnagar,manojbhatnagar@alaincoop.com,
+Civeo North America,"Manager, Global IT Infrastructure",Jason,Crichton,jason.crichton@civeo.com,
+Toms King,Director Of Operations,Theresa,Lanzi,tlanzi@pacificbells.com,
+Rosen Hotels & Resorts,Chief Information Officer,Michael,Schubach,michael.schubach@rosenhotels.com,
+Rosen Hotels & Resorts,Director of Technology,Jeff,Hatcher,jhatcher@mtg-fl.com,
+Sophos Solutions,Chief Technology Innovation Officer,Joseph,Guevara,joseph.guevara@sophossolutions.com,
+"Blumont, Inc.",Sr Director for Information Technology,Scott,Vickland,scottv@blumont.org,
+"Blumont, Inc.",Senior IT Officer,Hiba,Zangana,hibaz@blumont.org,
+"Blumont, Inc.",Infrastructure Manager,Azizullah,Samoon,azizullah.samoon@blumont.org,
+"Blumont, Inc.",IT Officer,Ahmed,Ahmed,ahmeda@blumont.org,
+Jazz Semiconductor,Vice President of Information Technology,Rozencweig,Rafi,rozencweig.rafi@towersemi.com,
+Jazz Semiconductor,"Vice President, Corporate Development",Andy,Chan,andy.chan@towerjazz.com,
+Advanced Petrochemical Company,Director of Information Technology,Saud,Alotaibi,a.s@advancedpetrochem.com,
+Advanced Petrochemical Company,Sr. Network Administrator,Anwar,Ghamdi,anwar.ghamdi@advancedpetrochem.com,
+Trinchero Family Estates,Enterprise System Architect,Erin,Filbert,erin@tfewines.com,
+Trinchero Family Estates,"Senior Director, IT Infrastructure",Jermey,Mostafanejad,jmostafanejad@tfewines.com,
+Trinchero Family Estates,IT Director,Brandon,Groves,brandon.groves@tfewines.com,
+Seaboard Triumph Foods,IT Manager,Michael,Guthrie,michael.guthrie@seaboardtriumphfoods.com,
+Power International Holding,Head Of Information Technology,Malik,Awan,mshahzad@powerholding-intl.com,
+Power International Holding,Group IT Infrastructure,Ganesh,Vaniyan,ganesh@powerholding-intl.com,
+Al Rostamani Group,Group Chief Technology Officer,Hilmi,Rifai,hilmi@alrostamanigroup.ae,
+Al Rostamani Group,Group Chief Information Officer,Wael,Abdel-Qader,wael.abdelqader@alrostamanigroup.ae,
+Al Rostamani Group,IT Manager Data Center & Infrastructure,Mohammed,Ansari,mohammedaqel@alrostamanigroup.ae,
+Titan America,Corporate Director of Technology,Corporate,Burgoa,m.burgoa@titanamerica.com,
+Titan America,Vice President of Information Technology,Brian,Whitley,bwhitley@titanamerica.com,
+Titan America,Technical Director,Sooduck,Hwang,sooduck.hwang@titanamerica.com,
+Titan America,Director Infrastructure Services,Todd,Fifield,tfifield@titanamerica.com,
+"LiveArea, a Merkle Company",SAP Solution Architect,Ramanjaneyulu,M,ramanjaneyulu@liveareacx.com,
+Sun Communities & Sun Outdoors,Director of IT Operations,Jeffrey,Naudi,jeffrey.naudi@sunoutdoors.com,
+Sun Communities & Sun Outdoors,"SVP, Information Techology",Jim,Higgins,jim.higgins@sunoutdoors.com,
+"Hillyard, Inc.",Director of Information Technology,Krista,Chilcoat,kchilcoat@hillyard.com,
+"Hillyard, Inc.",Information Technology,Bill,Grimwood,bill.grimwood@hillyard.com,
+"Hillyard, Inc.",Technical Service Director,Eric,Meadows,emeadows@hillyard.com,
+BTG plc,Vice President- Technology,Edward,Cole,cole.lafferty@bostonscientific.com,
+Redbox Entertainment Inc.,"Director, Data Services and IT Operations",Maulin,Patel,mpatel@redbox.com,
+Xerxes,"Director, Technology Engineering",Blaine,Weller,blaine.weller@xerxes.com,
+Ivoclar NA,IT Infrastructure Technologist,Emmanuel,Pamilaran,emmanuel.pamilaran@ivoclar.com,
+ST Engineering North America,"Sr. Director IT,",Umang,Jokhaker,umang.jokhaker@stengg.us,
+Sloan,Vice President of Global IT Infrastructure and Operations,David,Aseltine,david.aseltine@sloan.com,
+Sloan,Director Enterprise Applications,Narayana,Kakarla,narayana.kakarla@sloan.com,
+Sloan,"Sr Manager, IT Resource",Dan,Arlt,dan@sloan.com,
+Holston Medical Group,Chief Technology Officer,Darren,Ramsey,darren.ramsey@holstonmedicalgroup.com,
+Paramount Television Studios,Vice President Of Development,Gary,King,gary.king@paramount.com,
+Paramount Television Studios,Technical Director,Melissa,Kroek,melissa@paramount.com,
+Orion S.A.,Director IT Infrastructure & CISO,Valon,Hoxha,valon.hoxha@orioncarbons.com,
+Orion S.A.,Chief Information Officer,Benjamin,Scherer,benjamin.scherer@orioncarbons.com,
+Orion S.A.,Head of Technology,Jens,Geppert,jens@orioncarbons.com,
+Western Midstream,Chief Information Officer,Keith,Herndon,keith.herndon@westernmidstream.com,
+Western Midstream,"Vice President, Corporate Development",Jonathan,Greenberg,jonathan.greenberg@westernmidstream.com,
+"Universal Pressure Pumping, Inc.",VP Digital Operations,Douglas,Taylor,douglas@nextierofs.com,
+University at Albany,Director of Information Technology,Sheldon,Goddard,sgoddard@albany.edu,
+University at Albany,Director for Innovative Project Systems and Data Management,Jayme,Wood,mba@albany.edu,
+UC James L. Winkle College of Pharmacy,Assistant IT Director,Nicholas,Lotts,nicholas.lotts@uc.edu,
+GENEWIZ from Azenta Life Sciences,Information Technology Administrator,Olivia,Kim,olivia.kim@genewiz.com,
+Gestamp North America,Information Technology Manager,Jason,Kosal,jason@gestamp.com,
+Gestamp North America,IT Director US,Javier,Zabalza,javier@gestamp.com,
+Gestamp North America,US Region IT Director,Ignacio,Venturini,ignacio@gestamp.com,
+"Dunn Solutions, a KaarTech Company","Vice President, Digital Solutions & Development",Kenneth,Yeung,kyeung@dunnsolutions.com,
+"Dunn Solutions, a KaarTech Company",Associate Director,Gururaja,R,gr@dunnsolutions.com,
+Lone Star Transportation,Vice President Operations,James,Hester,jhester@lonestar-llc.com,
+Denbury Inc.,Systems Administrator,Troy,Frazier,troy.frazier@exxonmobil.com,
+Denbury Inc.,SAP EAM Master Data Manager,Jesse,Greene,jesse@denbury.com,
+Denbury Inc.,Sr. Systems Administrator / Infrastructure Manager,Kurt,Westenhoefer,kurt@exxonmobil.com,
+Denbury Inc.,SAP Applications Manager,Bin,Wang,bin.wang@denbury.com,
+Denbury Inc.,SAP Technical Manager,Shamim,Ibrahim,shamim.ibrahim@denbury.com,
+Rothstein Kass,Senior Network Administrator,Glenys,Pina,gpina@rkco.com,
+RCIS: Rural Community Insurance Services,Senior Infrastructure Engineer/Cloud Engineer,Todd,Meyers,todd.meyers@rcis.com,
+"MEC (Mayville Engineering Company, Inc.)",Chief Information Officer,Daniel,Bourquin,daniel.bourquin@mecinc.com,
+AAF International (American Air Filter),Network Operations Manager,Ken,Roberts,k.roberts@aafintl.com,
+AAF International (American Air Filter),IT Manager,Deepak,Chandra,dchandra@aafintl.com,
+Webasto Americas,Information Technology Team Lead,Joseph,Willett,joseph.willett@webasto.com,
+Resolute Tissue,Information Technology Manager,Pablo,Gomez,pablo.gomez@resolutefp.com,
+Dentons US LLP,Application Analyst,Marvin,Dizon,md@dentons.com,
+"Areas, United States",IT System Administrator,Lester,Martinez,lester.espinosa@areas.com,
+"Areas, United States",IT Operations Manager,Jonathan,Vargas,jonathan.vargas@areas.com,
+Chart Energy And Chemicals,Network Administrator,Paul,Schutzkus,paul.schutzkus@chartindustries.com,
+Delicato Family Wines,Vice President Information Solutions,Mark,Higgins,mark.higgins@delicato.com,
+Delicato Family Wines,"Director, IT Project Managagement Office",Chassie,Shafter,chassie.shafter@delicato.com,
+Aebi Schmidt USA,SAP Master Data Manager,Will,Mckay,will.mckay@aebi-schmidt.com,
+Rechtien Trucks,IT Manager,Micheal,Thomas,thomas@linktr.ee,
+Rexel Automation Solutions,Regional Vice President,John,Brown,john.brown@rexelusa.com,
+Rexel Automation Solutions,Regional Vice President,Dave,Gerding,dgerding@rexelusa.com,
+"pSemi, A Murata Company","Director, IT Applications",Art,Wolfkind,art@psemi.com,
+"pSemi, A Murata Company",Technical Director,Antony,Routledge,ra@psemi.com,
+Tabreed,Senior Manager - IT Infrastructure & Operations,Tarek,Saade,tsaade@tabreed.ae,
+Tabreed,Manager Enterprise Applications & Data Management ,Mohsin,Khan,mkhan@tabreed.ae,
+Schindler Elevator Corporation Canada,Information Technology Manager,Deepak,Mehra,deepak.mehra@schindler.com,
+Peregrine Semiconductor,Sr. Systems Analyst,Thomas,Roday,thomas@psemi.com,
+Burckhardt Compression US,Service Technician,Jared,Ayala,jared.ayala@burckhardtcompression.com,
+Redington,Head of IT Delivery,Chris,Brooks,chris.brooks@redington.co.uk,
+Redington,"Vice President, Business Systems",Alykhan,Bharmal,alykhan.bharmal@redington.co.uk,
+CCA-Wesco,Senior Information Analyst,Leslie,Lach,leslie.hanson@wesco.com,
+Nucor Steel Berkeley,IT Analyst,Carlos,Cruz,ccruz@nucor.com,
+Saudi Railway Company,IT Director,Faisal,Binshalan,fbinshalan@sar.com.sa,
+Saudi Business Machines - SBM,"Director, Business Applications",Sherif,Youssef,syoussef@sbm.com.sa,
+Saudi Business Machines - SBM,Vice President - Business Technology Services,Fadhel,Shaikh,fadhel@sbm.com.sa,
+NEOM,Infastructure Director,Paul,Nicoletti,paul.nicoletti@neom.com,
+NEOM,Head of Digital Technologies,Guillermo,Arrtal,guillermo.renancio@neom.com,
+NEOM,"Director of Technology, Research and Innovation",Jaafar,Elmirghani,jaafar.elmirghani@neom.com,
+NEOM,CTO/Director of Technology,Himanshu,Kaul,hk@neom.com,
+NEOM,Head of Digital Infrastructure,Khalil,AlSobhi,khalil.alsobhi@neom.com,
+Dar Al Shifa Hospital,Director of Information Technology,Haitham,Ghanem,haitham.ghanem@daralshifa.com,
+Dar Al Shifa Hospital,SAP Planner ,Sherif,Shaji,sheri@daralshifa.com,
+ICI Pakistan Limited,SAP Logistics Lead,Muhammad,Zia,muhammad@ici.com.pk,
+Bahri,IT Solutions Director,Khalid,Albakr,khalid.albakr@bahri.sa,
+Bahri,Director Information Technology Operations,Waleed,Sobayel,waleed@bahri.sa,
+Pakistan Petroleum Limited,Head Of Information Technology,Sohail,Rana,sohailrana@ppl.com.pk,
+COMBINED GROUP CONTRACTING COMPANY (KSC),IT Manager,Eyad,Ghazal,e.ghazal@dawami.com,
+COMBINED GROUP CONTRACTING COMPANY (KSC),Information Technology Network Engineer,Saleh,Alyan,saleh@cgc-kw.com,
+Magrabi Hospitals & Centers,Group IT Executive Director,Ayman,Anwar,ayman.anwar@magrabi.com.sa,
+Magrabi Hospitals & Centers,Regional IT Manager,Mohamed,Magdy,mohamed@magrabi.com.sa,
+Magrabi Hospitals & Centers,Information Technology Specialist,Manar,Bagabs,manar.bagabs@magrabi.com.sa,
+eXtra (United Electronics Co.),Director Of Information Technology,Ahmed,Mansour,ahmed@extra.com,
+Saudia Cargo,Executive Director Information Technology,Hisham,Malakah,hmalakah@saudiacargo.com,
+Saudia Cargo,"Director, IT Applications & Digital Transformation",Majed,Basakran,mbasakran@saudiacargo.com,
+Saudia Cargo,Manager IT Business Applications,Yaser,Basabrain,ybasabrain@saudiacargo.com,
+Saudia Cargo,IT Corporate Applications Sr. Analyst,Yazeed,Mahsoun,y.mahsoun@saudiacargo.com,
+Saudia Cargo,Sr. Manager - IT Infrastructure and Services,Rafat,Fallatah,rafat@saudiacargo.com,
+SGS - Saudi Ground Services,Information Technology Director,Bilal,Jumaa,i@saudiags.com,
+SGS - Saudi Ground Services,Senior Manager Information Technology Operations,Ayyad,Alrshidi,aalrshidi@saudiags.com,
+SGS - Saudi Ground Services,Information Technology Manager,Moayad,Hennawi,mhennawi@saudiags.com,
+SGS - Saudi Ground Services,IT Infrastructure Senior Officer,Abdulrahman,Frwan,abdulrahman@saudiags.com,
+SGS - Saudi Ground Services,IT Performance Management & Analytics,Adnan,Alnahdi,alnahdi@saudiags.com,
+BEEAH Group,Information Technology Infrastructure Manager,Anil,Kumar,akumar@beeahgroup.com,
+BEEAH Group,Senior System Administrator,Swaroobh,Mathummal,smathummal@beeahgroup.com,
+National Foods Limited,Sr. Manager IT Infrastructure,Muhammad,Saqib,muhammad.saqib@nfoods.com,
+National Foods Limited,Director Technology & Digital Transformation,Shah,Raza,shah.abdullah@nfoods.com,
+National Foods Limited,Head of IT Governance,Yasir,Sarwar,yasir.sarwar@nfoods.com,
+Al Ahli Bank of Kuwait,Chief Information Officer,Salem,Alsarraf,salsarraf@eahli.com,
+Al Ahli Bank of Kuwait,Sr. Manager - IT Network Infrastructure,Adil,Mhaisker,adil_mhaisker@eahli.com,
+"Zakat, Tax and Customs Authority",Director of IT Project Management,Mohammad,Almalki,mohammad@zatca.gov.sa,
+"Zakat, Tax and Customs Authority","IT Director, Infrastructure Operation",Waleed,Alghamdi,alghamdiw@zatca.gov.sa,
+"Zakat, Tax and Customs Authority",Director of Infrastrucure,Nawaf,AlDughayim,aldughayimn@zatca.gov.sa,
+Dawlance,Vice President - Head of IT ,Syed,Waqas,syed.waqas@dawlance.com.pk,
+Dawlance,Senior Specialist ERP and Software Development,Jawed,Abaali,jawed@dawlance.com.pk,
+National Bank of Fujairah,Head IT Application,Thiemo,Heims,thiemo.heims@nbf.ae,
+National Bank of Fujairah,Senior Manager IT Internal Controls,Emmanuel,Lalude,emmanuel.lalude@nbf.ae,
+National Bank of Fujairah,Senior Manager - IT Systems,Sajiv,Balan,sajiv.balan@nbf.ae,
+National Bank of Fujairah,Senior Manager - IT Systems,Madhavan,Krishnan,madhavan.krishnan@nbf.ae,
+IFFCO Group,Information Technology Executive,Abdalla,Alali,aa@iffco.com,
+IFFCO Group,Technical Director,Sunil,Singh,ssingh@iffco.com,
+Kerzner International,Executive Vice President IT,Willem,Both,willem.both@kerzner.com,
+Kerzner International,Director of Global IT Systems,Afeworki,Gebreab,afeworki.gebreab@kerzner.com,
+Kerzner International,"Director, Global IT Preopening & Planning",Vladimir,Bauk,vladimir.bauk@kerzner.com,
+Kerzner International,"Vice President, Global IT Operations & Projects",Ralph,Poesche,ralph.poesche@kerzner.com,
+Kerzner International,Vice President Information Security & Technology ,Vikalp,Shrivastava,vikalp.shrivastava@kerzner.com,
+Kerzner International,"Director, Global IT Services",Jason,Ahluwalia,jason.ahluwalia@kerzner.com,
+Kerzner International,"Director, Application Development",Micheal,Carr,michael@kerzner.com,
+PureHealth,Chief Data Officer,Rizwan,Tufail,rizwan.tufail@purehealth.ae,
+Address Hotels + Resorts,Head Of Information Technology,Oytun,Gürün,oytun.gurun@addresshotels.com,
+Almosafer,Chief Technology Officer,Qais,Amori,qais.amori@almosafer.com,
+Qiddiya,"Director, IT Operations",Bader,Alroqi,bader.alroqi@qiddiya.com,
+Qiddiya,Director of Infrastructure,Gianfranco,Mazzapicchio,gianfranco.mazzapicchio@qiddiya.com,
+Qiddiya,IT PMO Director,Yazeed,Albawardi,yazeed.albawardi@qiddiya.com,
+TAQA (Industrialization & Energy Services Company),Senior Information Technology Manager,Arif,Aijaz,arif.aijaz@taqa.com.sa,
+Greggs,Head of IT,Roy,McDougal,roy.mcdougal@greggs.co.uk,
+Oxford Instruments plc,Group IT Director,Valerie,Huxtable,valerie.huxtable@oxinst.com,
+Oxford Instruments plc,Chief Technology Officer,Frazer,Anderson,frazer.anderson@oxinst.com,
+Parker Meggitt,Vice President of IT Global Applications,David,Horton,horton.david@meggitt.com,
+Parker Meggitt,Chief technology officer,Redha,Bensaid,redha.bensaid@meggitt.com,
+Parker Meggitt,Director IT Infrastructure ,Sinthu,Paul,paul@meggitt.com,
+Clarks,Chief Information Officer,Simon,Clarke,simon.clarke@clarks.com,
+Plan International,"Director, Global IT Services",Jon,Winder,jon.winder@plan-international.org,
+Plan International,Head of IT,Rabiul,Chowdhury,rabiul.alam@plan-international.org,
+Plan International,Chief Information Officer,Kaumudi,Bohms,kaumudi@plan-international.org,
+Plan International,Regional Director IT,Duncan,Ogonji,duncan@plan-international.org,
+RENOLIT,Head of Corporate Information Network Technologies,Thorsten,Hering,thorsten.hering@renolit.com,
+RENOLIT,IT Director - Corporate Core Applications,Oliver,Matheis,oliver.matheis@renolit.com,
+BIOTRONIK,Sr. Director IT,Robert,Mueller,robert.mueller@biotronik.com,
+BIOTRONIK,Head of Global IT,Yasser,Elshantaf,yasser.elshantaf@biotronik.com,
+BIOTRONIK,Director Of Information Technology,Steffen,Neumeyer,steffen.neumeyer@biotronik.com,
+BIOTRONIK,"Senior IT Director, Head of Center of Expertise",Christof,Buchholz,christof.buchholz@biotronik.com,
+SICK Sensor Intelligence,Head Of Information Technology,Marco,Lehmann,lehmann.marco@sick.com,
+Paysafe,Vice President of Technology,Dimitrios,Hapitas,dimitrios.hapitas@paysafe.com,
+Paysafe,"Director, IT Production Operations",Andrew,Pham,andrew.pham@paysafe.com,
+Paysafe,Chief Technology Officer,Ahu,Chhapgar,ahu.chhapgar@paysafe.com,
+Paysafe,"Senior Director, IT",Franco,D'Amico,franco@paysafe.com,
+Lapp Group,Senior Vice President Global IT,Holger,Weber,holger.weber@lapp.com,
+Lapp Group,Head of Technology ,Martin,Dorner,dr@lapp.com,
+Lapp Group,Head of IT Project Management ,Yannick,Neumann,yannick@lapp.com,
+Hirschvogel Group,Head of Global IT Business Solutions,M,Schleich,m@hirschvogel.com,
+Hirschvogel Group,Global Head of IT,Joerg,Ringmeir,joerg.ringmeir@hirschvogel.com,
+Hirschvogel Group,Head of IT Infrastructure,Karl-Philip ,Fiebig,karlphilip@hirschvogel.com,
+CompuGroup Medical SE & Co. KGaA,CVP IT Service & Operations,Mario,Seibt,mario.seibt@cgm.com,
+CompuGroup Medical SE & Co. KGaA,Global Head of IT,Sebastian,Shipp,sebastian.schipp@cgm.com,
+Taylor Wessing,Head of IT Business Solutions,Frank,Fiorenza,frank.fiorenza@taylorwessing.com,
+Taylor Wessing,Head of IT Change,Melanie,Vickers,melanie@taylorwessing.com,
+Infineum,Chief Information Officer,Felicia,Tan,felicia.tan@infineum.com,
+Infineum,"CTO, Executive Vice President Innovation and Technology",Rebecca,Oldfield,rebecca.oldfield@infineum.com,
+Groz-Beckert,Head of Technology,Florian,Mingramm,florian.mingramm@groz-beckert.com,
+Groz-Beckert,Senior Vice President Corporate Research & Development,Dr.Frank,Muller,dr@groz-beckert.com,
+Qualitest,Chief Technology Officer,Devnag,Padavala,devnag@qualitestgroup.com,
+Qualitest,"Vice President, Emerging Technologies",Rakesh,Lokireddy,rakesh.lokireddy@qualitestgroup.com,
+BMI Group,Head Of IT Services,Vishnu,Vishwanath,vishnu@bmigroup.com,
+BMI Group,Chief Information Officer,Samantha,Charnock,samantha.charnock@bmigroup.com,
+BMI Group,Director CIO Operations,Stacey,Card,stacey.card@bmigroup.com,
+Curium Pharma,Group Chief Technology Officer,Hugues,Crepin,,
+Curium Pharma,Vice President IT (CIO),Tim,Rooney,,
+Curium Pharma,Vice President of IT,Alison,Ayre,,
+Curium Pharma,Vice President IT SPECT Europe & International,Johan,Roggen,,
+Cambridge University Press & Assessment,Chief Information Officer,Mark,Maddocks,,
+Cambridge University Press & Assessment,Head of Operations - Technology,Mario,V,,
+Cambridge University Press & Assessment,"IT Director, Enterprise Systems",Reno,Phyo,,
+Cambridge University Press & Assessment,Head of Infrastructure,Simon,Hopkins,,
+EDAG Group,Head of Group IT,Gunther,Zwingmann,,
+EDAG Group,Deputy Head Of Production IT,Benedikt,Hahn,,
+EDAG Group,Chief Technology Officer,Diego,Cacciatore,,
+EDAG Group,Head Of Information Technology,Fernando,Centeno,,
+EPCOS,Technical Director,Hertmut,Michel,,
+EPCOS,Sr. Director - Systems,Kamran,Cheema,,
+European Patent Office,Chief Information Officer,Diego,Eguidazu,,
+European Patent Office,"Director, IT Cooperation",Simon,White,,
+European Patent Office,Director of IT Operations,John,Selkirk,,
+European Patent Office,"Director, Corporate IT",Gema,Sempere,,
+Grünenthal Group,Head of IT Governance and Strategy,Steven,Waegenaer,,
+Grünenthal Group,Chief Information Officer,Andreas,Garstecki,,
+Mastek,"VP of Data Cloud, North America",Taylor,Stroud,,
+Mastek,Associate Director of Technology,Mritunjay,Tripathi,,
+Mastek,Chief Technology Officer,Srikanth,Balusani,,
+Mastek,Senior Vice President of Technology,Suresh,Murugesan,,
+Mastek,Senior Vice President Of Technology,Krishnadoss,Parthasarathy,,
+Premier Foods,Chief Information Officer,Jo,Cullen,,
+Premier Foods,Director of New Ventures,Gemma,Buggins,,
+The AA,Chief Data Officer,Kevin,Tubb,,
+The AA,Chief Technology Officer,Mike,Samra,,
+The AA,Director of IT Operations,Gareth,Davis,,
+The AA,Head of Platform Technology,Jamie,Graham,,
+The AA,Head of IT Operations and Service,Addele,Davies,,
+The AA,Group Chief Information Officer,Antony,Hausdoerfer,,
+The AA,"Head of IT - Development, Architecture",Paul,N,,
+The AA,Head of Technology & Digital Product,Chris,Baker,,
+Hexagon Manufacturing Intelligence,Chief Technology Officer,Andreas,Werner,,
+Hexagon Manufacturing Intelligence,Vice President Technology,Stefan,Huhn,,
+Hexagon Manufacturing Intelligence,Director Of Information Technology,Cyril,Coqueugniot,,
+Hexagon Manufacturing Intelligence,"Chief Technology Officer, Design & Engineering",Bruce,Engelmann,,
+Hexagon Manufacturing Intelligence,Senior Vice President Technology Hub,Pascal,Jordil,,
+Hexagon Manufacturing Intelligence,IT Director of Infrastructure and Operations,Cesar,Diaz,,
+GROHE,"Leader IT/Digital, IT Services & Infrastructure",Nanette,Knepper,,
+Eversheds Sutherland,Director of IT Infrastructure & Solutions,Adam,McEwen,,
+Eversheds Sutherland,"Director of Technology, Engineering & Operations",Lyra,O,,
+Eversheds Sutherland,Head of IT Programmes,Murray,Dickson,,
+Eversheds Sutherland,Chief Information Officer,Mark,Janus,,
+Eversheds Sutherland,Director of Legal Technology,Katrina,Dittmer,,
+Eversheds Sutherland,Director of IT Service Delivery,Jon,Lucas-Garner,,
+Eversheds Sutherland,Director Of Technology & Information Services,Fernando,Torres,,
+Wickes,Director of IT Strategy & Architecture,Cats,C,,
+Wickes,Chief Information Technology Officer,Mohammed,Fanichi,,
+Wickes,Head of Commercial IT,Scott,Griffith,,
+Bakkavor,Head of Infrastructure & Operational Technology,Glyn,Paskin,,
+Bakkavor,Group Chief Information Officer,Justin,B,,
+Bakkavor,Technical Director,Ross,Dennison,,
+Flender,Head of IT for Infrastructure and New Technologies,Christian,Schlutter,,
+Flender,Head of Technology & Innovation,Tim,Sadek,,
+Flender,Vice President Corporate Development and Communications,Doris,Bush,,
+Yorkshire Water,Head of Information Technology Operations,Nathan,Deeming,,
+Yorkshire Water,Head of Technology Change,Lee,Harris,,
+Yorkshire Water,Head of Technology & Business Architecture,John,Hutton,,
+Yorkshire Water,Chief Technology Officer,Hanley,Vaughn,,
+Fraport AG,Head of Infrastructure,Patric,Krieger,,
+Fraport AG,Senior Vice President IT Infrastructure,Fritz,Oswald,,
+Fraport AG,Senior Vice President Applications,Rold,Felkel,,
+Fraport AG,Vice President Administrative IT Applications,Dieter,Steinmann,,
+Fraport AG,Chief Information Officer,Wolfgang,Steadfast,,
+Fraport AG,Vice President IT-Communication,Klaus,Schultz-Fademrecht,,
+RBC Brewin Dolphin,Head of Digital Technology,Hamish,Bates,,
+RBC Brewin Dolphin,Head of Technology Operations,Gavin,Martin,,
+RBC Brewin Dolphin,"Delivery Director, Transformation Lead",Tom,L,,
+RBC Brewin Dolphin,Head Of Technology,Alan,Bletcher,,
+Koenig & Bauer,Vice President Digital Solutions,Maik,Laubin,,
+Koenig & Bauer,Chief Information Officer,Jurgen,Tuffentsammer,,
+Koenig & Bauer,Head of IT Applications Core,Pascal,Kranich,,
+Koenig & Bauer,Head of Process Technology,Sebastian,Stange,,
+Koenig & Bauer,Head of technology innovation,Rob,Stierman,,
+Koenig & Bauer,Head of Securities Technology,Christian,Kapper,,
+McLaren Automotive Ltd,Chief Technology Officer,John,Chennai,,
+McLaren Automotive Ltd,Technical Director,Luciano,Deoto,,
+KWS Group,Chief Information Officer,Jens,Hittmeyer,,
+KWS Group,Head of IT - North & South America,Aloisio,Lovo,,
+KWS Group,Head of Global SAP Application Management,Eckhard,Wippermann,,
+KWS Group,Head of Technology,Cord,Warnecke,,
+Mytheresa,Head of IT Services,Maximilian,Schlemmer,,
+Mytheresa,Head of IT Infrastructure & Security,Marcel,Malt,,
+Mytheresa,Chief Technology Officer,Phillipp,Barthold,,
+Mytheresa,Director ERP,Zoran,Tadic,,
+Miltenyi Biotec,Director Information Technology North America,Jean,Orozco,,
+Miltenyi Biotec,Global Head of IT,Ingo,Selbach,,
+Miltenyi Biotec,"Associate Director, Application Development",Brian,Yeagy,,
+City Plumbing,Director of Digital,Adam,Eadie,,
+CCF,IT Director,Centro,Francescano,,
+CCF,Head of Operations,Michael,Jacobs,,
+CCF,General Manager Information Technology,Ait,Taleb,,
+Softcat plc,Head of Digital Strategy,Matt,Larder,,
+Softcat plc,Chief Information Security Officer,Mark,Overton,,
+Softcat plc,Head of IT Operations,Megan,Leadbetter,,
+Softcat plc,Chief Technology Officer,Mark,Forster,,
+Softcat plc,IT Director,Geraint,Morgan,,
+Softcat plc,Technology Director,Dean,Gardner,,
+Softcat plc,Head of Cloud Alliances,Paris,King,,
+BIRKENSTOCK,Head of Technology,Frank,Sedlatzek,,
+BIRKENSTOCK,Director IT Infrastructure ,Ole,Valentin,,
+BIRKENSTOCK,Director of Technology and Automation,Tomaskin,Martin,,
+BIRKENSTOCK,Director IT Security & Compliance,Thomas,Barmbaridis,,
+BIRKENSTOCK,Director SAP Operation,Kerstin,Schafer,,
+BIRKENSTOCK,Chief Information Officer,Mike,Baaren,,
+BIRKENSTOCK,Director of Information Technology,Mitch,Glaser,,
+Lightsource bp,Global Technical Director,Chris,Buckland,,
+SAP Ariba,Vice President Procurement Technology Services (Deployment),Daryl,D'Angelo,,
+SAP Ariba,"Vice President, Procurement Technology Services, SAP",Rupesh,Bhayana,,
+SAP Ariba,"Senior Director, Procurement Technology Services",Balachander,Nandagopal,,
+SAP Ariba,VP of Solutions,Mark,Averskog,,
+SAP Ariba,Network Strategy Director,Mike,Mcguire,,
+IAV GmbH,Chief Technology Officer,Sebastian,Sinning,,
+IAV GmbH,Chief Digital Officer,Saskia,Kohlhaas,,
+IAV GmbH,Head of IT Procurement,Tilmann,Gierth,,
+IAV GmbH,Senior Director IT General,Colja,Suchland,,
+IAV GmbH,Senior Vice President Research & Technology,Marc,Sens,,
+IAV GmbH,"Vice President, Abteilungsleiter IT Business Solutions",Matthias,Jaenicke,,
+E.ON Digital Technology,Head of Corporate IT Mergers & Acquisitions,Olaf,Gerdes,,
+E.ON Digital Technology,Management Team Global Technology Platforms,Ralf,Hemsing,,
+E.ON Digital Technology,Head of Cloud Frameworks,Manoj,Kar,,
+E.ON Digital Technology,Head of IT ,Ferenc,Pelles,,
+E.ON Digital Technology,Chief Data Technologist,Kapil,Gupta,,
+E.ON Digital Technology,Head of IT Transitional Services,Zsolt,Gombos,,
+valantic,Director Technology and Innovation,Fabian,Saccilotto,,
+valantic,Director Technology & Innovation,Jurij,Pfeiffer,,
+valantic,Director Group IT,Daniel,Boyé,,
+valantic,Director SAP Engagement,Kai,Kronauer,,
+WAGO,VP Corporate IT,Manfred,Brillert,,
+WAGO,Head of IT Business Solutions,Christoph,Höke,,
+WAGO,Head of Technology Development IC,Matthias,Senneka,,
+WAGO,Head of IT Governance Management,Uwe,Tönsing,,
+WAGO,Head of IT Logistic Solutions,Jan,Meyer,,
+SWR,Director of Technology and Production,Michael,Eberhard,,
+SWR,Chief Compliance Officer,Sabrina,Breitling,,
+McLaren Racing,"Head of, Technology Partnerships",James,Bunbury,,
+McLaren Racing,Technical Director,Christopher,Dyer,,
+McLaren Racing,Head of IT,Andy,Knight,,
+McLaren Racing,"Deputy Technical Director, Engineering and Design",Neil,Houldey,,
+McLaren Racing,Head of Commercial Technology,Edward,Green,,
+McLaren Racing,"Director, Business Technology",And,Keyworth,,
+Collinson,"Vice President, Technology & Product",Orlando,Lares,,
+Collinson,Global Head of EUC and Infrastructure,Chris,Football,,
+Collinson,Group Technical Director,Shaf,Rahman,,
+Collinson,Vice President - Data & Insights,Thomas,Dornis,,
+allnex,Director of Technology,Ramesh,Subramanian,,
+allnex,Director Technology Operations,Matthias,Meyer,,
+allnex,Director Technology APAC & Director Innovation,Jan,Devroede,,
+SGL Carbon,Vice President Technology,Andreas,Woeginger,,
+SGL Carbon,Head of Technology,Maximilian,Schäfer,,
+SGL Carbon,"Director - Technology Management, Global",John,Montminy,,
+SGL Carbon,"Head of Information Technology, Senior Vice President",Karin,Born,,
+SGL Carbon,Vice President Corporate Business Systems,Christian,Pagel,,
+HARTMANN GROUP,"Head of IT PMO, Strategy",Thomas,Kind,,
+HARTMANN GROUP,Head of IT FR/CH/AT/APAC & Senior Business Partner - CIO,Gérald,Ries,,
+HARTMANN GROUP,Director IT Infrastructure Services,Markus,Knaus,,
+HARTMANN GROUP,Vice President Group Technology Services,Thomas,Lüttgens,,
+HARTMANN GROUP,Director IT Region Germany,Patrick,Feil,,
+HARTMANN GROUP,Group Chief Information Officer,Tilll,Hoffmann,,
+TeamViewer,Director IT Infrastructure,Michael,Späth,,
+TeamViewer,Vice President IT Business Applications,Pankaj,G,,
+TeamViewer,"Vice President, IT Infrastructure & Operations",Hendrik,Köhler,,
+TeamViewer,Chief Technology Officer,Mike,E,,
+TeamViewer,CISO | VP Security,Robert,Haist,,
+Hansgrohe Group,Assistenz VP IT & Digital,Lucy,Hentschlofski,,
+Hansgrohe Group,Head of IT Infrastructure | IT & DIGITAL,Klaus,Buchholz,,
+Hansgrohe Group,Vice President IT & Digital,Muammer,Kizilaslan,,
+Hansgrohe Group,Head of Technical Service Center,Guenther,Lehmann,,
+Hansgrohe Group,Head of IT Department,Rolf,Hagenmeier,,
+Edrington,Head of Digital Technology,Paul,Henderson,,
+Edrington,Group Chief Data Officer,Enrique,Mendez,,
+Edrington,Director of Business Technology,Euan,Fraser,,
+Edrington,Technical Director,Graeme,Sweenie,,
+Edrington,Chief Digital Officer,Xin,He,,
+Rathbones Group Plc,IT Operations Director,Paul,Sexton,,
+NetJets Europe,Head of IT,John,Silva,,
+NetJets Europe,Director of European IT & Data Protection Officer,Mario,Freire,,
+NetJets Europe,Executive Director,Christian,L,,
+Amprion GmbH,CTO / Chief Technical Officer,Hendrik,Neumann,,
+Amprion GmbH,Leiter Business IT Services,Lars,Dieckmann,,
+Amprion GmbH,Leiter IT-Infrastructure Services,Markus,Schaup,,
+Amprion GmbH,Assistant CTO,Saskia,Bächle,,
+QinetiQ,Chief Technology Officer,Michael,Houston,,
+QinetiQ,Head of IT Services,Vince,Auger,,
+QinetiQ,Technical Director - Intelligence & Technology,Sam,Wicks,,
+QinetiQ,Chief Technical Officer,Rainer,Tellinghusen,,
+QinetiQ,Chief Technology Officer,Chief,Sewart,,
+St Andrew's Healthcare,Director of IT,Simon,Callow,,
+Siegwerk,Head of Technology Paper & Board EMEA,Thomas,Lehnen,,
+Siegwerk,Head of IT Governance & Compliance,Michael,Schikora,,
+Siegwerk,Head of Technology Development,Volker,Petry,,
+Siegwerk,Vice President Technology,Dr.JK,Raghav,,
+Siegwerk,Head of Technology,Daniel,Drochner,,
+Siegwerk,Group Chief Information Officer,Mohamed,Ashmawy,,
+TT Electronics plc,Head of IT Governance,Ryan,Nunn-Gage,,
+TT Electronics plc,Director of SAP Solutions,Kathryn,Davidson,,
+TT Electronics plc,Deputy CTO,Luo,Nanhui,,
+TT Electronics plc,Technical Director,Colin,Sills,,
+TT Electronics plc,Chief Technology Officer,Niu,Daoyuan,,
+Associated British Ports,Head of Technology & Digital Experience,Scott,Says,,
+Associated British Ports,Group Information Technology Director,Sean,Kelly,,
+Körber Supply Chain,Head of US IT Operations,Thu,Dang,,
+Körber Supply Chain,Chief Technology Officer,Sean,Elliott,,
+Körber Supply Chain,Head of Solution Design,Paola,Elizalde,,
+Körber Supply Chain,Head of IT,Stefan,Klug,,
+Körber Supply Chain,Director of IT North America,Dave,Prosen,,
+Körber Supply Chain,"Director, Technical Services",Jeffrey,Wright,,
+Eppendorf,Global Head of IT,Guillermo,Salazar,,
+Eppendorf,Head of IT Commercial,Danny,Liebig-Rath,,
+Eppendorf,Senior Vice President Global IT,Carlo,Peiter,,
+Eppendorf,Head of IT Software Solutions,Sandra,D,,
+Eppendorf,Head of IT-Network,Patrick,Simon,,
+Eppendorf,Vice President Digital Solutions,Christian,Gill,,
+The White Company,Chief Information Officer,David,Hill,,
+DEUTZ AG,Head of Cross-Divisional IT,Roland,Gieler,,
+DEUTZ AG,Head of Production IT,Bernd,Rüland,,
+DEUTZ AG,Head of IT / CIO,Christian,Hürter,,
+Klöckner Pentaplast,Group Director IT Infrastructure,Michael,Ewald,,
+Klöckner Pentaplast,Head of Technology/Maintenance,Oliver,Schmoll,,
+Klöckner Pentaplast,Technical Director FP,Silvia,Angelis,,
+Klöckner Pentaplast,Technical Director and Strategic Projects,Eric,Hamon,,
+Klöckner Pentaplast,Group Director - IT Service Delivery,Nicholas,Williamson,,
+Klöckner Pentaplast,Director of Process Technology,Christian,Habrich,,
+Klöckner Pentaplast,Head of Technology,Wolfgang,Schwarz,,
+Nagel-Group,Leiter IT Innovation,Florian,Seffert,,
+Nagel-Group,Chief Information Officer,Michael,Lütjann,,
+Nagel-Group,Head of IT Governance,Jacob,Omer,,
+Dŵr Cymru Welsh Water,Chief Technology Officer,Rob,Norris,,
+Dŵr Cymru Welsh Water,Head of Operational Technology,Daniel,Nascimento,,
+Warburtons,Head of IT Operations,Simon,G,,
+Warburtons,Finance & IT Director,Andrew,Light,,
+Warburtons,IT Director,Ian,Mallinson,,
+SMA Solar Technology AG,Head Of Logistic Applications and SAP Technology,Heiko,Kehm,,
+SMA Solar Technology AG,Head of Technology Large Scale,Dr.Oliver,Raddatz,,
+SMA Solar Technology AG,Head of IT,Klaus,Massmann,,
+SMA Solar Technology AG,Head of Technical Solutions,Carsten,Schmier,,
+SMA Solar Technology AG,Vice President - Industry Solutions,Hariram,Prabhakaran,,
+PERI,Head of IT Infrastructure,Volkhardt,Zelmer,,
+PERI,Technical Director,John,Hampton,,
+PERI,Leiter Group IT,Franz,Kramer,,
+PERI,Head of Production Technology,Wolfgang,Goeggelmann,,
+PERI,Head of Information Management,André,Heinle,,
+DKB | Deutsche Kreditbank AG,Director Enterprise IT and Cloud Platforms,Ulrich,Stärk,,
+DKB | Deutsche Kreditbank AG,Director of IT,Mathias,Rohbeck,,
+DKB | Deutsche Kreditbank AG,Leiter IT-Revision,Jens,Lehmann,,
+BAE Systems Digital Intelligence,Chief Technology Officer,Adrian,Peachey,,
+BAE Systems Digital Intelligence,Head of IT Engineering,Terry,Hodge,,
+BAE Systems Digital Intelligence,Chief Digital Officer,James,Hatch,,
+HSS Hire,IT Director,Kevin,Price,,
+HSS Hire,Chief Technology Officer,Daniel,Turi,,
+Hovis Ltd,Technical Director,Shaun,Taylor,,
+diconium,Senior director IT & procurement,Marius,Mast,,
+diconium,Director CyberSecurity Solutions,Punith,Vasu,,
+diconium,Director IT infrastructure,Morris,Hellwig,,
+diconium,Director IT Consulting,Jonathan,Wiens,,
+diconium,Director IT Consulting,Carlos,Duke,,
+Windmoeller & Hoelscher Group,Managing Director IT,Peter,Hardebeck,,
+Windmoeller & Hoelscher Group,Head of IT Process M2CO & SOCS,Michael,Jasper,,
+Windmoeller & Hoelscher Group,Chief Technical Officer,Falco,Papenmüller,,
+Windmoeller & Hoelscher Group,Head of IT Process CO2CS,Christian,G,,
+Windmoeller & Hoelscher Group,Director IT Business Processes,Michael,Schenk,,
+Windmoeller & Hoelscher Group,Director Digital Services Management,Kai,Lügger,,
+Welcome Break,Head Of IT Operations,Jack,Dryland,,
+Welcome Break,IT Director,Sam,Thompson,,
+Hoffmann Group,Director Turning Technology,Michael,Schlagheck,,
+Hoffmann Group,Director IT Governance,Dr.Peter,Bartmann,,
+Hoffmann Group,Chief Technology Officer,Andrea,Braun,,
+Hoffmann Group,Director Product Data Services,Jürgen,Mayer,,
+Hoffmann Group,Director Clamping Technology,Oliver,Schickor,,
+Ottobock,Head of Information Technology,Khurram,Shehzad,,
+Ottobock,Global Head of Infrastructure & ITSM,Mario,Schlangenotto,,
+Ottobock,Head of Information Technology | Latin America,Lucas,Nolasco,,
+Ottobock,Head of Technology,Matthias,Huttar,,
+Ottobock,Global Chief Information Officer,Heiko,Reinhard,,
+Ottobock,Head of Global IT Infrastructure Service Strategy,Dr.Daniel,Leonhardt,,
+Schüco International KG,Group CIO Schüco International KG,Christian,Graf,,
+Schüco International KG,Technical Director,Hamid,Batoul,,
+Schüco International KG,CIO Assistant,Pia,Hoberge,,
+FUNKE,Head of IT-Governance,Sven,Degenhardt,,
+FUNKE,Chief Information Officer,Tribe,Krum,,
+FUNKE,Director Of Information Technology,T,Singh,,
+Bizerba,Chief Technology Officer,Thomas,Schoen,,
+Bizerba,Director Global Information Technology,Christian,Leins,,
+Bizerba,Head of Enterprise Architecture Management,Fabian,Schneider,,
+Bizerba,Head of IT Frontoffice Apps Sales & Service,Florian,Dagge,,
+Bizerba,Head of Solutions Department,Alexander,Yashkin,,
+Bizerba,Head of Retail Solutions,Heiko,Wildermuth,,
+Bizerba,Vice President of Bizerba Solutions,Jeffrey,Roberts,,
+HARTING Technology Group,Director of Information Technology,Patrice,Gayle,,
+HARTING Technology Group,Head of Technology Development,Detlef,Tenhagen,,
+HARTING Technology Group,CTO Assistant & Head of PMO,Miriam,Val,,
+HARTING Technology Group,Technical Director,Dimitri,Petrov,,
+RATIONAL AG,Vice President IT Application Management,Birgit,Baumgarten,,
+RATIONAL AG,Executive Vice President IT / CIO,Jens,Schulte,,
+RATIONAL AG,Chief Operating Officer,Peter,Wiedemann,,
+RATIONAL AG,Chief Technology Officer,R,Wassmus,,
+Viega Deutschland,Director IT Smart Supply Chain & Technology,Marco,Feldmann,,
+Viega Deutschland,Director IT Process Management,Julian,Heinze,,
+Viega Deutschland,Senior Director IT Project Management,Frank,Schlamminger,,
+Viega Deutschland,Director Digital Solutions,Sebastian,Fischer,,
+Viega Deutschland,Director IT Market Engagement,Florian,Willmes,,
+Viega Deutschland,Chief Technology Officer,Ralf,Baginski,,
+UHI,Director of IT and Digital Infrastructure,John,Maher,,
+UHI,Head of Integrated Technologies,Sean,Mehan,,
+S.OLIVER GROUP,Head of IT Governance & Information Security,And,Roman,,
+S.OLIVER GROUP,Head of IT Strategy & Governance,Marius,Strassberger,,
+S.OLIVER GROUP,Director s.O. Technology,Thomas,Herbert,,
+S.OLIVER GROUP,Assistant Director Global IT,Louisa,Kloss,,
+Arco: Experts In Safety,Head Of Information Technology,Daniel,Spurgeon,,
+Arco: Experts In Safety,Chief Information Officer,Steve,Johnson,,
+The Body Shop,Head of IT Europe & North America,Steven,Siminerio,,
+The Body Shop,Head of IT,Claudio,Röthlin,,
+The Body Shop,Head of IT,Li,Ping,,
+BDO Germany,IT Manager,Frank,Kloepper,,
+Huf Group,Director IT Technology,Timo,Schönfeld,,
+Huf Group,Director Technical,Nicolai,Pavlov,,
+Huf Group,Director IT Governance,Johann,Jerke,,
+Huf Group,Director IT Regional Coordination,Florian,Rister,,
+Huf Group,CIO / Senior Vice President IT,Simon,Blankenstein,,
+Huf Group,Technical Center Director,Cristian,Enculescu,,
+NTT DATA DACH,Vice President Application,Patrice,Volkmer,,
+NTT DATA DACH,VP IT & Production,Eva-Maria,Scheiter,,
+NTT DATA DACH,Senior Director @ NTT DATA DACH,Thomas,G,,
+MULTIVAC Group,Vice President Corporate IT,Wolfgang,Rundel,,
+MULTIVAC Group,Senior Director Application,Robert,Wild,,
+MULTIVAC Group,Director Information Technology,Martha,Contreras,,
+MULTIVAC Group,Technical Director,Thomas,Martin,,
+Yunex Traffic,Chief Technology Officer,Philipp,Hahn,,
+Yunex Traffic,Vice President IT and CIO,Sebastian,Weinig,,
+Yunex Traffic,Executive Vice President Technology,Michael,Gaertner,,
+Yunex Traffic,Head of IT Strategy & Governance,Trixi,Menckhoff,,
+X-FAB,Global IT Director,Thomas,Döring,,
+X-FAB,Chief Technology Officer,Jörg,Doblaski,,
+Rosenberger Group,Head of IT Business Applications,Dominik,Fass,,
+Rosenberger Group,Head of IT Infrastructure,Eric,Hedler,,
+Rosenberger Group,EVP IT - CIO,Martin,Gottwald,,
+Bruker BioSpin,Senior Technical Director,Diether,Maier,,
+Bruker BioSpin,Head IT Project,Misha,Giannini,,
+Purem by Eberspächer,Executive Vice President Technology & Innovation,Avinash,M,,
+NTT DATA,Senior Director - Digital Solutions,Jitendra,Said,,
+NTT DATA,Senior Director Of Technology,Matthew,Cooke,,https://www.linkedin.com/in/matthew-cooke-engleader/
+Coats,"Director, IT Operations",Samuel,Ling,,https://www.linkedin.com/in/samuel-ling-6b037a36/
+Coats,Director of Global Infrastructure Services,Hagen,Hoss,,https://www.linkedin.com/in/hagen-hoss-83a16172/
+Coats,Systems Manager,Daniel,M,,https://www.linkedin.com/in/daniel-m-68a52140/
+Coats,VP - Information Mgmt.,Varadarajan,Krishnamachari,,https://www.linkedin.com/in/varadarajan-krishnamachari-9881b22/
+Coats,Director Of Technical Services,Doyle,Thompson,,https://www.linkedin.com/in/doyle-thompson-84a17244/
+Coats,Technical Director,Hua,Yiyan,,
+Vetter Pharma,Director Technology,Dr.Carolin,Rether,,https://www.linkedin.com/in/dr-carolin-rether-7b7456a4/
+Vetter Pharma,"SVP Corporate Development, IT",Kai,Vogt,,https://www.linkedin.com/in/kai-vogt-6a409163/
+Vetter Pharma,SVP Corporate Development,Paul,Nelles,,https://www.linkedin.com/in/paul-nelles-4523a9136/
+Vetter Pharma,Head of IT ,Torsten,Kober,,https://www.linkedin.com/in/torsten-kober-0a337a199/
+Lloyd's Register,Director of IT,Sam,Macintosh,,https://www.linkedin.com/in/sam-macintosh-584bb45/
+Lloyd's Register,Global Technical Director,Claudene,Sharp-Patel,,https://www.linkedin.com/in/claudene-sharp-patel-14636910/
+Lloyd's Register,IT Product Director,Glyn,R,,
+Riverty,Head of IT Infrastructure,Joakim,Nyh,,https://www.linkedin.com/in/joakim-nyh-9aa07426/
+Riverty,Director IT Infrastructure,Thomas,M,,
+Riverty,Chief Technology Officer,Björn,Niederfranke,,https://www.linkedin.com/in/bj%C3%B6rn-niederfranke-53a1525/
+Riverty,Head of IT Software Development,Robert,Reibis,,https://www.linkedin.com/in/robert-a-reibis-11a20b142/
+Riverty,Head of Infrastructure,Craig,McKechnie,,https://www.linkedin.com/in/craig-mckechnie-06a71413/
+Riverty,Director IT Operations,Uwe,Höll,,https://www.linkedin.com/in/uwe-h%C3%B6ll-031252163/
+PowerCo,Chief Information Officer,Michael,Sieger,,https://www.linkedin.com/in/michael-sieger-4507343/
+PowerCo,Head of IT - Cross Function,René,A,,
+PowerCo,Head of IT Infrastructure,Laven,Naidoo,,https://www.linkedin.com/in/laven-naidoo-4267ba149/
+PowerCo,Head of Technology ESS,Gordon,Gassmann,,https://www.linkedin.com/in/gordon-gassmann-97bbba146/
+PowerCo,Head of IT Technology,Christian,B,,https://www.linkedin.com/in/christian-b-440343147/
+ifm,Global Head of IT,Martin,Haury,,https://www.linkedin.com/in/martin-haury-a4ab69/
+ifm,Vice President Global IT,Gruber,Matthias,,https://www.linkedin.com/in/gruber-matthias-6b993988/
+ifm,Chief Technology Officer,Dr.Volker,Frey,,https://www.linkedin.com/in/dr-volker-frey-b33197a0/
+ifm,Director Technical Manager,Ralf,Kriesen,,https://www.linkedin.com/in/ralf-kriesen-5bb3a3295/
+ifm,Director Global IT,Harald,Schlichte,,https://www.linkedin.com/in/harald-schlichte-408288108/
+ifm,Director of Technology,Peter,Breh,,https://www.linkedin.com/in/peter-breh-a968904/
+Bausparkasse Schwäbisch Hall,Head of IT Solutions and Projects,Dirk,Brenner,,https://www.linkedin.com/in/dirk-brenner-0139621b8/
+Bausparkasse Schwäbisch Hall,Head of IT Governance and Process Management,Michael,Schwieger,,https://www.linkedin.com/in/michael-schwieger-341006190/
+London North West Healthcare NHS Trust,Chief Information Officer,Robbie,Cline,,https://www.linkedin.com/in/robbie-cline-870a17107/
+London North West Healthcare NHS Trust,Deputy CIO,John,Keating,,https://www.linkedin.com/in/john-keating-a0178025/
+London North West Healthcare NHS Trust,Associate Director for Application Management,Alison,Wooderson,,https://www.linkedin.com/in/alison-wooderson-9447761a/
+University of Westminster,Head of IT developments,Thierry,Delaitre,,https://www.linkedin.com/in/thierry-delaitre-b02a8b2/
+University of Westminster,Head of Infrastructure Operations,Diane,Pineda,,https://www.linkedin.com/in/diane-pineda-uk/
+University of Westminster,Director of Information Systems,Russell,Poole,,https://www.linkedin.com/in/russell-poole-1498188/
+KraussMaffei,Head of IT Applications & Processes,Jürgen,Goll,,https://www.linkedin.com/in/juergengoll/
+KraussMaffei,Vice President Technology,Dr.Thomas,Unger,,https://www.linkedin.com/in/dr-thomas-unger-0b3843183/
+KraussMaffei,Head of IT,Kai,Schmezko,,https://www.linkedin.com/in/kai-schmezko-02773090/
+KraussMaffei,Director Technical Service,Aeric,Bouza,,https://www.linkedin.com/in/aeric-bouza-3a408272/
+KraussMaffei,Assistant Vice President Global IT,Marina,Kaiser,,https://www.linkedin.com/in/marina-kaiser-69062629a/
+Nord Anglia Education,Group Chief Technology Officer,Richard,Davies,,https://www.linkedin.com/in/richardmgdavies/
+Nord Anglia Education,Head of IT UK,Vaso,Arvaniti,,https://www.linkedin.com/in/vaso-arvaniti-279562b3/
+Nord Anglia Education,Group Head of IT Operations,Philippe,Waller,,https://www.linkedin.com/in/philipdwaller/
+Nord Anglia Education,"Regional IT Director, Europe",Philippe,R,,https://www.linkedin.com/in/phrey/
+Nord Anglia Education,"Regional IT Director, The Americas",Michael,Zach,,https://www.linkedin.com/in/michaelzach/
+Leadec,Senior Director of IT,Dan,Bowling,,https://www.linkedin.com/in/dabowling/
+Innomotics,Head of Production Technology,Milan,Knobloch,,https://www.linkedin.com/in/milan-knobloch-8b21b5b3/
+Innomotics,Head of Factory Technology,Toni,Hein,,https://www.linkedin.com/in/toni-hein-9791aa155/
+Innomotics,Head of IT Governance,Alexander,Seidel,,https://www.linkedin.com/in/abs80/
+Innomotics,Head of Solutions,Emrah,Mehmetoğulları,,https://www.linkedin.com/in/emrah-mehmeto%C4%9Fullar%C4%B1-62552544/
+Innomotics,Head of IT DE,Selma,Orcun,,https://www.linkedin.com/in/selma-%C3%B6rc%C3%BCn-ab155015/
+Innomotics,Head of Advanced Technology,Thomas,Billmeyer,,https://www.linkedin.com/in/thomas-billmeyer-95aa96186/
+Innomotics,Senior VP - Solutions Business,Oliver,Beck,,----------------------------------------------------
+Dawn Foods Global,"Director, Technology Integration",Amber,McKee,,
+Dawn Foods Global,"Director, IT Business Services",Mike,Harper,,
+Dawn Foods Global,Vice President of Infrastructure and Cybersecurity,Bill,Smith,,
+Dawn Foods Global,Chief Information Officer,Jeremy,Bartusch,,
+Dawn Foods Global,Chief Digital Officer,Bob,Howland,,
+Wyndham Hotels & Resorts,"Sr. Director, Information Security Architecture & Engineering",Stephen,D'Archangelo,,
+Wyndham Hotels & Resorts,"Director of IT, APAC",Marco,Li,,
+Wyndham Hotels & Resorts,Vice President of Technology Operations,Jodi,Hendrickson,,
+Wyndham Hotels & Resorts,"Senior Director, Technology Sourcing",Stephanie,Maniscalco,,
+Wyndham Hotels & Resorts,Director Salesforce Technology,Silva,Karri,,
+Wyndham Hotels & Resorts,Senior Director Loyalty Technology,Paul,Rickert,,
+Razer Inc.,IT Director,Benjamin,T,,
+Razer Inc.,"VP, Head of Information Security",Garry,N,,
+Briggs & Stratton,Vice President - Information Technology,Richard,Kolbe,,
+Briggs & Stratton,Director Data and Analytics,Michael,Boeselager,,
+Briggs & Stratton,"Director, Technical Services",Michael,Johnson,,
+Briggs & Stratton,"Director, Process Solutions",Jim,Maciolek,,
+Briggs & Stratton,Director Of Technical Services,Paul,Warren,,
+Sammons Financial Group Companies,IT Director,Matt,Cubit,,
+Sammons Financial Group Companies,"Vice President, Life IT",Varun,Parekh,,
+Sammons Financial Group Companies,"Director, IT ",Christian,Pruett,,
+Sammons Financial Group Companies,"Chief Information Officer, Senior Vice President",Kelly,Coomer,,
+Sammons Financial Group Companies,Director of Information Technology,Becky,Hamilton,,
+Sammons Financial Group Companies,Technical Director,Michell,Williams,,
+Sammons Financial Group Companies,VP of Information Technolog,Jeff,Heppner,,
+Elm Company,IT Operations Director,Sultan,Alenazi,,
+Elm Company,VP of Corporate Technology,Nasir,"Alsaeed",,
+Elm Company,Director of Digital Solutions Delivery,SUDHEER,AMEERKANNU,,
+Elm Company,Technology Director,Hesham,"Allehaidan",,
+Benjamin Moore,Director of IT Infrastructure & Operations,Matthew,Ainge,,
+Benjamin Moore,Technical Director,Robert,Sheerin,,
+Intelsat,"Vice President, Solutions Development",Andreas,"Spoormaker",,
+Intelsat,CIO and Enterprise Operations,Adam,Levy,,
+Intelsat,Director of IT,Dr.Chris,Szorc,,
+"Ormat Technologies, Inc.",Director of Global Applications,Yossi,Bengigi,,
+Emergent BioSolutions,"Sr. Director, IT ",Sandra,Bessette,,
+Emergent BioSolutions,Senior Director Information Technology,Rich,League,,
+Emergent BioSolutions,"Vice President, Information Technology",Jason,Krever,,
+Emergent BioSolutions,"Director, IT Project Management",Marla,Lewis,,
+Emergent BioSolutions,Head of Infrastructure,Kevin,Seeley,,
+W. R. Grace,Director - Enterprise Applications,Srinivasa,Wanga,,
+W. R. Grace,"Global Director of Technical Services",Michael,Williams,,
+W. R. Grace,"Director, Global IT Infrastructure",George,Bollock,,
+W. R. Grace,"Global Director, IT Service Delivery & Telecommunications",Helko,Rogge,,
+W. R. Grace,Technical Director,Alexandre,Comeau,,
+"WOW! Internet, Cable & Phone","Senior Vice President, IT / OSS",Amol,Shah,,
+"WOW! Internet, Cable & Phone",Chief Technology Officer,Henry,Hryckiewicz,,
+"WOW! Internet, Cable & Phone","Vice President, Network Engineering",Terrell,Truesdale,,
+"WOW! Internet, Cable & Phone",Director Network Engineering,Tom,Kacprzynski,,
+PURE Insurance,Chief Technology Officer,Howard,Muhlstein,,
+PURE Insurance,"Director, Services Technology Architect",Hruday,Medavarapu,,
+PURE Insurance,Director Infrastructure Services (Database & Cloud),Sudipta,Ganguly,,
+PURE Insurance,Vice President IT Service and Delivery,Karen,Riemer,,
+PURE Insurance,Director of Application Development,Jianping,Shen,,
+Aricent,Director Technology,Prashant,Upadhyay,,
+Aricent,Director - IT,Jasbir,Singh,,
+Aricent,Director - Technology,Harvinder,Bajaj,,
+Aricent,Assistant Vice President Technology,Udaiyappan,P,,
+Aricent,Director Technology,Mayank,Rastogi,,
+"GSPANN Technologies, Inc",Senior Director - IT Delivery,Raghunath,V,,
+"GSPANN Technologies, Inc",Director Technology Strategy,Chandra,Singh,,
+"GSPANN Technologies, Inc",Vice President of Business Development,Rainer,Kuehling,,
+Arcesium,Senior Vice President of Technology,Bharath,Subbarao,,
+Arcesium,Vice President of Technology,Puja,Chand,,
+Arcesium,Associate Director Of Technology,Varun,Nagarajan,,
+Arcesium,Vice President of Technology,Ashish,Saxena,,
+Arcesium,Vice President of Technology,Raghuram,Doraiswamy,,
+Arcesium,"Senior Vice President, Head of Information Security",Thomas,Leavey,,
+"Jeppesen, a Boeing Company","Director, Navigation Solutions",Mike,Abbott,,
+Atmel Corporation,Director of Corporate Business Development,Abbas,Tehrani,,
+Dealertrack,Vice President Corporate Development,Tracey,Foulds,,
+Dealertrack,Sr Director Network Engineering,Charlie,Mahlmeister,,
+Dealertrack,Director of Solutions,Blake,Nielson,,
+Ricoh Latin America Inc,Director Of Information Technology,Esteban,Monge,,
+Ricoh Latin America Inc,IT Manager,Paul,Steel,,
+The Davey Tree Expert Company,Vice President Operations,Bill,Cura,,
+EY-Parthenon,Senior Director - Technology & Software Strategy,Saumya,Dhami,,
+EY-Parthenon,"Director, Technology Practice",Aditi,Gokhale,,
+EY-Parthenon,Head of Technology Services,Wlodzimierz,Golebiowski,,
+EY-Parthenon,Senior Director - Deal Technology,Vaibhav,Agrawal,,
+EY-Parthenon,"Director of IT & Digital Transformation, Strategy",Jongki,Park,,
+Mavenir,VP Technology Solutions EMEA,David,Hall,,
+Mavenir,"VP, Technology Solutions - APAC",Sudhansu,Dora,,
+Mavenir,Executive Vice President - Chief Technology & Strategy Officer,Bejoy,Pankajakshan,,
+Mavenir,Regional Chief Technical Officer,Javier,Gavilan,,
+Mavenir,"Group Director, Information Systems",Pajaree,Suntudkarn,,
+Mavenir,"Chief Technology Officer, Strategy and Global Satellite",Shravan,Gaddam,,
+Mavenir,VP of Technology Strategy,Jane,S,,
+Mavenir,VP Technology & Strategy,Sushanth,Hedge,,
+Dolby Laboratories,"Sr. Director, IT Enterprise Applications",Thomas,Wong,,
+Dolby Laboratories,"Director, Global Infrastructure",Niels,Wijbrandts,,
+Dolby Laboratories,"Director, IT Vendor Management",Pam,Carlin,,
+Dolby Laboratories,Technical Director,Nicolas,Zhang,,
+Dolby Laboratories,Enterprise Leader,Ashish,Mehta,,
+Dolby Laboratories,"Director, Business Technology, A/V Ecosystem",Tom,Addy,,
+Dolby Laboratories,"Senior Director, Global Infrastructure",Curt,Hodge,,
+Missouri Baptist Medical Center,"Director, Operations & Support Services",Jody,Gorham,,
+NPL Construction Co.,Director Of Operations,Kevin,Bullion,,
+NPL Construction Co.,Vice President Operations,John,Kane,,
+NPL Construction Co.,Director Of Operations,Nathan,Grauman,,
+Gainwell Technologies,"Chief Technologist, Implementation Practice",Jeff,Turpin,,
+Gainwell Technologies,VP Delivery Shared Services,Bryan,Bearden,,
+Gainwell Technologies,Director Of Technology,Patrick,Vail,,
+Gainwell Technologies,"Director, Enterprise Applications",Sid,Chakrabarty,,
+Advocate Condell Medical Center,Director of IT,Katalina,Tsirlina,,
+Advocate Lutheran General Hospital,Director of Development,Christy,Santos,,
+Symphony Teleca,Vice President Partnerships & Strategic Business Development,Robert,Kempf,,
+Symphony Teleca,Director,Rohit,Sharma,,
+Harland Clarke Customer Engagement Solutions,VP Application Development,Hossein,Gonzales,,
+Harland Clarke Customer Engagement Solutions,Director - IT Operations,Darren,Westfall,,
+Harland Clarke Customer Engagement Solutions,Director of Information Technology,Gary,Stewart,,
+Harland Clarke Customer Engagement Solutions,Chief Information Officer,Kevin,Kern,,
+Harland Clarke Customer Engagement Solutions,Executive Director - Enterprise Information,Dave,Pittman,,
+Harland Clarke Customer Engagement Solutions,Director Applications Development,Carol,Stevens,,
+Rack Room Shoes,Director of IT,Robert,Wright,,
+Rack Room Shoes,Senior Director of Enterprise Applications,Lara,Palmer,,
+Rack Room Shoes,IT Director - Systems and Networking,W,Wilkes,,
+Rack Room Shoes,Director of Data Services,Katherine,Kaylor,,
+The Associated Press,Chief Technology Officer,Gianluca,"D'Aniello",,
+The Associated Press,Technology Director,John,Morrissey,,
+The Associated Press,VP Global Technology Operations,Kurt,Rossi,,
+The Associated Press,Technology Director,Paul,Bean,,
+OK Foods Inc.,Director of Technical Services,Katrina,Eaves,,
+Valassis Marketing Solutions,IT Director,Mike,Lebiedz,,
+Valassis Marketing Solutions,Director of Infrastructure,Debbie,Monahan,,
+Valassis Marketing Solutions,Vice President - Information Technology,Amy,Courter,,
+Valassis Marketing Solutions,Director Infrastructure Services,Lisa,Hoisl,,
+SSP America,Vice President of Information Technology,Todd,Kaufman,,
+SSP America,Director of IT-Field Services,Dustin,Lassuy,,
+SSP America,"Director, Information Technology Support",Stephen,Schwartz,,
+Gentherm,Director of Information Security and Digital Workplace Technology,Dorin,Dredetean,,
+Gentherm,Chief Technology Officer,Steve,Davis,,
+Gentherm,Chief Technology Officer,Vishnu,Sundaram,,
+Gentherm,Head Of Information Technology,Hoang,Nguyen,,
+Gentherm,Director Application Engineering,Adldinger,Martin,,
+Gentherm,Vice President Applications Engineering Europe,Dr.Klaus,Beetz,,
+Holiday Retirement,Regional Vice President of Operations,Tiffany,O'Donnell,,
+Lionbridge,Enterprise Director (ESD),Denise,Sudau,,
+Lionbridge,Global Enterprise Director,Jamie,Dickson,,
+Lionbridge,Chief Technology Officer,Marcus,Casal,,
+Lionbridge,VP of Corporate IT,Oyvind,Kaldestad,,
+Lionbridge,Director of Corporate Applications Development,Herve,Fougère,,
+Lionbridge,Director of Global Technology Operations,Leslie,Leland,,
+Lionbridge,Senior Manager Global Technology Innovation,Sean,Feeney,,
+Lionbridge,"Senior Director, Infrastructure",Benny,Molby,,
+BancorpSouth,Vice President,Joe,Garcia,,
+American University,Director of Technology,John,Eck,,
+American University,"Director, Information Technology Service Mangement",Kelvin,Wilson,,
+American University,Director of Technology and Analytics,Andrew,El-Kadi,,
+American University,"Director, Enterprise Systems Operations",Glenn,Kwak,,
+American University,Director of Technical Services,Alayne,Sandler,,
+Altimetrik,Head of Information Security and Emerging Technology,Rizwan,Patel,,
+Altimetrik,Chief Digital Officer,Megan,Herrmanns,,
+Altimetrik,Head of Practice - Cloud & infoSec,Suresh,Perikala,,
+Altimetrik,Head - Solutions and Research,Badhrinath,Kannan,,
+Altimetrik,Head of Solutions Engineering,Raj,Nadig,,
+Lionbridge Technologies,IT Associate Director,Suvarna,Narvekar,,
+ESI an MKS Brand,Vice President of Operations,Tan,Richard,,
+ESI an MKS Brand,Director of Business Development,Christopher,Ryder,,
+doTERRA Wellness Advocate,Director,Courtney,Cote,,
+Genesis Rehab Services,Director of Operations,Erik,Painter,,
+Johns Hopkins Health Plans,Vice President Information Technology,Kathleen,Bennett,,
+Johns Hopkins Health Plans,IT Director,Lauren,Green,,
+Johns Hopkins Health Plans,"Senior Director - Application Development,",Lee,Amoss,,
+Johns Hopkins Health Plans,"Assistant Director, IT Development and Support",Steven,Williams,,
+University of the Pacific,"Vice President, Chief Technology Officer",Robert,H,,
+University of the Pacific,Chief Information Officer,Larry,Frederick,,
+University of the Pacific,Director of Academic Technology,Hsin-Han,Yu,,
+University of the Pacific,Assistant Director for Technical Services,Michele,Finerty,,
+EIS,Director IT Applications,Priti,Rao,,
+EIS,Chief Information Officer,Tom,Ritter,,
+EIS,Sr. Director - IT Applications,Curt,Hockaday,,
+EIS,Director - SAP Applications,Roy,Alex,,
+EIS,"Sr. Director, Infrastructure",Steve,Hersker,,
+EIS,Director of Technical Services,Moussa,Dosso,,
+Perficient,Technical Director,Norman,Torvik,,
+Perficient,Director of Technology,David,Stockmann,,
+Perficient,Director of Technology,Raf,Lease,,
+Perficient,"Director, Data Solutions",Atul,Mangla,,
+Perficient,Director - Technology,David,Brooks,,
+Perficient,Director Of Technology - Adobe,Quincy,Brown,,
+Augusta Health,President,Kristopher,Doan,,
+C&J Energy Services,Senior Director,Greg,Tremain,,
+Greenheck,Technical Services Manager,Eric,Pond,,
+BDI,"Director, Global IT",Gary,Neuman,,
+BDI,Chief Executive Officer,Eric,Labeur,,
+University of Cincinnati College of Medicine,Director,Jason,Keller,,
+Makino,Head of IT Europe,Ján,Pastucha,,
+Makino,Director of Information Technology,Jay,R,,
+Makino,I.T. Director,Chris,Ohain,,
+Makino,Director of System Integrations,Jeff,Shaul,,
+"TETRA Technologies, Inc.",Vice President Information Technology,Enrique,Ulloa,,
+"TETRA Technologies, Inc.",Chief Digital Officer,Shashidhar,Rajagopalan,,
+KPMG Lower Gulf,Associate Director of Information Technology,Shakir,Mohammed,,
+KPMG Lower Gulf,Director - Infrastructure Advisory,Shahed,Mohammed,,
+Watco Companies LLC,VP of Enterprise Information Management,Thomas,Scheidemantel,,
+Watco Companies LLC,Director of Technical Services and Security,Gregg,Robbins,,
+Watco Companies LLC,VP of Applications,Corey,Corrick,,
+Watco Companies LLC,Sr Vice President -Network Strategy (Business Development),William,Patterson,,
+Watco Companies LLC,VP of Infrastructure,Don,Goff,,
+Watco Companies LLC,Asst Vice President of Information Technology,Aaron,Coester,,
+Advanced Military Maintenance Repair & Overhaul Center (AMMROC),Vice President - Operations & Program Management,Mohamed,Bloushi,,
+Advanced Military Maintenance Repair & Overhaul Center (AMMROC),Chief Commercial Officer,Frederic,Dupont,,
+Eisai US,Director of Information Technology - Infrastructure and Hosting Operations,Brian,Hatch,,
+Eisai US,"Vice-President, Americas IT Head - Global Data & Analytics Head",Rene,Rancourt,,
+Eisai US,Director IT Organizational Change Management,De,Scacchetti,,
+Eisai US,"Director, Infrastructure Platform Services",My,Abdalla,,
+Eisai US,"Associate Director, Infrastructure Cloud & Data Center Operations",Odalis,Tejada,,
+Eisai US,"Executive Director, Global IT Security, Compliance & Architecture",Jennifer,N,,
+Eisai US,"Associate Director, IT Project Management",Bob,Franco,,
+Eisai US,"Director, Marketing IT Solutions",Patrick,Donohue,,
+Almoosa Health Group,Group Chief Information Officer,Diaa,Kamal,,
+Almoosa Health Group,Information Technology Delivery Director,Mohamed,Nassrallah,,
+Iusacell,IT Director,Fernando,Gamayo,,
+Iusacell,Director Network Operation Support,Jose,Lamadrid,,
+Ramada by Wyndham,General Manager,Genaro,Garza,,
+"GOJO, Makers of PURELL",Logistics Network Director,Tony,Guardado,,
+"GOJO, Makers of PURELL",Total Solutions Director,Tamara,Cross,,
+Duquesne Light Company,Chief Information Officer,And,Farrah,,
+Duquesne Light Company,"Managing Director, Enterprise Applications and Data Platforms",Jeremy,Gill,,
+Duquesne Light Company,Director of Technical Services,Fred,Aul,,
+Duquesne Light Company,Director - Operations Applications,Mike,Watts,,
+Fuchs Lubricants Co.,VP Information Technology and Chief Digital Officer,Michael,Starkey,,
+Fuchs Lubricants Co.,Director of IT,Dawn,Malewski,,
+Moen Incorporated,Director of IT Services,Zi,Yongyi,,
+Marlabs LLC,Director - IT Infrastructure and Cyber Security,Anoopkrishnan,R,,
+Marlabs LLC,Director - IT,Bharat,Kumar,,
+Marlabs LLC,Head - Cloud & Cybersecurity,Jaganath,Shankar,,
+Marlabs LLC,Associate Vice President - Global Technology Services,Muhammad,Naufal,,
+Marlabs LLC,Vice President - Technology Services,Prasad,Rajagopal,,
+Marlabs LLC,"Associate Vice President, Global Delivery Head Cloud, Infra and Security",Venkatesha,Iyer,m@marlabs.com,
+Marlabs LLC,Director Of Information Technology,Daniel,Banks,,
+Marlabs LLC,Senior Director - Salesforce Practice & GTM Lead,Danielle,Arrington,,
+Jared the Galleria of Jewelry,Regional Vice President Of Operations,David,Johnston,,
+Harmony Public Schools,Director of Information Security and Asset Management,Ilhan,Guzey,,
+Harmony Public Schools,Director - Student Information Systems,Maria,Khan,,
+Incora,"Vice President IT, Business Solutions",Rob,Schmidt,,
+Incora,"Director, Information Security at Incora",Martin,Smith,,
+Franciscan St. Francis Health,"Director, Health Information Services",Dana,Nylen,,
+"SPX FLOW, Inc.",Chief Information Officer,Jody,Dawson,,
+"SPX FLOW, Inc.",VP IT Operations,Carlos,Capote,,
+"SPX FLOW, Inc.","Director, Commercial Applications",Camilla,Riisgaard,,
+"SPX FLOW, Inc.","Director, IT Applications - Global Manufacturing & Supply Chain",Peter,Roper,,
+"SPX FLOW, Inc.",Director-Application Delivery | Head-India Delivery Center,Amitesh,Singh,,
+"SPX FLOW, Inc.","Director, IT Transformation and Service Enablement",George,Prince,,
+"SPX FLOW, Inc.",Head Of Integration,Aurora,Vasse,,
+"SPX FLOW, Inc.",Director - Corporate Applications,Phil,Ackers,,
+JAFRA Cosmetics International,Director Information Security,Jim,Huddleston,,
+JAFRA Cosmetics International,Chief Information Security Officer,Claudia,Rodriguez-Sosa,,
+Advanced Bionics,Director of Operations,Renate,Elisabeth,,
+Gerdau North America,Director of Technology,Charles,Travaglini,,
+Gerdau North America,Chief Information Officer,Getulio,Vargas,,
+Entegris,"Director, Cybersecurity Architecture",Josh,Bovee,,
+Entegris,Director of Technology,Jürgen,Lobert,,
+Entegris,"Director, IT Infrastructure",Matt,Beaman,,
+Entegris,Deputy Chief Technology Officer,Montray,Leavy,,
+Entegris,Director of Technology,Subhash,Guddati,,
+Entegris,Director of Platform Technologies,Jeff,Cross,,
+Entegris,Vice President of Infrastructure & Operations,Chad,Thompson,,
+Solenis,"Sr. Director, Industrial Solutions",Todd,Wolf,,
+Solenis,Associate Director of Information Technology,Ramon,Galofre,,
+Solenis,"Associate Director, IT Network and Telecom",David,Payne,,
+Solenis,"Associate Director, IT",Deusdeth,Soares,,
+Solenis,Director - Applications ERP,Ramkumar,Paneerselvam,,
+Solenis,"VP - Corporate Development, M&A and Strategy",Scott,B,,
+Solenis,Associate Director-IT Infrastructure & Cloud,Uma,Mahesh,,
+Microtel Inn & Suites by Wyndham,Director of Operations,Robbie,Gonzalez,,
+MOD Pizza,"Sr Director, Technology, Head of Data and Data Analytics",Chris,Perino,,
+MOD Pizza,Chief Supply Chain & Technology Officer,Denise,C,,
+Super 8 by Wyndham,Director Of Operations,Mili,Patel,,
+Kleinfelder,CISO / Vice President of Security,Eric,Hargrave,,
+Kleinfelder,"Director, IT PMO",Anabel,Brown,,
+Kleinfelder,"Vice President, Application Services",Rebekah,Stevens,,
+New Era Cap,"Director, IT Enterprise Architecture",Be,Mohan,,
+New Era Cap,"Director, IT Solutions",Pragnya,Pothuneedi,,
+New Era Cap,"Director, Information Security and Infrastructure",Christopher,Stevens,,
+New Era Cap,"CIO, Operations & e-Commerce",Marlon,Brito,,
+UNDSS,"Chief, Security Information and Operations Centre",Mimi,Huang,,
+"DH Pace Company, Inc.",Chief Information Officer,Joel,Burke,,
+"DH Pace Company, Inc.",Vice President - Director of Network Services,Brian,Fuller,,
+Kona Grill,Director of Operations,Scott,Carlsen,,
+Kona Grill,Sr. Director of Architecture and Design,Sky,Adler,,
+Kona Grill,Director Of Operations,Michael,Torres,,
+FlightSafety International,Head of Technology Infrastructure,Zulkafli,Daud,,
+FlightSafety International,Director Information Security Architecture & Engineering,Robbie,Laack,,
+FlightSafety International,"Director, Courseware Technology",Adam,Rush,,
+FlightSafety International,Director of IT Asset Management,Greg,Aurigemma,,
+FlightSafety International,Director of Data Protection and Privacy,Linda,Zinn,,
+FlightSafety International,IT Director,A,Elsaleh,,
+American Medical Response,Regional Director,Darryl,McClanahan,,
+Compass Group USA,"Senior Director, Data Strategy",Alix,Rice,,
+Compass Group USA,Vice President Of Technology,Gina,Serepca,,
+Compass Group USA,"Sr Director, Technology",Murali,Thoota,,
+Compass Group USA,"Sr. Director, Infrastructure Services",Scott,Belcher,,
+Compass Group USA,"Senior Vice President, Enterprise Technology Shared Services",Jeff,Henry,,
+Compass Group USA,Deputy Chief Information Security Officer,Glen,McDevitt,,
+Compass Group USA,"Senior Director of Technology Systems, People Strategy and Solutions",Eric,Bilbrey,,
+Compass Group USA,Senior Director - SAP Technical,Samta,Nichani,,
+Plantronics,Director of IT,CHIDAMBARAM,RAMASWAMY,,
+Le Bonheur Children's Hospital,Technical Director,Nathan,Stecchi,,
+Le Bonheur Children's Hospital,Technical Director,Roozbeh,Rezaie,,
+New Horizons Computer Learning Centers,Director of IT,Jimmy,Ferguson,,
+New Horizons Computer Learning Centers,"Director, Business Systems - Architect",Rick,Crowley,,
+New Horizons Computer Learning Centers,Director of IT,John,Branson,,
+New Horizons Computer Learning Centers,Director of Technology,Richard,Seals,,
+New Horizons Computer Learning Centers,VP of Corporate Training and Development,Steve,Albin,,
+New Horizons Computer Learning Centers,Director of Business Applications,Frederick,Law,,
+"Haas Automation, Inc.",Director of Technical Operations,Mike,Dziadus,,
+Fusion CX,Associate Vice President- Global Service Delivery,Debanjan,Guha,,
+Fusion CX,"Director, Service Delivery",Cheryl,Johnson,,
+TVH Parts Co.,"Director, Technical Services",Ryan,Walker,,
+Popular,Deputy Chief Information Officer,Jorge,Ortiz,,
+Accion Labs,Vice President Information Technology,Saurabh,Periwal,,
+Accion Labs,Head of Solutions,Nischal,Doshi,,
+Accion Labs,Delivery Director,Ashish,Moses,,
+TSI Incorporated,Managing Director Network Engineering,Bill,Towne,,
+TSI Incorporated,Vice President Corporate Development,Kevin,Krause,,
+TSI Incorporated,Director of Carrier Solutions,Randall,Fitton,,
+Spire,"Managing Director, ITS Enterprise Applications",Keri,Feldman,,
+Spire,"Director, Information Technology Operations",Carol,Yauch,,
+Spire,"Director, Application Delivery",Mary,Thomas,,
+"TETRA Technologies, Inc.",Vice President Information Technology,Enrique,Ulloa,,
+"TETRA Technologies, Inc.",Chief Digital Officer,Shashidhar,Rajagopalan,,
+East Carolina University,IT Director - Enterprise Systems and Data Center Operations,Jonathan,Rose,,
+East Carolina University,Director of IT Infrastructure,Tom,Lamb,,
+East Carolina University,Director Of Information Technology,Conley,Evans,,
+East Carolina University,Director of IT,John,Vail,,
+East Carolina University,Director of Technology / Athletics,Sam,Saunders,,
+East Carolina University,Director of Enterprise Data Services,Scotty ,Stroup,,
+Archway Marketing Services,Director Of Information Technology,And,Mount,,
+Archway Marketing Services,IT Director,Tina,Taglione,,
+Synaptics Incorporated,Vice President Information Technology,Sudhakar,Parakala,,
+Synaptics Incorporated,"Director, Systems Applications",Mariana,Garzon,,
+Synaptics Incorporated,"Technical Director – Software Architecture, AI/ML Technologies",Abdel,Younes,,
+Synaptics Incorporated,"Director, IT End User Services",Tony,Holzhey,,
+Synaptics Incorporated,Chief Information Security Officer,Steve,Kaer,,
+ProHealth Care,Director IT Project Management,Michael,Epstein,,
+ProHealth Care,Director Information Services,Jenny,Martin,,
+ProHealth Care,Director of IT,Robert,Berthelsen,,
+CSM Bakery Solutions,Director of IT,Allan,Cuenca,,
+Toyo Tires,Director-Technical,Henry,Box,,
+Western Michigan University,Chief Information Officer,Andrew,Holmes,,
+Western Michigan University,Director of IT,Donald,Weber,,
+Western Michigan University,Director of Information Technology,Matthew,Fackler,,
+Western Michigan University,Director of Auxiliary Enterprises,Rob,Pennock,,
+Western Michigan University,Director Of Information Technology,Joshua,Enos,,
+Western Michigan University,Director of Enterprise Application Success,Bryon,Glock,,
+Western Michigan University,"Director, Enterprise Administrative Applications",Sandra,Kelly,,
+"California State University, Fullerton","Director, Application Development and Support",Andy,P,,
+"California State University, Fullerton","Interim Associate Vice President, Academic Technology Services",Willie,Peng,,
+"California State University, Fullerton",IT Director/Liaison for University Auxiliaries,Michael,Marcinkevicz,,
+"California State University, Fullerton",Vice President for Information Technology / Chief Information Officer,Rommel,Hidalgo,,
+"California State University, Fullerton",Assistant Vice President for IT / Enterprise Applications,Joe,Luzzi,,
+"California State University, Fullerton",Director IT,Raymundo,Venegas,,
+"California State University, Fullerton",Director of Enterprise Applications,Matthew,Badal,,
+University of Arkansas,"Assistant Director, Technology Services",Anthony,Dale,,
+University of Arkansas,Director of Technology,Teresa,Waddell,,
+University of Arkansas,Director of Technology,Sandy,Kizer,,
+University of Arkansas,Director Of Information Technology,Chris,Butler,,
+University of Arkansas,Director of IT,Tina,Lester,,
+University of Arkansas,Assistant Director of IT Operations,Grant,Hughes,,
+University of Arkansas,Director of Enterprise Systems,Walter,Green,,
+University of Arkansas,Chief Technology Officer,Cory,Caldwell,,
+Paramount International,"Director, Compute/Cloud",Stuart,Sapsford,,
+Paramount International,Director of Production Technology,Matt,Okotie,,
+Paramount International,Technical Director,Aurelien,Guezet,,
+Paramount International,Partner Solutions Director,Claudia,Dovtartas,,
+Paramount International,"VP Technology, North, Central & Eastern Europe",Alsun,Rahaill,,
+Paramount International,VP Technology Services - BRM Linear & Distribution,Joseph,Rolla,,
+Rangam,Regional Vice President - Service Delivery,Bhavin,Mehta,,
+Rangam,Associate Solutions Director,Tony,Blomer,,
+Rangam,"Senior Director, Workforce Solutions",Lauren,Steinbacher,,
+Castle Metals,Corporate Director Information Technology,Tom,Lammers,,
+Faraday Future,Senior Director,Matt,Barthelemy,,
+Faraday Future,Technical Director,Zhimin,Yang,,
+Garney Construction,Director of Operations,Chip,LaBonte,,
+Garney Construction,Vice President,Greg,Harris,,
+National Geographic Society,Director Of Operations - Exploration Technology,Kyler,Abernathy,,
+National Geographic Society,IT Director,Odell,Sherman,,
+National Geographic Society,"Director, Technology Support Services",Daren,Collins,,
+National Geographic Society,"Director, Business Applications",Jim,Gallo,,
+National Geographic Society,"Sr. Director, Applications",James,Giordano,,
+AM General LLC,Information Technology Director,Mark,G,,
+AM General LLC,Director - Applications & Operations,Ryan,Jones,,
+Raven Industries,Director of Technology Solutions,Jared,Kocer,,
+Raven Industries,Director of Operations,Brian,Carda,,
+BURNDY,Director Grounding Solutions,Lee,Herron,,
+ALSAYER Holding,Chief Information Officer,Dr.Alexious,Mulemba,,
+ALSAYER Holding,Chief Information Officer,Dina,Jarrar,,
+ORYX GTL,Chief Operations Officer,Anton,Booysen,,
+AMCOL International,Director - Technology & Commercial Development,Tom,Beihoffer,,
+Jaidah Group,Chief Operating Officer,Bertrand,Thiebaut,,
+"McNeilus Truck and Manufacturing, Inc.",Director Of Information Technology,Ralph,Burtis,,
+TÜV Rheinland North America,"Director, Management Systems",Lisa,Purcell,,
+TÜV Rheinland North America,Wireless Director,David,S,,
+GateHouse Media New England,Chief Operating Officer,Rick,Daniels,,
+Richland County Government,Director of Information Technology,Corey,McDonald,,
+"EBSCO Industries, Inc.",Director in Information Technology,Tom,B,,
+"EBSCO Industries, Inc.",Vice President of IT Strategy,Charles,Maple,,
+"EBSCO Industries, Inc.",Sr. VP of Infrastructure and Service Operations,David,Slifka,,
+LINN Energy,IT Director,Mario,Vega,,
+OMEGA Engineering,Technical Director,Martin,Flynn,,
+Jamal Al-Ghurair Group of Companies,Group Senior Director of IT,Ahmed,Mamdouh,,
+Cray Inc.,"Director, CTO",Kazunori,Mikami,,
+Cray Inc.,VP Advanced Technology,Greg,Faanes,,
+Cycle Gear Inc.,VP Operations,Neil,Goodman,,
+DMG MORI USA,Chief Technology Officer,Gregory,Marshall,,
+Samsung Research America (SRA),Director,Hyoungsik,Kim,,
+Morris Material Handling,Vice President,Fran,Kelch,,
+ZimVie,Director IT Global Infrastructure,Cliff,Nicholson,,
+ZimVie,IT Assoc. Director,Craig,Lockwood,,
+Buckeye CableSystem,Director,Charles,Shanaberger,,
+OHAUS Corporation,Director of Operations,Earl,Myers,,
+Bruker Daltonics,Head of IT Processes,Dr.Marco,Röben,,
+Bruker Daltonics,Director Application Development,Aiko,Barsch,,
+Bruker Daltonics,Director of Applications,Catherine,Stacey,,
+Lands'​ End Business,Senior Director Business Development,Nick,Gomenis,,
+DRS SSI,Technical Director,David,James,,
+DRS SSI,Director IT - Infrastructure,John,Moore,,
+DRS SSI,"Senior Director, Business Development",Mike,O'Leary,,
+PALFINGER North America,VP Operations ,Jason,Holt,,
+"Triumph Foods, L.L.C.",Senior Director Technical Services,Barry,Wiseman,,
+Howard County General Hospital,"Director, Technical Services",John,Meinsler,,
+Avnet Integrated Solutions,"Vice President, Global Solutions Management",John,Fossett,,
+Hubbell Lighting,Regional Vice President,Jim,Patnaud,,
+Ryan Specialty,"Senior Director, Solutions",Scott,Bice,,
+Ryan Specialty,Chief Information Officer,Bradley,Bodell,,
+Ryan Specialty,Director of Digital Solutions,Kevin,McCormack,,
+Ryan Specialty,Director Application Development,Sanjeev,Kaul,,
+INEOS Styrolution America LLC,Vice-President - Operations,Russell,Webb,,
+Johns Hopkins Intrastaff,"Director, System and Operations",Mary,Li,,
+Rizing,"VP, Global SAP",Michael,Haydock,,
+Rizing,Director - SAP ,Chintan,Mota,,
+Rizing,"Vice President, S/4HANA COE",Russell,Green,,
+Rizing,"Technical Director, Geospatial Solutions",Siok,Ng,,
+ST Engineering iDirect,"Sales Director, System Integration",Richie,L,,
+Robison,Director of Application Development,Terry,Robison,,
+Bredero Shaw,Vice President & Project Director,John,Highams,,
+"Canon Virginia, Inc",Vice President of Business Development,Ron,Kurz,,
+"Canon Virginia, Inc",Vice President of Technology Development,Takeshi,Imamura,,
+Capsugel,Head of ERP,Rong,Shen,,
+Minneapolis Community Education,"Director, HRIS",Greg,Bendel,,
+STADA Emerging Markets,Head of Business Development,Danijela,Kupresanin,,
+Mohawk Valley Health System,Director of Information Technology,Joelle,Fasolo,,
+"Abcor Home Health, Inc.",Director of Business Development,Joophil,Kim,,
+Sunbulah Group,Technical Director,Sami,Said,,
+Ambu (King Systems),"Vice President, International & Business Development",Patrick,Coleman,,
+Ambu (King Systems),"VP, US Operational Projects",Daniel,Birkholm,,
+Woods Equipment,IT Director,John,Stelter,,
+Al Salama Hospital,Director Of Information Communication Technology,Eslam,Elmamlouk,,
+TRYP by Wyndham,,,,,
+Aecon Group Inc.,Technical Director,Alberto,Molina,,
+Aecon Group Inc.,"Sr. Director, Technology & Operations",Andy,Matthews,,
+Aecon Group Inc.,"Technical Director, SMR Program",Dan,Forter,,
+Aecon Group Inc.,Vice President Information Security,Jason,Williams,,
+Aecon Group Inc.,"Director, Technical Services",Jason,Valiquette,,
+Unified Western Grocers,"Director, Systems Development and Support",Rick,Lockwood,,
+Sonata Software North America Inc.,Associate Vice President,Chaminda,Anandasiri,,
+STADA Emerging Markets,Head of Business Development & Portfolio,Danijela,Kupresanin,,
+Newgistics,Director of Business Development,Steve,Weiss,,
+UNC Health Wayne,"Vice President, Operations",Howard,Whitfield,,
+DRS Tactical Systems,Chief Technology Officer,Lary,Beaulieu,,
+Blackhawk Transport and Logistics,Vice President Operations,Kevin,McGrath,,
+"Pelican Products, Inc.",Chief Information Officer,Shree,Khare,,
+"Pelican Products, Inc.","Director, IT Infrastructure",David,Oden,,
+"Pelican Products, Inc.",Director of Business Applications,Paul,Sohn,,
+Newport Corporation,"Director, IT",Chris,Hoard,,
+Newport Corporation,Sr. Director Of Operations,Mercedeh,Barati,,
+Newport Corporation,Senior Global Business Development Manager,Robert,Bourdelais,,
+Pacific Drilling,Technical Director,Arne,Nejsum,,
+Pedernales Electric Cooperative,Head of Technology - Applications and Data,Munish,Gupta,,
+Pedernales Electric Cooperative,Head of Technology and Digital Strategy,Lori,Mueller,,
+Pedernales Electric Cooperative,"Director, Technology Infrastructure and Operations",Alex,Robertson,,
+Emerald Performance Materials,Business Director,Frank,Magazine,,
+Champion National Security,Director of Business Developement,Mario,Orozco,,
+ConvergeOne,Director of Integrations & Automations,Jason,Wolfe,,
+Hilmar,"Vice President Information Technology, Data Protection Officer",Stephane,Adam,,
+Hilmar,Director Technical Services,Jeremy,McLeod,,
+Hilmar,Director of Process Technology,Shaun,Stoker,,
+Bracco Medical Technologies,Sr. Director Operations,Ralph,Stokkum,,
+Bracco Medical Technologies,"Vice President, Global Operations",Tom,Priebe,,
+Peoples Gas,Vice President Operations,Salvador,Arana,,
+EMS Technologies,"Senior Director, Operations",Marina,Zenk,,
+Philips Lifeline,"Director, Program Development and Technical Services",Hilton,East,,
+KRONOS INTERNATIONAL INC.,Sen. Application Manager,Volker,Schmitt,,
+KRONOS INTERNATIONAL INC.,Director Process Technology,Frank,Landwehr,,
+Giordano Middle East,Chief Operating Officer,Ahmadullah,Hadi,,
+Giordano Middle East,Head of Information Technology Department,Mohammed,Nasir,,
+Flexsteel Industries Inc.,Chief Information Officer,Michael,McClaflin,,
+Flexsteel Industries Inc.,Director of Enterprise Applications,Kristen,Downs,,
+Flexsteel Industries Inc.,IT Director-Business Intelligence and Master Data Management,Jennifer,Kritz,,
+Flexsteel Industries Inc.,DMI Divison Director of IT,Dave,Evans,,
+Rapidigm,Technical Director,Manoj,Gupta,,
+"Tire Centers, LLC",Director Of Business Development,Phil,Paisley,,
+Chicago Pneumatic,Vice President Operations,Olivier,Dalicieux,,
+Nucor Insulated Panel Group,Business Development Manager,Tim,Leach,,
+Eisai U.S. Alzheimer’s Disease and Brain Health,Executive Business Director,Baryona,Billington,,
+Charlotte Pipe and Foundry Company,Director of Technology,Ken,Sparks,,
+Charlotte Pipe and Foundry Company,Senior VP - Corporate Development,Mark,Black,,
+Sika USA,Director of Technical Services,Randy,Campbell,,
+Sika USA,Vice President Research And Development,Kevin,Rhudy,,
+Sika USA,"Director of IT, Americas",Art,Bergstresser,,
+Stoller Newport News Nuclear,Senior System/Database Administrator,Tuan,Dinh,,
+Enable Midstream Partners,President and Chief Executive Officer,Rodney,Sailor,,
+Sigura,Global Director,Rob,Russell,,
+Bosch Security Systems Inc.,Technical Operations Manager,Wayne,M,,
+Bosch Security Systems Inc.,Business Development Manager,Tracie,Bales,,
+Gypsum Supply,Operations Vice President,Mike,Anderson,,
+Al Ansari Exchange,Deputy Chief Technology Officer,Habeeb,Rahman,,
+Al Ansari Exchange,Chief Technology Officer,Abdel,Mustafa,,
+Al Ansari Exchange,Head of Business Development Department,Hisham,Eldin,,
+KPMG In Pakistan,Director Information Technology,Asif,Mobin,,
+KPMG In Pakistan,CISO/NITSO & Director IT,Yawar,Abbas,,
+Abu Dhabi National Hotels Compass ME LLC,Chief Executive Officer,Clive,Cowley,,
+Saudi Company For Hardware - SACO,IT Director,Ali,"Quadr",,
+"Mission Technologies, a division of HII",Director of Technology,Michael,Slattery,,
+"Mission Technologies, a division of HII",Director of Technology,Kevin,Price,,
+"Mission Technologies, a division of HII",Director of Information Technology Service Delivery,Chick,T,,
+"Mission Technologies, a division of HII",Technical Director,John,Bell,,
+"Mission Technologies, a division of HII",Senior Director of Applied Technologies,Dan,Hudson,,
+"Mission Technologies, a division of HII",Director AI Application Development,Joseph,Lacobucci,,
+AlMansoori Petroleum Services,Chief Information Officer,Saleh,Alhashmi,,
+KAUST (King Abdullah University of Science and Technology),Head of Technology Development,Izaro,Garcia,,
+KAUST (King Abdullah University of Science and Technology),Chief Information Officer,Mohamed,Abdel-Aal,,
+KAUST (King Abdullah University of Science and Technology),Technical Director,Mark,Dimech,,
+Mediclinic Middle East,Chief Information Officer,Augustine,Amusu,,
+Mediclinic Middle East,Director,Hassan,Abdulrahman,,
+SPIMACO,Director of IT,Waleed,Alfayez,,
+SPIMACO,Director of IT,Alaa,Singer,,
+SPIMACO,Technical Director,Hafida,Dalicieux,,
+GMG,Director Technology - Digital & Omnichannel Ecommerce,Deepak,Sharma,,
+GMG,IT Director (Asia),Liau,SL,,
+GMG,"Director of IT (Cyber Security ,Infrastructure and Technology )",Prabhat,Pathak,,
+Saudi Ceramics,Chief Information Officer,Yazeed,AlMarshoud,,
+NORD/LB,Head of IT,Frederike,Haase,,
+NORD/LB,"Head of Infrastructure Origination, Europe",Sean,Cook,,
+NORD/LB,"Head of IT, Asia Pacific",Chan,Kit,,
+NORD/LB,Head of Technology-Management,Martin,Seidel,,
+NORD/LB,"Director, Infrastructure Origination",Gaëlle,Hudson,,
+NORD/LB,"Senior Director, Infrastructure Origination",Patrick,Daniel,,
+NORD/LB,Associate Director - Infrastructure,Ryan,B,,
+Hörmann,Technical Director,Jakub,Pacyna,,
+Hörmann,Chief Information Security Officer,Ryan,Redinger,,
+Britvic plc,Head of IT Delivery Supply Chain,Maria,Fernandez,,
+Britvic plc,Head of IT Delivery - Commercial & Marketing,Nicola,Busby,,
+BHS,General manager,M. Bocar,SY,,
+Rehau,Head of IT,Andreas,K,,
+Rehau,Directeur Division Building Technology,Bertsch,Remi,,
+Rehau,Head of Technology Platform Recycling,Dr.Dominic,Tilgner,,
+Rehau,Head of Technology Platform Composites,Ahmad,Al-Sheyyab,,
+Rehau,Technical Director of Window Solutions Departmen,Volodymyr,Mudrak,,
+beeline Group (Fashion Accessories),Head of IT Applications,Patrick,Jüstel,,
+Haven,CTO/Director of Engineering & Architecture,Wayne,Clark,,
+P&O Ferries,IT Director,Chloe,F,,
+zeb consulting,Head of ORG/IT,Marco,Rubert,,
+Voith Hydro,Technical Director,Pirkle,Mark,,
+Voith Hydro,Technical manager,Gunnar,Bakken,,
+TRILUX,Head of Solutions,Kamil,K,,
+TRILUX,Leiter Group IT,Stefan,Magerstedt,,
+TRILUX,Chief Technology Officer,Sebastian,Traegner,,

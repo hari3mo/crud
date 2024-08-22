@@ -69,4 +69,4 @@ SET FirstName = 'Haris', LastName = 'Saif'
 WHERE (Email='haris.saif@erp-center.com')
 
 --@block
-DELETE FROM Leads
+DROP TABLE Leads

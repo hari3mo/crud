@@ -12,7 +12,7 @@ import os
 
 # Redundant
 from sqlalchemy import create_engine
-import sqlalchemy
+from sqlalchemy.sql import text
 
 from openai import OpenAI
 
@@ -30,7 +30,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
 
 # Standard engine
-engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
+engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb').connect()
 
 # OpenAI API Client
 load_dotenv()
@@ -130,7 +130,7 @@ class Leads(db.Model):
     Position = db.Column(db.String(75), nullable=False)
     FirstName = db.Column(db.String(50), nullable=False)
     LastName = db.Column(db.String(50), nullable=False)
-    Email = db.Column(db.String(50), nullable=False, unique=True)
+    Email = db.Column(db.String(50), unique=True)
     CompanyName =  db.Column(db.String(100), nullable=False)
 
 # Opportunities model    
@@ -309,19 +309,6 @@ def delete_user(id):
         flash('Access denied.')
         return redirect(url_for('user'))
  
-
-
-# Clear opportunities
-@app.route('/clear_opportunities/')
-@login_required
-def clear_opportunities():
-    Opportunities.query.filter_by(ClientID=current_user.ClientID).delete()
-    db.session.commit()
-    flash('Opportunities list cleared.')
-    return redirect(url_for('opportunities_list'))
-    
-
-
 # New opportunity
 @app.route('/opportunities/new_opportunity/', methods=['GET', 'POST'])
 @login_required
@@ -513,6 +500,7 @@ def accounts_import():
                 id += 10
                 account = Accounts(**dct)
                 db.session.add(account)
+                
             db.session.commit()
             os.remove(filepath)        
             flash('Import successful.')
@@ -528,6 +516,60 @@ def accounts_import():
         
     return render_template('accounts_import.html', form=form)
 
+# import logging 
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# @app.route('/leads/leads_import/', methods=['GET', 'POST'])
+# @login_required
+# def leads_import():
+#     form = FileForm()
+#     filename = None
+#     if form.validate_on_submit():        
+#         file = form.file.data
+#         filename = secure_filename(file.filename)
+#         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        
+#         if filename.split('.')[-1] != 'csv':
+#             flash('Import failed. Please upload a .csv file.')
+#             return redirect(url_for('leads_import'))
+            
+#         while os.path.exists(filepath):
+#             filename = filename.split('.')[0] + ' copy.csv'
+#             filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                        
+        
+#         file.save(filepath)
+        
+#         df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+#         logging.info("DataFrame after reading CSV:\n%s", df.head())
+        
+#         df = df.replace({np.nan: None})
+#         logging.info("DataFrame after replacing NaN with None:\n%s", df.head())
+        
+#         df = df.rename(columns={df.columns[0]: 'CompanyName',
+#                                 df.columns[1]: 'Position',
+#                                 df.columns[2]: 'FirstName',
+#                                 df.columns[3]: 'LastName',
+#                                 df.columns[4]: 'Email'})
+#         logging.info("DataFrame after renaming columns:\n%s", df.head())
+#         accounts_df = pd.read_sql_table('Accounts', con=engine)
+#         accounts_df = accounts_df[accounts_df['ClientID'] == current_user.ClientID]
+
+#         logging.info("Accounts DataFrame:\n%s", accounts_df.head())
+        
+#         df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName')
+#         logging.info("DataFrame after merging with accounts:\n%s", df.head())
+        
+#         for index, row in df.iterrows():
+#             dct = row.to_dict()
+#             lead = Leads(**dct)
+#             db.session.add(lead)
+        
+#         db.session.commit() 
+#         os.remove(filepath)        
+#         flash('Import successful.')
+#         return redirect(url_for('leads_list'))    
+                
+#     return render_template('leads_import.html', form=form)
 
 # Leads import
 @app.route('/leads/leads_import/', methods=['GET', 'POST'])
@@ -540,51 +582,55 @@ def leads_import():
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         
-        # try:
-        if filename.split('.')[-1] != 'csv':
-            flash('Import failed. Please upload a .csv file.')
-            return redirect(url_for('accounts_import'))
-            
-        # Rename function
-        while os.path.exists(filepath):
-            filename = filename.split('.')[0] + ' copy.csv'
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                        
-        
-        file.save(filepath)
-        
-        df = pd.read_csv('static/files/{filename}'.format(filename=filename))
-        # Replace NaN with None
-        df = df.replace({np.nan: None})
-        
-        df = df.rename(columns={df.columns[0]: 'CompanyName',
-                                df.columns[1]: 'Position',
-                                df.columns[2]: 'FirstName',
-                                df.columns[3]: 'LastName',
-                                df.columns[4]: 'Email'})
-        query = f'SELECT * FROM Accounts WHERE (ClientID={current_user.ClientID})'
-
-        accounts_df = pd.read_sql(sqlalchemy.text(query), con=engine.connect() )
-        df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName')
-        
-        for index, row in df.iterrows():
-            dct = row.to_dict()
-            lead = Leads(**dct)
-            db.session.add(lead)
-        
-        db.session.commit() 
-        os.remove(filepath)        
-        flash('Import successful.')
-        return redirect(url_for('leads_list'))    
+        try:
+            if filename.split('.')[-1] != 'csv':
+                flash('Import failed. Please upload a .csv file.')
+                return redirect(url_for('leads_import'))
                 
-        # except:
-        #     db.session.rollback()
-        #     flash('Import failed. Please ensure .csv file is ordered as \
-        #         follows: Company Name, Position, First Name, Last Name, \
-        #             Email')
-        #     return redirect(url_for('leads_import'))
+            # Rename function
+            while os.path.exists(filepath):
+                filename = filename.split('.')[0] + ' copy.csv'
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                        
+            
+            file.save(filepath)
+            
+            df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+            # Replace NaN with None
+            df = df.replace({np.nan: None})
+            
+            df = df.rename(columns={df.columns[0]: 'CompanyName',
+                                    df.columns[1]: 'Position',
+                                    df.columns[2]: 'FirstName',
+                                    df.columns[3]: 'LastName',
+                                    df.columns[4]: 'Email'})
+            
+            # query = f'SELECT * FROM Accounts WHERE (ClientID={current_user.ClientID})'
+            # accounts_df = pd.read_sql(text(query), con=engine)
+            # accounts_df = pd.read_sql(db.session.query(Accounts).statement, con=engine.connect())
+            accounts_df = pd.read_sql_table('Accounts', con=engine)
+            accounts_df = accounts_df[accounts_df['ClientID'] == current_user.ClientID]
+            df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName')
+            
+            for index, row in df.iterrows():
+                dct = row.to_dict()
+                lead = Leads(**dct)
+                db.session.add(lead)
+            
+            db.session.commit() 
+            os.remove(filepath)        
+            flash('Import successful.')
+            return redirect(url_for('leads_list'))    
+                
+        except:
+            db.session.rollback()
+            flash('Import failed. Please ensure .csv file is ordered as \
+                follows: Company Name, Position, First Name, Last Name, \
+                    Email')
+            return redirect(url_for('leads_import'))
         
     return render_template('leads_import.html', form=form)
-    
+
+# Clear accounts    
 @app.route('/clear_accounts/')
 @login_required
 def clear_accounts():
@@ -592,6 +638,25 @@ def clear_accounts():
     db.session.commit()
     flash('Accounts list cleared.')
     return redirect(url_for('accounts_list'))
+
+# Clear leads
+@app.route('/clear_leads/')
+@login_required
+def clear_leads():
+    Leads.query.filter_by(ClientID=current_user.ClientID).delete()
+    db.session.commit()
+    flash('Leads list cleared.')
+    return redirect(url_for('leads_list'))
+
+# Clear opportunities
+@app.route('/clear_opportunities/')
+@login_required
+def clear_opportunities():
+    Opportunities.query.filter_by(ClientID=current_user.ClientID).delete()
+    db.session.commit()
+    flash('Opportunities list cleared.')
+    return redirect(url_for('opportunities_list'))
+
 
 # Accounts list    
 @app.route('/accounts/accounts_list/')
@@ -869,6 +934,7 @@ def leads_list():
     except:
         flash('Error loading leads, please try again.')
         return redirect(url_for('leads'))
+    
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
