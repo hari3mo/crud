@@ -80,6 +80,8 @@ class UserUpdateForm(FlaskForm):
 # Admin user update form
 class AdminUpdateForm(FlaskForm):
     email = EmailField('Email:', validators=[Email()])
+    first_name = StringField('First Name:', validators=[DataRequired()])
+    last_name = StringField('Last Name:', validators=[DataRequired()])
     password = PasswordField('New Password:')
     confirm_password = PasswordField('Confirm Password:', 
                                      validators=[EqualTo('password', 

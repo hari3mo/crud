@@ -29,9 +29,9 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
 
 # OpenAI API Client
-# load_dotenv()
-# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-# client = OpenAI(api_key = OPENAI_API_KEY)
+load_dotenv()
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+client = OpenAI(api_key = OPENAI_API_KEY)
 
 # Secret key
 app.config['SECRET_KEY'] = '9b2a012a1a1c425a8c86'
@@ -219,7 +219,7 @@ def user_management():
     if form.validate_on_submit():
         email = Users.query.filter_by(Email=form.email.data).first()
         admin = Admins.query.filter_by(User=form.email.data).first()
-        if email is None and admin is None:
+        if (email is None and admin is None) or (email != current_user.Email):
             if current_user.verify_password(form.password.data):
                 current_user.Email = form.email.data
                 hashed_password = generate_password_hash(form.new_password.data, 'scrypt')
@@ -239,6 +239,7 @@ def user_management():
         else:
             flash('User with specified email already exists.', 'error')
             return redirect(url_for('user_management'))
+        
     for fieldName, errorMessages in form.errors.items():
         for err in errorMessages:
             flash(err, 'error')    
@@ -258,6 +259,8 @@ def update_user(userID):
             flash('Access denied.')
             return redirect(url_for('admin'))
         user.Email = form.email.data
+        user.FirstName = form.first_name.data
+        user.LastName = form.last_name.data
         hashed_password = generate_password_hash(form.password.data, 'scrypt')
         user.PasswordHash = hashed_password
         db.session.commit()
@@ -786,7 +789,7 @@ def analytics():
                                                     assistant_id=assistant.id,
                                                     instructions="Please provide insights on the accounts, useful statistics on aspects of the data, and accounts \
         that could be good potential clients and your reasoning for why. The name of our company is \
-        ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands.")
+        ERP Center, Inc., and we connect companies with SAP software catered to their specific needs and demands. Do not provide source markers in response.")
         if run.status == 'completed': 
             message = client.beta.threads.messages.list(thread_id=thread.id)
             message = json.loads(message.json())

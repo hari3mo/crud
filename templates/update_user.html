@@ -20,6 +20,12 @@
             
             {{ form.email.label(class="form-label") }}
             <p>{{ form.email(class="form-control", value=user.Email) }}</p>
+
+            {{ form.first_name.label(class="form-label") }}
+            <p>{{ form.first_name(class="form-control", value=user.FirstName) }}</p>
+
+            {{ form.last_name.label(class="form-label") }}
+            <p>{{ form.last_name(class="form-control", value=user.LastName) }}</p>
             
             {{ form.password.label(class="form-label" )}}
             <p>{{ form.password(class="form-control") }}</p>
