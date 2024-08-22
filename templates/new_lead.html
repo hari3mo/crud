@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}New Lead{% endblock %}
+
+{% block content %}
+
+
+<a class="btn btn-outline-secondary btn-lg" href="{{ url_for('leads')}}" role="button">Back</a>
+
+<div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h2 class="text-center"><strong>New Lead</strong></h2>
+    <br>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.first_name.label(class="form-label") }}
+        <p>{{ form.first_name(class="form-control") }}</p>
+
+        {{ form.last_name.label(class="form-label" )}}
+        <p>{{ form.last_name(class="form-control") }}</p>
+        
+        {{ form.email.label(class="form-label" )}}
+        <p>{{ form.email(class="form-control") }}</p>
+
+        {{ form.position.label(class="form-label" )}}
+        <p>{{ form.position(class="form-control") }}</p>
+
+        {{ form.company.label(class="form-label" )}}
+        <p>{{ form.company(class="form-control") }}</p>
+
+        {{ form.submit(class="btn btn-primary") }}
+
+    </form>
+</div>
+
+
+
+
+{% endblock %}

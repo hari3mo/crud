@@ -20,8 +20,8 @@ import numpy as np
 
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
-    UserUpdateForm, AccountForm, OpportunityForm, TextForm, AdminUpdateForm,\
-        GenerateForm
+    UserUpdateForm, AccountForm, LeadForm, OpportunityForm, TextForm, \
+        AdminUpdateForm, GenerateForm
 
 app = Flask(__name__) 
 
@@ -98,6 +98,7 @@ class Clients(db.Model):
     # References
     User = db.relationship('Users', backref='Client')
     Account = db.relationship('Accounts', backref='Client')
+    Lead = db.relationship('Leads', backref='Clients')
     Opportunity = db.relationship('Opportunities', backref='Client')
     
 # Accounts model
@@ -116,9 +117,21 @@ class Accounts(db.Model):
     ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
     
     # References
+    Lead = db.relationship('Leads', backref='Account')
     Opportunity = db.relationship('Opportunities', backref='Account')
     
-    
+# Leads model
+class Leads(db.Model):
+    __tablename__ = 'Leads'
+    LeadID = db.Column(db.Integer, primary_key=True)
+    AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID)) # Foreign key to AccountID
+    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
+    Position = db.Column(db.String(75), nullable=False)
+    FirstName = db.Column(db.String(50), nullable=False)
+    LastName = db.Column(db.String(50), nullable=False)
+    Email = db.Column(db.String(50), nullable=False, unique=True)
+    CompanyName =  db.Column(db.String(100), nullable=False)
+
 # Opportunities model    
 class Opportunities(db.Model):
     __tablename__ = 'Opportunities'
@@ -247,10 +260,10 @@ def user_management():
     return render_template('user_management.html', form=form)
 
 # Admin: Update user
-@app.route('/admin/update_user/<int:userID>', methods=['GET', 'POST'])
+@app.route('/admin/update_user/<int:id>', methods=['GET', 'POST'])
 @login_required
-def update_user(userID):
-    user = Users.query.get_or_404(userID)
+def update_user(id):
+    user = Users.query.get_or_404(id)
     form = AdminUpdateForm()
     if form.validate_on_submit():
         admin = None
@@ -271,11 +284,11 @@ def update_user(userID):
 
 
 # Admin: Delete user
-@app.route('/user/delete/<int:userID>')
+@app.route('/user/delete/<int:id>')
 @login_required
-def delete_user(userID):
+def delete_user(id):
     if session['admin']:
-        user = Users.query.get_or_404(userID)
+        user = Users.query.get_or_404(id)
         
         # Admin restriction
         admin = None
@@ -321,7 +334,7 @@ def new_opportunity():
                                         ClientID=current_user.ClientID,
                                         Opportunity=form.opportunity.data,
                                         Value=form.value.data,
-                                        Stage=form.stage.data)
+                                        Stage=form.stage.data )
             db.session.add(opportunity)
             db.session.commit()
             flash('Opportunity added successfully.')
@@ -595,12 +608,14 @@ def accounts_list():
         timezone = request.args.get('timezone')
         if timezone:
             accounts = accounts.filter_by(Timezone=timezone)
-                            
+        
+        accounts = Accounts.query.filter_by(ClientID=current_user.ClientID).order_by(Accounts.AccountID.desc())
+                
         return render_template('accounts_list.html', accounts=accounts,
             countries=countries, industries=industries, types=types, cities=cities,
             timezones=timezones)
     except:
-        flash('Error loading database, please try again.')
+        flash('Error loading accounts, please try again.')
         return redirect(url_for('accounts'))
 
 
@@ -699,7 +714,8 @@ def new_account():
                             CompanyType = form.company_type.data, 
                             Country=form.country.data, 
                             City=form.city.data, 
-                            Timezone=form.timezone.data)
+                            Timezone=form.timezone.data,
+                            ClientID=current_user.ClientID)
             db.session.add(account)
             db.session.commit()
             
@@ -710,6 +726,72 @@ def new_account():
         return redirect('new_account')
            
     return render_template('new_account.html', form=form)
+
+# New lead
+@app.route('/leads/new_lead/', methods=['GET', 'POST'])
+@login_required
+def new_lead():
+    try:
+        form = LeadForm()
+        if form.validate_on_submit():
+            account = None
+            if form.company.data.isnumeric():
+                account = Accounts.query.filter_by(AccountID=form.company.data).first()
+            else:
+                account = Accounts.query.filter_by(CompanyName=form.company.data).first()        
+            
+            if account:
+                accountID = account.AccountID
+                clientID= account.ClientID
+                lead = Leads(AccountID=accountID,
+                            ClientID=clientID,
+                            Position=form.position.data,
+                            FirstName=form.first_name.data,
+                            LastName=form.last_name.data,
+                            Email=form.email.data,
+                            CompanyName=account.CompanyName)
+                
+                db.session.add(lead)
+                db.session.commit()
+                flash('Lead added successfully.')
+                return redirect(url_for('leads_list'))
+            else:
+                flash('Account not found.')
+                return redirect(url_for('new_lead'))
+    except:
+        return redirect('new_lead')
+           
+    return render_template('new_lead.html', form=form)
+
+# Leads list    
+@app.route('/leads/leads_list/')
+@login_required
+def leads_list():
+    try:
+        leads = None
+        leads = Leads.query.filter_by(ClientID=current_user.ClientID)\
+            .order_by(Leads.LeadID.desc())                   
+        return render_template('leads_list.html', leads=leads)
+    except:
+        flash('Error loading leads, please try again.')
+        return redirect(url_for('leads'))
+
+# Update lead    
+@app.route('/leads/<int:id>', methods=['GET', 'POST'])
+@login_required
+def account(leadID):
+    form = AccountForm()
+    lead = Accounts.query.get_or_404(id)
+    if form.validate_on_submit():
+        try:
+            db.session.commit()
+            flash('Lead updated successfully.')
+            return redirect(url_for('leads_list'))
+        except:
+            flash('Lead update failed.')
+            return render_template('lead.html', form=form, lead=lead)
+        
+    return render_template('lead.html', form=form, lead=lead, id=id)
 
 # Invalid URL
 @app.errorhandler(404)

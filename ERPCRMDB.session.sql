@@ -7,6 +7,7 @@ ADD PRIMARY KEY (AccountID)
 -- Leads --
 ALTER TABLE Leads
 ADD PRIMARY KEY (LeadID),
+MODIFY LeadID INT AUTO_INCREMENT,
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID)
 
@@ -66,3 +67,6 @@ ADD PRIMARY KEY (LeadID)
 UPDATE Users
 SET FirstName = 'Haris', LastName = 'Saif'
 WHERE (Email='haris.saif@erp-center.com')
+
+--@block
+DELETE FROM Opportunities

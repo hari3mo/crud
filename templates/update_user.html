@@ -12,7 +12,7 @@
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
         <h2 class="text-center"><strong>Manage User</strong></h2> 
         <br>
-        <form action="{{ url_for('update_user', userID=user.UserID)}}" method="POST">
+        <form action="{{ url_for('update_user', id=user.UserID)}}" method="POST">
            
             {{ form.hidden_tag() }}
 
@@ -39,7 +39,7 @@
             {{ form.submit(class="btn btn-primary", value="Update") }}
 
             <a href="{{ url_for('admin') }}" class="btn btn-secondary" style="float: center;">Discard</a>
-            <a href="{{ url_for('delete_user', userID=user.UserID) }}" class="btn btn-danger" style="float: center;">Delete</a>
+            <a href="{{ url_for('delete_user', id=user.UserID) }}" class="btn btn-danger" style="float: center;">Delete</a>
             </form>
 
         </form>

@@ -164,7 +164,7 @@ LeadID,AccountID,Position,First Name,Last Name,Email,CompanyName
 101620,6190,Chief Information and Digital Officer,Vinil,Devabhaktuni,vinil.devabhaktuni@iehp.org,IEHP
 101630,6190,IT Strategic Programs Director,Malena,Cabrera,malena.cabrera@iehp.org,IEHP
 101640,6190,Director- Technology,Jose,Lopez,jose.lopez@iehp.org,IEHP
-101650,4210,"Director of Technical Services",Steve,Hickle,steve.hickle@druryhotels.com,Drury Hotels
+101650,4210,Director of Technical Services,Steve,Hickle,steve.hickle@druryhotels.com,Drury Hotels
 101660,4210,Director of IT Operations,Kim,Spear,kim@druryhotels.com,Drury Hotels
 101670,11320,Senior Vice President Information Technology,Nick,Spann,nick.spann@hillmangroup.com,The Hillman Group
 101680,11320,Sr IT Director Enterprise Applications,Kirk,Townsley,kirk.townsley@hillmangroup.com,The Hillman Group
@@ -174,7 +174,7 @@ LeadID,AccountID,Position,First Name,Last Name,Email,CompanyName
 101720,11510,Vice President of Information Systems,Jason,Platts,jason.platts@transystems.com,TranSystems
 101730,10670,Chief Technology Officer,Christian,Martins,christian.martins@standardaero.com,StandardAero
 101740,10670,Sr. IT Director,Etel,Ergun-Avimelek,etel.ergunavimelek@standardaero.com,StandardAero
-101750,8610,"Director - Information Technology",Ramkumar,Appahji,rappahji@oakley.com,Oakley
+101750,8610,Director - Information Technology,Ramkumar,Appahji,rappahji@oakley.com,Oakley
 101760,2470,Sr. Director of Enterprise Systems,Vince,Notarantonio,vince.notarantonio@bartonmalow.com,Barton Malow
 101770,5970,IT Director - Solution Architecture,Alonzo,Burns,alonzo.burns@hilti.com,Hilti North America
 101780,5970,Solutions Director,Julie,Sherman,julie.sherman@hilti.com,Hilti North America
@@ -256,7 +256,7 @@ LeadID,AccountID,Position,First Name,Last Name,Email,CompanyName
 102540,6770,"VP, Information Technology",Matt,Butcher,bm@karlstorz.com,KARL STORZ United States
 102550,6770,Global Information Technology Director,Torsten,Brzezinski,tbrzezinski@karlstorz.com,KARL STORZ United States
 102560,6770,Global IT Leadership,Niranjan,Holay,niranjan.holay@karlstorz.com,KARL STORZ United States
-102570,6770,"Director Of Technical Services",Cynthia,Garcia,cgarcia@karlstorz.com,KARL STORZ United States
+102570,6770,Director Of Technical Services,Cynthia,Garcia,cgarcia@karlstorz.com,KARL STORZ United States
 102580,4770,Director of Technology and Innovation,Richard,Joshi,richard.joshi@evoqua.com,Evoqua Water Technologies
 102590,4770,Head of Technology and Applications,Xiangyi,Qiao,xiangyi.qiao@evoqua.com,Evoqua Water Technologies
 102600,9030,Chief Information Officer,Gary,Fling,gary.fling@pahc.com,Phibro Animal Health
@@ -304,7 +304,7 @@ LeadID,AccountID,Position,First Name,Last Name,Email,CompanyName
 103020,7610,IT Infrastructure Manager,Taylor,Moore,taylor.moore@mauijim.com,Maui Jim Sunglasses
 103030,7610,Systems Administrator,Sam,Sonnenberg,sam.sonnenberg@mauijim.com,Maui Jim Sunglasses
 103040,3550,Director of Infrastructure and Operations,John,Jupa,jjupa@compositesone.com,Composites One
-103050,3550,"Director of IT",Kevin,McDaniel,kevin.mcdaniel@compositesone.com,Composites One
+103050,3550,Director of IT,Kevin,McDaniel,kevin.mcdaniel@compositesone.com,Composites One
 103060,10010,Director of Data Solutions,George,Carens,george.carens@samsungads.com,Samsung Ads
 103070,10010,Information Technology Manager,Dnyaneshwar,Gadekarpatil,dnyaneshwar@samsungads.com,Samsung Ads
 103080,4820,Senior Director of Information Technology,Stephen,June,sjune@fgxi.com,FGX International
@@ -347,125 +347,125 @@ LeadID,AccountID,Position,First Name,Last Name,Email,CompanyName
 103450,10230,Director of Information Technology,Joshua,Forgette,jforgette@schluter.com,Schluter Systems
 103460,10230,Director of IT North America,Susan,Maloney,smaloney@schluter.com,Schluter Systems
 103470,12240,IT Team Lead,Joseph,Willett,joseph.willett@webasto.com,Webasto Americas
-103480,12540,Director Global Information Security,Kevin,Sullivan,kevin.sullivan@zimvie.com,ZimVie Dental
-103490,12540,Head of IT,Markus,Schmidtgall,markus.schmidtgall@zimvie.com,ZimVie Dental
-103500,4090,Executive Director Infrastructure,Paul,Pring,ppring@dgda.gov.sa,Diriyah Gate Development Authority
-103510,4090,Infrastructure Director,John,Rodgers,jrodgers@dgda.gov.sa,Diriyah Gate Development Authority
-103520,1560,IT Director,Patrick,Laud,pkrupper@aldridgegroup.com,Aldridge Electric
-103530,1560,Systems Administrator,Nat,Thongchai,nthongchai@aldridgegroup.com,Aldridge Electric
-103540,10330,IT Director,Jasim,AlAbdouli,j.alabdouli@shjcoop.ae,Sharjah Coop
-103550,12170,Senior Director Information Technology,Federico,Conde,federico.conde@unleashingourpotential.com,WK Kellogg Co
-103560,12170,"Senior Vice President, Chief Information Officer",Bill,Rex,bill.rex@unleashingourpotential.com,WK Kellogg Co
-103570,12170,Director IT,Shao,Lee,shao.yu@unleashingourpotential.com,WK Kellogg Co
-103580,12170,IT Director,Vipul,Lad,vipul.lad@unleashingourpotential.com,WK Kellogg Co
-103590,12170,"IT Director, Infrastructure and Cloud",Carlos,Perales,carlos@unleashingourpotential.com,WK Kellogg Co
-103600,1360,Chief Information Officer,Radha,Chavali,rchavali@affinityplus.org,Affinity Plus Federal Credit Union
-103610,1360,Sr Application Administrator,DeVonna,Scheuffele,devonna.scheuffele@affinityplus.org,Affinity Plus Federal Credit Union
-103620,1360,IT Application Administrator,Niki,Thornton,niki.thornton@affinityplus.org,Affinity Plus Federal Credit Union
-103630,1360,IT Application Administrator,Steve,Kelly,skelly@affinityplus.org,Affinity Plus Federal Credit Union
-103640,12070,VP Chief Information Security Officer,Mike,Hamilton,mhamilton@vicorpower.com,Vicor Corporation
-103650,12510,Director Of Information Technology,Jerry,Baum,jerry.baum@zekelman.com,Zekelman Industries
-103660,12510,Vice President Information Technology,William,Kempert,william.kempert@zekelman.com,Zekelman Industries
-103670,12510,Director of Applications,Ketul,Patel,ketul.patel@zekelman.com,Zekelman Industries
-103680,12510,IT Technical Director,Zenon,Rykala,zenon.rykala@zekelman.com,Zekelman Industries
-103690,2450,Head of Information Technology,Toufic,Shbib,shbibt@bankmed.com.lb,Bankmed
-103700,2450,Head of Infrastructure,Omar,Mashaka,mashakao@bankmed.com.lb,Bankmed
-103710,5180,Director Of Information Technology,Daniel,Sadowski,daniel.sadowski@g3enterprises.com,G3 Enterprises
-103720,5180,Senior Manager - Cloud Architecture,Mahesh,Pakala,mahesh@g3enterprises.com,G3 Enterprises
-103730,5840,IT Manager,William,Xie,william@heatcraftrpd.com,Heatcraft Worldwide Refrigeration
-103740,9930,Information System Manager,Amadou,Diakite,adiakite@strata.ae,STRATA Manufacturing PJSC
-103750,11370,Chief Information Officer,Matt,Reynolds,matt.reynolds@marvingroup.com,The Marvin Group
-103760,11370,System Administrator,Mike,Hershewe,mhershewe@marvingroup.com,The Marvin Group
-103770,11370,IT Technician / Network Admin,Christian,Saavedra,christian@marvingroup.com,The Marvin Group
-103780,4960,Sr. Director of IT,Hetal,Patel,hetal.patel@primetherapeutics.com,First Midwest Bank
-103790,4960,IT Sr. System Engineer ,Mike,Macikanycz,mike.macikanycz@oldnational.com,First Midwest Bank
-103800,10480,Chief Information Officer,Kristi,Sterling,s@snopud.com,Snohomish County PUD
-103810,11740,Vice President of Technology,Ganesh,Sundaram,ganesh.sundaram@veeco.com,Ultratech - a Division of Veeco
-103820,11740,"Vice President, Applications",Warren,Flack,warren@veeco.com,Ultratech - a Division of Veeco
-103830,11740,Technical Director,Koichiro,Kawamura,kkawamura@veeco.com,Ultratech - a Division of Veeco
-103840,8090,"VP, Chief Information Officer",Cody,Huffines,cody@nibco.com,NIBCO INC.
-103850,11030,Vice President IT & CIO,Bruce,Schinelli,bruce.schinelli@ttx.com,TTX Company
-103860,11030,Director - IT Infrastructure,Monica,Malkowski,monica.malkowski@ttx.com,TTX Company
-103870,11030,Director Business Systems,Kyle,Lowry,kyle@ttx.com,TTX Company
-103880,9610,IT Project Coordinator,Manvi,Gupta,manvi.gupta@rizing.com,Rizing Enterprise Asset Management
-103890,1830,Chief Information Officer,Javed,Syed,syed@amrelisteels.com,Amreli Steels Limited
-103900,1830,Information Technology Officer,Maaz,Yousif,maaz.yousuf@amrelisteels.com,Amreli Steels Limited
-103910,1830,Executive IT,Zohaib,Sheikh,zohaib@amrelisteels.com,Amreli Steels Limited
-103920,1830,Sr. Sap Coordinator,Muhammad,Akhtar,muhammad@amrelisteels.com,Amreli Steels Limited
-103930,3480,"Sr. Director, IT Infrastructure",Ross,Atwood,ross.atwood@coeur.com,"Coeur Mining, Inc."
-103940,3480,"Senior Director, Technical Services",Christopher,Pascoe,cpascoe@coeur.com,"Coeur Mining, Inc."
-103950,3480,IT Business Intelligence Manager,Luis,Chavez,luis.chavez@coeur.com,"Coeur Mining, Inc."
-103960,3480,Senior Information Technology Business Analyst,Gisel,Mendoza,gisel.mendoza@coeur.com,"Coeur Mining, Inc."
-103970,3480,Information Technology Supervisor,Ben,Ruel,ben.ruel@coeur.com,"Coeur Mining, Inc."
-103980,1550,Corporate IT Manager,Manoj,Bhatnagar,manojbhatnagar@alaincoop.com,Alaincoop
-103990,3400,"Manager, Global IT Infrastructure",Jason,Crichton,jason.crichton@civeo.com,Civeo North America
-104000,11440,Director Of Operations,Theresa,Lanzi,tlanzi@pacificbells.com,Toms King
-104010,9650,Chief Information Officer,Michael,Schubach,michael.schubach@rosenhotels.com,Rosen Hotels & Resorts
-104020,9650,Director of Technology,Jeff,Hatcher,jhatcher@mtg-fl.com,Rosen Hotels & Resorts
-104030,10570,Chief Technology Innovation Officer,Joseph,Guevara,joseph.guevara@sophossolutions.com,Sophos Solutions
-104040,2670,Sr Director for Information Technology,Scott,Vickland,scottv@blumont.org,"Blumont, Inc."
-104050,2670,Senior IT Officer,Hiba,Zangana,hibaz@blumont.org,"Blumont, Inc."
-104060,2670,Infrastructure Manager,Azizullah,Samoon,azizullah.samoon@blumont.org,"Blumont, Inc."
-104070,2670,IT Officer,Ahmed,Ahmed,ahmeda@blumont.org,"Blumont, Inc."
-104080,6620,Vice President of Information Technology,Rozencweig,Rafi,rozencweig.rafi@towersemi.com,Jazz Semiconductor
-104090,6620,"Vice President, Corporate Development",Andy,Chan,andy.chan@towerjazz.com,Jazz Semiconductor
-104100,1300,Director of Information Technology,Saud,Alotaibi,a.s@advancedpetrochem.com,Advanced Petrochemical Company
-104110,1300,Sr. Network Administrator,Anwar,Ghamdi,anwar.ghamdi@advancedpetrochem.com,Advanced Petrochemical Company
-104120,11570,Enterprise System Architect,Erin,Filbert,erin@tfewines.com,Trinchero Family Estates
-104130,11570,"Senior Director, IT Infrastructure",Jermey,Mostafanejad,jmostafanejad@tfewines.com,Trinchero Family Estates
-104140,11570,IT Director,Brandon,Groves,brandon.groves@tfewines.com,Trinchero Family Estates
-104150,10250,IT Manager,Michael,Guthrie,michael.guthrie@seaboardtriumphfoods.com,Seaboard Triumph Foods
-104160,9130,Head Of Information Technology,Malik,Awan,mshahzad@powerholding-intl.com,Power International Holding
-104170,9130,Group IT Infrastructure,Ganesh,Vaniyan,ganesh@powerholding-intl.com,Power International Holding
-104180,1500,Group Chief Technology Officer,Hilmi,Rifai,hilmi@alrostamanigroup.ae,Al Rostamani Group
-104190,1500,Group Chief Information Officer,Wael,Abdel-Qader,wael.abdelqader@alrostamanigroup.ae,Al Rostamani Group
-104200,1500,IT Manager Data Center & Infrastructure,Mohammed,Ansari,mohammedaqel@alrostamanigroup.ae,Al Rostamani Group
-104210,11420,Corporate Director of Technology,Corporate,Burgoa,m.burgoa@titanamerica.com,Titan America
-104220,11420,Vice President of Information Technology,Brian,Whitley,bwhitley@titanamerica.com,Titan America
-104230,11420,Technical Director,Sooduck,Hwang,sooduck.hwang@titanamerica.com,Titan America
-104240,11420,Director Infrastructure Services,Todd,Fifield,tfifield@titanamerica.com,Titan America
-104250,7320,SAP Solution Architect,Ramanjaneyulu,M,ramanjaneyulu@liveareacx.com,"LiveArea, a Merkle Company"
-104260,10780,Director of IT Operations,Jeffrey,Naudi,jeffrey.naudi@sunoutdoors.com,Sun Communities & Sun Outdoors
-104270,10780,"SVP, Information Techology",Jim,Higgins,jim.higgins@sunoutdoors.com,Sun Communities & Sun Outdoors
-104280,5950,Director of Information Technology,Krista,Chilcoat,kchilcoat@hillyard.com,"Hillyard, Inc."
-104290,5950,Information Technology,Bill,Grimwood,bill.grimwood@hillyard.com,"Hillyard, Inc."
-104300,5950,Technical Service Director,Eric,Meadows,emeadows@hillyard.com,"Hillyard, Inc."
-104310,2330,Vice President- Technology,Edward,Cole,cole.lafferty@bostonscientific.com,BTG plc
-104320,9430,"Director, Data Services and IT Operations",Maulin,Patel,mpatel@redbox.com,Redbox Entertainment Inc.
-104330,12460,"Director, Technology Engineering",Blaine,Weller,blaine.weller@xerxes.com,Xerxes
-104340,6450,IT Infrastructure Technologist,Emmanuel,Pamilaran,emmanuel.pamilaran@ivoclar.com,Ivoclar NA
-104350,9870,"Sr. Director IT,",Umang,Jokhaker,umang.jokhaker@stengg.us,ST Engineering North America
-104360,10470,Vice President of Global IT Infrastructure and Operations,David,Aseltine,david.aseltine@sloan.com,Sloan
-104370,10470,Director Enterprise Applications,Narayana,Kakarla,narayana.kakarla@sloan.com,Sloan
-104380,10470,"Sr Manager, IT Resource",Dan,Arlt,dan@sloan.com,Sloan
-104390,6020,Chief Technology Officer,Darren,Ramsey,darren.ramsey@holstonmedicalgroup.com,Holston Medical Group
-104400,8880,Vice President Of Development,Gary,King,gary.king@paramount.com,Paramount Television Studios
-104410,8880,Technical Director,Melissa,Kroek,melissa@paramount.com,Paramount Television Studios
-104420,8690,Director IT Infrastructure & CISO,Valon,Hoxha,valon.hoxha@orioncarbons.com,Orion S.A.
-104430,8690,Chief Information Officer,Benjamin,Scherer,benjamin.scherer@orioncarbons.com,Orion S.A.
-104440,8690,Head of Technology,Jens,Geppert,jens@orioncarbons.com,Orion S.A.
-104450,12330,Chief Information Officer,Keith,Herndon,keith.herndon@westernmidstream.com,Western Midstream
-104460,12330,"Vice President, Corporate Development",Jonathan,Greenberg,jonathan.greenberg@westernmidstream.com,Western Midstream
-104470,11820,VP Digital Operations,Douglas,Taylor,douglas@nextierofs.com,"Universal Pressure Pumping, Inc."
-104480,11630,Assistant IT Director,Nicholas,Lotts,nicholas.lotts@uc.edu,UC James L. Winkle College of Pharmacy
-104490,5210,Information Technology Administrator,Olivia,Kim,olivia.kim@genewiz.com,GENEWIZ from Azenta Life Sciences
-104500,5440,Information Technology Manager,Jason,Kosal,jason@gestamp.com,Gestamp North America
-104510,5440,IT Director US,Javier,Zabalza,javier@gestamp.com,Gestamp North America
-104520,5440,US Region IT Director,Ignacio,Venturini,ignacio@gestamp.com,Gestamp North America
-104530,4230,"Vice President, Digital Solutions & Development",Kenneth,Yeung,kyeung@dunnsolutions.com,"Dunn Solutions, a KaarTech Company"
-104540,4230,Associate Director,Gururaja,R,gr@dunnsolutions.com,"Dunn Solutions, a KaarTech Company"
-104550,7330,Vice President Operations,James,Hester,jhester@lonestar-llc.com,Lone Star Transportation
-104560,4040,Systems Administrator,Troy,Frazier,troy.frazier@exxonmobil.com,Denbury Inc.
-104570,4040,SAP EAM Master Data Manager,Jesse,Greene,jesse@denbury.com,Denbury Inc.
-104580,4040,Sr. Systems Administrator / Infrastructure Manager,Kurt,Westenhoefer,kurt@exxonmobil.com,Denbury Inc.
-104590,4040,SAP Applications Manager,Bin,Wang,bin.wang@denbury.com,Denbury Inc.
-104600,4040,SAP Technical Manager,Shamim,Ibrahim,shamim.ibrahim@denbury.com,Denbury Inc.
-104610,9660,Senior Network Administrator,Glenys,Pina,gpina@rkco.com,Rothstein Kass
-104620,9290,Senior Infrastructure Engineer/Cloud Engineer,Todd,Meyers,todd.meyers@rcis.com,RCIS: Rural Community Insurance Services
-104630,7380,Chief Information Officer,Daniel,Bourquin,daniel.bourquin@mecinc.com,"MEC (Mayville Engineering Company, Inc.)"
-104640,1020,Network Operations Manager,Ken,Roberts,k.roberts@aafintl.com,AAF International (American Air Filter)
-104650,1020,IT Manager,Deepak,Chandra,dchandra@aafintl.com,AAF International (American Air Filter)
-104660,12240,Information Technology Team Lead,Joseph,Willett,joseph.willett@webasto.com,Webasto Americas
+103480,12240,Information Technology Team Lead,Joseph,Willett,joseph.willett@webasto.com,Webasto Americas
+103490,12540,Director Global Information Security,Kevin,Sullivan,kevin.sullivan@zimvie.com,ZimVie Dental
+103500,12540,Head of IT,Markus,Schmidtgall,markus.schmidtgall@zimvie.com,ZimVie Dental
+103510,4090,Executive Director Infrastructure,Paul,Pring,ppring@dgda.gov.sa,Diriyah Gate Development Authority
+103520,4090,Infrastructure Director,John,Rodgers,jrodgers@dgda.gov.sa,Diriyah Gate Development Authority
+103530,1560,IT Director,Patrick,Laud,pkrupper@aldridgegroup.com,Aldridge Electric
+103540,1560,Systems Administrator,Nat,Thongchai,nthongchai@aldridgegroup.com,Aldridge Electric
+103550,10330,IT Director,Jasim,AlAbdouli,j.alabdouli@shjcoop.ae,Sharjah Coop
+103560,12170,Senior Director Information Technology,Federico,Conde,federico.conde@unleashingourpotential.com,WK Kellogg Co
+103570,12170,"Senior Vice President, Chief Information Officer",Bill,Rex,bill.rex@unleashingourpotential.com,WK Kellogg Co
+103580,12170,Director IT,Shao,Lee,shao.yu@unleashingourpotential.com,WK Kellogg Co
+103590,12170,IT Director,Vipul,Lad,vipul.lad@unleashingourpotential.com,WK Kellogg Co
+103600,12170,"IT Director, Infrastructure and Cloud",Carlos,Perales,carlos@unleashingourpotential.com,WK Kellogg Co
+103610,1360,Chief Information Officer,Radha,Chavali,rchavali@affinityplus.org,Affinity Plus Federal Credit Union
+103620,1360,Sr Application Administrator,DeVonna,Scheuffele,devonna.scheuffele@affinityplus.org,Affinity Plus Federal Credit Union
+103630,1360,IT Application Administrator,Niki,Thornton,niki.thornton@affinityplus.org,Affinity Plus Federal Credit Union
+103640,1360,IT Application Administrator,Steve,Kelly,skelly@affinityplus.org,Affinity Plus Federal Credit Union
+103650,12070,VP Chief Information Security Officer,Mike,Hamilton,mhamilton@vicorpower.com,Vicor Corporation
+103660,12510,Director Of Information Technology,Jerry,Baum,jerry.baum@zekelman.com,Zekelman Industries
+103670,12510,Vice President Information Technology,William,Kempert,william.kempert@zekelman.com,Zekelman Industries
+103680,12510,Director of Applications,Ketul,Patel,ketul.patel@zekelman.com,Zekelman Industries
+103690,12510,IT Technical Director,Zenon,Rykala,zenon.rykala@zekelman.com,Zekelman Industries
+103700,2450,Head of Information Technology,Toufic,Shbib,shbibt@bankmed.com.lb,Bankmed
+103710,2450,Head of Infrastructure,Omar,Mashaka,mashakao@bankmed.com.lb,Bankmed
+103720,5180,Director Of Information Technology,Daniel,Sadowski,daniel.sadowski@g3enterprises.com,G3 Enterprises
+103730,5180,Senior Manager - Cloud Architecture,Mahesh,Pakala,mahesh@g3enterprises.com,G3 Enterprises
+103740,5840,IT Manager,William,Xie,william@heatcraftrpd.com,Heatcraft Worldwide Refrigeration
+103750,9930,Information System Manager,Amadou,Diakite,adiakite@strata.ae,STRATA Manufacturing PJSC
+103760,11370,Chief Information Officer,Matt,Reynolds,matt.reynolds@marvingroup.com,The Marvin Group
+103770,11370,System Administrator,Mike,Hershewe,mhershewe@marvingroup.com,The Marvin Group
+103780,11370,IT Technician / Network Admin,Christian,Saavedra,christian@marvingroup.com,The Marvin Group
+103790,4960,Sr. Director of IT,Hetal,Patel,hetal.patel@primetherapeutics.com,First Midwest Bank
+103800,4960,IT Sr. System Engineer ,Mike,Macikanycz,mike.macikanycz@oldnational.com,First Midwest Bank
+103810,10480,Chief Information Officer,Kristi,Sterling,s@snopud.com,Snohomish County PUD
+103820,11740,Vice President of Technology,Ganesh,Sundaram,ganesh.sundaram@veeco.com,Ultratech - a Division of Veeco
+103830,11740,"Vice President, Applications",Warren,Flack,warren@veeco.com,Ultratech - a Division of Veeco
+103840,11740,Technical Director,Koichiro,Kawamura,kkawamura@veeco.com,Ultratech - a Division of Veeco
+103850,8090,"VP, Chief Information Officer",Cody,Huffines,cody@nibco.com,NIBCO INC.
+103860,11030,Vice President IT & CIO,Bruce,Schinelli,bruce.schinelli@ttx.com,TTX Company
+103870,11030,Director - IT Infrastructure,Monica,Malkowski,monica.malkowski@ttx.com,TTX Company
+103880,11030,Director Business Systems,Kyle,Lowry,kyle@ttx.com,TTX Company
+103890,9610,IT Project Coordinator,Manvi,Gupta,manvi.gupta@rizing.com,Rizing Enterprise Asset Management
+103900,1830,Chief Information Officer,Javed,Syed,syed@amrelisteels.com,Amreli Steels Limited
+103910,1830,Information Technology Officer,Maaz,Yousif,maaz.yousuf@amrelisteels.com,Amreli Steels Limited
+103920,1830,Executive IT,Zohaib,Sheikh,zohaib@amrelisteels.com,Amreli Steels Limited
+103930,1830,Sr. Sap Coordinator,Muhammad,Akhtar,muhammad@amrelisteels.com,Amreli Steels Limited
+103940,3480,"Sr. Director, IT Infrastructure",Ross,Atwood,ross.atwood@coeur.com,"Coeur Mining, Inc."
+103950,3480,"Senior Director, Technical Services",Christopher,Pascoe,cpascoe@coeur.com,"Coeur Mining, Inc."
+103960,3480,IT Business Intelligence Manager,Luis,Chavez,luis.chavez@coeur.com,"Coeur Mining, Inc."
+103970,3480,Senior Information Technology Business Analyst,Gisel,Mendoza,gisel.mendoza@coeur.com,"Coeur Mining, Inc."
+103980,3480,Information Technology Supervisor,Ben,Ruel,ben.ruel@coeur.com,"Coeur Mining, Inc."
+103990,1550,Corporate IT Manager,Manoj,Bhatnagar,manojbhatnagar@alaincoop.com,Alaincoop
+104000,3400,"Manager, Global IT Infrastructure",Jason,Crichton,jason.crichton@civeo.com,Civeo North America
+104010,11440,Director Of Operations,Theresa,Lanzi,tlanzi@pacificbells.com,Toms King
+104020,9650,Chief Information Officer,Michael,Schubach,michael.schubach@rosenhotels.com,Rosen Hotels & Resorts
+104030,9650,Director of Technology,Jeff,Hatcher,jhatcher@mtg-fl.com,Rosen Hotels & Resorts
+104040,10570,Chief Technology Innovation Officer,Joseph,Guevara,joseph.guevara@sophossolutions.com,Sophos Solutions
+104050,2670,Sr Director for Information Technology,Scott,Vickland,scottv@blumont.org,"Blumont, Inc."
+104060,2670,Senior IT Officer,Hiba,Zangana,hibaz@blumont.org,"Blumont, Inc."
+104070,2670,Infrastructure Manager,Azizullah,Samoon,azizullah.samoon@blumont.org,"Blumont, Inc."
+104080,2670,IT Officer,Ahmed,Ahmed,ahmeda@blumont.org,"Blumont, Inc."
+104090,6620,Vice President of Information Technology,Rozencweig,Rafi,rozencweig.rafi@towersemi.com,Jazz Semiconductor
+104100,6620,"Vice President, Corporate Development",Andy,Chan,andy.chan@towerjazz.com,Jazz Semiconductor
+104110,1300,Director of Information Technology,Saud,Alotaibi,a.s@advancedpetrochem.com,Advanced Petrochemical Company
+104120,1300,Sr. Network Administrator,Anwar,Ghamdi,anwar.ghamdi@advancedpetrochem.com,Advanced Petrochemical Company
+104130,11570,Enterprise System Architect,Erin,Filbert,erin@tfewines.com,Trinchero Family Estates
+104140,11570,"Senior Director, IT Infrastructure",Jermey,Mostafanejad,jmostafanejad@tfewines.com,Trinchero Family Estates
+104150,11570,IT Director,Brandon,Groves,brandon.groves@tfewines.com,Trinchero Family Estates
+104160,10250,IT Manager,Michael,Guthrie,michael.guthrie@seaboardtriumphfoods.com,Seaboard Triumph Foods
+104170,9130,Head Of Information Technology,Malik,Awan,mshahzad@powerholding-intl.com,Power International Holding
+104180,9130,Group IT Infrastructure,Ganesh,Vaniyan,ganesh@powerholding-intl.com,Power International Holding
+104190,1500,Group Chief Technology Officer,Hilmi,Rifai,hilmi@alrostamanigroup.ae,Al Rostamani Group
+104200,1500,Group Chief Information Officer,Wael,Abdel-Qader,wael.abdelqader@alrostamanigroup.ae,Al Rostamani Group
+104210,1500,IT Manager Data Center & Infrastructure,Mohammed,Ansari,mohammedaqel@alrostamanigroup.ae,Al Rostamani Group
+104220,11420,Corporate Director of Technology,Corporate,Burgoa,m.burgoa@titanamerica.com,Titan America
+104230,11420,Vice President of Information Technology,Brian,Whitley,bwhitley@titanamerica.com,Titan America
+104240,11420,Technical Director,Sooduck,Hwang,sooduck.hwang@titanamerica.com,Titan America
+104250,11420,Director Infrastructure Services,Todd,Fifield,tfifield@titanamerica.com,Titan America
+104260,7320,SAP Solution Architect,Ramanjaneyulu,M,ramanjaneyulu@liveareacx.com,"LiveArea, a Merkle Company"
+104270,10780,Director of IT Operations,Jeffrey,Naudi,jeffrey.naudi@sunoutdoors.com,Sun Communities & Sun Outdoors
+104280,10780,"SVP, Information Techology",Jim,Higgins,jim.higgins@sunoutdoors.com,Sun Communities & Sun Outdoors
+104290,5950,Director of Information Technology,Krista,Chilcoat,kchilcoat@hillyard.com,"Hillyard, Inc."
+104300,5950,Information Technology,Bill,Grimwood,bill.grimwood@hillyard.com,"Hillyard, Inc."
+104310,5950,Technical Service Director,Eric,Meadows,emeadows@hillyard.com,"Hillyard, Inc."
+104320,2330,Vice President- Technology,Edward,Cole,cole.lafferty@bostonscientific.com,BTG plc
+104330,9430,"Director, Data Services and IT Operations",Maulin,Patel,mpatel@redbox.com,Redbox Entertainment Inc.
+104340,12460,"Director, Technology Engineering",Blaine,Weller,blaine.weller@xerxes.com,Xerxes
+104350,6450,IT Infrastructure Technologist,Emmanuel,Pamilaran,emmanuel.pamilaran@ivoclar.com,Ivoclar NA
+104360,9870,"Sr. Director IT,",Umang,Jokhaker,umang.jokhaker@stengg.us,ST Engineering North America
+104370,10470,Vice President of Global IT Infrastructure and Operations,David,Aseltine,david.aseltine@sloan.com,Sloan
+104380,10470,Director Enterprise Applications,Narayana,Kakarla,narayana.kakarla@sloan.com,Sloan
+104390,10470,"Sr Manager, IT Resource",Dan,Arlt,dan@sloan.com,Sloan
+104400,6020,Chief Technology Officer,Darren,Ramsey,darren.ramsey@holstonmedicalgroup.com,Holston Medical Group
+104410,8880,Vice President Of Development,Gary,King,gary.king@paramount.com,Paramount Television Studios
+104420,8880,Technical Director,Melissa,Kroek,melissa@paramount.com,Paramount Television Studios
+104430,8690,Director IT Infrastructure & CISO,Valon,Hoxha,valon.hoxha@orioncarbons.com,Orion S.A.
+104440,8690,Chief Information Officer,Benjamin,Scherer,benjamin.scherer@orioncarbons.com,Orion S.A.
+104450,8690,Head of Technology,Jens,Geppert,jens@orioncarbons.com,Orion S.A.
+104460,12330,Chief Information Officer,Keith,Herndon,keith.herndon@westernmidstream.com,Western Midstream
+104470,12330,"Vice President, Corporate Development",Jonathan,Greenberg,jonathan.greenberg@westernmidstream.com,Western Midstream
+104480,11820,VP Digital Operations,Douglas,Taylor,douglas@nextierofs.com,"Universal Pressure Pumping, Inc."
+104490,11630,Assistant IT Director,Nicholas,Lotts,nicholas.lotts@uc.edu,UC James L. Winkle College of Pharmacy
+104500,5210,Information Technology Administrator,Olivia,Kim,olivia.kim@genewiz.com,GENEWIZ from Azenta Life Sciences
+104510,5440,Information Technology Manager,Jason,Kosal,jason@gestamp.com,Gestamp North America
+104520,5440,IT Director US,Javier,Zabalza,javier@gestamp.com,Gestamp North America
+104530,5440,US Region IT Director,Ignacio,Venturini,ignacio@gestamp.com,Gestamp North America
+104540,4230,"Vice President, Digital Solutions & Development",Kenneth,Yeung,kyeung@dunnsolutions.com,"Dunn Solutions, a KaarTech Company"
+104550,4230,Associate Director,Gururaja,R,gr@dunnsolutions.com,"Dunn Solutions, a KaarTech Company"
+104560,7330,Vice President Operations,James,Hester,jhester@lonestar-llc.com,Lone Star Transportation
+104570,4040,Systems Administrator,Troy,Frazier,troy.frazier@exxonmobil.com,Denbury Inc.
+104580,4040,SAP EAM Master Data Manager,Jesse,Greene,jesse@denbury.com,Denbury Inc.
+104590,4040,Sr. Systems Administrator / Infrastructure Manager,Kurt,Westenhoefer,kurt@exxonmobil.com,Denbury Inc.
+104600,4040,SAP Applications Manager,Bin,Wang,bin.wang@denbury.com,Denbury Inc.
+104610,4040,SAP Technical Manager,Shamim,Ibrahim,shamim.ibrahim@denbury.com,Denbury Inc.
+104620,9660,Senior Network Administrator,Glenys,Pina,gpina@rkco.com,Rothstein Kass
+104630,9290,Senior Infrastructure Engineer/Cloud Engineer,Todd,Meyers,todd.meyers@rcis.com,RCIS: Rural Community Insurance Services
+104640,7380,Chief Information Officer,Daniel,Bourquin,daniel.bourquin@mecinc.com,"MEC (Mayville Engineering Company, Inc.)"
+104650,1020,Network Operations Manager,Ken,Roberts,k.roberts@aafintl.com,AAF International (American Air Filter)
+104660,1020,IT Manager,Deepak,Chandra,dchandra@aafintl.com,AAF International (American Air Filter)
 104670,9510,Information Technology Manager,Pablo,Gomez,pablo.gomez@resolutefp.com,Resolute Tissue
 104680,4060,Application Analyst,Marvin,Dizon,md@dentons.com,Dentons US LLP
 104690,2020,IT System Administrator,Lester,Martinez,lester.espinosa@areas.com,"Areas, United States"

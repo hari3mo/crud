@@ -19,7 +19,7 @@
         {% for user in users %}
         <tr>
             <th scope="row"><a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" 
-                href="{{ url_for('update_user', userID=user.UserID) }}">{{ user.Email }} </th>
+                href="{{ url_for('update_user', id=user.UserID) }}">{{ user.Email }} </th>
             <td>{{user.FirstName}} {{ user.LastName }}</td>
             <td>{{ user.Client.Client }}</td>
             <td>{{ user.ValidFrom }}</td>
