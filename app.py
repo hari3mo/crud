@@ -282,8 +282,6 @@ def update_user(id):
     
     return render_template('update_user.html', form=form, user=user)
 
-
-
 # Admin: Delete user
 @app.route('/user/delete/<int:id>')
 @login_required
