@@ -11,7 +11,8 @@ import json
 import os
 
 # Redundant
-# from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
+import sqlalchemy
 
 from openai import OpenAI
 
@@ -27,6 +28,9 @@ app = Flask(__name__)
 
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
+
+# Standard engine
+engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
 
 # OpenAI API Client
 load_dotenv()
@@ -60,9 +64,6 @@ def base():
 # Initialize database
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-# Standard engine
-# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb')
 
 # mydb = mysql.connector.connect(
 #     host = 'aws-erp.cxugcosgcicf.us-east-2.rds.amazonaws.com',
@@ -123,7 +124,7 @@ class Accounts(db.Model):
 # Leads model
 class Leads(db.Model):
     __tablename__ = 'Leads'
-    LeadID = db.Column(db.Integer, primary_key=True)
+    LeadID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID)) # Foreign key to AccountID
     ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
     Position = db.Column(db.String(75), nullable=False)
@@ -528,6 +529,63 @@ def accounts_import():
             return redirect(url_for('accounts_import'))
         
     return render_template('accounts_import.html', form=form)
+
+
+# Leads import
+@app.route('/leads/leads_import/', methods=['GET', 'POST'])
+@login_required
+def leads_import():
+    form = FileForm()
+    filename = None
+    if form.validate_on_submit():        
+        file = form.file.data
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        
+        # try:
+        if filename.split('.')[-1] != 'csv':
+            flash('Import failed. Please upload a .csv file.')
+            return redirect(url_for('accounts_import'))
+            
+        # Rename function
+        while os.path.exists(filepath):
+            filename = filename.split('.')[0] + ' copy.csv'
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)                        
+        
+        file.save(filepath)
+        
+        df = pd.read_csv('static/files/{filename}'.format(filename=filename))
+        # Replace NaN with None
+        df = df.replace({np.nan: None})
+        
+        df = df.rename(columns={df.columns[0]: 'CompanyName',
+                                df.columns[1]: 'Position',
+                                df.columns[2]: 'FirstName',
+                                df.columns[3]: 'LastName',
+                                df.columns[4]: 'Email'})
+        query = f'SELECT * FROM Accounts WHERE (ClientID={current_user.ClientID})'
+
+        accounts_df = pd.read_sql(sqlalchemy.text(query), con=engine.connect() )
+        df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName')
+        
+        for index, row in df.iterrows():
+            dct = row.to_dict()
+            lead = Leads(**dct)
+            db.session.add(lead)
+        
+        db.session.commit() 
+        os.remove(filepath)        
+        flash('Import successful.')
+        return redirect(url_for('leads_list'))    
+                
+        # except:
+        #     db.session.rollback()
+        #     flash('Import failed. Please ensure .csv file is ordered as \
+        #         follows: Company Name, Position, First Name, Last Name, \
+        #             Email')
+        #     return redirect(url_for('leads_import'))
+        
+    return render_template('leads_import.html', form=form)
     
 @app.route('/clear_accounts/')
 @login_required
