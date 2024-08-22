@@ -645,7 +645,31 @@ def account(id):
             return render_template('account.html', form=form, account=account)
         
     return render_template('account.html', form=form, account=account, id=id)        
-            
+
+
+# Update lead    
+@app.route('/leads/<int:id>', methods=['GET', 'POST'])
+@login_required
+def lead(id):
+    form = LeadUpdateForm()
+    lead = Leads.query.get_or_404(id)
+    if form.validate_on_submit():
+        
+        lead.Email = form.email.data
+        lead.FirstName = form.first_name.data
+        lead.LastName = form.last_name.data
+        lead.Position = form.position.data
+
+        try:
+            db.session.commit()
+            flash('Lead updated successfully.')
+            return redirect(url_for('leads_list'))
+        except:
+            flash('Lead update failed.')
+            return render_template('lead.html', form=form, lead=lead)
+        
+    return render_template('lead.html', form=form, lead=lead, id=id)
+
             
 # Delete account
 @app.route('/delete_account/<int:id>')
@@ -661,7 +685,21 @@ def delete_account(id):
     except:
         flash('Error deleting account.')
         return redirect(url_for('accounts_list'))
-        
+
+# Delete lead
+@app.route('/delete_lead/<int:id>')
+@login_required
+def delete_lead(id):
+    lead = Leads.query.get_or_404(id)
+    try:
+        db.session.delete(lead)
+        db.session.commit()
+        flash('Lead deleted successfully.')
+        return redirect(url_for('leads_list'))
+    
+    except:
+        flash('Error deleting lead.')
+        return redirect(url_for('leads_list'))
  
     
 # Export records
@@ -775,30 +813,6 @@ def leads_list():
     except:
         flash('Error loading leads, please try again.')
         return redirect(url_for('leads'))
-
-# Update lead    
-@app.route('/leads/<int:id>', methods=['GET', 'POST'])
-@login_required
-def lead(id):
-    form = LeadUpdateForm()
-    lead = Leads.query.get_or_404(id)
-    if form.validate_on_submit():
-        
-        lead.Email = form.email.data
-        lead.FirstName = form.first_name.data
-        lead.LastName = form.last_name.data
-        lead.Position = form.position.data
-
-        try:
-            db.session.commit()
-            flash('Lead updated successfully.')
-            return redirect(url_for('leads_list'))
-        except:
-            flash('Lead update failed.')
-            return render_template('lead.html', form=form, lead=lead)
-        
-    return render_template('lead.html', form=form, lead=lead, id=id)
-
 # Invalid URL
 @app.errorhandler(404)
 def page_not_found(e):
