@@ -22,7 +22,8 @@ import numpy as np
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
     UserUpdateForm, AccountForm, LeadForm, OpportunityForm, TextForm, \
-        AdminUpdateForm, GenerateForm, LeadUpdateForm, OpportunityUpdateForm
+        AdminUpdateForm, GenerateForm, LeadUpdateForm, OpportunityUpdateForm,\
+            SaleForm
 
 app = Flask(__name__) 
 
@@ -53,7 +54,8 @@ login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(user_id):
-    return Users.query.get(int(user_id))
+    return Users.query.filter_by(UserID=user_id).first()
+    # return Users.query.get(int(user_id))
 
 # Pass to base file
 @app.context_processor
@@ -101,6 +103,7 @@ class Clients(db.Model):
     Account = db.relationship('Accounts', backref='Client')
     Lead = db.relationship('Leads', backref='Clients')
     Opportunity = db.relationship('Opportunities', backref='Client')
+    Sale = db.relationship('Sales', backref='Client')
     
 # Accounts model
 class Accounts(db.Model):
@@ -148,8 +151,21 @@ class Opportunities(db.Model):
     Stage = db.Column(db.String(100))
     CreationDate = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
     CloseDate = db.Column(db.Date)
-    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign Key to ClientID
-      
+    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
+
+    # References
+    Sale = db.relationship('Sales', backref='Opportunity')
+
+# Sales model
+class Sales(db.Model):
+    __tablename__ = 'Sales'
+    SaleID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    OpportunityID = db.Column(db.Integer, db.ForeignKey(Opportunities.OpportunityID)) # Foreign key to OpportunityID
+    ClientID = db.Column(db.Integer, db.ForeignKey(Clients.ClientID)) # Foreign key to ClientID
+    SaleAmount = db.Column(db.Integer)
+    SalesRep = db.Column(db.String(50))
+    SaleDate = db.Column(db.Date, default=datetime.datetime.now(datetime.timezone.utc))
+
 # Users model
 class Users(db.Model, UserMixin):
     __tablename__ = 'Users'
@@ -673,6 +689,15 @@ def clear_opportunities():
     flash('Opportunities list cleared.')
     return redirect(url_for('opportunities_list'))
 
+# Clear sales
+@app.route('/clear_sales/')
+@login_required
+def clear_sales():
+    Sales.query.filter_by(ClientID=current_user.ClientID).delete()
+    db.session.commit()
+    flash('Sales list cleared.')
+    return redirect(url_for('sales_list'))
+
 
 # Accounts list    
 @app.route('/accounts/accounts_list/')
@@ -776,7 +801,7 @@ def account(id):
         try:
             db.session.commit()
             flash('Account updated successfully.')
-            return redirect(url_for('accounts_list'))
+            return redirect(url_for('account', id=id))
         except:
             flash('Account update failed.')
             return render_template('account.html', form=form, account=account)
@@ -800,7 +825,7 @@ def lead(id):
         try:
             db.session.commit()
             flash('Lead updated successfully.')
-            return redirect(url_for('leads_list'))
+            return redirect(url_for('lead', id=id))
         except:
             flash('Lead update failed.')
             return render_template('lead.html', form=form, lead=lead)
@@ -826,13 +851,33 @@ def opportunity(id):
         try:
             db.session.commit()
             flash('Opportunity updated successfully.')
-            return redirect(url_for('opportunities_list'))
+            return redirect(url_for('opportunity', id=id))
         except:
             flash('Opportunity update failed.')
             return render_template('opportunity.html', form=form, opportunity=opportunity)
         
     return render_template('opportunity.html', form=form, opportunity=opportunity)
 
+# Update sale
+@app.route ('/sales/<int:id>', methods=['GET', 'POST'])
+@login_required
+def sale(id):
+    form = SaleForm()
+    sale = Sales.query.get_or_404(id)
+    if form.validate_on_submit():
+        sale.SaleAmount = form.sale_amount.data
+        sale.SalesRep = form.sales_rep.data
+        
+        try:
+            db.session.commit()
+            flash('Sale updated successfully.')
+            return redirect(url_for('sale', id=id))
+        
+        except:
+            flash('Sale update failed.')
+            return render_template('sale.html', form=form, sale=sale)
+        
+    return render_template('sale.html', form=form, sale=sale)
             
 # Delete account
 @app.route('/delete_account/<int:id>')
@@ -878,6 +923,21 @@ def delete_opportunity(id):
     except:
         flash('Error deleting opportunity.')
         return redirect(url_for('opportunities_list'))
+    
+# Delete sale
+@app.route('/delete_sale/<int:id>')
+@login_required
+def delete_sale(id):
+    sale = Sales.query.get_or_404(id)
+    try:
+        db.session.delete(sale)
+        db.session.commit()
+        flash('Sale deleted successfully.')
+        return redirect(url_for('sales_list'))
+    
+    except:
+        flash('Error deleting sale.')
+        return redirect(url_for('sales_list'))
  
     
 # Export records
@@ -979,6 +1039,27 @@ def new_lead():
            
     return render_template('new_lead.html', form=form)
 
+# New sale
+@app.route('/sales/new_sale/<int:id>', methods=['POST', 'GET'])
+@login_required
+def new_sale(id):
+    form = SaleForm()
+    opportunity = Opportunities.query.get_or_404(id)
+    if form.validate_on_submit():
+        sale = Sales(OpportunityID=opportunity.OpportunityID,
+                    ClientID=current_user.ClientID,
+                    SaleAmount=form.sale_amount.data,
+                    SalesRep=form.sales_rep.data)
+        db.session.add(sale)
+        try:
+            db.session.commit()
+            flash('Sale added successfully.')
+            return redirect(url_for('sales_list'))
+        except:
+            flash('Error loading sales, please try again.')
+            return redirect(url_for('sales'))
+    return render_template('new_sale.html', form=form, opportunity=opportunity)
+
 # Leads list    
 @app.route('/leads/leads_list/')
 @login_required
@@ -991,6 +1072,19 @@ def leads_list():
     except:
         flash('Error loading leads, please try again.')
         return redirect(url_for('leads'))
+    
+# Sales list    
+@app.route('/sales/sales_list/')
+@login_required
+def sales_list():
+    try:
+        sales = None
+        sales = Sales.query.filter_by(ClientID=current_user.ClientID)\
+            .order_by(Sales.SaleID.desc())                   
+        return render_template('sales_list.html', sales=sales)
+    except:
+        flash('Error loading sales, please try again.')
+        return redirect(url_for('sales'))
     
 # Invalid URL
 @app.errorhandler(404)

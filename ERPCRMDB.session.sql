@@ -33,7 +33,17 @@ ALTER TABLE Opportunities
 ADD PRIMARY KEY (OpportunityID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
 ADD FOREIGN KEY (LeadID) REFERENCES Leads(LeadID),
+ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID),
 MODIFY OpportunityID INT AUTO_INCREMENT;
+
+
+--@block
+-- Sales --
+ALTER TABLE Sales
+ADD PRIMARY KEY (SaleID),
+ADD FOREIGN KEY (OpportunityID) REFERENCES Opportunities(OpportunityID),
+ADD FOREIGN KEY (ClientID) REFERENCES Clients(ClientID),
+MODIFY SaleID INT AUTO_INCREMENT;
 
 --@block
 -- Orders --
@@ -69,4 +79,4 @@ SET FirstName = 'Haris', LastName = 'Saif'
 WHERE (Email='haris.saif@erp-center.com')
 
 --@block
-DROP TABLE Leads
+DELETE FROM Sales

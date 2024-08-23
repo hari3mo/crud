@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}New Sale{% endblock %}
+
+{% block content %}
+
+
+<a class="btn btn-outline-secondary btn-lg" href="{{ url_for('sales')}}" role="button">Back</a>
+
+<div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h2 class="text-center"><strong>New Sale</strong></h2>
+    <br>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <p align="left"><b>Company Name: <a href="{{ url_for('account', id=opportunity.AccountID) }}">{{ opportunity.Account.CompanyName }}</a></b><p>
+
+        <p align="left"><b>Lead Name: <a href="{{ url_for('lead', id=opportunity.LeadID) }}">{{ opportunity.Lead.FirstName }} {{ opportunity.Lead.LastName }}</a></b><p>
+
+        {{ form.sale_amount.label(class="form-label") }}
+        <p>{{ form.sale_amount(class="form-control") }}</p>
+
+        {{ form.sales_rep.label(class="form-label" )}}
+        <p>{{ form.sales_rep(class="form-control") }}</p>
+        
+        {{ form.submit(class="btn btn-primary") }}
+
+    </form>
+</div>
+
+
+
+
+{% endblock %}

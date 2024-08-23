@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Sale - {{ sale.SaleID }}{% endblock %}
+
+{% block content %}
+
+
+    <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('sales')}}" role="button">Back</a>
+    
+    <br>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        
+        <form action="{{ url_for('sale', id=sale.SaleID) }}" method="POST">
+           
+            {{ form.hidden_tag()}}
+        
+            <p align="left"><b>Company Name: <a href="{{ url_for('account', id=sale.Opportunity.AccountID) }}">{{ sale.Opportunity.Account.CompanyName }}</a></b><p>
+
+            <p align="left"><b>Lead Name: <a href="{{ url_for('lead', id=sale.Opportunity.LeadID) }}">{{ sale.Opportunity.Lead.FirstName }} {{ sale.Opportunity.Lead.LastName }}</a></b><p>
+    
+            {{ form.sale_amount.label(class="form-label") }}
+            <p>{{ form.sale_amount(class="form-control", value=sale.SaleAmount) }}</p>
+    
+            {{ form.sales_rep.label(class="form-label" )}}
+            <p>{{ form.sales_rep(class="form-control", value=sale.SalesRep) }}</p>
+            
+            <br>
+            {{ form.submit(class="btn btn-primary", value="Update") }}
+
+            <a href="{{ url_for('sales_list') }}" class="btn btn-secondary" style="float: center;">Discard</a>
+
+            <a href="{{ url_for('delete_sale', id=sale.SaleID)}}"  class="btn btn-danger text-center">Delete</a>
+
+
+
+        </form>
+    </div>
+
+<br/>
+
+{% endblock %}

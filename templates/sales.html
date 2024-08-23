@@ -6,10 +6,11 @@
 
 
 <div class="salesMenu">  <!-- menu-->
-    <div class="Sales-item"> <a href="#Quotes">Quotes</a></div>    
-    <div class="Sales-item"> <a href="#Orders">Orders</a></div>  
-    <div class="Sales-item"> <a href="#Invoices">Invoices</a></div>  
-    <div class="Sales-item"> <a href="#Sales Report">Sales Report</a></div>  
-    <a class="btn btn-secondary btn-lg" href="#" role="button">Sales & Forecasts</a>
+
+    <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('sales_list') }}" role="button">Sales List</a>
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Quotes</a>
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Invoices</a>
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Sales Report</a>
+    <a class="btn btn-outline-secondary btn-lg" href="#" role="button">Sales & Forecasts</a>
 </div>
 {% endblock %}

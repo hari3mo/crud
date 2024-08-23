@@ -71,6 +71,12 @@ class OpportunityUpdateForm(FlaskForm):
     value = StringField('Value:', validators=[DataRequired()])
     stage = StringField('Stage:', validators=[DataRequired()])
     submit = SubmitField('Submit')
+    
+# Sale form
+class SaleForm(FlaskForm):
+    sale_amount = IntegerField('Sale Amount:*', validators=[DataRequired()])
+    sales_rep = StringField('Sales Representative:')
+    submit = SubmitField('Submit')
 
 # File form
 class FileForm(FlaskForm):
