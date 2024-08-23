@@ -15,6 +15,9 @@
             {{ form.hidden_tag()}}
         
             <p align="left"><b>Company Name: <a href="{{ url_for('account', id=opportunity.AccountID) }}"> {{ opportunity.Account.CompanyName }}</a></b><p>
+
+            <p align="left"><b>Lead Contact: <a href="{{ url_for('lead', id=opportunity.LeadID) }}"> {{ opportunity.Lead.Email }}</a></b><p>
+
         
             {{ form.lead.label(class="form-label") }}
             <p>{{ form.lead(class="form-control") }}</p>
