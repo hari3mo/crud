@@ -132,13 +132,17 @@ class Leads(db.Model):
     LastName = db.Column(db.String(50), nullable=False)
     Email = db.Column(db.String(50), unique=True)
     CompanyName =  db.Column(db.String(100), nullable=False)
+    
+    # References
+    Opportunity = db.relationship('Opportunities', backref='Lead')
+
 
 # Opportunities model    
 class Opportunities(db.Model):
     __tablename__ = 'Opportunities'
     OpportunityID = db.Column(db.Integer, primary_key=True)
     AccountID = db.Column(db.Integer, db.ForeignKey(Accounts.AccountID)) # Foreign Key to AccountID
-    LeadID = db.Column(db.Integer)
+    LeadID = db.Column(db.Integer, db.ForeignKey(Leads.LeadID)) # Foreign key to LeadID
     Opportunity = db.Column(db.Text)
     Value = db.Column(db.String(255))
     Stage = db.Column(db.String(100))
@@ -333,29 +337,58 @@ def new_opportunity():
     
     return render_template('new_opportunity.html', form=form)
 
-# New opportunity from AccountID
+# New opportunity from account
 @app.route('/opportunities/new_opportunity/<int:id>', methods=['GET', 'POST'])
 @login_required
-def new_opportunity_id(id):
+def new_opportunity_account(id):
     form = OpportunityForm()
+    account = Accounts.query.get_or_404(id)
+    choices = Leads.query.filter_by(AccountID=account.AccountID)
+    choices = [(0,'')] + [(choice.LeadID, f'{choice.FirstName} {choice.LastName}') for choice in choices]
+    form.lead.choices = choices
     if form.validate_on_submit():
-        try:
-            opportunity = Opportunities(AccountID=form.account.data,
-                                        ClientID=current_user.ClientID,
-                                        Opportunity=form.opportunity.data,
-                                        Value=form.value.data,
-                                        Stage=form.stage.data)
-            db.session.add(opportunity)
-            db.session.commit()
-            
-            flash('Opportunity added successfully.')
-            return redirect(url_for('opportunities_list'))
-        except:
-            db.session.rollback()
-            flash('Opportunity add failed.')
-            return redirect(url_for('new_opportunity_id', id=id))
+        # try:
+        opportunity = Opportunities(AccountID=account.AccountID,
+                                    LeadID=form.lead.data,
+                                    ClientID=current_user.ClientID,
+                                    Opportunity=form.opportunity.data,
+                                    Value=form.value.data,
+                                    Stage=form.stage.data)
+        db.session.add(opportunity)
+        db.session.commit()
+        
+        flash('Opportunity added successfully.')
+        return redirect(url_for('opportunities_list'))
+        # except:
+        #     db.session.rollback()
+        #     flash('Opportunity add failed.')
+        #     return redirect(url_for('new_opportunity_account', id=id))
     
-    return render_template('new_opportunity.html', form=form, id=id)
+    return render_template('new_opportunity.html', form=form, account=account, id=id)
+
+# # New opportunity from lead
+# @app.route('/opportunities/new_opportunity/', methods=['GET', 'POST'])
+# @login_required
+# def new_opportunity_lead():
+#     form = OpportunityForm()
+#     if form.validate_on_submit():
+#         try:
+#             opportunity = Opportunities(AccountID=form.account.data,
+#                                         ClientID=current_user.ClientID,
+#                                         Opportunity=form.opportunity.data,
+#                                         Value=form.value.data,
+#                                         Stage=form.stage.data)
+#             db.session.add(opportunity)
+#             db.session.commit()
+            
+#             flash('Opportunity added successfully.')
+#             return redirect(url_for('opportunities_list'))
+#         except:
+#             db.session.rollback()
+#             flash('Opportunity add failed.')
+#             return redirect(url_for('new_opportunity_id', id=id))
+    
+#     return render_template('new_opportunity.html', form=form, id=id)
 
 # Opportunities list
 @app.route('/opportunities/opportunities_list')
@@ -595,8 +628,7 @@ def leads_import():
             file.save(filepath)
             
             df = pd.read_csv('static/files/{filename}'.format(filename=filename))
-            # Replace NaN with None
-            df = df.replace({np.nan: None})
+            
             
             df = df.rename(columns={df.columns[0]: 'CompanyName',
                                     df.columns[1]: 'Position',
@@ -606,10 +638,12 @@ def leads_import():
             
             # query = f'SELECT * FROM Accounts WHERE (ClientID={current_user.ClientID})'
             # accounts_df = pd.read_sql(text(query), con=engine)
-            # accounts_df = pd.read_sql(db.session.query(Accounts).statement, con=engine.connect())
-            accounts_df = pd.read_sql_table('Accounts', con=engine)
-            accounts_df = accounts_df[accounts_df['ClientID'] == current_user.ClientID]
-            df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName')
+            # accounts_df = pd.read_sql_table('Accounts', con=engine)
+            # accounts_df = accounts_df[accounts_df['ClientID'] == current_user.ClientID]
+            accounts_df = pd.read_sql(db.session.query(Accounts).filter(Accounts.ClientID == current_user.ClientID).statement, con=engine)
+            df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName', how='left')
+            # Replace NaN with None
+            df = df.replace({np.nan: None})
             
             for index, row in df.iterrows():
                 dct = row.to_dict()
@@ -929,7 +963,7 @@ def leads_list():
     try:
         leads = None
         leads = Leads.query.filter_by(ClientID=current_user.ClientID)\
-            .order_by(Leads.LeadID.desc())                   
+            .order_by(Leads.LeadID)                   
         return render_template('leads_list.html', leads=leads)
     except:
         flash('Error loading leads, please try again.')

@@ -32,8 +32,8 @@ DELETE FROM Opportunities
 ALTER TABLE Opportunities
 ADD PRIMARY KEY (OpportunityID),
 ADD FOREIGN KEY (AccountID) REFERENCES Accounts(AccountID),
+ADD FOREIGN KEY (LeadID) REFERENCES Leads(LeadID),
 MODIFY OpportunityID INT AUTO_INCREMENT;
-
 
 --@block
 -- Orders --

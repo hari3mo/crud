@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField, EmailField, IntegerField, FileField, TextAreaField, BooleanField, ValidationError 
+from wtforms import StringField, SubmitField, PasswordField, EmailField,\
+    IntegerField, FileField, TextAreaField, SelectField, BooleanField, ValidationError
 from flask_wtf.file import FileRequired
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 
@@ -57,6 +58,7 @@ class UserForm(FlaskForm):
 # Opportunities form
 class OpportunityForm(FlaskForm):
     account = StringField('Account:', validators=[DataRequired()])
+    lead = SelectField('Lead:', coerce=int, validate_choice=False, validators=[DataRequired()])
     opportunity = StringField('Opportunity:', validators=[DataRequired()])
     value = StringField('Value:', validators=[DataRequired()])
     stage = StringField('Stage:', validators=[DataRequired()])

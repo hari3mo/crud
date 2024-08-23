@@ -15,7 +15,10 @@
         {{ form.hidden_tag() }}
 
         {{ form.account.label(class="form-label") }}
-        <p>{{ form.account(class="form-control", value=id) }}</p>
+        <p>{{ form.account(class="form-control", value=account.CompanyName if account) }}</p>
+
+        {{ form.lead.label(class="form-label") }}
+        <p>{{ form.lead(class="form-control") }}</p>
 
         {{ form.opportunity.label(class="form-label") }}
         <p>{{ form.opportunity(class="form-control") }}</p>
