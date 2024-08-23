@@ -12,9 +12,9 @@
     <form method="POST">
         {{ form.hidden_tag() }}
 
-        <p align="left"><b>Company Name: <a href="{{ url_for('account', id=opportunity.AccountID) }}">{{ opportunity.Account.CompanyName }}</a></b><p>
+        <p align="left"><b>Company Name: <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ url_for('account', id=opportunity.AccountID) }}">{{ opportunity.Account.CompanyName }}</a></b><p>
 
-        <p align="left"><b>Lead Name: <a href="{{ url_for('lead', id=opportunity.LeadID) }}">{{ opportunity.Lead.FirstName }} {{ opportunity.Lead.LastName }}</a></b><p>
+        <p align="left"><b>Lead Name: <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ url_for('lead', id=opportunity.LeadID) }}">{{ opportunity.Lead.FirstName }} {{ opportunity.Lead.LastName }}</a></b><p>
 
         {{ form.sale_amount.label(class="form-label") }}
         <p>{{ form.sale_amount(class="form-control") }}</p>
