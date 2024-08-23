@@ -22,7 +22,7 @@ import numpy as np
 # Forms 
 from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
     UserUpdateForm, AccountForm, LeadForm, OpportunityForm, TextForm, \
-        AdminUpdateForm, GenerateForm, LeadUpdateForm
+        AdminUpdateForm, GenerateForm, LeadUpdateForm, OpportunityUpdateForm
 
 app = Flask(__name__) 
 
@@ -343,9 +343,9 @@ def new_opportunity():
 def new_opportunity_account(id):
     form = OpportunityForm()
     account = Accounts.query.get_or_404(id)
-    choices = Leads.query.filter_by(AccountID=account.AccountID)
-    choices = [(0,'')] + [(choice.LeadID, f'{choice.FirstName} {choice.LastName}') for choice in choices]
-    form.lead.choices = choices
+    leads = Leads.query.filter_by(AccountID=account.AccountID)
+    leads = [(0,'')] + [(lead.LeadID, f'{lead.FirstName} {lead.LastName}') for lead in leads]
+    form.lead.choices = leads
     if form.validate_on_submit():
         # try:
         opportunity = Opportunities(AccountID=account.AccountID,
@@ -641,7 +641,7 @@ def leads_import():
             # accounts_df = pd.read_sql_table('Accounts', con=engine)
             # accounts_df = accounts_df[accounts_df['ClientID'] == current_user.ClientID]
             accounts_df = pd.read_sql(db.session.query(Accounts).filter(Accounts.ClientID == current_user.ClientID).statement, con=engine)
-            df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName', how='left')
+            df = pd.merge(df, accounts_df[['AccountID', 'CompanyName', 'ClientID']], on='CompanyName')
             # Replace NaN with None
             df = df.replace({np.nan: None})
             
@@ -823,7 +823,33 @@ def lead(id):
             flash('Lead update failed.')
             return render_template('lead.html', form=form, lead=lead)
         
-    return render_template('lead.html', form=form, lead=lead, id=id)
+    return render_template('lead.html', form=form, lead=lead)
+
+# Update opportunity    
+@app.route('/opportunities/<int:id>', methods=['GET', 'POST'])
+@login_required
+def opportunity(id):
+    form = OpportunityUpdateForm()
+    opportunity = Opportunities.query.get_or_404(id)
+    leads = Leads.query.filter_by(AccountID=opportunity.AccountID)
+    leads = [(0,'')] + [(lead.LeadID, f'{lead.FirstName} {lead.LastName}') for lead in leads]
+    form.lead.choices = leads
+    if form.validate_on_submit():
+        
+        opportunity.LeadID = form.lead.data
+        opportunity.Opportunity = form.opportunity.data
+        opportunity.Value = form.value.data
+        opportunity.Stage = form.stage.data
+
+        try:
+            db.session.commit()
+            flash('Opportunity updated successfully.')
+            return redirect(url_for('opportunities_list'))
+        except:
+            flash('Opportunity update failed.')
+            return render_template('opportunity.html', form=form, opportunity=opportunity)
+        
+    return render_template('opportunity.html', form=form, opportunity=opportunity)
 
             
 # Delete account
@@ -855,6 +881,21 @@ def delete_lead(id):
     except:
         flash('Error deleting lead.')
         return redirect(url_for('leads_list'))
+    
+# Delete opportunity
+@app.route('/delete_opportunity/<int:id>')
+@login_required
+def delete_opportunity(id):
+    opportunity = Opportunities.query.get_or_404(id)
+    try:
+        db.session.delete(opportunity)
+        db.session.commit()
+        flash('Opportunity deleted successfully.')
+        return redirect(url_for('opportunities_list'))
+    
+    except:
+        flash('Error deleting opportunity.')
+        return redirect(url_for('opportunities_list'))
  
     
 # Export records

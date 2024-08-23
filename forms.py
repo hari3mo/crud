@@ -55,9 +55,17 @@ class UserForm(FlaskForm):
                                                         message='Passwords do not match.')])
     submit = SubmitField('Submit')
     
-# Opportunities form
+# Opportunity form
 class OpportunityForm(FlaskForm):
     account = StringField('Account:', validators=[DataRequired()])
+    lead = SelectField('Lead:', coerce=int, validate_choice=False, validators=[DataRequired()])
+    opportunity = StringField('Opportunity:', validators=[DataRequired()])
+    value = StringField('Value:', validators=[DataRequired()])
+    stage = StringField('Stage:', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+    
+# Opportunity update form
+class OpportunityUpdateForm(FlaskForm):
     lead = SelectField('Lead:', coerce=int, validate_choice=False, validators=[DataRequired()])
     opportunity = StringField('Opportunity:', validators=[DataRequired()])
     value = StringField('Value:', validators=[DataRequired()])

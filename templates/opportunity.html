@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Opportunity - {{ opportunity.OpportunityID }}{% endblock %}
+
+{% block content %}
+
+
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('opportunities')}}" role="button">Back</a>
+    
+    <br>
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+        
+        <form action="{{ url_for('lead', id=opportunity.OpportunityID)}}" method="POST">
+           
+            {{ form.hidden_tag()}}
+        
+            <p align="left"><b>Company Name: <a href="{{ url_for('account', id=opportunity.AccountID) }}"> {{ opportunity.Account.CompanyName }}</a></b><p>
+        
+            {{ form.lead.label(class="form-label") }}
+            <p>{{ form.lead(class="form-control") }}</p>
+
+
+            {{ form.opportunity.label(class="form-label") }}
+            <p>{{ form.opportunity(class="form-control", value=opportunity.Opportunity) }}</p>
+
+
+            {{ form.value.label(class="form-label") }}
+            <p>{{ form.value(class="form-control", value=opportunity.Value) }}</p>
+
+
+            {{ form.stage.label(class="form-label") }}
+            <p>{{ form.stage(class="form-control", value=opportunity.Stage) }}</p>
+
+            <br>
+            {{ form.submit(class="btn btn-primary", value="Update") }}
+
+            <a href="{{ url_for('opportunities_list') }}" class="btn btn-secondary" style="float: center;">Discard</a>
+
+            <a href="{{ url_for('delete_opportunity', id=opportunity.OpportunityID) }}"  class="btn btn-danger text-center">Delete</a>
+
+
+
+        </form>
+    </div>
+
+<br/>
+
+{% endblock %}
