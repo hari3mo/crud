@@ -1039,6 +1039,28 @@ def new_lead():
            
     return render_template('new_lead.html', form=form)
 
+# New lead from id
+@app.route('/leads/new_lead/<int:id>', methods=['GET', 'POST'])
+@login_required
+def new_lead_id(id):
+    form = LeadForm()
+    account = Accounts.query.get_or_404(id)
+    if form.validate_on_submit():
+        lead = Leads(AccountID=account.AccountID,
+                    ClientID=current_user.ClientID,
+                    Position=form.position.data,
+                    FirstName=form.first_name.data,
+                    LastName=form.last_name.data,
+                    Email=form.email.data,
+                    CompanyName=account.CompanyName)
+        
+        db.session.add(lead)
+        db.session.commit()
+        flash('Lead added successfully.')
+        return redirect(url_for('leads_list'))
+               
+    return render_template('new_lead.html', form=form, account=account)
+
 # New sale
 @app.route('/sales/new_sale/<int:id>', methods=['POST', 'GET'])
 @login_required

@@ -43,6 +43,8 @@
             <br>
             {{ form.submit(class="btn btn-primary", value="Update") }}
 
+            <a href="{{ url_for('new_lead_id', id=account.AccountID)}}"  class="btn btn-warning text-center">Lead</a>
+
             <a href="{{ url_for('new_opportunity_account', id=account.AccountID)}}"  class="btn btn-success text-center">Opportunity</a>
 
             <a href="{{ url_for('accounts_list')}}" class="btn btn-secondary" style="float: center;">Discard</a>

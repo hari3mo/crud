@@ -13,7 +13,7 @@
         {{ form.hidden_tag() }}
 
         {{ form.company.label(class="form-label" )}}
-        <p>{{ form.company(class="form-control") }}</p>
+        <p>{{ form.company(class="form-control", value=account.CompanyName if account) }}</p>
 
         {{ form.first_name.label(class="form-label") }}
         <p>{{ form.first_name(class="form-control") }}</p>
