@@ -14,7 +14,7 @@
            
             {{ form.hidden_tag()}}
 
-            <p align="left"><b>Company Name: <a href="{{ url_for('account', id=lead.AccountID) }}">{{ lead.CompanyName }}</a></b><p>
+            <p align="left"><b>Company Name: <a class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{ url_for('account', id=lead.AccountID) }}">{{ lead.CompanyName }}</a></b><p>
     
             {{ form.first_name.label(class="form-label") }}
             <p>{{ form.first_name(class="form-control", value=lead.FirstName) }}</p>
