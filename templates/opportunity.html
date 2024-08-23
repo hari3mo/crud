@@ -5,12 +5,12 @@
 {% block content %}
 
 
-    <a class="btn btn-secondary btn-lg" href="{{ url_for('opportunities')}}" role="button">Back</a>
+    <a class="btn btn-outline-secondary btn-lg" href="{{ url_for('opportunities')}}" role="button">Back</a>
     
     <br>
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
         
-        <form action="{{ url_for('lead', id=opportunity.OpportunityID)}}" method="POST">
+        <form action="{{ url_for('opportunity', id=opportunity.OpportunityID)}}" method="POST">
            
             {{ form.hidden_tag()}}
         

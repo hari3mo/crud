@@ -300,42 +300,18 @@ def delete_user(id):
             flash('Access denied.')
             return redirect(url_for('admin'))
         
-        # try:
-        db.session.delete(user)
-        db.session.commit()
-        flash('User deleted successfully.')
-        return redirect(url_for('admin'))
+        try:
+            db.session.delete(user)
+            db.session.commit()
+            flash('User deleted successfully.')
+            return redirect(url_for('admin'))
         
-        # except:
-        #     flash('Error deleting user.')
-        #     return redirect(url_for('user'))
+        except:
+            flash('Error deleting user.')
+            return redirect(url_for('user'))
     else: 
         flash('Access denied.')
         return redirect(url_for('user'))
- 
-# New opportunity
-@app.route('/opportunities/new_opportunity/', methods=['GET', 'POST'])
-@login_required
-def new_opportunity():
-    form = OpportunityForm()
-    if form.validate_on_submit():
-        try:
-            opportunity = Opportunities(AccountID=form.account.data,
-                                        ClientID=current_user.ClientID,
-                                        Opportunity=form.opportunity.data,
-                                        Value=form.value.data,
-                                        Stage=form.stage.data )
-            db.session.add(opportunity)
-            db.session.commit()
-            flash('Opportunity added successfully.')
-            return redirect(url_for('opportunities_list'))
-        
-        except:
-            db.session.rollback()
-            flash('Opportunity add failed.')
-            return redirect(url_for('new_opportunity'))
-    
-    return render_template('new_opportunity.html', form=form)
 
 # New opportunity from account
 @app.route('/opportunities/new_opportunity/<int:id>', methods=['GET', 'POST'])
@@ -347,48 +323,53 @@ def new_opportunity_account(id):
     leads = [(0,'')] + [(lead.LeadID, f'{lead.FirstName} {lead.LastName}') for lead in leads]
     form.lead.choices = leads
     if form.validate_on_submit():
-        # try:
-        opportunity = Opportunities(AccountID=account.AccountID,
-                                    LeadID=form.lead.data,
-                                    ClientID=current_user.ClientID,
-                                    Opportunity=form.opportunity.data,
-                                    Value=form.value.data,
-                                    Stage=form.stage.data)
-        db.session.add(opportunity)
-        db.session.commit()
-        
-        flash('Opportunity added successfully.')
-        return redirect(url_for('opportunities_list'))
-        # except:
-        #     db.session.rollback()
-        #     flash('Opportunity add failed.')
-        #     return redirect(url_for('new_opportunity_account', id=id))
-    
-    return render_template('new_opportunity.html', form=form, account=account, id=id)
-
-# # New opportunity from lead
-# @app.route('/opportunities/new_opportunity/', methods=['GET', 'POST'])
-# @login_required
-# def new_opportunity_lead():
-#     form = OpportunityForm()
-#     if form.validate_on_submit():
-#         try:
-#             opportunity = Opportunities(AccountID=form.account.data,
-#                                         ClientID=current_user.ClientID,
-#                                         Opportunity=form.opportunity.data,
-#                                         Value=form.value.data,
-#                                         Stage=form.stage.data)
-#             db.session.add(opportunity)
-#             db.session.commit()
+        try:
+            opportunity = Opportunities(AccountID=account.AccountID,
+                                        LeadID=form.lead.data,
+                                        ClientID=current_user.ClientID,
+                                        Opportunity=form.opportunity.data,
+                                        Value=form.value.data,
+                                        Stage=form.stage.data)
+            db.session.add(opportunity)
+            db.session.commit()
             
-#             flash('Opportunity added successfully.')
-#             return redirect(url_for('opportunities_list'))
-#         except:
-#             db.session.rollback()
-#             flash('Opportunity add failed.')
-#             return redirect(url_for('new_opportunity_id', id=id))
+            flash('Opportunity added successfully.')
+            return redirect(url_for('opportunities_list'))
+        except:
+            db.session.rollback()
+            flash('Opportunity add failed.')
+            return redirect(url_for('new_opportunity_account', id=id))
     
-#     return render_template('new_opportunity.html', form=form, id=id)
+    return render_template('new_opportunity.html', form=form, account=account)
+
+# New opportunity from lead
+@app.route('/opportunities/new_opportunity_lead/<int:id>', methods=['GET', 'POST'])
+@login_required
+def new_opportunity_lead(id):
+    lead = Leads.query.get_or_404(id)
+    leads = Leads.query.filter_by(AccountID=lead.AccountID)
+    leads = [(lead.LeadID, f'{lead.FirstName} {lead.LastName}') for lead in leads]
+    form = OpportunityForm(lead=lead.LeadID)
+    form.lead.choices = leads
+    if form.validate_on_submit():
+        try:
+            opportunity = Opportunities(AccountID=lead.AccountID,
+                                        LeadID=form.lead.data,
+                                        ClientID=current_user.ClientID,
+                                        Opportunity=form.opportunity.data,
+                                        Value=form.value.data,
+                                        Stage=form.stage.data)
+            db.session.add(opportunity)
+            db.session.commit()
+            
+            flash('Opportunity added successfully.')
+            return redirect(url_for('opportunities_list'))
+        except:
+            db.session.rollback()
+            flash('Opportunity add failed.')
+            return redirect(url_for('new_opportunity_lead', id=id))
+    
+    return render_template('new_opportunity.html', form=form, lead=lead)
 
 # Opportunities list
 @app.route('/opportunities/opportunities_list')
@@ -402,6 +383,7 @@ def opportunities_list():
         flash('Error loading database, please try again.')
         return redirect(url_for('opportunities'))
 
+# Check password function
 @app.route('/password/', methods=['GET', 'POST'])
 @login_required
 def password():
@@ -829,10 +811,10 @@ def lead(id):
 @app.route('/opportunities/<int:id>', methods=['GET', 'POST'])
 @login_required
 def opportunity(id):
-    form = OpportunityUpdateForm()
     opportunity = Opportunities.query.get_or_404(id)
     leads = Leads.query.filter_by(AccountID=opportunity.AccountID)
-    leads = [(0,'')] + [(lead.LeadID, f'{lead.FirstName} {lead.LastName}') for lead in leads]
+    leads = [(lead.LeadID, f'{lead.FirstName} {lead.LastName}') for lead in leads]
+    form = OpportunityUpdateForm(lead=opportunity.LeadID)
     form.lead.choices = leads
     if form.validate_on_submit():
         
