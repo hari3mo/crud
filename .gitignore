@@ -1,6 +1,7 @@
 .vscode/
 env/
 static/files/*.csv
+notebooks/files/*.csv
 migrations/
 __pycache__/
 .DS_Store
