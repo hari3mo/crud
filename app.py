@@ -28,11 +28,11 @@ from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
 app = Flask(__name__) 
 
 # MySQL Database Connection
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb' 
 # app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}:{os.environ['RDS_PORT']}/{os.environ['RDS_DB_NAME']}' 
 
 # Standard engine
-# engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb').connect()
+engine = create_engine('mysql+pymysql://erpcrm:Erpcrmpass1!@erpcrmdb.cfg0ok8iismy.us-west-1.rds.amazonaws.com:3306/erpcrmdb').connect()
 
 # OpenAI API Client
 load_dotenv()
@@ -1111,7 +1111,7 @@ def sales_list():
     
 # Invalid URL
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_foredid(e):
     return redirect(url_for('index'))
 
 # # Internal Server Error
