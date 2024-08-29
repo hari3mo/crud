@@ -27,15 +27,17 @@ from forms import LoginForm, SearchForm, UserForm, PasswordForm, FileForm, \
 
 app = Flask(__name__) 
 
+# Load environment variables
+load_dotenv()
+
 # MySQL Database Connection
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('MYSQL_URI') 
 # app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{os.environ['RDS_USERNAME']}:{os.environ['RDS_PASSWORD']}@{os.environ['RDS_HOSTNAME']}:{os.environ['RDS_PORT']}/{os.environ['RDS_DB_NAME']}' 
 
 # Standard engine
-engine = create_engine(os.genv('MYSQL_URI')).connect()
+engine = create_engine(os.getenv('MYSQL_URI')).connect()
 
 # OpenAI API Client
-load_dotenv()
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -223,7 +225,7 @@ def login():
                 admin = Admins.query.filter_by(User=current_user.Email).first()
                 session['admin'] = True if admin else False
                 session['image'] = str(current_user.Client.Image)
-                flash('Logged in successfully.', 'success')
+                flash('Successfully logged in.', 'success')
                 return redirect(url_for('index'))
             else:
                 flash('Incorrect password.', 'error')
@@ -1133,7 +1135,7 @@ def index():
 @login_required
 def logout():
     logout_user()
-    flash('Logged out successfully.', 'success')
+    flash('Successfully logged out.', 'success')
     return redirect(url_for('login'))
 
 
